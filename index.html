@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tomokinta League</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- タブメニュー -->
+    <header>
+        <h1>Tomokinta League</h1> <!-- ヘッダーにリーグタイトルを表示 -->
+    </header>
+    <nav>
+        <ul>
+            <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'home')">ホーム</a></li>
+            <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'schedule')">日程</a></li>
+            <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'standings')">順位表</a></li>
+            <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'records')">個人戦績</a></li>
+            <!-- チーム戦績タブをナビゲーションに追加 -->
+            <!-- <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'teamPerformanceTab')">チーム戦績</a></li> -->
+            <!-- <li style="display:none;"><a href="javascript:void(0)" class="tablinks" id="teamPerformanceLink" onclick="openTab(event, 'teamPerformanceTab')">チーム戦績</a></li> -->
+        </ul>
+    </nav>
+    <main>
+        <!-- ホームタブ：チーム名入力フォーム -->
+        <section id="home" class="tabcontent">
+            <h2>参加チーム一覧</h2>
+            <div class="team-list">
+                <form id="teamForm">
+                    <!-- JavaScriptで動的にチームのリストが生成されます -->
+                </form>
+            </div>
+        </section>
+
+        
+        <!-- チーム戦績タブ -->
+        <section id="teamPerformanceTab" class="tabcontent" style="display:none;">
+            <h2 id="teamNameHeader"></h2>
+            <table id="teamStatsTable" class="team-stats-table">
+                <thead>
+                    <tr>
+                        <th>試合数</th>
+                        <th>勝ち数</th>
+                        <th>ゴール数</th>
+                        <th>引き分け数</th>
+                        <th>負け数</th>
+                        <th>シュート数</th>
+                        <th>枠内シュート数</th>
+                        <th>セーブ数</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="matches"></td>
+                        <td id="wins"></td>
+                        <td id="goals"></td>
+                        <td id="draws"></td>
+                        <td id="losses"></td>
+                        <td id="shots"></td>
+                        <td id="shotsOnTarget"></td>
+                        <td id="saves"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button onclick="closeTeamPerformanceTab()">戻る</button>
+        </section>
+
+          
+        
+        
+
+        
+        <!-- 日程タブ：試合の日程を表示 -->
+        <section id="schedule" class="tabcontent">
+            <h2>日程</h2>
+            <div id="scheduleContent">
+                <!-- JavaScriptでスケジュールがここに挿入されます -->
+            </div>
+        </section>
+        
+        
+        <!-- 順位表タブ -->
+        <section id="standings" class="tabcontent">
+            <h2>順位表</h2>
+            <table id="standingsTable" class="standings-table">
+                <thead>
+                    <tr>
+                        <th>順位</th>
+                        <th>チーム名</th>
+                        <th>勝点</th>
+                        <th>試合数</th>
+                        <th>勝</th>
+                        <th>引</th>
+                        <th>敗</th>
+                        <th>得失点</th>
+                        <th>総得点</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- チームデータがここに挿入されます -->
+                </tbody>
+            </table>
+            
+        </section>
+        
+        
+        <!-- 個人戦績タブ -->
+        <!-- 個人戦績タブ -->
+    <section id="records" class="tabcontent">
+        <h2>個人戦績</h2>
+
+        <!-- ゴールランキング -->
+        <h3>ゴールランキング</h3>
+        <table id="goalPlayersTable" class="ranking-table">
+            <thead>
+                <tr>
+                    <th>順位</th>
+                    <th>選手名</th>
+                    <th>ゴール数</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ゴールランキングがここに挿入されます -->
+            </tbody>
+        </table>
+
+        <!-- アシストランキング -->
+        <h3>アシストランキング</h3>
+        <table id="assistPlayersTable" class="ranking-table">
+            <thead>
+                <tr>
+                    <th>順位</th>
+                    <th>選手名</th>
+                    <th>アシスト数</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- アシストランキングがここに挿入されます -->
+            </tbody>
+        </table>
+    </section>
+
+    </main>
+    <!--<footer>
+        フッター：各タブへのリンク 
+        <a href="#home"><img src="images/home.png" alt="ホーム"></a>
+        <a href="#schedule"><img src="images/schedule.png" alt="日程"></a>
+        <a href="#standings"><img src="images/standings.png" alt="順位表"></a>
+        <a href="#records"><img src="images/records.png" alt="個人戦績"></a>
+        <a href="#videos"><img src="images/videos.png" alt="動画"></a>
+    </footer>-->
+    <script src="js/script.js"></script> <!-- 外部JavaScriptファイルの読み込み -->
+</body>
+</html>
