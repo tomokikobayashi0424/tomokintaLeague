@@ -1,0 +1,196 @@
+{
+  "teams": [
+    "FTP FC",
+    "Koverpool FC",
+    "Nob Angels Dodgers",
+    "Shigecelona FC",
+    "TKBEAMS",
+    "Astroboy FC",
+    "Tanaka Thunderbolts",
+    "Nakajima Ninjas",
+    "Hashimoto Heroes",
+    "Matsubayashi Mavericks",
+    "Forester United f.c.",
+    "Real Kotarid",
+    "TeamM",
+    "TeamN"
+  ],
+  "matchData": {
+    "round0-match0": {
+      "home": {
+        "teamId": 1,
+        "score": 1,
+        "assistPlayers": [
+          "b"
+        ],
+        "goalPlayers": [
+          "c"
+        ],
+        "times": [
+          2
+        ],
+        "halfTime": {
+          "possession": 50,
+          "shots": 1,
+          "shotsonFrame": 2,
+          "fouls": 3,
+          "offsides": 4,
+          "cornerKicks": 5,
+          "freeKicks": 6,
+          "passes": 7,
+          "successfulPasses": 8,
+          "crosses": 9,
+          "PassCuts": 10,
+          "successfulTackles": 11,
+          "save": 12
+        },
+        "fullTime": {
+          "possession": 50,
+          "shots": 2,
+          "shotsonFrame": 3,
+          "fouls": 4,
+          "offsides": 5,
+          "cornerKicks": 6,
+          "freeKicks": 7,
+          "passes": 8,
+          "successfulPasses": 9,
+          "crosses": 10,
+          "PassCuts": 11,
+          "successfulTackles": 12,
+          "save": 13
+        }
+      },
+      "away": {
+        "teamId": 14,
+        "score": 1,
+        "assistPlayers": [
+          "a"
+        ],
+        "goalPlayers": [
+          "a"
+        ],
+        "times": [
+          1
+        ],
+        "halfTime": {
+          "possession": null,
+          "shots": null,
+          "shotsonFrame": null,
+          "fouls": null,
+          "offsides": null,
+          "cornerKicks": null,
+          "freeKicks": null,
+          "passes": null,
+          "successfulPasses": null,
+          "crosses": null,
+          "PassCuts": null,
+          "successfulTackles": null,
+          "save": null
+        },
+        "fullTime": {
+          "possession": null,
+          "shots": null,
+          "shotsonFrame": null,
+          "fouls": null,
+          "offsides": null,
+          "cornerKicks": null,
+          "freeKicks": null,
+          "passes": null,
+          "successfulPasses": null,
+          "crosses": null,
+          "PassCuts": null,
+          "successfulTackles": null,
+          "save": null
+        }
+      }
+    },
+    "round1-match1": {
+      "home": {
+        "teamId": 3,
+        "score": 1,
+        "assistPlayers": [
+          "a"
+        ],
+        "goalPlayers": [
+          "b"
+        ],
+        "times": [
+          1
+        ],
+        "halfTime": {
+          "possession": null,
+          "shots": null,
+          "shotsonFrame": null,
+          "fouls": null,
+          "offsides": null,
+          "cornerKicks": null,
+          "freeKicks": null,
+          "passes": null,
+          "successfulPasses": null,
+          "crosses": null,
+          "PassCuts": null,
+          "successfulTackles": null,
+          "save": null
+        },
+        "fullTime": {
+          "possession": null,
+          "shots": null,
+          "shotsonFrame": null,
+          "fouls": null,
+          "offsides": null,
+          "cornerKicks": null,
+          "freeKicks": null,
+          "passes": null,
+          "successfulPasses": null,
+          "crosses": null,
+          "PassCuts": null,
+          "successfulTackles": null,
+          "save": null
+        }
+      },
+      "away": {
+        "teamId": 1,
+        "score": 1,
+        "assistPlayers": [
+          "a"
+        ],
+        "goalPlayers": [
+          "b"
+        ],
+        "times": [
+          2
+        ],
+        "halfTime": {
+          "possession": 60,
+          "shots": 2,
+          "shotsonFrame": null,
+          "fouls": null,
+          "offsides": null,
+          "cornerKicks": null,
+          "freeKicks": null,
+          "passes": null,
+          "successfulPasses": null,
+          "crosses": null,
+          "PassCuts": null,
+          "successfulTackles": null,
+          "save": null
+        },
+        "fullTime": {
+          "possession": 60,
+          "shots": 3,
+          "shotsonFrame": 4,
+          "fouls": 5,
+          "offsides": 6,
+          "cornerKicks": 7,
+          "freeKicks": 8,
+          "passes": 9,
+          "successfulPasses": 10,
+          "crosses": 11,
+          "PassCuts": 12,
+          "successfulTackles": 13,
+          "save": 14
+        }
+      }
+    }
+  }
+}

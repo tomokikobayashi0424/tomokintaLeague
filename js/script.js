@@ -103,6 +103,67 @@ document.addEventListener('DOMContentLoaded', () => {
     
 });
 
+
+// ローカルストレージの内容をJSONファイルにしてダウンロードする関数
+function downloadLocalStorageAsJson() {
+    // ローカルストレージから必要なデータを取得
+    let teams = JSON.parse(localStorage.getItem('teams')) || [];
+    let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
+
+    // 保存するデータをオブジェクトにまとめる
+    let dataToSave = {
+        teams: teams,
+        matchData: matchData
+    };
+
+    // JSON文字列に変換
+    let jsonStr = JSON.stringify(dataToSave, null, 2);
+
+    // JSONファイルを作成してダウンロード
+    let blob = new Blob([jsonStr], { type: 'application/json' });
+    let url = URL.createObjectURL(blob);
+    let a = document.createElement('a');
+    a.href = url;
+    a.download = 'league_data.json'; // ダウンロードするファイル名
+    a.click();
+    URL.revokeObjectURL(url); // メモリ解放
+}
+
+// ダウンロードボタンにイベントリスナーを追加
+document.getElementById('downloadJsonButton').addEventListener('click', downloadLocalStorageAsJson);
+
+
+
+
+// GitHubリポジトリからJSONデータを取得し、ローカルストレージに保存する関数
+function fetchAndSaveJsonFromGitHub() {
+    const url = 'https://raw.githubusercontent.com/tomokikobayashi0424/tomokintaLeague/master/league_data.json'; // JSONファイルのURL
+
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('GitHubからデータを取得できませんでした');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // JSONデータからteamsとmatchDataをローカルストレージに保存
+            if (data.teams) {
+                localStorage.setItem('teams', JSON.stringify(data.teams));
+            }
+            if (data.matchData) {
+                localStorage.setItem('matchData', JSON.stringify(data.matchData));
+            }
+            console.log('JSONデータがローカルストレージに保存されました');
+        })
+        .catch(error => {
+            console.error('エラーが発生しました:', error);
+        });
+}
+
+// ページが読み込まれたときに自動的にJSONデータを取得し、ローカルストレージに保存
+window.addEventListener('load', fetchAndSaveJsonFromGitHub);
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // チームスタッツ
 ///////////////////////////////////////////////////////////////////////////////////////////////////
