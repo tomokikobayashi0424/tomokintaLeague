@@ -11,9 +11,7 @@
     "Hashimoto Heroes",
     "Matsubayashi Mavericks",
     "Forester United f.c.",
-    "Real Kotarid",
-    "TeamM",
-    "TeamN"
+    "Real Kotarid"
   ],
   "matchData": {
     "round0-match0": {
@@ -61,7 +59,7 @@
         }
       },
       "away": {
-        "teamId": 14,
+        "teamId": 12,
         "score": 1,
         "assistPlayers": [
           "a"
@@ -237,7 +235,7 @@
         }
       },
       "away": {
-        "teamId": 13,
+        "teamId": 11,
         "score": 1,
         "assistPlayers": [
           ""
