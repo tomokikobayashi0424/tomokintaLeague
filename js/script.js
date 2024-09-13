@@ -154,8 +154,8 @@ document.getElementById('downloadJsonButton').addEventListener('click', download
 
 // GitHubリポジトリからJSONデータを取得し、ローカルストレージに保存する関数
 function fetchAndSaveJsonFromGitHub() {
-    const url = 'https://raw.githubusercontent.com/tomokikobayashi0424/tomokintaLeague/master/league_data.json'; // JSONファイルのURL
-
+    // sconst url = 'https://raw.githubusercontent.com/tomokikobayashi0424/tomokintaLeague/master/league_data.json'; // JSONファイルのURL
+    const url = './league_data.json'; // JSONファイルの相対パス
     fetch(url)
         .then(response => {
             if (!response.ok) {
