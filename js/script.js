@@ -1,3 +1,6 @@
+// チーム数を指定
+let totalTeamNum = 12;
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // ヘッダー・navi
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -35,7 +38,7 @@ document.getElementById("home").style.display = "block";
 // チーム名を取得してローカルストレージに保存する関数
 function saveTeams() {
     let teams = [];
-    for (let i = 1; i <= 14; i++) {
+    for (let i = 1; i <= totalTeamNum; i++) {
         // チーム名を取得し、前後の空白を削除してから保存
         let teamName = document.getElementById(`team${i}`).value.trim();
         teams.push(teamName);
@@ -51,17 +54,17 @@ function saveTeams() {
 // 保存したチーム名を取得する関数
 function getTeams() {
     let teams = JSON.parse(localStorage.getItem('teams')) || [];
-    for (let i = 1; i <= 14; i++) {
+    for (let i = 1; i <= totalTeamNum; i++) {
         document.getElementById(`team${i}`).value = teams[i - 1] || `Team${i}`;
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     const teamContainer = document.querySelector('.team-list');
-    const teamLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').slice(0, 14);
+    const teamLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').slice(0, totalTeamNum);
 
     // チームロゴを動的に生成
-    for (let i = 0; i < 14; i++) {
+    for (let i = 0; i < totalTeamNum; i++) {
         const teamLetter = teamLetters[i];
         const teamItem = `
             <div class="team-item">
@@ -156,6 +159,9 @@ function fetchAndSaveJsonFromGitHub() {
             }
             console.log('JSONデータがローカルストレージに保存されました');
 
+            // ローカルストレージにフラグを立てて、次回からリロードを避ける
+            localStorage.setItem('dataFetched', 'true');
+            
             // データ保存が完了したらページをリロード
             location.reload();
         })
@@ -164,9 +170,15 @@ function fetchAndSaveJsonFromGitHub() {
         });
 }
 
+// ページが読み込まれたときに、自動的にJSONデータを取得し、ローカルストレージに保存
+window.addEventListener('load', () => {
+    // すでにデータを取得しているか確認
+    if (!localStorage.getItem('dataFetched')) {
+        fetchAndSaveJsonFromGitHub();
+    }
+});
 
-// ページが読み込まれたときに自動的にJSONデータを取得し、ローカルストレージに保存
-window.addEventListener('load', fetchAndSaveJsonFromGitHub);
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // チームスタッツ
@@ -221,7 +233,6 @@ function calculateOverallTeamStats() {
         successfulTackles: 0,
         save: 0
     };
-    let totalTeams = 14;  // チーム数を指定
 
     // 全試合のデータを集計
     for (const matchKey in matchData) {
@@ -292,7 +303,6 @@ function calculateTeamStats(teamId) {
         save: 0
     };
 
-    let totalTeams = 14;  // チーム数を指定
 
     // matchDataからチームIDに対応する試合を集計
     for (const matchKey in matchData) {
