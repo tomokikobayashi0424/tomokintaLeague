@@ -34,8 +34,63 @@
             </div>
         </section>
 
-        
         <!-- チーム戦績タブ -->
+        <section id="teamPerformanceTab" class="tabcontent" style="display:none;">
+            <h2 id="teamNameHeader"></h2>
+            <table id="teamStatsTable" class="team-stats-table">
+                <thead>
+                    <tr>
+                        <th></th> <!-- 空白のセル -->
+                        <th>合計</th>
+                        <th>平均</th>
+                        <th>TL平均</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>試合数</td><td id="matches-total"></td><td id="matches-avg"></td><td id="matches-tl-avg"></td>
+                    </tr>
+                    <tr><td>勝ち数</td><td id="wins-total"></td><td id="wins-avg"></td><td id="wins-tl-avg"></td>
+                    </tr>
+                    <tr><td>ゴール数</td><td id="goals-total"></td><td id="goals-avg"></td><td id="goals-tl-avg"></td>
+                    </tr>
+                    <tr><td>引き分け数</td><td id="draws-total"></td><td id="draws-avg"></td><td id="draws-tl-avg"></td>
+                    </tr>
+                    <tr><td>負け数</td><td id="losses-total"></td><td id="losses-avg"></td><td id="losses-tl-avg"></td>
+                    </tr>
+                    <tr><td>支配率（％）</td><td id="possession-total"></td><td id="possession-avg"></td><td id="possession-tl-avg"></td>
+                    </tr>
+                    <tr><td>シュート数</td><td id="shots-total"></td><td id="shots-avg"></td><td id="shots-tl-avg"></td>
+                    </tr>
+                    <tr><td>枠内シュート数</td><td id="shotsonFrame-total"></td><td id="shotsonFrame-avg"></td><td id="shotsonFrame-tl-avg"></td>
+                    </tr>
+                    <tr><td>ファウル</td><td id="fouls-total"></td><td id="fouls-avg"></td><td id="fouls-tl-avg"></td>
+                    </tr>
+                    <tr><td>オフサイド</td><td id="offsides-total"></td><td id="offsides-avg"></td><td id="offsides-tl-avg"></td>
+                    </tr>
+                    <tr><td>コーナーキック</td><td id="cornerKicks-total"></td><td id="cornerKicks-avg"></td><td id="cornerKicks-tl-avg"></td>
+                    </tr>
+                    <tr><td>フリーキック</td><td id="freeKicks-total"></td><td id="freeKicks-avg"></td><td id="freeKicks-tl-avg"></td>
+                    </tr>
+                    <tr><td>パス</td><td id="passes-total"></td><td id="passes-avg"></td><td id="passes-tl-avg"></td>
+                    </tr>
+                    <tr><td>パス成功</td><td id="successfulPasses-total"></td><td id="successfulPasses-avg"></td><td id="successfulPasses-tl-avg"></td>
+                    </tr>
+                    <tr><td>クロス</td><td id="crosses-total"></td><td id="crosses-avg"></td><td id="crosses-tl-avg"></td>
+                    </tr>
+                    <tr><td>パスカット</td><td id="PassCuts-total"></td><td id="PassCuts-avg"></td><td id="PassCuts-tl-avg"></td>
+                    </tr>
+                    <tr><td>タックル成功</td><td id="successfulTackles-total"></td><td id="successfulTackles-avg"></td><td id="successfulTackles-tl-avg"></td>
+                    </tr>
+                    <tr><td>セーブ</td><td id="saves-total"></td><td id="saves-avg"></td><td id="saves-tl-avg"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button onclick="closeTeamPerformanceTab()">戻る</button>
+        </section>
+
+
+        
+        <!-- チーム戦績タブ
         <section id="teamPerformanceTab" class="tabcontent" style="display:none;">
             <h2 id="teamNameHeader"></h2>
             <table id="teamStatsTable" class="team-stats-table">
@@ -65,7 +120,7 @@
                 </tbody>
             </table>
             <button onclick="closeTeamPerformanceTab()">戻る</button>
-        </section>
+        </section> -->
 
           
         
