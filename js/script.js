@@ -155,11 +155,15 @@ function fetchAndSaveJsonFromGitHub() {
                 localStorage.setItem('matchData', JSON.stringify(data.matchData));
             }
             console.log('JSONデータがローカルストレージに保存されました');
+
+            // データ保存が完了したらページをリロード
+            location.reload();
         })
         .catch(error => {
             console.error('エラーが発生しました:', error);
         });
 }
+
 
 // ページが読み込まれたときに自動的にJSONデータを取得し、ローカルストレージに保存
 window.addEventListener('load', fetchAndSaveJsonFromGitHub);
