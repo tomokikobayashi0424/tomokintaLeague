@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </li>
                     </ul>
                 </button>
-                <input type="text" id="team${i + 1}" name="team${i + 1}" value="Team${teamLetter}" required><br>
+                <input type="text" id="team${i + 1}" name="team${i + 1}" value="Team${teamLetter}" class="team-name-input" required><br>
             </div>
         `;
         teamContainer.insertAdjacentHTML('beforeend', teamItem);
@@ -275,8 +275,7 @@ function calculateTeamStats(teamId) {
     document.getElementById('goals-total').textContent = teamStats.goals;
     document.getElementById('draws-total').textContent = teamStats.draws;
     document.getElementById('losses-total').textContent = teamStats.losses;
-    // document.getElementById('possession-total').textContent = teamStats.possession;
-    document.getElementById('possession-total').textContent = teamStats.possession.toFixed(2);
+    document.getElementById('possession-total').textContent = "-";
     document.getElementById('shots-total').textContent = teamStats.shots;
     document.getElementById('shotsonFrame-total').textContent = teamStats.shotsonFrame;
     document.getElementById('fouls-total').textContent = teamStats.fouls;
@@ -304,12 +303,11 @@ function calculateTeamStats(teamId) {
     // document.getElementById('saves-avg').textContent = (teamStats.saves / totalTeams).toFixed(2);
     // document.getElementById('possession-avg').textContent = (teamStats.possession / teamStats.matches).toFixed(2);
 
-    document.getElementById('matches-avg').textContent = (teamStats.matches / teamStats.matches).toFixed(2);
+    document.getElementById('matches-avg').textContent = "-";
     document.getElementById('wins-avg').textContent = (teamStats.wins / teamStats.matches).toFixed(2);
     document.getElementById('goals-avg').textContent = (teamStats.goals / teamStats.matches).toFixed(2);
     document.getElementById('draws-avg').textContent = (teamStats.draws / teamStats.matches).toFixed(2);
     document.getElementById('losses-avg').textContent = (teamStats.losses / teamStats.matches).toFixed(2);
-    // document.getElementById('possession-total').textContent = teamStats.possession;
     document.getElementById('possession-avg').textContent = (teamStats.possession / teamStats.matches).toFixed(2);
     document.getElementById('shots-avg').textContent = (teamStats.shots / teamStats.matches).toFixed(2);
     document.getElementById('shotsonFrame-avg').textContent = (teamStats.shotsonFrame / teamStats.matches).toFixed(2);

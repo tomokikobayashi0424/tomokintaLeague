@@ -166,7 +166,7 @@ footer img {
 /* チーム一覧を横並びにするスタイル */
 .team-list {
     display: flex;
-    justify-content: flex-start; /* 最終段を左寄せに変更 */
+    justify-content: center;/*flex-start; /* 最終段を左寄せに変更 */
     flex-wrap: wrap;
     padding: 20px;
 }
@@ -174,6 +174,9 @@ footer img {
 .team-item {
     text-align: center;
     margin: 10px; /* チームロゴの間隔を調整 */
+    display: flex;
+    flex-direction: column; /* 縦方向に要素を並べる */
+    align-items: center; /* 要素を中央揃えに */
 }
 
 .team-logo {
@@ -181,6 +184,16 @@ footer img {
     height: auto;
     display: block;
     margin-bottom: 10px;
+}
+.team-name-input {
+    width: 100px; /* 入力欄の横幅をロゴに合わせる */
+    padding: 5px; /* 入力欄にパディングを追加 */
+    margin-top: 10px; /* ロゴと入力欄の間に余白を追加 */
+    text-align: center; /* テキストを中央揃えに */
+    border: 1px solid rgb(255, 255, 9); /* 入力欄の枠線 */
+    background-color: rgb(255, 255, 9); /* 背景色 */
+    color: rgb(0, 0, 132); /* 文字色 */
+    font-weight: bold;
 }
 
 /* チーム保存ボタンのスタイル */
@@ -696,7 +709,17 @@ footer img {
 
 }
 
+
 /* スマホ向けのメディアクエリ (画面幅が600px未満) */
 @media screen and (max-width: 600px) {
+    .match-container {
+        flex-direction: column; /* 横並びから縦並びに変更 */
+        align-items: stretch; /* 幅を親要素いっぱいに */
+    }
 
+    .match-table, .stats-table {
+        width: 100%; /* テーブルを画面幅いっぱいに */
+        margin-right: 0; /* 右側の余白を削除 */
+        margin-bottom: 20px; /* 下に余白を追加 */
+    }
 }
