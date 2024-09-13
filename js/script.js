@@ -120,12 +120,18 @@ document.addEventListener('DOMContentLoaded', () => {
 function downloadLocalStorageAsJson() {
     // ローカルストレージから必要なデータを取得
     let teams = JSON.parse(localStorage.getItem('teams')) || [];
+    let teamsSub = JSON.parse(localStorage.getItem('teamsSub')) || {};
     let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
+    let previousStandings = JSON.parse(localStorage.getItem('previousStandings')) || {};
+    let currentStandings = JSON.parse(localStorage.getItem('currentStandings')) || {};
 
     // 保存するデータをオブジェクトにまとめる
     let dataToSave = {
         teams: teams,
-        matchData: matchData
+        teamsSub: teamsSub,
+        matchData: matchData,
+        previousStandings: previousStandings,
+        currentStandings: currentStandings
     };
 
     // JSON文字列に変換
