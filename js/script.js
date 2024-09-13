@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <ul>
                         <li>
                             <a href="javascript:void(0)" class="tablinks" onclick="openTabWithTeam(event, 'teamPerformanceTab', ${i})">
-                                <img src="pictures/Team${teamLetter}.jpg" alt="Team ${teamLetter}" class="team-logo">
+                                <img src="Pictures/Team${teamLetter}.jpg" alt="Team ${teamLetter}" class="team-logo">
                             </a>
                         </li>
                     </ul>
