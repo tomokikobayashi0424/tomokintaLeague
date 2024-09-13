@@ -193,14 +193,25 @@ function fetchAndSaveJsonFromGitHub() {
             console.error('エラーが発生しました:', error);
         });
 }
+// ローカルストレージをリセットしてからJSONデータを読み込む関数
+function resetLocalStorageAndLoadJson() {
+    // ローカルストレージのすべてのデータを削除
+    localStorage.clear();
+    
+    // JSONデータをGitHubから再取得
+    fetchAndSaveJsonFromGitHub();
+}
 
-// ページが読み込まれたときに、自動的にJSONデータを取得し、ローカルストレージに保存
-window.addEventListener('load', () => {
-    // すでにデータを取得しているか確認
-    if (!localStorage.getItem('dataFetched')) {
-        fetchAndSaveJsonFromGitHub();
-    }
-});
+// ボタンをクリックしてJSONデータを読み込む
+document.getElementById('loadJsonButton').addEventListener('click', resetLocalStorageAndLoadJson);
+
+// // ページが読み込まれたときに、自動的にJSONデータを取得し、ローカルストレージに保存
+// window.addEventListener('load', () => {
+//     // すでにデータを取得しているか確認
+//     if (!localStorage.getItem('dataFetched')) {
+//         fetchAndSaveJsonFromGitHub();
+//     }
+// });
 
 
 
