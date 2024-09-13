@@ -165,12 +165,13 @@ function fetchAndSaveJsonFromGitHub() {
         })
         .then(data => {
             // JSONデータからteamsとmatchDataをローカルストレージに保存
-            if (data.teams) {
-                localStorage.setItem('teams', JSON.stringify(data.teams));
-            }
             if (data.teamsSub) {
                 localStorage.setItem('teamsSub', JSON.stringify(data.teamsSub));
             }
+            if (data.teams) {
+                localStorage.setItem('teams', JSON.stringify(data.teams));
+            }
+            
             if (data.matchData) {
                 localStorage.setItem('matchData', JSON.stringify(data.matchData));
             }
