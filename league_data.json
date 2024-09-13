@@ -284,101 +284,101 @@
   "previousStandings": [
     {
       "Rank": 1,
-      "name": "FTP FC"
+      "teamId": 1
     },
     {
       "Rank": 2,
-      "name": "Nob Angels Dodgers"
+      "teamId": 3
     },
     {
       "Rank": 3,
-      "name": "Real Kotarid"
+      "teamId": 12
     },
     {
       "Rank": 4,
-      "name": "Koverpool FC"
+      "teamId": 2
     },
     {
       "Rank": 5,
-      "name": "Shigecelona FC"
+      "teamId": 4
     },
     {
       "Rank": 6,
-      "name": "TKBEAMS"
+      "teamId": 5
     },
     {
       "Rank": 7,
-      "name": "Astroboy FC"
+      "teamId": 6
     },
     {
       "Rank": 8,
-      "name": "Tanaka Thunderbolts"
+      "teamId": 7
     },
     {
       "Rank": 9,
-      "name": "Nakajima Ninjas"
+      "teamId": 8
     },
     {
       "Rank": 10,
-      "name": "Hashimoto Heroes"
+      "teamId": 9
     },
     {
       "Rank": 11,
-      "name": "Matsubayashi Mavericks"
+      "teamId": 10
     },
     {
       "Rank": 12,
-      "name": "Forester United f.c."
+      "teamId": 11
     }
   ],
   "currentStandings": [
     {
       "Rank": 1,
-      "name": "FTP FC"
+      "teamId": 1
     },
     {
       "Rank": 2,
-      "name": "Nob Angels Dodgers"
+      "teamId": 3
     },
     {
       "Rank": 3,
-      "name": "Real Kotarid"
+      "teamId": 12
     },
     {
       "Rank": 4,
-      "name": "Koverpool FC"
+      "teamId": 2
     },
     {
       "Rank": 5,
-      "name": "Shigecelona FC"
+      "teamId": 4
     },
     {
       "Rank": 6,
-      "name": "TKBEAMS"
+      "teamId": 5
     },
     {
       "Rank": 7,
-      "name": "Astroboy FC"
+      "teamId": 6
     },
     {
       "Rank": 8,
-      "name": "Tanaka Thunderbolts"
+      "teamId": 7
     },
     {
       "Rank": 9,
-      "name": "Nakajima Ninjas"
+      "teamId": 8
     },
     {
       "Rank": 10,
-      "name": "Hashimoto Heroes"
+      "teamId": 9
     },
     {
       "Rank": 11,
-      "name": "Matsubayashi Mavericks"
+      "teamId": 10
     },
     {
       "Rank": 12,
-      "name": "Forester United f.c."
+      "teamId": 11
     }
   ]
 }

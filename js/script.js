@@ -897,11 +897,11 @@ function calculateStandings() {
     let teams = JSON.parse(localStorage.getItem('teams')) || [];
     let previousStandings = JSON.parse(localStorage.getItem('previousStandings')) || {};
 
-    let standings = teams.map(team => {
-        let lastRank = previousStandings[team] ? previousStandings[team].currentRank : null;
+    let standings = teams.map((team, index) => {
+        let lastRank = previousStandings[index + 1] ? previousStandings[index + 1].currentRank : null;
 
         return {
-            name: team,
+            teamId: index + 1,
             points: 0,
             matchesPlayed: 0,
             wins: 0,
@@ -927,8 +927,8 @@ function calculateStandings() {
             homeScore = parseInt(homeScore);
             awayScore = parseInt(awayScore);
 
-            let homeTeam = standings.find(t => t.name === match.home);
-            let awayTeam = standings.find(t => t.name === match.away);
+            let homeTeam = standings.find(t => t.teamId === teams.indexOf(match.home)+ 1);
+            let awayTeam = standings.find(t => t.teamId === teams.indexOf(match.away)+ 1);
 
             if (homeScore > awayScore) {
                 homeTeam.wins++;
@@ -968,10 +968,10 @@ function calculateStandings() {
     return standings;
 }
 
-
 // 順位表を更新する関数（矢印なし）
 function updateStandingsTable() {
     let standings = calculateStandings();
+    let teams = JSON.parse(localStorage.getItem('teams')) || [];
 
     let tbody = document.querySelector('#standingsTable tbody');
     tbody.innerHTML = ''; // 順位表を初期化
@@ -980,7 +980,7 @@ function updateStandingsTable() {
         let row = `
             <tr>
                 <td>${team.currentRank}</td>
-                <td>${team.name}</td>
+                <td>${teams[team.teamId - 1]}</td> <!-- チーム名はteams配列から取得 -->
                 <td>${team.points}</td>
                 <td>${team.matchesPlayed}</td>
                 <td>${team.wins}</td>
@@ -993,13 +993,12 @@ function updateStandingsTable() {
     });
 }
 
-
 // 順位変動の保存
 function saveStandingsData(standings) {
     // standingsは詳細なデータを含んでいる可能性があるので、シンプルに変換
     let currentStandings = standings.map(team => ({
         Rank: team.currentRank,
-        name: team.name
+        teamId: team.teamId // TeamIdを保存
     }));
 
     // 現在の順位を previousStandings に移動
@@ -1019,6 +1018,7 @@ function saveStandingsData(standings) {
 function updateRankChangeArrows() {
     let previousStandings = JSON.parse(localStorage.getItem('previousStandings')) || [];
     let currentStandings = JSON.parse(localStorage.getItem('currentStandings')) || [];
+    let teams = JSON.parse(localStorage.getItem('teams')) || [];
 
     let tbody = document.querySelector('#standingsTable tbody');
     tbody.innerHTML = ''; // 順位表を初期化
@@ -1027,8 +1027,8 @@ function updateRankChangeArrows() {
 
     standings.forEach(team => {
         // チーム名で順位を比較
-        let previousTeam = previousStandings.find(t => t.name === team.name);
-        let currentTeam = currentStandings.find(t => t.name === team.name);
+        let previousTeam = previousStandings.find(t => t.teamId === team.teamId);
+        let currentTeam = currentStandings.find(t => t.teamId === team.teamId);
 
         let previousRank = previousTeam ? previousTeam.Rank : null;
         let currentRank = currentTeam ? currentTeam.Rank : team.currentRank;
@@ -1057,7 +1057,7 @@ function updateRankChangeArrows() {
         let row = `
             <tr>
                 <td>${team.currentRank} <span class="${rankClass}">${rankChange}</span></td>
-                <td>${team.name}</td>
+                <td>${teams[team.teamId - 1]}</td> <!-- チーム名はteams配列から取得 -->
                 <td>${team.points}</td>
                 <td>${team.matchesPlayed}</td>
                 <td>${team.wins}</td>
