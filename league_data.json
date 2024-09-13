@@ -1,6 +1,6 @@
 {
   "teams": [
-    "FTP FC",
+    "free to play FC",
     "Koverpool FC",
     "Nob Angels Dodgers",
     "Shigecelona FC",
@@ -59,7 +59,7 @@
         }
       },
       "away": {
-        "teamId": 12,
+        "teamId": 14,
         "score": 1,
         "assistPlayers": [
           "a"
@@ -187,94 +187,6 @@
           "PassCuts": 12,
           "successfulTackles": 13,
           "save": 14
-        }
-      }
-    },
-    "round0-match1": {
-      "home": {
-        "teamId": 2,
-        "score": 1,
-        "assistPlayers": [
-          ""
-        ],
-        "goalPlayers": [
-          ""
-        ],
-        "times": [
-          null
-        ],
-        "halfTime": {
-          "possession": 50,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
-        },
-        "fullTime": {
-          "possession": 50,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
-        }
-      },
-      "away": {
-        "teamId": 11,
-        "score": 1,
-        "assistPlayers": [
-          ""
-        ],
-        "goalPlayers": [
-          ""
-        ],
-        "times": [
-          null
-        ],
-        "halfTime": {
-          "possession": 50,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
-        },
-        "fullTime": {
-          "possession": 50,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
         }
       }
     }
