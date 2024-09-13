@@ -195,6 +195,16 @@ footer img {
     color: rgb(0, 0, 132); /* 文字色 */
     font-weight: bold;
 }
+.team-subname-input {
+    width: 100px; /* 入力欄の横幅をロゴに合わせる */
+    padding: 5px; /* 入力欄にパディングを追加 */
+    margin-top: 0px; /* ロゴと入力欄の間に余白を追加 */
+    text-align: center; /* テキストを中央揃えに */
+    border: 1px solid rgb(255, 255, 9); /* 入力欄の枠線 */
+    background-color: rgb(255, 255, 9); /* 背景色 */
+    color: rgb(0, 0, 132); /* 文字色 */
+    font-weight: bold;
+}
 
 /* チーム保存ボタンのスタイル */
 #teamSaveButton {
