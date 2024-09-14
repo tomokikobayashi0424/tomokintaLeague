@@ -268,6 +268,87 @@ footer img {
     background-color: rgb(200, 0, 90); /* ホバー時の色変更 */
 }
 
+
+/*
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+チーム戦績タブのスタイル 
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+*/
+
+/* チーム戦績タブ全体のスタイル */
+#teamPerformanceTab {
+    padding: 20px;
+    background-color: rgb(0, 0, 132); /* 背景色を明るいグレーに */
+}
+
+/* チーム名のヘッダーのスタイル */
+#teamNameHeader {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(255, 255, 9); /* 文字色 */
+}
+
+/* チーム戦績テーブル全体のスタイル */
+.team-stats-table {
+    width: 100%; /* テーブルを画面いっぱいに広げる */
+    border-collapse: collapse; /* 枠線を統一して表示 */
+    margin-bottom: 20px; /* 戻るボタンとの間に余白を追加 */
+    background-color: #fff; /* 背景色を白に */
+}
+
+/* テーブルのヘッダー部分のスタイル */
+.team-stats-table th {
+    background-color: rgb(251, 0, 111); /* 緑色の背景 */
+    color: rgb(0, 0, 132); /* テキストを白に */
+    font-weight: bold;
+    padding: 12px; /* セルの余白を追加 */
+    text-align: center; /* テキストを中央揃え */
+    border: 1px solid rgb(251, 0, 111); /* 境界線を設定 */
+}
+
+/* テーブルのボディ部分のスタイル */
+.team-stats-table td {
+    padding: 10px;
+    text-align: center; /* テキストを中央揃え */
+    border: 1px solid rgb(0, 0, 132); /* 境界線 */
+    font-size: 16px; /* フォントサイズ */
+    color: #333; /* 濃いグレーのテキスト色 */
+    background-color: white; /* 明るいグレーの背景 */
+}
+
+/* 偶数行の背景色を薄いグレーに */
+.team-stats-table tr:nth-child(even) {
+    background-color: white;
+}
+
+/* テーブルの行がホバーされたときのスタイル */
+.team-stats-table tr:hover {
+    background-color: #ddd; /* ホバー時に少し濃いグレーに */
+}
+
+/* 戻るボタンのスタイル */
+#teamPerformanceTab button {
+    background-color: rgb(251, 0, 111); /* 緑色 */
+    color: white; /* テキストを白に */
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px; /* 角を丸くする */
+}
+
+/* ボタンがホバーされたときのスタイル */
+#teamPerformanceTab button:hover {
+    background-color: rgb(251, 0, 111); /* ホバー時の色を少し濃く */
+    color: rgb(110, 110, 110);
+}
+
 /*
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
@@ -297,6 +378,8 @@ footer img {
     font-weight: bold;
     margin: 0;
     flex-grow: 1; /* 余ったスペースをタイトルに与える */
+    word-wrap: break-word; /* 空白での改行を許可 */
+    /* overflow-wrap: break-word; 空白や長い単語での改行を許可 */
 }
 /* 
 ---------------------------------------------------------------------------------------------------
@@ -588,6 +671,8 @@ footer img {
 /* 1列目のヘッダー以外のセルを右寄せに設定 */
 .standings-table td:nth-child(1) {
     text-align: right; /* 左列のヘッダー以外のセルを右揃えに */
+    min-width: 40px; /* 2文字が収まるように最低幅を40pxに設定 */
+    white-space: nowrap; /* 折り返しを防ぐ */
 }
 
 /* 順位変動の矢印のスタイル */
