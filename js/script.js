@@ -448,17 +448,27 @@ function calculateTeamStats(teamId) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 // 画面サイズに基づいてteams配列を選択する関数
-function getResponsiveTeams() {
-    let teams = JSON.parse(localStorage.getItem('teams')) || [];
-    let teamsSub = JSON.parse(localStorage.getItem('teamsSub')) || [];
+// function getResponsiveTeams() {
+//     let teams = JSON.parse(localStorage.getItem('teams')) || [];
+//     let teamsSub = JSON.parse(localStorage.getItem('teamsSub')) || [];
 
-    // 画面幅が600px未満の場合はteamsSubを、それ以外の場合はteamsを使用
-    if (window.innerWidth < 600) {
-        return teamsSub;
+//     // 画面幅が600px未満の場合はteamsSubを、それ以外の場合はteamsを使用
+//     if (window.innerWidth < 600) {
+//         return teamsSub;
+//     } else {
+//         return teams;
+//     }
+// }
+// 画面幅に応じてチーム配列を返す関数
+function getResponsiveTeams() {
+    let screenWidth = window.innerWidth;
+    if (screenWidth < 600) {
+        return JSON.parse(localStorage.getItem('teamsSub')) || []; // スマホサイズの時はteamsSub
     } else {
-        return teams;
+        return JSON.parse(localStorage.getItem('teams')) || []; // PCサイズの時はteams
     }
 }
+
 
 // 全チームの総当たり日程を生成する関数
 function generateSchedule() {
@@ -946,7 +956,7 @@ function calculateStandings() {
     let responsiveTeams = getResponsiveTeams(); // 画面幅に応じたチーム配列を取得
     let previousStandings = JSON.parse(localStorage.getItem('previousStandings')) || {};
 
-    let standings = responsiveTeams.map((team, index) => {
+    let standings = responsiveTeams.map((index) => {
         let lastRank = previousStandings[index] ? previousStandings[index].currentRank : null;
 
         return {
