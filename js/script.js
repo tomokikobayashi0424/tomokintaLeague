@@ -151,13 +151,13 @@ function downloadLocalStorageAsJson() {
 document.getElementById('downloadJsonButton').addEventListener('click', downloadLocalStorageAsJson);
 
 
-
 // GitHubリポジトリからJSONデータを取得し、ローカルストレージに保存する関数
 function fetchAndSaveJsonFromGitHub() {
     // sconst url = 'https://raw.githubusercontent.com/tomokikobayashi0424/tomokintaLeague/master/league_data.json'; // JSONファイルのURL
     const url = './league_data.json'; // JSONファイルの相対パス
     fetch(url)
         .then(response => {
+            console.log(response); // ここでレスポンスを確認
             if (!response.ok) {
                 throw new Error('GitHubからデータを取得できませんでした');
             }
@@ -184,10 +184,10 @@ function fetchAndSaveJsonFromGitHub() {
             console.log('JSONデータがローカルストレージに保存されました');
 
             // ローカルストレージにフラグを立てて、次回からリロードを避ける
-            localStorage.setItem('dataFetched', 'true');
+            // localStorage.setItem('dataFetched', 'true');
             
             // データ保存が完了したらページをリロード
-            location.reload();
+            // location.reload();
         })
         .catch(error => {
             console.error('エラーが発生しました:', error);
@@ -196,7 +196,7 @@ function fetchAndSaveJsonFromGitHub() {
 // ローカルストレージをリセットしてからJSONデータを読み込む関数
 function resetLocalStorageAndLoadJson() {
     // ローカルストレージのすべてのデータを削除
-    localStorage.clear();
+    // localStorage.clear();
     
     // JSONデータをGitHubから再取得
     fetchAndSaveJsonFromGitHub();
