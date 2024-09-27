@@ -956,7 +956,12 @@ function calculateStandings() {
     let responsiveTeams = getResponsiveTeams(); // 画面幅に応じたチーム配列を取得
     let previousStandings = JSON.parse(localStorage.getItem('previousStandings')) || {};
 
-    let standings = responsiveTeams.map((index) => {
+    let standings = responsiveTeams.map((team, index) => {
+        //////
+        //////
+        //////
+        //////ここのteamを消したらteam名が消えて、入れたままにすると計算されなくなる１１！！
+        
         let lastRank = previousStandings[index] ? previousStandings[index].currentRank : null;
 
         return {
