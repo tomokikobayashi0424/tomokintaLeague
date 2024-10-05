@@ -513,6 +513,7 @@ function generateSchedule() {
 // });
 
 // スコア入力完了ボタンとキャンセルボタンを表示するための関数
+
 function displaySchedule() {
     let teams = JSON.parse(localStorage.getItem('teams'));
     if (!teams) return;
