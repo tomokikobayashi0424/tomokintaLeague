@@ -460,7 +460,7 @@ function displaySchedule() {
     let schedule = generateSchedule(teams);
     let scheduleHTML = '';
 
-    const startDate = new Date(2024, 9, 5); // 2024年9月第1週からスタート
+    const startDate = new Date(2024, 9, 8); // 2024年9月第1週からスタート
     for (let i = 0; i < schedule.length; i++) {
         let weekDate = new Date(startDate);
         weekDate.setDate(startDate.getDate() + i * 7);
