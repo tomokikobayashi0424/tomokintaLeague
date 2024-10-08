@@ -432,6 +432,10 @@ footer img {
     background-color: rgb(0, 0, 132); /* 日程表のヘッダーセルの背景色 */
     color: rgb(255, 255, 9); /* ヘッダーセルの文字色 */
 }
+/* 2列目と4列目のセルの背景色を変更 */
+.match-table th:nth-child(2), .match-table th:nth-child(4) {
+    background-color: rgb(255, 255, 9); /* 背景色 */
+}
 
 .match-table td {
     border: 1px solid rgb(0, 0, 132); /* セルの枠線の色 */
@@ -491,15 +495,21 @@ footer img {
 
 /* 左右のセルの幅を設定 */
 .match-table td:nth-child(1) {
-    width: 17.5%; /* 1列目を10%に設定 */
+    width: 12.5%; /* 1列目を10%に設定 */
 }
-
 .match-table td:nth-child(2) {
-    width: 10%; /* 2列目を5%に設定 */
+    width: 5%; /* 1列目を10%に設定 */
 }
 
 .match-table td:nth-child(3) {
-    width: 17.5%; /* 3列目を10%に設定 */
+    width: 10%; /* 2列目を5%に設定 */
+}
+
+.match-table td:nth-child(4) {
+    width: 5%; /* 3列目を10%に設定 */
+}
+.match-table td:nth-child(4) {
+    width: 12.5%; /* 3列目を10%に設定 */
 }
 
 /* 一列目（ホームチーム名とスコア）を右寄せ */
@@ -508,7 +518,7 @@ footer img {
 }
 
 /* 三列目（アウェイチーム名とスコア）を左寄せ */
-.match-table th:nth-child(3) {
+.match-table th:nth-child(5) {
     text-align: left; /* 左寄せ */
 }
 

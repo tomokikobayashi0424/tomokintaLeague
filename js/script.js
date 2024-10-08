@@ -479,9 +479,11 @@ function displaySchedule() {
                     <table id="goalDetailsTable${i}-${index}" class="match-table">
                         <thead>
                             <tr>
-                                <th id="homeTeam${i}-${index}">${match.home} <input type="number" id="homeScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'home')"readonly></th>
+                                <th id="homeTeam${i}-${index}">${match.home} </th>
+                                <th><input type="number" id="homeScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'home')"readonly></th>
                                 <th> - </th>
-                                <th id="awayTeam${i}-${index}"><input type="number" id="awayScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'away')"readonly> ${match.away}</th>
+                                <th id="awayTeam${i}-${index}"><input type="number" id="awayScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'away')"readonly> </th>
+                                <th>${match.away}</th>
                             </tr>
                         </thead>
                         <tbody id="goalDetailsBody${i}-${index}"></tbody>
@@ -676,7 +678,7 @@ function updateGoalDetails(roundIndex, matchIndex, teamType, data = null) {
 
             let rowHTML = `
                 <tr>
-                    <td>
+                    <td colspan="2">
                         ${teamType === 'home' ? `
                             アシスト：<input type="text" class="assist-player home" value="${assist}"readonly>
                             ゴール　：<input type="text" class="goal-player home" value="${goal}"readonly>
@@ -686,7 +688,7 @@ function updateGoalDetails(roundIndex, matchIndex, teamType, data = null) {
                         <input type="number" class="goal-time ${teamType}" value="${time}" min="0" step="1" onchange="sortGoalDetails(${roundIndex}, ${matchIndex})"readonly> 分
                     </td>
 
-                    <td>
+                    <td colspan="2">
                         ${teamType === 'away' ? `
                             アシスト：<input type="text" class="assist-player away" value="${assist}"readonly>
                             ゴール　：<input type="text" class="goal-player away" value="${goal}"readonly>
