@@ -277,7 +277,7 @@ footer img {
 .team-subname-input {
     width: 100px; /* 入力欄の横幅をロゴに合わせる */
     padding: 0px 0px 0px 0px; /* 入力欄にパディングを追加 */
-    margin: 0px 0px 10px 0px; /* ロゴと入力欄の間に余白を追加 */
+    margin: 5px 0px 10px 0px; /* ロゴと入力欄の間に余白を追加 */
     text-align: center; /* テキストを中央揃えに */
     border: 1px solid var(--main-color-1); /* 入力欄の枠線 */
     background-color: var(--main-color-1); /* 背景色 */
@@ -510,35 +510,46 @@ footer img {
 
 
 /* 左右のセルの幅を設定 */
-.match-table td:nth-child(1) {
+.match-table th:nth-child(1) {
     width: 12.5%; /* 1列目を10%に設定 */
     max-width: 12.5%;
     min-width: 12.5%;
     text-align: right; /* 右寄せ */
 }
-.match-table td:nth-child(2) {
+.match-table th:nth-child(2) {
     width: 5%; /* 1列目を10%に設定 */
     max-width: 5%;
     min-width: 5%;
 }
 
-.match-table td:nth-child(3) {
+.match-table th:nth-child(3) {
     width: 10%; /* 2列目を5%に設定 */
     max-width: 10%;
     min-width: 10%;
     text-align: center; /* 真ん中のセルのテキストを中央揃え */
 }
 
-.match-table td:nth-child(4) {
+.match-table th:nth-child(4) {
     width: 5%; /* 3列目を10%に設定 */
     max-width: 5%;
     min-width: 5%;
 }
-.match-table td:nth-child(5) {
+.match-table th:nth-child(5) {
     width: 12.5%; /* 3列目を10%に設定 */
     max-width: 12.5%;
     min-width: 12.5%;
     text-align: left; /* 左寄せ */
+}
+/* 左右のセルの幅を設定 */
+.match-table td:nth-child(1) {
+    text-align: left; /* 右寄せ */
+}
+.match-table td:nth-child(2) {
+    text-align: center; /* 右寄せ */
+}
+
+.match-table td:nth-child(3) {
+    text-align: left; /* 真ん中のセルのテキストを中央揃え */
 }
 
 /* 
@@ -797,4 +808,12 @@ footer img {
 @media screen and (max-width: 850px) {
     .match-container {
         flex-direction: column; /* 横並びから縦並びに変更 */
-        align-item
+        align-items: stretch; /* 幅を親要素いっぱいに */
+    }
+
+    .match-table, .stats-table {
+        width: 100%; /* テーブルを画面幅いっぱいに */
+        margin-right: 0; /* 右側の余白を削除 */
+        margin-bottom: 20px; /* 下に余白を追加 */
+    }
+}
