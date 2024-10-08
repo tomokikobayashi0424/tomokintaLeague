@@ -10,13 +10,14 @@
     --white-color-1: rgb(255, 255, 255);   /* 文字色3（補助） */
     --header-font-size: 15px;
     --navi-font-size: 15px;
+    --name-font-size: 10px;
 }
 
 /* PC向けのメディアクエリ (画面幅が1024px以上) */
 @media screen and (min-width: 1024px) {
     :root {
         --title-font-size: 30px;
-        --subtitle-font-size: 15px;
+        --subtitle-font-size: 25px;
         --body-font-size: 18px;
         --body2-font-size: 10px;
     }
@@ -26,7 +27,7 @@
 @media screen and (max-width: 1023px) {
     :root {
         --title-font-size: 30px;
-        --subtitle-font-size: 15px;
+        --subtitle-font-size: 23px;
         --body-font-size: 16px;
         --body2-font-size: 10px;
     }
@@ -37,19 +38,9 @@
 @media screen and (max-width: 600px) {
     :root {
         --title-font-size: 30px;
-        --subtitle-font-size: 15px;
+        --subtitle-font-size: 18px;
         --body-font-size: 14px;
         --body2-font-size: 10px;
-    }
-    .match-container {
-        flex-direction: column; /* 横並びから縦並びに変更 */
-        align-items: stretch; /* 幅を親要素いっぱいに */
-    }
-
-    .match-table, .stats-table {
-        width: 100%; /* テーブルを画面幅いっぱいに */
-        margin-right: 0; /* 右側の余白を削除 */
-        margin-bottom: 20px; /* 下に余白を追加 */
     }
 }
 
@@ -88,7 +79,7 @@ h2 {
 .button-common2 {
     background-color: var(--accent-color-1); /* 背景色 */
     color: var(--white-color-1); /* テキストの色 */
-    padding: 10px; /* パディング */
+    padding: 10px 0; /* パディング */
     margin: 10px 0; /* 上下に余白 */
     border: none; /* 枠線を消す */
     cursor: pointer; /* クリックできるようにカーソル変更 */
@@ -287,7 +278,7 @@ footer img {
     border: 1px solid var(--main-color-1); /* 入力欄の枠線 */
     background-color: var(--main-color-1); /* 背景色 */
     color: var(--sub-color-1); /* 文字色 */
-    font-size: var(--body2-font-size);
+    font-size: var(--name-font-size);
     font-weight: bold;
 }
 .team-subname-input {
@@ -410,7 +401,7 @@ footer img {
 /* 週情報のスタイル */
 .schedule-header .week-info {
     text-align: center;
-    font-size: var(--body1-font-size);
+    font-size: var(--subtitle-font-size);
     font-weight: bold;
     margin: 0;
     flex-grow: 1; /* 余ったスペースをタイトルに与える */
@@ -441,9 +432,9 @@ footer img {
 }
 
 /* 偶数番目の試合で改行を入れて新しい段に表示 */
-.match-container:nth-child(2n) {
-    clear: both; /* 2番目ごとに次の行に移動 */
-}
+/* .match-container:nth-child(2n) { */
+    /* clear: both; 2番目ごとに次の行に移動 */
+/* } */
 
 /* .match-table クラスは、各試合の表（ホームとアウェイのスコアを表示する表）に適用されます */
 .match-table {
@@ -451,9 +442,9 @@ footer img {
     margin-right: 5%; /* スタッツテーブルと日程表の間に2%の余白 */
     margin-bottom: 0; /* テーブルの下の余白を削除 */
     border-collapse: collapse; /* テーブルの境界線をまとめてすっきり表示 */
-    background-color: rgb(0, 0, 132); /* 日程表のセルの背景色 */
-    color: rgb(255, 255, 9); /* 日程表の文字色 */
-    border: 1px solid rgb(0, 0, 132); /* テーブル全体の枠線の色 */
+    background-color: var(--main-color-1); /* 日程表のセルの背景色 */
+    color: var(--sub-color-1); /* 日程表の文字色 */
+    border: 1px solid var(--main-color-1); /* テーブル全体の枠線の色 */
 }
 
 /* 一つ目の表のヘッダー（th）にだけスタイルを適用 */
@@ -465,25 +456,25 @@ footer img {
     /* border: 1px solid rgb(0, 0, 132);  */
     /* 枠線を設定 */
     box-sizing: border-box; /* 枠線とパディングを含めた幅を計算 */
-    background-color: rgb(0, 0, 132); /* 日程表のヘッダーセルの背景色 */
-    color: rgb(255, 255, 9); /* ヘッダーセルの文字色 */
+    background-color: var(--main-color-1); /* 日程表のヘッダーセルの背景色 */
+    color: var(--sub-color-1); /* ヘッダーセルの文字色 */
 }
 /* 2列目と4列目のセルの背景色を変更 */
 .match-table th:nth-child(2), .match-table th:nth-child(4) {
-    background-color: rgb(255, 255, 9); /* 背景色 */
+    background-color: var(--sub-color-1); /* 背景色 */
 }
 
 .match-table td {
-    border: 1px solid rgb(0, 0, 132); /* セルの枠線の色 */
+    border: 1px solid var(--main-color-1); /* セルの枠線の色 */
     padding: 10px; /* セルの余白 */
-    background-color: rgb(255, 255, 9); /* セルの背景色 */
-    color: rgb(0, 0, 132); /* セル内の文字色 */
+    background-color: var(--sub-color-1); /* セルの背景色 */
+    color: var(--main-color-1); /* セル内の文字色 */
 }
 
 /* ホバー時の背景色を変更 */
 .match-table td:hover, .stats-table td:hover {
-    background-color: rgb(251, 0, 111); /* ホバー時の背景色 */
-    color: rgb(0, 0, 132); /* ホバー時の文字色 */
+    background-color: var(--accent-color-1); /* ホバー時の背景色 */
+    color: var(--main-color-1); /* ホバー時の文字色 */
 }
 
 /* テキストや数値入力欄のスタイル */
@@ -811,3 +802,16 @@ footer img {
 
 
 
+/* スマホ向けのメディアクエリ (画面幅が600px未満) */
+@media screen and (max-width: 850px) {
+    .match-container {
+        flex-direction: column; /* 横並びから縦並びに変更 */
+        align-items: stretch; /* 幅を親要素いっぱいに */
+    }
+
+    .match-table, .stats-table {
+        width: 100%; /* テーブルを画面幅いっぱいに */
+        margin-right: 0; /* 右側の余白を削除 */
+        margin-bottom: 20px; /* 下に余白を追加 */
+    }
+}
