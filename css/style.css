@@ -79,7 +79,7 @@ h2 {
 .button-common2 {
     background-color: var(--accent-color-1); /* 背景色 */
     color: var(--white-color-1); /* テキストの色 */
-    padding: 10px 0; /* パディング */
+    padding: 10px 10px; /* パディング */
     margin: 10px 0; /* 上下に余白 */
     border: none; /* 枠線を消す */
     cursor: pointer; /* クリックできるようにカーソル変更 */
@@ -797,12 +797,4 @@ footer img {
 @media screen and (max-width: 850px) {
     .match-container {
         flex-direction: column; /* 横並びから縦並びに変更 */
-        align-items: stretch; /* 幅を親要素いっぱいに */
-    }
-
-    .match-table, .stats-table {
-        width: 100%; /* テーブルを画面幅いっぱいに */
-        margin-right: 0; /* 右側の余白を削除 */
-        margin-bottom: 20px; /* 下に余白を追加 */
-    }
-}
+        align-item
