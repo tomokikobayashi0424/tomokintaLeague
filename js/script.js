@@ -66,54 +66,6 @@ function getTeams() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const teamContainer = document.querySelector('.team-list');
-    const teamLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').slice(0, totalTeamNum);
-
-    // チームロゴを動的に生成
-    for (let i = 0; i < totalTeamNum; i++) {
-        const teamLetter = teamLetters[i];
-        const teamItem = `
-            <div class="team-item">
-                <button class="team-logo-button" data-team="${teamLetter}">
-                    <ul>
-                        <li>
-                            <a href="javascript:void(0)" class="tablinks" onclick="openTabWithTeam(event, 'teamPerformanceTab', ${i})">
-                                <img src="Pictures/Team${teamLetter}.jpg" alt="Team ${teamLetter}" class="team-logo">
-                            </a>
-                        </li>
-                    </ul>
-                </button>
-                <input type="text" id="team${i + 1}" name="team${i + 1}" value="Team${teamLetter}" class="team-name-input" required><br>
-                <input type="text" id="teamSub${i + 1}" name="teamSub${i + 1}" value="Sub${teamLetter}" class="team-subname-input" required><br> <!-- 三文字チーム名入力欄 -->
-            </div>
-        `;
-        teamContainer.insertAdjacentHTML('beforeend', teamItem);
-    }
-
-    // チーム保存ボタンの生成
-    const saveButton = document.createElement('button');
-    saveButton.id = 'teamSaveButton';
-    saveButton.type = 'submit';
-    saveButton.textContent = 'チームを保存';
-    document.getElementById('teamForm').appendChild(saveButton);
-
-    getTeams();  // 保存されたチーム名を取得
-
-    // チーム保存ボタンのイベントリスナーを追加
-    document.getElementById('teamForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        saveTeams();
-    });
-
-    // 初期化処理
-    displaySchedule();  // 日程を表示
-    showRound(0);       // ページロード時に最初のラウンドを表示
-    updateStandingsTable();  // 順位表を表示
-    updateRankChangeArrows() // 矢印も
-    
-});
-
 
 // ローカルストレージの内容をJSONファイルにしてダウンロードする関数
 function downloadLocalStorageAsJson() {
@@ -146,26 +98,8 @@ function downloadLocalStorageAsJson() {
     URL.revokeObjectURL(url); // メモリ解放
 }
 
-// ダウンロードボタンにイベントリスナーを追加
-document.getElementById('downloadJsonButton').addEventListener('click', downloadLocalStorageAsJson);
-
-
 // GitHubリポジトリからJSONデータを取得し、ローカルストレージに保存する関数
 function fetchAndSaveJsonFromGitHub() {
-
-
-
-
-    //////
-    //////
-    //////
-    //////
-    //////
-    //////なぜかローカルは絶対パスでgitにあげるときは相対パス
-    //const url = 'https://raw.githubusercontent.com/tomokikobayashi0424/tomokintaLeague/master/league_data.json'; // JSONファイルのURL
-
-    // python3 -m http.server　ターミナルでこのサーバーを建てることで相対パスでも大丈夫になった
-
     const url = './league_data.json'; // JSONファイルの相対パス
     fetch(url)
         .then(response => {
@@ -195,21 +129,18 @@ function fetchAndSaveJsonFromGitHub() {
             }
             console.log('JSONデータがローカルストレージに保存されました');
 
-            // ローカルストレージにフラグを立てて、次回からリロードを避ける
-            // localStorage.setItem('dataFetched', 'true');
-            
-            // データ保存が完了したらページをリロード
-            // location.reload();
+            // ページのデータを更新
             getTeams();
             displaySchedule();  // 日程を表示
             showRound(0);       // ページロード時に最初のラウンドを表示
             updateStandingsTable();  // 順位表を表示
-            updateRankChangeArrows() // 矢印も
+            updateRankChangeArrows() // 矢印も表示
         })
         .catch(error => {
             console.error('エラーが発生しました:', error);
         });
 }
+
 // ローカルストレージをリセットしてからJSONデータを読み込む関数
 function resetLocalStorageAndLoadJson() {
     // ローカルストレージのすべてのデータを削除
@@ -219,17 +150,45 @@ function resetLocalStorageAndLoadJson() {
     fetchAndSaveJsonFromGitHub();
 }
 
-// ボタンをクリックしてJSONデータを読み込む
-document.getElementById('loadJsonButton').addEventListener('click', resetLocalStorageAndLoadJson);
 
-// // ページが読み込まれたときに、自動的にJSONデータを取得し、ローカルストレージに保存
-// window.addEventListener('load', () => {
-//     // すでにデータを取得しているか確認
-//     if (!localStorage.getItem('dataFetched')) {
-//         fetchAndSaveJsonFromGitHub();
-//     }
-// });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const teamContainer = document.querySelector('.team-list');
+    const teamLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').slice(0, totalTeamNum);
+
+    // チームロゴを動的に生成
+    for (let i = 0; i < totalTeamNum; i++) {
+        const teamLetter = teamLetters[i];
+        const teamItem = `
+            <div class="team-item">
+                <button class="team-logo-button" data-team="${teamLetter}">
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" class="tablinks" onclick="openTabWithTeam(event, 'teamPerformanceTab', ${i})">
+                                <img src="Pictures/Team${teamLetter}.jpg" alt="Team ${teamLetter}" class="team-logo">
+                            </a>
+                        </li>
+                    </ul>
+                </button>
+                <input type="text" id="team${i + 1}" name="team${i + 1}" value="Team${teamLetter}" class="team-name-input" readonly><br>
+                <input type="text" id="teamSub${i + 1}" name="teamSub${i + 1}" value="Sub${teamLetter}" class="team-subname-input" readonly><br> <!-- 三文字チーム名入力欄 -->
+            </div>
+        `;
+        teamContainer.insertAdjacentHTML('beforeend', teamItem);
+    }
+
+    // ページ読み込み時にJSONデータを取得し、ローカルストレージに保存
+    fetchAndSaveJsonFromGitHub();
+    // 保存されたチーム名を取得
+    getTeams();  
+
+    // 初期化処理
+    displaySchedule();  // 日程を表示
+    showRound(0);       // ページロード時に最初のラウンドを表示
+    updateStandingsTable();  // 順位表を表示
+    updateRankChangeArrows() // 矢印も
+    
+});
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -448,19 +407,6 @@ function calculateTeamStats(teamId) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // 日程タブ
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-
-// 画面サイズに基づいてteams配列を選択する関数
-// function getResponsiveTeams() {
-//     let teams = JSON.parse(localStorage.getItem('teams')) || [];
-//     let teamsSub = JSON.parse(localStorage.getItem('teamsSub')) || [];
-
-//     // 画面幅が600px未満の場合はteamsSubを、それ以外の場合はteamsを使用
-//     if (window.innerWidth < 600) {
-//         return teamsSub;
-//     } else {
-//         return teams;
-//     }
-// }
 // 画面幅に応じてチーム配列を返す関数
 function getResponsiveTeams() {
     if (window.innerWidth <= 600) {
@@ -469,8 +415,6 @@ function getResponsiveTeams() {
         return JSON.parse(localStorage.getItem('teams')) || [];
     }
 }
-
-
 
 // 全チームの総当たり日程を生成する関数
 function generateSchedule() {
@@ -508,14 +452,7 @@ function generateSchedule() {
     return schedule.concat(secondHalf); // 2巡分を連結して返す
 }
 
-// // 画面サイズが変わった時にチーム配列を再選択する処理を追加
-// window.addEventListener('resize', () => {
-//     // 画面サイズが変更された時にスケジュールを再生成
-//     generateSchedule();
-// });
-
-// スコア入力完了ボタンとキャンセルボタンを表示するための関数
-
+// スケジュールを表示する関数（閲覧専用版）
 function displaySchedule() {
     let teams = JSON.parse(localStorage.getItem('teams'));
     if (!teams) return;
@@ -542,9 +479,9 @@ function displaySchedule() {
                     <table id="goalDetailsTable${i}-${index}" class="match-table">
                         <thead>
                             <tr>
-                                <th id="homeTeam${i}-${index}">${match.home} <input type="number" id="homeScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'home')"></th>
+                                <th id="homeTeam${i}-${index}">${match.home} <input type="number" id="homeScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'home')"readonly></th>
                                 <th> - </th>
-                                <th id="awayTeam${i}-${index}"><input type="number" id="awayScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'away')"> ${match.away}</th>
+                                <th id="awayTeam${i}-${index}"><input type="number" id="awayScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'away')"readonly> ${match.away}</th>
                             </tr>
                         </thead>
                         <tbody id="goalDetailsBody${i}-${index}"></tbody>
@@ -553,14 +490,8 @@ function displaySchedule() {
                     const statsTableElement = generateStatsTable(i, index);
                     scheduleHTML += statsTableElement.outerHTML;
                     scheduleHTML += `
-                
-                    <div class="round-buttons">
-                        <button class="button-score" onclick="completeScoreInput(${i}, ${index})">スコア入力完了</button>
-                        <button class="button-score" onclick="cancelScoreInput(${i}, ${index})">スコア入力キャンセル</button>
-                    </div>
                 </div>`;
         });
-        scheduleHTML += `<button class="complete-round-btn" onclick="completeRound(${i})">今節のデータ入力完了</button>`;
         scheduleHTML += `</div>`;
     }
 
@@ -633,6 +564,7 @@ function createStatsTable(statCategories, roundIndex, matchIndex) {
         homeHalfInput.placeholder = "0";
         homeHalfInput.min = (index === 0) ? "0" : "0";  // 支配率なら0～100に制限
         homeHalfInput.max = (index === 0) ? "100" : "";
+        homeHalfInput.readOnly = true; // 読み取り専用に設定
 
         // ホームチームのフルタイム入力欄
         const homeFullInput = document.createElement('input');
@@ -641,6 +573,7 @@ function createStatsTable(statCategories, roundIndex, matchIndex) {
         homeFullInput.placeholder = "0";
         homeFullInput.min = (index === 0) ? "0" : "0";
         homeFullInput.max = (index === 0) ? "100" : "";
+        homeFullInput.readOnly = true; // 読み取り専用に設定
 
         // 真ん中列（データの説明）
         const categoryCell = document.createElement('td');
@@ -653,6 +586,7 @@ function createStatsTable(statCategories, roundIndex, matchIndex) {
         awayHalfInput.placeholder = "0";
         awayHalfInput.min = (index === 0) ? "0" : "0";
         awayHalfInput.max = (index === 0) ? "100" : "";
+        awayHalfInput.readOnly = true; // 読み取り専用に設定
 
         // アウェーチームのフルタイム入力欄
         const awayFullInput = document.createElement('input');
@@ -661,6 +595,7 @@ function createStatsTable(statCategories, roundIndex, matchIndex) {
         awayFullInput.placeholder = "0";
         awayFullInput.min = (index === 0) ? "0" : "0";
         awayFullInput.max = (index === 0) ? "100" : "";
+        awayFullInput.readOnly = true; // 読み取り専用に設定
 
         // 行にセルを追加
         const homeHalfCell = document.createElement('td');
@@ -743,18 +678,18 @@ function updateGoalDetails(roundIndex, matchIndex, teamType, data = null) {
                 <tr>
                     <td>
                         ${teamType === 'home' ? `
-                            アシスト：<input type="text" class="assist-player home" value="${assist}">
-                            ゴール　：<input type="text" class="goal-player home" value="${goal}">
+                            アシスト：<input type="text" class="assist-player home" value="${assist}"readonly>
+                            ゴール　：<input type="text" class="goal-player home" value="${goal}"readonly>
                         ` : `<span></span>`}
                     </td>
                     <td>
-                        <input type="number" class="goal-time ${teamType}" value="${time}" min="0" step="1" onchange="sortGoalDetails(${roundIndex}, ${matchIndex})"> 分
+                        <input type="number" class="goal-time ${teamType}" value="${time}" min="0" step="1" onchange="sortGoalDetails(${roundIndex}, ${matchIndex})"readonly> 分
                     </td>
 
                     <td>
                         ${teamType === 'away' ? `
-                            アシスト：<input type="text" class="assist-player away" value="${assist}">
-                            ゴール　：<input type="text" class="goal-player away" value="${goal}">
+                            アシスト：<input type="text" class="assist-player away" value="${assist}"readonly>
+                            ゴール　：<input type="text" class="goal-player away" value="${goal}"readonly>
                         ` : `<span></span>`}
                     </td>
                 </tr>
@@ -789,123 +724,6 @@ function getTeamIdByName(teamName) {
     return teams.indexOf(teamName);  // チーム名に対応するIDを取得
 }
 
-// 日程表の情報を保存する関数
-function saveMatchData(roundIndex, matchIndex) {
-    let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
-    let matchKey = `round${roundIndex}-match${matchIndex}`;
-    // ローカルストレージからteamsを取得
-    let teams = JSON.parse(localStorage.getItem('teams')) || [];
-
-    // チーム名を取得し、trim() で前後の空白を削除
-    let homeTeamName = document.getElementById(`homeTeam${roundIndex}-${matchIndex}`).textContent.trim();
-    let awayTeamName = document.getElementById(`awayTeam${roundIndex}-${matchIndex}`).textContent.trim();
-
-    // チーム名からteamIdを導く（teams配列でのインデックス + 1 をteamIdとする）
-    let homeTeamId = teams.indexOf(homeTeamName) + 1;  // インデックスは0から始まるので+1
-    let awayTeamId = teams.indexOf(awayTeamName) + 1;
-
-    // ホームチームのスコア、アシスト、ゴール、時間
-    let homeScore = document.getElementById(`homeScore${roundIndex}-${matchIndex}`).value;
-    let awayScore = document.getElementById(`awayScore${roundIndex}-${matchIndex}`).value;
-
-    // スコアが入力されているか（入力済みの0と未入力の0を区別）
-    homeScore = homeScore === '' ? null : parseInt(homeScore);
-    awayScore = awayScore === '' ? null : parseInt(awayScore);
-
-    let assistPlayersHome = Array.from(document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .assist-player.home`)).map(input => input.value.trim());
-    let goalPlayersHome = Array.from(document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-player.home`)).map(input => input.value.trim());
-    // let timesHome = Array.from(document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-time.home`)).map(input => input.value.trim());
-    // let timesHome = document.getElementById(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-time.home`).value;
-    let timesHome = Array.from(document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-time.home`)).map(input => input.value === '' ? null : parseInt(input.value.trim()));
-    
-    let assistPlayersAway = Array.from(document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .assist-player.away`)).map(input => input.value.trim());
-    let goalPlayersAway = Array.from(document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-player.away`)).map(input => input.value.trim());
-    // let timesAway = Array.from(document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-time.away`)).map(input => input.value.trim());
-    let timesAway = Array.from(document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-time.away`)).map(input => input.value === '' ? null : parseInt(input.value.trim()));
-
-    // ハーフタイムとフルタイムのスタッツを取得
-    const statCategories = ["possession", "shots", "shotsonFrame", "fouls", "offsides", "cornerKicks", "freeKicks", "passes", "successfulPasses", "crosses", "PassCuts", "successfulTackles", "save"];
-
-    let homeHalfStats = {};
-    let homeFullStats = {};
-    let awayHalfStats = {};
-    let awayFullStats = {};
-
-    statCategories.forEach((category, index) => {
-        const homeHalfStatValue = document.getElementById(`homeHalfStat${index}-${roundIndex}-${matchIndex}`).value;
-        const homeFullStatValue = document.getElementById(`homeFullStat${index}-${roundIndex}-${matchIndex}`).value;
-        const awayHalfStatValue = document.getElementById(`awayHalfStat${index}-${roundIndex}-${matchIndex}`).value;
-        const awayFullStatValue = document.getElementById(`awayFullStat${index}-${roundIndex}-${matchIndex}`).value;
-    
-        // 未入力の場合はnull、それ以外は数値として保存
-        homeHalfStats[category] = homeHalfStatValue === '' ? null : parseFloat(homeHalfStatValue);
-        homeFullStats[category] = homeFullStatValue === '' ? null : parseFloat(homeFullStatValue);
-        awayHalfStats[category] = awayHalfStatValue === '' ? null : parseFloat(awayHalfStatValue);
-        awayFullStats[category] = awayFullStatValue === '' ? null : parseFloat(awayFullStatValue);
-    });
-
-    matchData[matchKey] = {
-        home: {
-            teamId: homeTeamId,
-            // teamName: homeTeamName,
-            score: homeScore,
-            assistPlayers: assistPlayersHome,
-            goalPlayers: goalPlayersHome,
-            times: timesHome,
-            halfTime: homeHalfStats,
-            fullTime: homeFullStats
-        },
-        away: {
-            teamId: awayTeamId,
-            // teamName: awayTeamName,
-            score: awayScore,
-            assistPlayers: assistPlayersAway,
-            goalPlayers: goalPlayersAway,
-            times: timesAway,
-            halfTime: awayHalfStats,
-            fullTime: awayFullStats
-        }
-    };
-
-    localStorage.setItem('matchData', JSON.stringify(matchData));
-}
-
-// スコア入力をキャンセルしてリセットする関数
-function cancelScoreInput(roundIndex, matchIndex) {
-    // スコアをリセット
-    document.getElementById(`homeScore${roundIndex}-${matchIndex}`).value = '';
-    document.getElementById(`awayScore${roundIndex}-${matchIndex}`).value = '';
-
-    // アシスト、ゴール、時間の入力欄をリセット
-    let assistPlayersHome = document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .assist-player.home`);
-    let goalPlayersHome = document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-player.home`);
-    let timesHome = document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-time.home`);
-
-    assistPlayersHome.forEach(input => input.value = '');
-    goalPlayersHome.forEach(input => input.value = '');
-    timesHome.forEach(input => input.value = '');
-
-    let assistPlayersAway = document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .assist-player.away`);
-    let goalPlayersAway = document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-player.away`);
-    let timesAway = document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-time.away`);
-
-    assistPlayersAway.forEach(input => input.value = '');
-    goalPlayersAway.forEach(input => input.value = '');
-    timesAway.forEach(input => input.value = '');
-
-    // ローカルストレージから該当の試合データを削除
-    let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
-    let matchKey = `round${roundIndex}-match${matchIndex}`;
-    delete matchData[matchKey];
-    localStorage.setItem('matchData', JSON.stringify(matchData));
-
-    // 順位表を即時更新
-    updateStandingsTable();  // 順位表の更新
-    updateIndividualRecords();  // 個人戦績の更新
-    
-    alert(`第${roundIndex + 1}節の試合データがリセットされました。`);
-}
-
 // 日程表データの自動読み込みをする関数
 function loadMatchData(roundIndex, matchIndex) {
     let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
@@ -930,24 +748,6 @@ function loadMatchData(roundIndex, matchIndex) {
         updateGoalDetails(roundIndex, matchIndex, 'home', match.home);
         updateGoalDetails(roundIndex, matchIndex, 'away', match.away);
     }
-}
-
-
-// スコア入力完了ボタンの処理に関する関数
-function completeScoreInput(roundIndex, matchIndex) {
-    // let schedule = generateSchedule(JSON.parse(localStorage.getItem('teams')));
-
-    // 1つの試合（roundIndex と matchIndex）のデータを保存
-    saveMatchData(roundIndex, matchIndex);  // 該当する試合のみデータを保存
-
-    // スコアが入力された後に順位表を更新
-    updateStandingsTable();
-    updateIndividualRecords(); // 個人戦績を更新
-    // 順位変動を保存
-    // let standings = calculateStandings();
-    // saveStandingsData(standings);
-    // 順位表や個人戦績を更新
-    alert(`第${roundIndex + 1}節のスコアが保存されました。`);
 }
 
 
