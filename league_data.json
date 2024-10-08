@@ -27,252 +27,11 @@
     "NAD",
     "HHV"
   ],
-  "matchData": {
-    "round0-match0": {
-      "home": {
-        "teamId": 1,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
-        "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
-        },
-        "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
-        }
-      },
-      "away": {
-        "teamId": 12,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
-        "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
-        },
-        "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
-        }
-      }
-    },
-    "round0-match5": {
-      "home": {
-        "teamId": 6,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
-        "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
-        },
-        "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
-        }
-      },
-      "away": {
-        "teamId": 7,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
-        "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
-        },
-        "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
-        }
-      }
-    },
-    "round0-match1": {
-      "home": {
-        "teamId": 2,
-        "score": null,
-        "assistPlayers": [
-          "",
-          "",
-          ""
-        ],
-        "goalPlayers": [
-          "",
-          "",
-          ""
-        ],
-        "times": [
-          null,
-          null,
-          null
-        ],
-        "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
-        },
-        "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
-        }
-      },
-      "away": {
-        "teamId": 11,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
-        "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
-        },
-        "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
-        }
-      }
-    }
-  },
+  "matchData": {},
   "previousStandings": [
     {
       "Rank": 1,
-      "teamId": "Forester United f.c."
+      "teamId": "Koverpool FC"
     },
     {
       "Rank": 2,
@@ -280,43 +39,43 @@
     },
     {
       "Rank": 3,
-      "teamId": "Nob Angels Dodgers"
-    },
-    {
-      "Rank": 4,
       "teamId": "Real Kotarid"
     },
     {
-      "Rank": 5,
-      "teamId": "Shigecelona FC"
+      "Rank": 4,
+      "teamId": "Forester United f.c."
     },
     {
-      "Rank": 6,
+      "Rank": 5,
       "teamId": "TKBEAMS"
     },
     {
-      "Rank": 7,
+      "Rank": 6,
       "teamId": "Astroboy FC"
     },
     {
-      "Rank": 8,
-      "teamId": "Tanaka Thunderbolts"
-    },
-    {
-      "Rank": 9,
+      "Rank": 7,
       "teamId": "Nakajima Ninjas"
     },
     {
+      "Rank": 8,
+      "teamId": "Shigecelona FC"
+    },
+    {
+      "Rank": 9,
+      "teamId": "Matsubars"
+    },
+    {
       "Rank": 10,
-      "teamId": "Hashimoto Heroes"
+      "teamId": "Tanaka Thunderbolts"
     },
     {
       "Rank": 11,
-      "teamId": "Matsubayashi Mavericks"
+      "teamId": "Nob Angels Dodgers"
     },
     {
       "Rank": 12,
-      "teamId": "Koverpool FC"
+      "teamId": "Hashimoto Heroes"
     }
   ],
   "currentStandings": [
@@ -330,43 +89,43 @@
     },
     {
       "Rank": 3,
-      "teamId": "Nob Angels Dodgers"
-    },
-    {
-      "Rank": 4,
       "teamId": "Real Kotarid"
     },
     {
-      "Rank": 5,
-      "teamId": "Shigecelona FC"
+      "Rank": 4,
+      "teamId": "Forester United f.c."
     },
     {
-      "Rank": 6,
+      "Rank": 5,
       "teamId": "TKBEAMS"
     },
     {
-      "Rank": 7,
+      "Rank": 6,
       "teamId": "Astroboy FC"
     },
     {
-      "Rank": 8,
-      "teamId": "Tanaka Thunderbolts"
-    },
-    {
-      "Rank": 9,
+      "Rank": 7,
       "teamId": "Nakajima Ninjas"
     },
     {
+      "Rank": 8,
+      "teamId": "Shigecelona FC"
+    },
+    {
+      "Rank": 9,
+      "teamId": "Matsubars"
+    },
+    {
       "Rank": 10,
-      "teamId": "Hashimoto Heroes"
+      "teamId": "Tanaka Thunderbolts"
     },
     {
       "Rank": 11,
-      "teamId": "Matsubayashi Mavericks"
+      "teamId": "Nob Angels Dodgers"
     },
     {
       "Rank": 12,
-      "teamId": "Forester United f.c."
+      "teamId": "Hashimoto Heroes"
     }
   ]
 }
