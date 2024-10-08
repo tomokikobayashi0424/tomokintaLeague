@@ -93,19 +93,19 @@ h2 {
 
 /* ホバー時のスタイル */
 .button-common:hover {
-    background-color: rgb(251, 0, 111); /* ホバー時の背景色 */
-    color: rgb(110, 110, 110); /* ホバー時もテキストは白 */
+    background-color: var(--accent-color-1); /* ホバー時の背景色 */
+    color: var(--gray-color-1); /*  */
 }
 /* ホバー時のスタイル */
 .button-common2:hover {
-    background-color: rgb(251, 0, 111); /* ホバー時の背景色 */
-    color: rgb(110, 110, 110); /* ホバー時もテキストは白 */
+    background-color: var(--accent-color-1); /* ホバー時の背景色 */
+    color: var(--gray-color-1); /*  */
 }
 
 /* ボタンの共通スタイル */
 .button-score {
-    background-color: rgb(251, 0, 111); /* 背景色 */
-    color: white; /* テキストの色 */
+    background-color: var(--accent-color-1); /* 背景色 */
+    color: var(--white-color-1); /* テキストの色 */
     padding: 10px; /* パディング */
     border: none; /* 枠線を消す */
     cursor: pointer; /* クリックできるようにカーソル変更 */
@@ -116,14 +116,7 @@ h2 {
     margin: 10px 0; /* 上下に余白 */
 }
 
-/* ホバー時のスタイル */
-.button-score:hover {
-    background-color: rgb(251, 0, 111); /* ホバー時の背景色 */
-    color: rgb(110, 110, 110); /* ホバー時もテキストは白 */
-}
-.round-buttons {
-    display: flex; /* 横並びにする */
-}
+
 /* 
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
@@ -450,7 +443,7 @@ footer img {
 /* 一つ目の表のヘッダー（th）にだけスタイルを適用 */
 .match-table th {
     font-weight: bold; /* ボールドに設定 */
-    font-size: 20px; /* フォントサイズを大きく設定 */
+    font-size: var(--body-font-size); /* フォントサイズを大きく設定 */
     text-align: center; /* テキストを中央揃えにする */
     padding: 0px; /* セルのパディングを設定 */
     /* border: 1px solid rgb(0, 0, 132);  */
@@ -493,9 +486,9 @@ footer img {
 .match-table input[type="number"] {
     width: 50%; /* 入力欄をセルの横幅いっぱいに */
     box-sizing: border-box; /* 境界線やパディングを含む要素の幅と高さ */
-    background-color: rgb(255, 255, 9); /* 入力欄の背景色 */
-    color: rgb(0, 0, 132);/* 入力欄の文字色 */
-    border: 2px solid rgb(255, 255, 9); /* 入力欄の枠線色 */
+    background-color: var(--sub-color-1); /* 入力欄の背景色 */
+    color: var(--main-color-1);/* 入力欄の文字色 */
+    border: 2px solid var(--sub-color-1); /* 入力欄の枠線色 */
     padding: 0 5px; /* 上下のパディングをゼロに、左右に5pxの余白 */
     border-radius: 0px; /* 入力欄の角を丸く */
     font-weight: bold; /* 入力欄の文字を太字に */
@@ -504,51 +497,49 @@ footer img {
 /* スコア入力欄に特化したスタイルも追加 */
 .match-table thead input[type="number"] {
     font-weight: bold; /* ボールドに設定 */
-    font-size: 20px; /* スコア入力欄のフォントサイズを調整 */
+    font-size: var(--body-font-size); /* スコア入力欄のフォントサイズを調整 */
     width: 40px; /* 入力欄の幅を設定 */
     text-align: center; /* 入力内容を中央揃え */
 }
 
-.match-table input[type="number"]:focus {
-    background-color: rgb(251, 0, 111); /* フォーカス時の背景色 */
-    border-color: rgb(251, 0, 111); /* フォーカス時の枠線の色 */
-    outline: none; /* フォーカス時のアウトラインを削除 */
-}
+/* .match-table input[type="number"]:focus { */
+    /* background-color: rgb(251, 0, 111); フォーカス時の背景色 */
+    /* border-color: rgb(251, 0, 111); フォーカス時の枠線の色 */
+    /* outline: none; フォーカス時のアウトラインを削除 */
+/* } */
 
-/* 真ん中のセルは中央寄せに */
-.match-table td:nth-child(2) {
-    text-align: center; /* 真ん中のセルのテキストを中央揃え */
-}
 
 /* 左右のセルの幅を設定 */
 .match-table td:nth-child(1) {
     width: 12.5%; /* 1列目を10%に設定 */
+    max-width: 12.5%;
+    min-width: 12.5%;
+    text-align: right; /* 右寄せ */
 }
 .match-table td:nth-child(2) {
     width: 5%; /* 1列目を10%に設定 */
+    max-width: 5%;
+    min-width: 5%;
 }
 
 .match-table td:nth-child(3) {
     width: 10%; /* 2列目を5%に設定 */
+    max-width: 10%;
+    min-width: 10%;
+    text-align: center; /* 真ん中のセルのテキストを中央揃え */
 }
 
 .match-table td:nth-child(4) {
     width: 5%; /* 3列目を10%に設定 */
+    max-width: 5%;
+    min-width: 5%;
 }
-.match-table td:nth-child(4) {
+.match-table td:nth-child(5) {
     width: 12.5%; /* 3列目を10%に設定 */
-}
-
-/* 一列目（ホームチーム名とスコア）を右寄せ */
-.match-table th:nth-child(1) {
-    text-align: right; /* 右寄せ */
-}
-
-/* 三列目（アウェイチーム名とスコア）を左寄せ */
-.match-table th:nth-child(5) {
+    max-width: 12.5%;
+    min-width: 12.5%;
     text-align: left; /* 左寄せ */
 }
-
 
 /* 
 ---------------------------------------------------------------------------------------------------
@@ -560,9 +551,9 @@ footer img {
 .stats-table {
     border-collapse: collapse; /* テーブルの境界線を統一 */
     width: 50%; /* テーブルを横幅100%に広げる */
-    background-color: rgb(0, 0, 132); /* スタッツ表のセルの背景色 */
-    color: rgb(255, 255, 9);; /* スタッツ表の文字色 */
-    border: 1px solid rgb(255, 255, 9); /* テーブル全体の枠線の色 */
+    background-color: var(--main-color-1); /* スタッツ表のセルの背景色 */
+    color: var(--sub-color-1); /* スタッツ表の文字色 */
+    border: 1px solid var(--sub-color-1); /* テーブル全体の枠線の色 */
     margin-left: 0%; /* スタッツテーブルと日程表の間に2%の余白 */
     border-left: none; /* テーブル全体の左枠線を削除 */
     border-right: none; /* テーブル全体の右枠線を削除 */
@@ -576,17 +567,17 @@ footer img {
 .stats-table th, .stats-table td {
     padding: 0px; /* セル内のコンテンツに8pxの余白 */
     text-align: center; /* テキストを中央揃え */
-    border: 1px solid rgb(255, 255, 9); /* セルの枠線の色 */
+    border: 1px solid var(--sub-color-1); /* セルの枠線の色 */
     font-weight: bold; /* ヘッダーのテキストを太字に */
-    font-size: 15px; /* フォントサイズを大きく設定 */
+    font-size: var(--body-font-size); /* フォントサイズを大きく設定 */
     border-left: none; /* テーブル全体の左枠線を削除 */
     border-right: none; /* テーブル全体の右枠線を削除 */
 }
 
 /* スタッツ表のヘッダーセルのスタイル */
 .stats-table th {
-    background-color: rgb(255, 255, 9); /* スタッツ表のヘッダーセルの背景色 */
-    color: rgb(0, 0, 132); /* ヘッダーセルの文字色 */
+    background-color: var(--sub-color-1); /* スタッツ表のヘッダーセルの背景色 */
+    color: var(--main-color-1); /* ヘッダーセルの文字色 */
 }
 
 /* スタッツ表の入力欄のスタイル */
@@ -595,20 +586,20 @@ footer img {
     width: 80%; /* 入力欄の幅をセル内で調整 */
     padding: 5px; /* 入力欄にパディングを追加 */
     box-sizing: border-box; /* パディングを幅に含むようにする */
-    background-color: rgb(0, 0, 132); /* 入力欄の背景色 */
-    color: rgb(255, 255, 9); /* 入力欄の文字色 */
-    border: 2px solid rgb(0, 0, 132); /* 入力欄の枠線色 */
+    background-color: var(--main-color-1); /* 入力欄の背景色 */
+    color: var(--sub-color-1); /* 入力欄の文字色 */
+    border: 2px solid var(--main-color-1); /* 入力欄の枠線色 */
     padding: 5px;
     border-radius: 4px; /* 入力欄の角を丸く */
     font-weight: bold; /* 入力欄の文字を太字に */
-    font-size: 20px; /* フォントサイズを大きく設定 */
+    font-size: var(--body-font-size); /* フォントサイズを大きく設定 */
 }
 
-.stats-table input[type="number"]:focus {
-    background-color: rgb(251, 0, 111); /* フォーカス時の背景色 */
-    border-color: rgb(251, 0, 111); /* フォーカス時の枠線の色 */
-    outline: none; /* フォーカス時のアウトラインを削除 */
-}
+/* .stats-table input[type="number"]:focus { */
+    /* background-color: rgb(251, 0, 111); フォーカス時の背景色 */
+    /* border-color: rgb(251, 0, 111); フォーカス時の枠線の色 */
+    /* outline: none; フォーカス時のアウトラインを削除 */
+/* } */
 
 /* 各列の幅を10%に設定 */
 .stats-table td:nth-child(1),
