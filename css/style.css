@@ -431,7 +431,7 @@ footer img {
 /* 各試合ごとのコンテナを定義。中に日程表とスタッツテーブルが含まれる */
 .match-container {
     background-color: var(--white-color-1); /* パネルの背景色を白に設定 */
-    border: 2px solid #ddd; /* パネルに薄いグレーの枠線を追加 */
+    /* border: 2px solid #ddd; パネルに薄いグレーの枠線を追加 */
     padding: 1%; /* パネル内に余白を追加 */
     display: flex; /* 横並びにするための設定 */
     justify-content: space-between; /* コンテンツを左右に配置 */
