@@ -1,16 +1,20 @@
 :root {
-    /* デフォルトのフォントサイズ変数（PC向け） */
-    --title-font-size: 32px;
-    --subtitle-font-size: 24px;
-    --body-font-size: 16px;
-    --body2-font-size: 14px;
+    /* カラーパレットの変数定義 */
+    --main-color-1: rgb(0, 0, 132);         /* メインの色 */
+    --main-color-2: rgb(36, 0, 255); /* メインの色 */
+    --accent-color-1: rgb(251, 0, 111);     /* アクセントカラー */
+    
+    --sub-color-1: rgb(255, 255, 9);     /* 文字色1（メイン） */
+    --black-color-1: rgb(0, 0, 0);         /* 文字色2（サブ） */
+    --gray-color-1: rgb(110, 110, 110);   /* 文字色3（補助） */
+    --white-color-1: rgb(255, 255, 255);   /* 文字色3（補助） */
 }
 
 /* PC向けのメディアクエリ (画面幅が1024px以上) */
 @media screen and (min-width: 1024px) {
     :root {
-        --title-font-size: 36px;
-        --subtitle-font-size: 28px;
+        --title-font-size: 18px;
+        --subtitle-font-size: 15px;
         --body-font-size: 18px;
         --body2-font-size: 16px;
     }
@@ -19,8 +23,8 @@
 /* タブレットやスマホ向けのメディアクエリ (画面幅が1024px未満) */
 @media screen and (max-width: 1023px) {
     :root {
-        --title-font-size: 28px;
-        --subtitle-font-size: 22px;
+        --title-font-size: 18px;
+        --subtitle-font-size: 15px;
         --body-font-size: 16px;
         --body2-font-size: 14px;
     }
@@ -30,8 +34,8 @@
 /* スマホ向けのメディアクエリ (画面幅が600px未満) */
 @media screen and (max-width: 600px) {
     :root {
-        --title-font-size: 24px;
-        --subtitle-font-size: 20px;
+        --title-font-size: 18px;
+        --subtitle-font-size: 15px;
         --body-font-size: 14px;
         --body2-font-size: 12px;
     }
@@ -51,8 +55,8 @@
 body {
     font-family: Arial, sans-serif;
     overflow-y: scroll; /* スクロールバーが常に表示されるように設定 */
-    background-color: rgb(0, 0, 132); /* 全体の背景色を青にする */
-    color: rgb(255, 255, 9);
+    background-color: var(--main-color-1); /* 全体の背景色を青にする */
+    color: var(--sub-color-1);
     margin: 0;
     padding: 0;
     padding-top: 80px; /* ヘッダーとナビゲーションの高さ分のスペースを確保 */
@@ -108,39 +112,46 @@ body {
 ---------------------------------------------------------------------------------------------------
 */
 header {
-    background-color: rgb(0, 0, 132); /* 背景色を r:0, g:0, b:80 に設定 */
-    color: rgb(251, 0, 111); /* テキスト色を r:200, g:200, b:10 に設定 */
+    background-color: var(--main-color-1); /* 背景色 */
+    color: var(--accent-color-1); /* テキスト色 */
     text-align: left;
-    padding: 10px 10px;
-    padding-left: 10%; /* 左から20%の位置にテキストを配置 */
+    padding: 10px 0px 10px 0px;
+    margin: 0px 0px 0px 10%;
+    padding-left: 0%; /* 左から20%の位置にテキストを配置 */
     position: fixed; /* スクロール時に画面上部に固定 */
     top: 0;
-    width: 100%; /* 横幅を80%に設定し、左右に10%ずつ余白を設ける */
+    width: 80%; /* 横幅を80%に設定し、左右に10%ずつ余白を設ける */
     left: 0%;
     z-index: 1000; /* 他の要素より上に表示するための設定 */
-    font-size: 18px;
+    font-size: var(--title-font-size);
     height: 40px; /* ヘッダーの高さを60pxに固定 */
     line-height: 0px; /* テキストをヘッダーの中央に配置するためのラインハイト */
 }
 
-
-/* ナビゲーションメニューのスタイル */
+/* 
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+ナビゲーションメニューのスタイル
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+*/
 nav {
     position: fixed;
     top: 60px; /* ヘッダーの下に配置 */
     width: 100%; /* 横幅を80%に設定し、左右に10%ずつ余白を設ける */
     left: 0%;
-    background-color: rgb(36, 0, 255); /* ナビゲーションの背景色 */
+    background-color: var(--main-color-2); /* ナビゲーションの背景色 */
     z-index: 999; /* ヘッダーのすぐ下に表示 */
+    font-size: var(--subtitle-font-size);
 }
 
 nav ul {
     display: flex;
     justify-content: left;
     list-style-type: none;
-    padding: 0px 0px;
-    margin:  0px;
-    padding-left: 10%; /* 左から20%の位置にテキストを配置 */
+    padding: 0px 10% 0px 10%;
+    margin:  0px 0px 0px 0px;
+    /* padding-left: 10%; 左から10%の位置にテキストを配置 */
 }
 
 nav ul li {
@@ -149,29 +160,31 @@ nav ul li {
 }
 
 nav ul li a {
-    color: rgb(255, 255, 255); /* リンクのテキスト色 */
+    color: var(--white-color-1); /* リンクのテキスト色 */
     text-decoration: none;
     padding: 10px 10px;
+    margin: 0px 0px;
     display: block;
     font-weight: bold; /* 文字をボールドに設定 */
 }
-/* ホバー時のスタイル */
-nav ul li a:hover {
-    background-color: rgb(255, 255, 9); /* ホバー時の背景色 */
-    color: rgb(36, 0, 255); /* ホバー時のテキスト色 */
-    font-weight: bold;
-}
 
-/* 選択中のリンクのスタイル */
+/* ホバー時と選択中のリンクのスタイルをまとめる */
+nav ul li a:hover,
 nav ul li a.active {
-    background-color: rgb(255, 255, 9); /* ホバー時と同じ背景色 */
-    color: rgb(36, 0, 255); /* ホバー時と同じテキスト色 */
+    background-color: var(--sub-color-1); /* 背景色 */
+    color: var(--main-color-2); /* テキスト色 */
     font-weight: bold; /* ボールドに設定 */
 }
 
 
 
-/* 各タブのコンテンツ */
+/* 
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+各タブのコンテンツ
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+*/
 .tabcontent {
     display: none;
     padding: 0px;
