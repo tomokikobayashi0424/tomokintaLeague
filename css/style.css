@@ -1,3 +1,53 @@
+:root {
+    /* デフォルトのフォントサイズ変数（PC向け） */
+    --title-font-size: 32px;
+    --subtitle-font-size: 24px;
+    --body-font-size: 16px;
+    --body2-font-size: 14px;
+}
+
+/* PC向けのメディアクエリ (画面幅が1024px以上) */
+@media screen and (min-width: 1024px) {
+    :root {
+        --title-font-size: 36px;
+        --subtitle-font-size: 28px;
+        --body-font-size: 18px;
+        --body2-font-size: 16px;
+    }
+}
+
+/* タブレットやスマホ向けのメディアクエリ (画面幅が1024px未満) */
+@media screen and (max-width: 1023px) {
+    :root {
+        --title-font-size: 28px;
+        --subtitle-font-size: 22px;
+        --body-font-size: 16px;
+        --body2-font-size: 14px;
+    }
+}
+
+
+/* スマホ向けのメディアクエリ (画面幅が600px未満) */
+@media screen and (max-width: 600px) {
+    :root {
+        --title-font-size: 24px;
+        --subtitle-font-size: 20px;
+        --body-font-size: 14px;
+        --body2-font-size: 12px;
+    }
+    .match-container {
+        flex-direction: column; /* 横並びから縦並びに変更 */
+        align-items: stretch; /* 幅を親要素いっぱいに */
+    }
+
+    .match-table, .stats-table {
+        width: 100%; /* テーブルを画面幅いっぱいに */
+        margin-right: 0; /* 右側の余白を削除 */
+        margin-bottom: 20px; /* 下に余白を追加 */
+    }
+}
+
+
 body {
     font-family: Arial, sans-serif;
     overflow-y: scroll; /* スクロールバーが常に表示されるように設定 */
@@ -35,7 +85,7 @@ body {
     padding: 10px; /* パディング */
     border: none; /* 枠線を消す */
     cursor: pointer; /* クリックできるようにカーソル変更 */
-    width: 100%; /* 横幅を100%にして左右いっぱいに広げる */
+    width: 20%; /* 横幅を100%にして左右いっぱいに広げる */
     text-align: center; /* テキストを中央揃え */
     font-weight: bold; /* 太字に */
     font-size: 10px; /* フォントサイズ */
@@ -804,27 +854,4 @@ footer img {
 
 
 
-/* PC向けのメディアクエリ (画面幅が1024px以上) */
-@media screen and (min-width: 1024px) {
 
-}
-
-/* タブレットやスマホ向けのメディアクエリ (画面幅が1024px未満) */
-@media screen and (max-width: 1023px) {
-
-}
-
-
-/* スマホ向けのメディアクエリ (画面幅が600px未満) */
-@media screen and (max-width: 600px) {
-    .match-container {
-        flex-direction: column; /* 横並びから縦並びに変更 */
-        align-items: stretch; /* 幅を親要素いっぱいに */
-    }
-
-    .match-table, .stats-table {
-        width: 100%; /* テーブルを画面幅いっぱいに */
-        margin-right: 0; /* 右側の余白を削除 */
-        margin-bottom: 20px; /* 下に余白を追加 */
-    }
-}
