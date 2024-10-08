@@ -8,25 +8,27 @@
     --black-color-1: rgb(0, 0, 0);         /* 文字色2（サブ） */
     --gray-color-1: rgb(110, 110, 110);   /* 文字色3（補助） */
     --white-color-1: rgb(255, 255, 255);   /* 文字色3（補助） */
+    --header-font-size: 15px;
+    --navi-font-size: 15px;
 }
 
 /* PC向けのメディアクエリ (画面幅が1024px以上) */
 @media screen and (min-width: 1024px) {
     :root {
-        --title-font-size: 18px;
+        --title-font-size: 30px;
         --subtitle-font-size: 15px;
         --body-font-size: 18px;
-        --body2-font-size: 16px;
+        --body2-font-size: 10px;
     }
 }
 
 /* タブレットやスマホ向けのメディアクエリ (画面幅が1024px未満) */
 @media screen and (max-width: 1023px) {
     :root {
-        --title-font-size: 18px;
+        --title-font-size: 30px;
         --subtitle-font-size: 15px;
         --body-font-size: 16px;
-        --body2-font-size: 14px;
+        --body2-font-size: 10px;
     }
 }
 
@@ -34,10 +36,10 @@
 /* スマホ向けのメディアクエリ (画面幅が600px未満) */
 @media screen and (max-width: 600px) {
     :root {
-        --title-font-size: 18px;
+        --title-font-size: 30px;
         --subtitle-font-size: 15px;
         --body-font-size: 14px;
-        --body2-font-size: 12px;
+        --body2-font-size: 10px;
     }
     .match-container {
         flex-direction: column; /* 横並びから縦並びに変更 */
@@ -61,23 +63,50 @@ body {
     padding: 0;
     padding-top: 80px; /* ヘッダーとナビゲーションの高さ分のスペースを確保 */
 }
+h2 {
+    font-size: var(--title-font-size); /* フォントサイズを指定 */
+    font-weight: bold;
+    color: var(--sub-color-1);
+}
 
 /* ボタンの共通スタイル */
 .button-common {
-    background-color: rgb(251, 0, 111); /* 背景色 */
-    color: white; /* テキストの色 */
+    background-color: var(--accent-color-1); /* 背景色 */
+    color: var(--white-color-1); /* テキストの色 */
     padding: 10px; /* パディング */
+    margin: 10px 0; /* 上下に余白 */
     border: none; /* 枠線を消す */
     cursor: pointer; /* クリックできるようにカーソル変更 */
-    width: 20%; /* 横幅を100%にして左右いっぱいに広げる */
+    width: 100%; /* 横幅を100%にして左右いっぱいに広げる */
     text-align: center; /* テキストを中央揃え */
     font-weight: bold; /* 太字に */
-    font-size: 18px; /* フォントサイズ */
+    font-size: var(--body-font-size); /* フォントサイズ */
+    display: block;
+    border-radius: 5px; /* 角を丸くする */
+}
+/* ボタンのスタイル */
+.button-common2 {
+    background-color: var(--accent-color-1); /* 背景色 */
+    color: var(--white-color-1); /* テキストの色 */
+    padding: 10px; /* パディング */
     margin: 10px 0; /* 上下に余白 */
+    border: none; /* 枠線を消す */
+    cursor: pointer; /* クリックできるようにカーソル変更 */
+    width: 10%; /* 横幅を100%にして左右いっぱいに広げる */
+    text-align: center; /* テキストを中央揃え */
+    font-weight: bold; /* 太字に */
+    font-size: var(--body-font-size); /* フォントサイズ */
+    display: block;
+    border-radius: 5px; /* 角を丸くする */
 }
 
 /* ホバー時のスタイル */
 .button-common:hover {
+    background-color: rgb(251, 0, 111); /* ホバー時の背景色 */
+    color: rgb(110, 110, 110); /* ホバー時もテキストは白 */
+}
+/* ホバー時のスタイル */
+.button-common2:hover {
     background-color: rgb(251, 0, 111); /* ホバー時の背景色 */
     color: rgb(110, 110, 110); /* ホバー時もテキストは白 */
 }
@@ -120,10 +149,10 @@ header {
     padding-left: 0%; /* 左から20%の位置にテキストを配置 */
     position: fixed; /* スクロール時に画面上部に固定 */
     top: 0;
-    width: 80%; /* 横幅を80%に設定し、左右に10%ずつ余白を設ける */
+    width: 100%; /* 横幅を80%に設定し、左右に10%ずつ余白を設ける */
     left: 0%;
     z-index: 1000; /* 他の要素より上に表示するための設定 */
-    font-size: var(--title-font-size);
+    font-size: var(--header-font-size);
     height: 40px; /* ヘッダーの高さを60pxに固定 */
     line-height: 0px; /* テキストをヘッダーの中央に配置するためのラインハイト */
 }
@@ -142,7 +171,7 @@ nav {
     left: 0%;
     background-color: var(--main-color-2); /* ナビゲーションの背景色 */
     z-index: 999; /* ヘッダーのすぐ下に表示 */
-    font-size: var(--subtitle-font-size);
+    font-size: var(--navi-font-size);
 }
 
 nav ul {
@@ -231,12 +260,14 @@ footer img {
     display: flex;
     justify-content: center;/*flex-start; /* 最終段を左寄せに変更 */
     flex-wrap: wrap;
-    padding: 20px;
+    padding: 0px;
+    margin: 0px;
 }
 
 .team-item {
     text-align: center;
-    margin: 10px; /* チームロゴの間隔を調整 */
+    padding: 0px;
+    margin: 0px;
     display: flex;
     flex-direction: column; /* 縦方向に要素を並べる */
     align-items: center; /* 要素を中央揃えに */
@@ -244,49 +275,33 @@ footer img {
 
 .team-logo {
     width: 100px;
-    height: auto;
+    height: 100px;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 .team-name-input {
     width: 100px; /* 入力欄の横幅をロゴに合わせる */
-    padding: 5px; /* 入力欄にパディングを追加 */
-    margin-top: 10px; /* ロゴと入力欄の間に余白を追加 */
+    padding: 0px; /* 入力欄にパディングを追加 */
+    margin: 0px; /* ロゴと入力欄の間に余白を追加 */
     text-align: center; /* テキストを中央揃えに */
-    border: 1px solid rgb(255, 255, 9); /* 入力欄の枠線 */
-    background-color: rgb(255, 255, 9); /* 背景色 */
-    color: rgb(0, 0, 132); /* 文字色 */
+    border: 1px solid var(--main-color-1); /* 入力欄の枠線 */
+    background-color: var(--main-color-1); /* 背景色 */
+    color: var(--sub-color-1); /* 文字色 */
+    font-size: var(--body2-font-size);
     font-weight: bold;
 }
 .team-subname-input {
     width: 100px; /* 入力欄の横幅をロゴに合わせる */
-    padding: 5px; /* 入力欄にパディングを追加 */
-    margin-top: 0px; /* ロゴと入力欄の間に余白を追加 */
+    padding: 0px 0px 0px 0px; /* 入力欄にパディングを追加 */
+    margin: 0px 0px 10px 0px; /* ロゴと入力欄の間に余白を追加 */
     text-align: center; /* テキストを中央揃えに */
-    border: 1px solid rgb(255, 255, 9); /* 入力欄の枠線 */
-    background-color: rgb(255, 255, 9); /* 背景色 */
-    color: rgb(0, 0, 132); /* 文字色 */
+    border: 1px solid var(--main-color-1); /* 入力欄の枠線 */
+    background-color: var(--main-color-1); /* 背景色 */
+    color: var(--sub-color-1); /* 文字色 */
+    font-size: var(--body-font-size);
     font-weight: bold;
 }
 
-/* チーム保存ボタンのスタイル */
-#teamSaveButton {
-    background-color: rgb(251, 0, 111);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    display: block;
-    /* margin: 20px auto; */
-    text-align: center;
-    width: 100%; /* 横幅を100%に */
-    box-sizing: border-box; /* 幅をボックス全体に適用 */
-}
-
-#teamSaveButton:hover {
-    color: rgb(110, 110, 110);
-}
 /* 親要素の幅を設定 */
 #teamForm {
     width: 100%; /* フォーム全体の横幅を100%に設定 */
@@ -296,39 +311,18 @@ footer img {
     width: 100%; /* チームリストも横幅100%に */
 }
 
-/* 全ての段の横並びが整うように縦列を合わせる */
-/* .team-item { */
-    /* flex-basis: calc(100% / 7);  */
-    /* 7列表示に調整 */
-/* } */
 .team-logo-button {
     background-color: transparent;
     border: none;
-    padding: 0;
+    padding: 0 10px 0;
     cursor: pointer;
 }
 
 .team-logo-button img {
     width: 100px;
-    height: auto;
+    height: 100px;
     display: block;
-    margin-bottom: 10px;
-}
-
-/* 戻るボタンのスタイル */
-#teamPerformanceTab button {
-    background-color: rgb(251, 0, 111);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100%; /* 横幅をいっぱいに */
-    margin-top: 20px;
-}
-
-#teamPerformanceTab button:hover {
-    background-color: rgb(200, 0, 90); /* ホバー時の色変更 */
+    margin-bottom: 5px;
 }
 
 
@@ -342,17 +336,14 @@ footer img {
 
 /* チーム戦績タブ全体のスタイル */
 #teamPerformanceTab {
-    padding: 20px;
-    background-color: rgb(0, 0, 132); /* 背景色を明るいグレーに */
+    padding: 0px;
+    background-color: var(--main-color-1);
 }
 
 /* チーム名のヘッダーのスタイル */
 #teamNameHeader {
-    font-size: 24px;
-    font-weight: bold;
     text-align: center;
-    margin-bottom: 20px;
-    color: rgb(255, 255, 9); /* 文字色 */
+    margin-bottom: 10px;
 }
 
 /* チーム戦績テーブル全体のスタイル */
@@ -360,57 +351,39 @@ footer img {
     width: 100%; /* テーブルを画面いっぱいに広げる */
     border-collapse: collapse; /* 枠線を統一して表示 */
     margin-bottom: 20px; /* 戻るボタンとの間に余白を追加 */
-    background-color: #fff; /* 背景色を白に */
+    background-color: var(--white-color-1); /* 背景色を白に */
 }
 
 /* テーブルのヘッダー部分のスタイル */
 .team-stats-table th {
-    background-color: rgb(251, 0, 111); /* 緑色の背景 */
-    color: rgb(0, 0, 132); /* テキストを白に */
+    background-color: var(--accent-color-1); /*  */
+    color: var(--main-color-1); /* テキストを白に */
     font-weight: bold;
     padding: 12px; /* セルの余白を追加 */
     text-align: center; /* テキストを中央揃え */
-    border: 1px solid rgb(251, 0, 111); /* 境界線を設定 */
+    border: 1px solid var(--main-color-1); /* 境界線 */
 }
 
 /* テーブルのボディ部分のスタイル */
 .team-stats-table td {
     padding: 10px;
     text-align: center; /* テキストを中央揃え */
-    border: 1px solid rgb(0, 0, 132); /* 境界線 */
-    font-size: 16px; /* フォントサイズ */
-    color: #333; /* 濃いグレーのテキスト色 */
-    background-color: white; /* 明るいグレーの背景 */
+    border: 1px solid var(--main-color-1); /* 境界線 */
+    font-size: var(--body-font-size); /* フォントサイズ */
+    color: var(--main-color-1); /* 濃いグレーのテキスト色 */
+    background-color: var(--white-color-1); /* 明るいグレーの背景 */
 }
 
-/* 偶数行の背景色を薄いグレーに */
+/* 偶数行の背景色を薄いグレーに
 .team-stats-table tr:nth-child(even) {
     background-color: white;
 }
 
-/* テーブルの行がホバーされたときのスタイル */
+テーブルの行がホバーされたときのスタイル
 .team-stats-table tr:hover {
-    background-color: #ddd; /* ホバー時に少し濃いグレーに */
-}
+    background-color: #ddd; ホバー時に少し濃いグレーに
+} */
 
-/* 戻るボタンのスタイル */
-#teamPerformanceTab button {
-    background-color: rgb(251, 0, 111); /* 緑色 */
-    color: white; /* テキストを白に */
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    display: block;
-    margin: 0 auto;
-    border-radius: 5px; /* 角を丸くする */
-}
-
-/* ボタンがホバーされたときのスタイル */
-#teamPerformanceTab button:hover {
-    background-color: rgb(251, 0, 111); /* ホバー時の色を少し濃く */
-    color: rgb(110, 110, 110);
-}
 
 /*
 ---------------------------------------------------------------------------------------------------
@@ -421,8 +394,8 @@ footer img {
 */
 /* タブ全体の背景色を青に設定 */
 #schedule {
-    background-color: rgb(0, 0, 132); /* タブ全体の背景色を青に設定 */
-    color: rgb(255, 255, 9); /* 文字色を白に設定 */
+    background-color: var(--main-color-1); /* タブ全体の背景色を青に設定 */
+    color: var(--sub-color-1); /* 文字色を白に設定 */
     padding: 0%; /* 全体に余白を追加 */
 }
 
@@ -813,58 +786,4 @@ footer img {
 }
 
 /* 
----------------------------------------------------------------------------------------------------
-個人戦績のランキングテーブル 
----------------------------------------------------------------------------------------------------
-*/
-
-.ranking-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-/* ランキングテーブルのヘッダーのスタイル */
-.ranking-table th {
-    background-color: rgb(36, 0, 255); /* ヘッダーの背景色を青に設定 */
-    color: white; /* ヘッダーの文字色を白に設定 */
-    font-weight: bold; /* ヘッダーの文字をボールドに */
-    border: 1px solid rgb(0, 0, 132); /* 枠の色を濃い青に設定 */
-    padding: 8px;
-    text-align: center; /* テキストを中央揃えに */
-}
-
-/* ヘッダー以外のセルのスタイル */
-.ranking-table td {
-    background-color: #ffffff; /* 背景を白に */
-    color: rgb(0, 0, 132); /* 文字色を濃い青に */
-    border: 1px solid rgb(0, 0, 132); /* 枠の色を濃い青に設定 */
-    padding: 8px;
-    text-align: center; /* テキストを中央揃えに */
-}
-
-/* 偶数行の背景色を設定 */
-.ranking-table tr:nth-child(even) {
-    background-color: #f9f9f9; /* 偶数行の背景色 */
-}
-
-/* ホバー時の行の背景色 */
-.ranking-table tr:hover {
-    background-color: #f1f1f1; /* ホバー時の背景色 */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+------------------------------------------------------------------------------------

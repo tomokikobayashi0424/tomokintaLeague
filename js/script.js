@@ -469,9 +469,9 @@ function displaySchedule() {
         scheduleHTML += `<div class="round" id="round${i}" style="display: none;">`;
         scheduleHTML +=  `
             <div class="schedule-header">
-                <button class="button-common" onclick="previousRound()">前節</button>
+                <button class="button-common2" onclick="previousRound()">前節</button>
                 <h3 class="week-info">${weekInfo}</h3>
-                <button class="button-common" onclick="nextRound()">次節</button>
+                <button class="button-common2" onclick="nextRound()">次節</button>
             </div>`;
         schedule[i].forEach((match, index) => {
             scheduleHTML += `
