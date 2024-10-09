@@ -135,6 +135,7 @@ function fetchAndSaveJsonFromGitHub() {
             showRound(0);       // ページロード時に最初のラウンドを表示
             updateStandingsTable();  // 順位表を表示
             updateRankChangeArrows() // 矢印も表示
+
         })
         .catch(error => {
             console.error('エラーが発生しました:', error);
@@ -187,6 +188,8 @@ document.addEventListener('DOMContentLoaded', () => {
     showRound(0);       // ページロード時に最初のラウンドを表示
     updateStandingsTable();  // 順位表を表示
     updateRankChangeArrows() // 矢印も
+    displayIndividualRecords();
+    updateIndividualRecords();  // 必要な場合に個人戦績を更新
     
 });
 
@@ -1068,5 +1071,4 @@ function displayPlayerRanking(tableId, players) {
 
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
