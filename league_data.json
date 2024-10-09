@@ -1,19 +1,4 @@
 {
-  "teamsData":[
-    { "teamId": 0, "teams": "Koverpool FC", "teamsSub": "KFC" },
-    { "teamId": 1, "teams": "free to play FC", "teamsSub": "FTP" },
-    { "teamId": 2, "teams": "Real Kotarid", "teamsSub": "RKD" },
-    { "teamId": 3, "teams": "Forester United f.c.", "teamsSub": "FUN" },
-    { "teamId": 4, "teams": "TKBEAMS", "teamsSub": "TKB" },
-    { "teamId": 5, "teams": "Astroboy FC", "teamsSub": "AFC" },
-    { "teamId": 6, "teams": "Nakajima Ninjas", "teamsSub": "NNJ" },
-    { "teamId": 7, "teams": "Shigecelona FC", "teamsSub": "SFC" },
-    { "teamId": 8, "teams": "Matsubars", "teamsSub": "MTB" },
-    { "teamId": 9, "teams": "Tanaka Thunderbolts", "teamsSub": "TTB" },
-    { "teamId": 10, "teams": "Nob Angels Dodgers", "teamsSub": "NAD" },
-    { "teamId": 11, "teams": "Hashimoto Heroes", "teamsSub": "HHV" }
-  ],
-
   "teams": [
     "Koverpool FC",
     "free to play FC",
@@ -90,4 +75,57 @@
     },
     {
       "Rank": 12,
-      
+      "teamId": "Hashimoto Heroes"
+    }
+  ],
+  "currentStandings": [
+    {
+      "Rank": 1,
+      "teamId": "Koverpool FC"
+    },
+    {
+      "Rank": 2,
+      "teamId": "free to play FC"
+    },
+    {
+      "Rank": 3,
+      "teamId": "Real Kotarid"
+    },
+    {
+      "Rank": 4,
+      "teamId": "Forester United f.c."
+    },
+    {
+      "Rank": 5,
+      "teamId": "TKBEAMS"
+    },
+    {
+      "Rank": 6,
+      "teamId": "Astroboy FC"
+    },
+    {
+      "Rank": 7,
+      "teamId": "Nakajima Ninjas"
+    },
+    {
+      "Rank": 8,
+      "teamId": "Shigecelona FC"
+    },
+    {
+      "Rank": 9,
+      "teamId": "Matsubars"
+    },
+    {
+      "Rank": 10,
+      "teamId": "Tanaka Thunderbolts"
+    },
+    {
+      "Rank": 11,
+      "teamId": "Nob Angels Dodgers"
+    },
+    {
+      "Rank": 12,
+      "teamId": "Hashimoto Heroes"
+    }
+  ]
+}

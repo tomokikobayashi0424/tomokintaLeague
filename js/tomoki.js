@@ -35,10 +35,99 @@ document.getElementById("home").style.display = "block";
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // ホームタブ
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+// GitHubリポジトリからJSONデータを取得し、ローカルストレージに保存する関数
+function fetchAndSaveJsonFromGitHub() {
+
+
+
+
+    //////
+    //////
+    //////
+    //////
+    //////
+    //////なぜかローカルは絶対パスでgitにあげるときは相対パス
+    const url = 'https://raw.githubusercontent.com/tomokikobayashi0424/tomokintaLeague/master/league_data.json'; // JSONファイルのURL
+
+    // python3 -m http.server　ターミナルでこのサーバーを建てることで相対パスでも大丈夫になった
+
+    // const url = './league_data.json'; // JSONファイルの相対パス
+    fetch(url)
+        .then(response => {
+            console.log(response); // ここでレスポンスを確認
+            if (!response.ok) {
+                throw new Error('GitHubからデータを取得できませんでした');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // JSONデータからteamsとmatchDataをローカルストレージに保存
+            if (data.teamsSub) {
+                localStorage.setItem('teamsSub', JSON.stringify(data.teamsSub));
+            }
+            if (data.teams) {
+                localStorage.setItem('teams', JSON.stringify(data.teams));
+            }
+            
+            if (data.matchData) {
+                localStorage.setItem('matchData', JSON.stringify(data.matchData));
+            }
+            if (data.previousStandings) {
+                localStorage.setItem('previousStandings', JSON.stringify(data.previousStandings));
+            }
+            if (data.currentStandings) {
+                localStorage.setItem('currentStandings', JSON.stringify(data.currentStandings));
+            }
+            // if (data.teamsData) {
+            //     localStorage.setItem('teamsData', JSON.stringify(data.teamsData));
+            // }
+            console.log('JSONデータがローカルストレージに保存されました');
+
+            // ローカルストレージにフラグを立てて、次回からリロードを避ける
+            // localStorage.setItem('dataFetched', 'true');
+            
+            // データ保存が完了したらページをリロード
+            // location.reload();
+            // getTeams();
+            displaySchedule();  // 日程を表示
+            showRound(0);       // ページロード時に最初のラウンドを表示
+            updateStandingsTable();  // 順位表を表示
+            updateRankChangeArrows() // 矢印も
+        })
+        .catch(error => {
+            console.error('エラーが発生しました:', error);
+        });
+}
+// ローカルストレージをリセットしてからJSONデータを読み込む関数
+function resetLocalStorageAndLoadJson() {
+    // ローカルストレージのすべてのデータを削除
+    localStorage.clear();
+    
+    // JSONデータをGitHubから再取得
+    fetchAndSaveJsonFromGitHub();
+}
+
+// ボタンをクリックしてJSONデータを読み込む
+document.getElementById('loadJsonButton').addEventListener('click', resetLocalStorageAndLoadJson);
+
+// // ページが読み込まれたときに、自動的にJSONデータを取得し、ローカルストレージに保存
+// window.addEventListener('load', () => {
+//     // すでにデータを取得しているか確認
+//     if (!localStorage.getItem('dataFetched')) {
+//         fetchAndSaveJsonFromGitHub();
+//     }
+// });
+
+
+
+
+
 // チーム名を取得してローカルストレージに保存する関数
 function saveTeams() {
     let teams = [];
     let teamsSub = [];
+    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || []; // 既存のteamsDataを取得、なければ空配列
+    
     for (let i = 1; i <= totalTeamNum; i++) {
         // チーム名を取得し、前後の空白を削除してから保存
         let teamName = document.getElementById(`team${i}`).value.trim();
@@ -46,10 +135,27 @@ function saveTeams() {
         // 三文字チーム名を取得し、前後の空白を削除してから保存
         let teamSubName = document.getElementById(`teamSub${i}`).value.trim();
         teamsSub.push(teamSubName);
+
+        // 既存のteamIdを探すか、新しいオブジェクトを作成
+        let existingTeam = teamsData.find(team => team.teamId === i - 1);
+
+        if (existingTeam) {
+            // 既存のチームデータを更新
+            existingTeam.teams = teamName;
+            existingTeam.teamsSub = teamSubName;
+        } else {
+            // 新しいチームデータを追加
+            teamsData.push({
+                teamId: i - 1, // チームIDは0始まり
+                teams: teamName,
+                teamsSub: teamSubName
+            });
+        }
     }
     // チーム名をローカルストレージに保存
     localStorage.setItem('teams', JSON.stringify(teams));
     localStorage.setItem('teamsSub', JSON.stringify(teamsSub));
+    localStorage.setItem('teamsData', JSON.stringify(teamsData));
     alert("チーム名と3文字略称が保存されました！");
     // チーム名を更新した後、日程と順位表を再生成
     displaySchedule();
@@ -57,14 +163,28 @@ function saveTeams() {
 }
 
 // 保存したチーム名を取得する関数
+// function getTeams() {
+//     let teams = JSON.parse(localStorage.getItem('teams')) || [];
+//     let teamsSub = JSON.parse(localStorage.getItem('teamsSub')) || [];
+//     for (let i = 1; i <= totalTeamNum; i++) {
+//         document.getElementById(`team${i}`).value = teams[i - 1] || `Team${i}`;
+//         document.getElementById(`teamSub${i}`).value = teamsSub[i - 1] || `Sub${i}`; // 三文字チーム名
+//     }
+// }
 function getTeams() {
-    let teams = JSON.parse(localStorage.getItem('teams')) || [];
-    let teamsSub = JSON.parse(localStorage.getItem('teamsSub')) || [];
+    // teamsDataをローカルストレージから取得
+    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
+
+    // データが存在しない場合はデフォルトの値を設定
     for (let i = 1; i <= totalTeamNum; i++) {
-        document.getElementById(`team${i}`).value = teams[i - 1] || `Team${i}`;
-        document.getElementById(`teamSub${i}`).value = teamsSub[i - 1] || `Sub${i}`; // 三文字チーム名
+        let teamData = teamsData[i - 1] || { teamId: i, teamName: `Team${i}`, teamSub: `Sub${i}` };
+
+        // フォームにチーム名と略称を設定
+        document.getElementById(`team${i}`).value = teamData.teams;
+        document.getElementById(`teamSub${i}`).value = teamData.teamsSub;
     }
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const teamContainer = document.querySelector('.team-list');
@@ -120,6 +240,7 @@ function downloadLocalStorageAsJson() {
     // ローカルストレージから必要なデータを取得
     let teams = JSON.parse(localStorage.getItem('teams')) || [];
     let teamsSub = JSON.parse(localStorage.getItem('teamsSub')) || {};
+    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
     let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
     let previousStandings = JSON.parse(localStorage.getItem('previousStandings')) || {};
     let currentStandings = JSON.parse(localStorage.getItem('currentStandings')) || {};
@@ -128,6 +249,7 @@ function downloadLocalStorageAsJson() {
     let dataToSave = {
         teams: teams,
         teamsSub: teamsSub,
+        teamsData: teamsData,
         matchData: matchData,
         previousStandings: previousStandings,
         currentStandings: currentStandings
@@ -150,88 +272,7 @@ function downloadLocalStorageAsJson() {
 document.getElementById('downloadJsonButton').addEventListener('click', downloadLocalStorageAsJson);
 
 
-// GitHubリポジトリからJSONデータを取得し、ローカルストレージに保存する関数
-function fetchAndSaveJsonFromGitHub() {
 
-
-
-
-    //////
-    //////
-    //////
-    //////
-    //////
-    //////なぜかローカルは絶対パスでgitにあげるときは相対パス
-    //const url = 'https://raw.githubusercontent.com/tomokikobayashi0424/tomokintaLeague/master/league_data.json'; // JSONファイルのURL
-
-    // python3 -m http.server　ターミナルでこのサーバーを建てることで相対パスでも大丈夫になった
-
-    const url = './league_data.json'; // JSONファイルの相対パス
-    fetch(url)
-        .then(response => {
-            console.log(response); // ここでレスポンスを確認
-            if (!response.ok) {
-                throw new Error('GitHubからデータを取得できませんでした');
-            }
-            return response.json();
-        })
-        .then(data => {
-            // JSONデータからteamsとmatchDataをローカルストレージに保存
-            if (data.teamsSub) {
-                localStorage.setItem('teamsSub', JSON.stringify(data.teamsSub));
-            }
-            if (data.teams) {
-                localStorage.setItem('teams', JSON.stringify(data.teams));
-            }
-            
-            if (data.matchData) {
-                localStorage.setItem('matchData', JSON.stringify(data.matchData));
-            }
-            if (data.previousStandings) {
-                localStorage.setItem('previousStandings', JSON.stringify(data.previousStandings));
-            }
-            if (data.currentStandings) {
-                localStorage.setItem('currentStandings', JSON.stringify(data.currentStandings));
-            }
-            if (data.teamsData) {
-                localStorage.setItem('teamsData', JSON.stringify(data.teamsData));
-            }
-            console.log('JSONデータがローカルストレージに保存されました');
-
-            // ローカルストレージにフラグを立てて、次回からリロードを避ける
-            // localStorage.setItem('dataFetched', 'true');
-            
-            // データ保存が完了したらページをリロード
-            // location.reload();
-            getTeams();
-            displaySchedule();  // 日程を表示
-            showRound(0);       // ページロード時に最初のラウンドを表示
-            updateStandingsTable();  // 順位表を表示
-            updateRankChangeArrows() // 矢印も
-        })
-        .catch(error => {
-            console.error('エラーが発生しました:', error);
-        });
-}
-// ローカルストレージをリセットしてからJSONデータを読み込む関数
-function resetLocalStorageAndLoadJson() {
-    // ローカルストレージのすべてのデータを削除
-    localStorage.clear();
-    
-    // JSONデータをGitHubから再取得
-    fetchAndSaveJsonFromGitHub();
-}
-
-// ボタンをクリックしてJSONデータを読み込む
-document.getElementById('loadJsonButton').addEventListener('click', resetLocalStorageAndLoadJson);
-
-// // ページが読み込まれたときに、自動的にJSONデータを取得し、ローカルストレージに保存
-// window.addEventListener('load', () => {
-//     // すでにデータを取得しているか確認
-//     if (!localStorage.getItem('dataFetched')) {
-//         fetchAndSaveJsonFromGitHub();
-//     }
-// });
 
 
 
@@ -1219,63 +1260,4 @@ function updateIndividualRecords() {
         if (match.home && Array.isArray(match.home.goalPlayers)) {
             match.home.goalPlayers.forEach(player => {
                 if (player) {
-                    goalPlayers[player] = (goalPlayers[player] || 0) + 1;
-                }
-            });
-        }
-        if (match.home && Array.isArray(match.home.assistPlayers)) {
-            match.home.assistPlayers.forEach(player => {
-                if (player) {
-                    assistPlayers[player] = (assistPlayers[player] || 0) + 1;
-                }
-            });
-        }
-
-        // アウェイチームのゴールとアシストをカウント
-        if (match.away && Array.isArray(match.away.goalPlayers)) {
-            match.away.goalPlayers.forEach(player => {
-                if (player) {
-                    goalPlayers[player] = (goalPlayers[player] || 0) + 1;
-                }
-            });
-        }
-        if (match.away && Array.isArray(match.away.assistPlayers)) {
-            match.away.assistPlayers.forEach(player => {
-                if (player) {
-                    assistPlayers[player] = (assistPlayers[player] || 0) + 1;
-                }
-            });
-        }
-    });
-
-    // ゴールランキングの表示
-    displayPlayerRanking('goalPlayersTable', goalPlayers);
-
-    // アシストランキングの表示
-    displayPlayerRanking('assistPlayersTable', assistPlayers);
-}
-
-
-// ランキング表示用の関数
-function displayPlayerRanking(tableId, players) {
-    let sortedPlayers = Object.entries(players).sort((a, b) => b[1] - a[1]); // 得点順にソート
-    let tbody = document.querySelector(`#${tableId} tbody`);
-    tbody.innerHTML = '';  // テーブルを初期化
-
-    sortedPlayers.forEach(([player, count], index) => {
-        let row = `
-            <tr>
-                <td>${index + 1}</td>
-                <td>${player}</td>
-                <td>${count}</td>
-            </tr>
-        `;
-        tbody.insertAdjacentHTML('beforeend', row);
-    });
-}
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
+                    goalPlayers[player] = (goalPlayers[player] || 0) + 1;
