@@ -14,33 +14,33 @@
 }
 
 /* PC向けのメディアクエリ (画面幅が1024px以上) */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 961px) {
     :root {
         --title-font-size: 30px;
         --subtitle-font-size: 25px;
-        --body-font-size: 18px;
-        --body2-font-size: 10px;
+        --body-font-size: 20px;
+        --body2-font-size: 12px;
     }
 }
 
 /* タブレットやスマホ向けのメディアクエリ (画面幅が1024px未満) */
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 960px) {
     :root {
-        --title-font-size: 30px;
+        --title-font-size: 25px;
         --subtitle-font-size: 23px;
-        --body-font-size: 16px;
+        --body-font-size: 18px;
         --body2-font-size: 10px;
     }
 }
 
 
 /* スマホ向けのメディアクエリ (画面幅が600px未満) */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 440px) {
     :root {
-        --title-font-size: 30px;
+        --title-font-size: 20px;
         --subtitle-font-size: 18px;
-        --body-font-size: 14px;
-        --body2-font-size: 10px;
+        --body-font-size: 15px;
+        --body2-font-size: 8px;
     }
 }
 
@@ -86,7 +86,7 @@ h2 {
     width: 10%; /* 横幅を100%にして左右いっぱいに広げる */
     text-align: center; /* テキストを中央揃え */
     font-weight: bold; /* 太字に */
-    font-size: var(--body-font-size); /* フォントサイズ */
+    font-size: var(--body2-font-size); /* フォントサイズ */
     display: block;
     border-radius: 5px; /* 角を丸くする */
 }
@@ -282,7 +282,7 @@ footer img {
     border: 1px solid var(--main-color-1); /* 入力欄の枠線 */
     background-color: var(--main-color-1); /* 背景色 */
     color: var(--sub-color-1); /* 文字色 */
-    font-size: var(--body-font-size);
+    font-size: var(--subtitle-font-size);
     font-weight: bold;
 }
 
@@ -342,15 +342,16 @@ footer img {
 .team-stats-table th {
     background-color: var(--accent-color-1); /*  */
     color: var(--main-color-1); /* テキストを白に */
+    font-size: var(--subtitle-font-size); /* フォントサイズ */
     font-weight: bold;
-    padding: 12px; /* セルの余白を追加 */
+    padding: 0px; /* セルの余白を追加 */
     text-align: center; /* テキストを中央揃え */
     border: 1px solid var(--main-color-1); /* 境界線 */
 }
 
 /* テーブルのボディ部分のスタイル */
 .team-stats-table td {
-    padding: 10px;
+    padding: 0px;
     text-align: center; /* テキストを中央揃え */
     border: 1px solid var(--main-color-1); /* 境界線 */
     font-size: var(--body-font-size); /* フォントサイズ */
@@ -376,10 +377,10 @@ footer img {
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
 */
-/* タブ全体の背景色を青に設定 */
+/* 日程タブ全体のスタイル */
 #schedule {
-    background-color: var(--main-color-1); /* タブ全体の背景色を青に設定 */
-    color: var(--sub-color-1); /* 文字色を白に設定 */
+    background-color: var(--main-color-1); /* タブ全体の背景色 */
+    color: var(--sub-color-1); /* 文字色 */
     padding: 0%; /* 全体に余白を追加 */
 }
 
@@ -394,7 +395,7 @@ footer img {
 /* 週情報のスタイル */
 .schedule-header .week-info {
     text-align: center;
-    font-size: var(--subtitle-font-size);
+    font-size: var(--title-font-size);
     font-weight: bold;
     margin: 0;
     flex-grow: 1; /* 余ったスペースをタイトルに与える */
@@ -424,31 +425,27 @@ footer img {
     align-items: flex-start; /* コンテンツを上揃えにする（高さを揃えない） */
 }
 
-/* 偶数番目の試合で改行を入れて新しい段に表示 */
-/* .match-container:nth-child(2n) { */
-    /* clear: both; 2番目ごとに次の行に移動 */
-/* } */
-
 /* .match-table クラスは、各試合の表（ホームとアウェイのスコアを表示する表）に適用されます */
 .match-table {
-    width: 45%; /* 横幅を100%に設定 */
-    margin-right: 5%; /* スタッツテーブルと日程表の間に2%の余白 */
-    margin-bottom: 0; /* テーブルの下の余白を削除 */
+    width: 45%; /* 横幅 */
+    margin: 0 5% 0 0; /* スタッツテーブルと日程表の間に2%の余白 */
     border-collapse: collapse; /* テーブルの境界線をまとめてすっきり表示 */
     background-color: var(--main-color-1); /* 日程表のセルの背景色 */
     color: var(--sub-color-1); /* 日程表の文字色 */
     border: 1px solid var(--main-color-1); /* テーブル全体の枠線の色 */
+    font-size: var(--body2-font-size); /* フォントサイズを大きく設定 */
 }
 
 /* 一つ目の表のヘッダー（th）にだけスタイルを適用 */
 .match-table th {
     font-weight: bold; /* ボールドに設定 */
-    font-size: var(--body-font-size); /* フォントサイズを大きく設定 */
+    font-size: var(--subtitle-font-size); /* フォントサイズを大きく設定 */
     text-align: center; /* テキストを中央揃えにする */
     padding: 0px; /* セルのパディングを設定 */
     /* border: 1px solid rgb(0, 0, 132);  */
     /* 枠線を設定 */
     box-sizing: border-box; /* 枠線とパディングを含めた幅を計算 */
+    text-align: center; /* 入力内容を中央揃え */
     background-color: var(--main-color-1); /* 日程表のヘッダーセルの背景色 */
     color: var(--sub-color-1); /* ヘッダーセルの文字色 */
 }
@@ -464,49 +461,36 @@ footer img {
     color: var(--main-color-1); /* セル内の文字色 */
 }
 
-/* ホバー時の背景色を変更 */
-.match-table td:hover, .stats-table td:hover {
-    background-color: var(--accent-color-1); /* ホバー時の背景色 */
-    color: var(--main-color-1); /* ホバー時の文字色 */
-}
+
 
 /* テキストや数値入力欄のスタイル */
-.match-table input[type="text"]{
+.match-table input[type="text"],.match-table input[type="number"]{
     width: 100%; /* 入力欄をセルの横幅いっぱいに */
-    box-sizing: border-box; /* 境界線やパディングを含む要素の幅と高さ */
-    background-color: rgb(255, 255, 9); /* 入力欄の背景色 */
-    color: rgb(0, 0, 132);/* 入力欄の文字色 */
-    border: 2px solid rgb(255, 255, 9); /* 入力欄の枠線色 */
-    padding: 5px;
-    border-radius: 0px; /* 入力欄の角を丸く */
-    font-weight: bold; /* 入力欄の文字を太字に */
-}
-
-/* 日程表の入力欄のスタイル */
-.match-table input[type="number"] {
-    width: 50%; /* 入力欄をセルの横幅いっぱいに */
     box-sizing: border-box; /* 境界線やパディングを含む要素の幅と高さ */
     background-color: var(--sub-color-1); /* 入力欄の背景色 */
     color: var(--main-color-1);/* 入力欄の文字色 */
     border: 2px solid var(--sub-color-1); /* 入力欄の枠線色 */
-    padding: 0 5px; /* 上下のパディングをゼロに、左右に5pxの余白 */
+    padding: 5px;
     border-radius: 0px; /* 入力欄の角を丸く */
+    font-size: var(--body-font-size); /* スコア入力欄のフォントサイズを調整 */
     font-weight: bold; /* 入力欄の文字を太字に */
 }
-
+.assist-player, .goal-player {
+    /* ここに共通のスタイルを定義 */
+    font-weight: bold; /* 入力欄の文字を太字に */
+}
 /* スコア入力欄に特化したスタイルも追加 */
 .match-table thead input[type="number"] {
     font-weight: bold; /* ボールドに設定 */
-    font-size: var(--body-font-size); /* スコア入力欄のフォントサイズを調整 */
-    width: 40px; /* 入力欄の幅を設定 */
+    font-size: var(--Stitle-font-size); /* スコア入力欄のフォントサイズを調整 */
     text-align: center; /* 入力内容を中央揃え */
 }
-
-/* .match-table input[type="number"]:focus { */
-    /* background-color: rgb(251, 0, 111); フォーカス時の背景色 */
-    /* border-color: rgb(251, 0, 111); フォーカス時の枠線の色 */
-    /* outline: none; フォーカス時のアウトラインを削除 */
-/* } */
+/* 数字入力のカーソルが消える魔法 */
+.match-table thead input[type="number"]::-webkit-outer-spin-button,
+.match-table thead input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
 
 /* 左右のセルの幅を設定 */
@@ -514,7 +498,7 @@ footer img {
     width: 12.5%; /* 1列目を10%に設定 */
     max-width: 12.5%;
     min-width: 12.5%;
-    text-align: right; /* 右寄せ */
+    /* text-align: right; 右寄せ */
 }
 .match-table th:nth-child(2) {
     width: 5%; /* 1列目を10%に設定 */
@@ -526,7 +510,7 @@ footer img {
     width: 10%; /* 2列目を5%に設定 */
     max-width: 10%;
     min-width: 10%;
-    text-align: center; /* 真ん中のセルのテキストを中央揃え */
+    /* text-align: center; 真ん中のセルのテキストを中央揃え */
 }
 
 .match-table th:nth-child(4) {
@@ -538,7 +522,7 @@ footer img {
     width: 12.5%; /* 3列目を10%に設定 */
     max-width: 12.5%;
     min-width: 12.5%;
-    text-align: left; /* 左寄せ */
+    /* text-align: left; 左寄せ */
 }
 /* 左右のセルの幅を設定 */
 .match-table td:nth-child(1) {
@@ -574,13 +558,14 @@ footer img {
     /* テーブルの下の余白を削除 */
 }
 
+
 /* スタッツテーブルのセル内のスタイル */
 .stats-table th, .stats-table td {
     padding: 0px; /* セル内のコンテンツに8pxの余白 */
     text-align: center; /* テキストを中央揃え */
     border: 1px solid var(--sub-color-1); /* セルの枠線の色 */
     font-weight: bold; /* ヘッダーのテキストを太字に */
-    font-size: var(--body-font-size); /* フォントサイズを大きく設定 */
+    font-size: var(--body2-font-size); /* フォントサイズを大きく設定 */
     border-left: none; /* テーブル全体の左枠線を削除 */
     border-right: none; /* テーブル全体の右枠線を削除 */
 }
@@ -594,23 +579,23 @@ footer img {
 /* スタッツ表の入力欄のスタイル */
 .stats-table input[type="number"] {
     text-align: center; /* 入力欄のテキストを中央揃えに */
-    width: 80%; /* 入力欄の幅をセル内で調整 */
-    padding: 5px; /* 入力欄にパディングを追加 */
+    width: 100%; /* 入力欄の幅をセル内で調整 */
+    padding: 0px; /* 入力欄にパディングを追加 */
     box-sizing: border-box; /* パディングを幅に含むようにする */
     background-color: var(--main-color-1); /* 入力欄の背景色 */
     color: var(--sub-color-1); /* 入力欄の文字色 */
     border: 2px solid var(--main-color-1); /* 入力欄の枠線色 */
-    padding: 5px;
-    border-radius: 4px; /* 入力欄の角を丸く */
+    padding: 0px;
+    border-radius: 0px; /* 入力欄の角を丸く */
     font-weight: bold; /* 入力欄の文字を太字に */
     font-size: var(--body-font-size); /* フォントサイズを大きく設定 */
 }
-
-/* .stats-table input[type="number"]:focus { */
-    /* background-color: rgb(251, 0, 111); フォーカス時の背景色 */
-    /* border-color: rgb(251, 0, 111); フォーカス時の枠線の色 */
-    /* outline: none; フォーカス時のアウトラインを削除 */
-/* } */
+/* 数字入力のカーソルが消える魔法 */
+.stats-table thead input[type="number"]::-webkit-outer-spin-button,
+.stats-table thead input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
 /* 各列の幅を10%に設定 */
 .stats-table td:nth-child(1),
@@ -635,42 +620,33 @@ footer img {
 .standings-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 /* ヘッダー部分のスタイル */
 .standings-table th {
-    background-color: rgb(251, 0, 111); /* ヘッダーの背景色を青に設定 */
-    color: #ffffff; /* ヘッダーの文字色を白に設定 */
+    background-color: var(--accent-color-1); /* ヘッダーの背景色を青に設定 */
+    color: var(--white-color-1); /* ヘッダーの文字色を白に設定 */
+    font-size: var(--body-font-size);
     font-weight: bold; /* ヘッダーの文字をボールドに設定 */
-    border: 0px solid rgb(251, 0, 111); /* ヘッダーの枠線の色を濃い青に設定 */
-    padding: 8px; /* セルのパディング */
+    border: 0px solid var(--accent-color-1); /* ヘッダーの枠線の色を濃い青に設定 */
+    padding: 0px; /* セルのパディング */
     text-align: center; /* テキストを中央揃え */
 }
 
 /* ヘッダー以外のセルのスタイル */
 .standings-table td {
-    background-color: #ffffff; /* セルの背景色を白に */
-    color: rgb(0, 0, 132); /* セルの文字色を濃い青に */
-    border: 1px solid rgb(0, 0, 132); /* 枠線の色を濃い青に設定 */
-    padding: 8px; /* セルのパディング */
+    background-color: var(--white-color-1); /* セルの背景色を白に */
+    color: var(--main-color-1); /* セルの文字色を濃い青に */
+    border: 1px solid var(--main-color-1); /* 枠線の色を濃い青に設定 */
+    padding: 5px; /* セルのパディング */
     text-align: center; /* テキストを中央揃え */
 }
 
-/* 偶数行の背景色を薄いグレーに設定 */
-.standings-table tr:nth-child(even) {
-    background-color: #f9f9f9; /* 偶数行の背景色 */
-}
-
-/* ホバー時の行の背景色 */
-.standings-table tr:hover {
-    background-color: #f1f1f1; /* ホバー時の背景色 */
-}
-
-/* 順位変動の列の幅 */
+/* 順位変動の列の幅
 .standings-table td.rank-change {
-    width: 20px;
-}
+    width: 30px;
+} */
 
 /* 3列目をボールドに設定 */
 .standings-table td:nth-child(3) {
@@ -681,7 +657,7 @@ footer img {
 .standings-table td:nth-child(1) {
     text-align: right; /* 左列のヘッダー以外のセルを右揃えに */
     min-width: 40px; /* 2文字が収まるように最低幅を40pxに設定 */
-    white-space: nowrap; /* 折り返しを防ぐ */
+    /* white-space: nowrap; 折り返しを防ぐ */
 }
 
 /* 順位変動の矢印のスタイル */

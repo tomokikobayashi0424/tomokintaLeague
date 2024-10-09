@@ -193,6 +193,9 @@ function fetchAndSaveJsonFromGitHub() {
             if (data.currentStandings) {
                 localStorage.setItem('currentStandings', JSON.stringify(data.currentStandings));
             }
+            if (data.teamsData) {
+                localStorage.setItem('teamsData', JSON.stringify(data.teamsData));
+            }
             console.log('JSONデータがローカルストレージに保存されました');
 
             // ローカルストレージにフラグを立てて、次回からリロードを避ける
@@ -954,16 +957,20 @@ function completeScoreInput(roundIndex, matchIndex) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // 順位表タブ
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
 // 順位を決める関数
 function calculateStandings() {
     let responsiveTeams = getResponsiveTeams(); // 画面幅に応じたチーム配列を取得
     let previousStandings = JSON.parse(localStorage.getItem('previousStandings')) || {};
 
     let standings = responsiveTeams.map((index) => {
-        //////
-        //////
-        //////
-        //////ここのteamを消したらteam名が消えて、入れたままにすると計算されなくなる１１！！
         
         let lastRank = previousStandings[index] ? previousStandings[index].currentRank : null;
 

@@ -464,7 +464,7 @@ function displaySchedule() {
     for (let i = 0; i < schedule.length; i++) {
         let weekDate = new Date(startDate);
         weekDate.setDate(startDate.getDate() + i * 7);
-        let weekInfo = `第${i + 1}節 ${weekDate.getFullYear()}年${weekDate.getMonth() + 1}月第${Math.ceil(weekDate.getDate() / 7)}週`;
+        let weekInfo = `第${i + 1}節<br>${weekDate.getFullYear()}年${weekDate.getMonth() + 1}月第${Math.ceil(weekDate.getDate() / 7)}週`;
 
         scheduleHTML += `<div class="round" id="round${i}" style="display: none;">`;
         scheduleHTML +=  `
@@ -533,19 +533,19 @@ function createStatsTable(statCategories, roundIndex, matchIndex) {
     const headerRow = document.createElement('tr');
 
     const homeHalfHeader = document.createElement('th');
-    homeHalfHeader.textContent = "ハーフタイム";
+    homeHalfHeader.innerHTML = "ハーフ<wbr>タイム";
     
     const homeFullHeader = document.createElement('th');
-    homeFullHeader.textContent = "フルタイム";
+    homeFullHeader.innerHTML = "フル<wbr>タイム";
 
     const spacerHeader = document.createElement('th');
-    spacerHeader.textContent = ""; // 空白のセル
+    spacerHeader.innerHTML = ""; // 空白のセル
 
     const awayHalfHeader = document.createElement('th');
-    awayHalfHeader.textContent = "ハーフタイム";
+    awayHalfHeader.innerHTML = "ハーフ<wbr>タイム";
     
     const awayFullHeader = document.createElement('th');
-    awayFullHeader.textContent = "フルタイム";
+    awayFullHeader.innerHTML = "フル<wbr>タイム";
 
     headerRow.appendChild(homeHalfHeader);
     headerRow.appendChild(homeFullHeader);
@@ -680,8 +680,8 @@ function updateGoalDetails(roundIndex, matchIndex, teamType, data = null) {
                 <tr>
                     <td colspan="2">
                         ${teamType === 'home' ? `
-                            アシスト：<input type="text" class="assist-player home" value="${assist}"readonly>
-                            ゴール　：<input type="text" class="goal-player home" value="${goal}"readonly>
+                            アシスト：<br><span class="assist-player">${assist}</span><br>
+                            ゴール　：<br><span class="goal-player">${goal}</span>
                         ` : `<span></span>`}
                     </td>
                     <td>
@@ -690,8 +690,8 @@ function updateGoalDetails(roundIndex, matchIndex, teamType, data = null) {
 
                     <td colspan="2">
                         ${teamType === 'away' ? `
-                            アシスト：<input type="text" class="assist-player away" value="${assist}"readonly>
-                            ゴール　：<input type="text" class="goal-player away" value="${goal}"readonly>
+                            アシスト：<br><span class="assist-player">${assist}</span><br>
+                            ゴール　：<br><span class="goal-player">${goal}</span>
                         ` : `<span></span>`}
                     </td>
                 </tr>
@@ -762,10 +762,6 @@ function calculateStandings() {
     let previousStandings = JSON.parse(localStorage.getItem('previousStandings')) || {};
 
     let standings = responsiveTeams.map((index) => {
-        //////
-        //////
-        //////
-        //////ここのteamを消したらteam名が消えて、入れたままにすると計算されなくなる１１！！
         
         let lastRank = previousStandings[index] ? previousStandings[index].currentRank : null;
 
