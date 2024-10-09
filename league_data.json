@@ -27,7 +27,102 @@
     "NAD",
     "HHV"
   ],
-  "matchData": {},
+ "matchData": {
+    "round0-match1": {
+      "home": {
+        "teamId": 1,
+        "score": 1,
+        "assistPlayers": [
+          "カフー"
+        ],
+        "goalPlayers": [
+          "フェルナンド トーレス"
+        ],
+        "times": [
+          26
+        ],
+        "halfTime": {
+          "possession": 56,
+          "shots": 3,
+          "shotsonFrame": 3,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 1,
+          "passes": 71,
+          "successfulPasses": 53,
+          "crosses": 3,
+          "PassCuts": 15,
+          "successfulTackles": 0,
+          "save": 0
+        },
+        "fullTime": {
+          "possession": 52,
+          "shots": 5,
+          "shotsonFrame": 4,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 1,
+          "passes": 122,
+          "successfulPasses": 95,
+          "crosses": 3,
+          "PassCuts": 27,
+          "successfulTackles": 4,
+          "save": 2
+        }
+      },
+      "away": {
+        "teamId": 1,
+        "score": 3,
+        "assistPlayers": [
+          "ネイマール",
+          "ネイマール",
+          "リオネル メッシ"
+        ],
+        "goalPlayers": [
+          "リオネル メッシ",
+          "ジュード ベリンガム",
+          "ジュード ベリンガム"
+        ],
+        "times": [
+          13,
+          16,
+          45
+        ],
+        "halfTime": {
+          "possession": 44,
+          "shots": 3,
+          "shotsonFrame": 3,
+          "fouls": 1,
+          "offsides": 1,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 58,
+          "successfulPasses": 41,
+          "crosses": 0,
+          "PassCuts": 15,
+          "successfulTackles": 3,
+          "save": 2
+        },
+        "fullTime": {
+          "possession": 48,
+          "shots": 6,
+          "shotsonFrame": 5,
+          "fouls": 1,
+          "offsides": 1,
+          "cornerKicks": 2,
+          "freeKicks": 0,
+          "passes": 110,
+          "successfulPasses": 79,
+          "crosses": 0,
+          "PassCuts": 23,
+          "successfulTackles": 7,
+          "save": 2
+        }
+      }
+    }
+  },
   "previousStandings": [
     {
       "Rank": 1,
