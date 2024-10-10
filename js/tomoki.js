@@ -78,9 +78,9 @@ function fetchAndSaveJsonFromGitHub() {
             if (data.currentStandings) {
                 localStorage.setItem('currentStandings', JSON.stringify(data.currentStandings));
             }
-            // if (data.teamsData) {
-            //     localStorage.setItem('teamsData', JSON.stringify(data.teamsData));
-            // }
+            if (data.teamsData) {
+                localStorage.setItem('teamsData', JSON.stringify(data.teamsData));
+            }
             console.log('JSONデータがローカルストレージに保存されました');
 
             // ローカルストレージにフラグを立てて、次回からリロードを避ける
@@ -88,7 +88,7 @@ function fetchAndSaveJsonFromGitHub() {
             
             // データ保存が完了したらページをリロード
             // location.reload();
-            // getTeams();
+            getTeams();
             displaySchedule();  // 日程を表示
             showRound(0);       // ページロード時に最初のラウンドを表示
             updateStandingsTable();  // 順位表を表示
@@ -163,27 +163,27 @@ function saveTeams() {
 }
 
 // 保存したチーム名を取得する関数
-// function getTeams() {
-//     let teams = JSON.parse(localStorage.getItem('teams')) || [];
-//     let teamsSub = JSON.parse(localStorage.getItem('teamsSub')) || [];
-//     for (let i = 1; i <= totalTeamNum; i++) {
-//         document.getElementById(`team${i}`).value = teams[i - 1] || `Team${i}`;
-//         document.getElementById(`teamSub${i}`).value = teamsSub[i - 1] || `Sub${i}`; // 三文字チーム名
-//     }
-// }
 function getTeams() {
-    // teamsDataをローカルストレージから取得
-    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
-
-    // データが存在しない場合はデフォルトの値を設定
+    let teams = JSON.parse(localStorage.getItem('teams')) || [];
+    let teamsSub = JSON.parse(localStorage.getItem('teamsSub')) || [];
     for (let i = 1; i <= totalTeamNum; i++) {
-        let teamData = teamsData[i - 1] || { teamId: i, teamName: `Team${i}`, teamSub: `Sub${i}` };
-
-        // フォームにチーム名と略称を設定
-        document.getElementById(`team${i}`).value = teamData.teams;
-        document.getElementById(`teamSub${i}`).value = teamData.teamsSub;
+        document.getElementById(`team${i}`).value = teams[i - 1] || `Team${i}`;
+        document.getElementById(`teamSub${i}`).value = teamsSub[i - 1] || `Sub${i}`; // 三文字チーム名
     }
 }
+// function getTeams() {
+//     // teamsDataをローカルストレージから取得
+//     let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
+
+//     // データが存在しない場合はデフォルトの値を設定
+//     for (let i = 1; i <= totalTeamNum; i++) {
+//         let teamData = teamsData[i - 1] || { teamId: i, teamName: `Team${i}`, teamSub: `Sub${i}` };
+
+//         // フォームにチーム名と略称を設定
+//         document.getElementById(`team${i}`).value = teamData.teams;
+//         document.getElementById(`teamSub${i}`).value = teamData.teamsSub;
+//     }
+// }
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -1260,4 +1260,63 @@ function updateIndividualRecords() {
         if (match.home && Array.isArray(match.home.goalPlayers)) {
             match.home.goalPlayers.forEach(player => {
                 if (player) {
-                    goalPlayers[player] = (goalPlayers[player] || 0) + 1;
+                    goalPlayers[player] = (goalPlayers[player] || 0) + 1;
+                }
+            });
+        }
+        if (match.home && Array.isArray(match.home.assistPlayers)) {
+            match.home.assistPlayers.forEach(player => {
+                if (player) {
+                    assistPlayers[player] = (assistPlayers[player] || 0) + 1;
+                }
+            });
+        }
+
+        // アウェイチームのゴールとアシストをカウント
+        if (match.away && Array.isArray(match.away.goalPlayers)) {
+            match.away.goalPlayers.forEach(player => {
+                if (player) {
+                    goalPlayers[player] = (goalPlayers[player] || 0) + 1;
+                }
+            });
+        }
+        if (match.away && Array.isArray(match.away.assistPlayers)) {
+            match.away.assistPlayers.forEach(player => {
+                if (player) {
+                    assistPlayers[player] = (assistPlayers[player] || 0) + 1;
+                }
+            });
+        }
+    });
+
+    // ゴールランキングの表示
+    displayPlayerRanking('goalPlayersTable', goalPlayers);
+
+    // アシストランキングの表示
+    displayPlayerRanking('assistPlayersTable', assistPlayers);
+}
+
+
+// ランキング表示用の関数
+function displayPlayerRanking(tableId, players) {
+    let sortedPlayers = Object.entries(players).sort((a, b) => b[1] - a[1]); // 得点順にソート
+    let tbody = document.querySelector(`#${tableId} tbody`);
+    tbody.innerHTML = '';  // テーブルを初期化
+
+    sortedPlayers.forEach(([player, count], index) => {
+        let row = `
+            <tr>
+                <td>${index + 1}</td>
+                <td>${player}</td>
+                <td>${count}</td>
+            </tr>
+        `;
+        tbody.insertAdjacentHTML('beforeend', row);
+    });
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
