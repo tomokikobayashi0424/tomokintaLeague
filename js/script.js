@@ -781,7 +781,8 @@ function updateStandingsTable() {
     tbody.innerHTML = ''; // 順位表を初期化
 
     standings.forEach(team => {
-        let teamName = teamsData.find(t => t.teamId === team.teamId).teams;
+        let teamInfo = teamsData.find(t => t.teamId === team.teamId);
+        let teamName = getTeamNameByScreenSize(teamInfo); // 画面幅に応じたチーム名
         
         let row = `
             <tr>
@@ -851,8 +852,9 @@ function updateRankChangeArrows() {
             rankClass = 'rank-no-change';
         }
 
-        let teamName = teamsData.find(t => t.teamId === team.teamId).teams;
-
+        let teamInfo = teamsData.find(t => t.teamId === team.teamId);
+        let teamName = getTeamNameByScreenSize(teamInfo); // 画面幅に応じたチーム名
+        
         let row = `
             <tr>
                 <td>${team.currentRank} <span class="${rankClass}">${rankChange}</span></td>
@@ -962,4 +964,27 @@ function updateIndividualRecords() {
         }
     });
 
-    // ゴールランキン�
+    // ゴールランキングの表示
+    displayPlayerRanking('goalPlayersTable', goalPlayers);
+
+    // アシストランキングの表示
+    displayPlayerRanking('assistPlayersTable', assistPlayers);
+}
+
+// ランキング表示用の関数
+function displayPlayerRanking(tableId, players) {
+    let sortedPlayers = Object.entries(players).sort((a, b) => b[1] - a[1]); // 得点順にソート
+    let tbody = document.querySelector(`#${tableId} tbody`);
+    tbody.innerHTML = '';  // テーブルを初期化
+
+    sortedPlayers.forEach(([player, count], index) => {
+        let row = `
+            <tr>
+                <td>${index + 1}</td>
+                <td>${player}</td>
+                <td>${count}</td>
+            </tr>
+        `;
+        tbody.insertAdjacentHTML('beforeend', row);
+    });
+}

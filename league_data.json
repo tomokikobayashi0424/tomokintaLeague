@@ -6,8 +6,8 @@
     "Forester United f.c.",
     "TKBEAMS",
     "Astroboy FC",
-    "Nakajima Ninjas",
-    "Shigecelona FC",
+    "Shunsenal FC",
+    "FC Shigecelona",
     "Matsubars",
     "Tanaka Thunderbolts",
     "Nob Angels Dodgers",
@@ -20,8 +20,8 @@
     "FUN",
     "TKB",
     "AFC",
-    "NNJ",
     "SFC",
+    "FCS",
     "MTB",
     "TTB",
     "NAD",
@@ -60,13 +60,13 @@
     },
     {
       "teamId": 6,
-      "teams": "Nakajima Ninjas",
-      "teamsSub": "NNJ"
+      "teams": "Shunsenal FC",
+      "teamsSub": "SFC"
     },
     {
       "teamId": 7,
-      "teams": "Shigecelona FC",
-      "teamsSub": "SFC"
+      "teams": "FC Shigecelona",
+      "teamsSub": "FCS"
     },
     {
       "teamId": 8,
