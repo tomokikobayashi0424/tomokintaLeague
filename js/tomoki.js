@@ -932,8 +932,6 @@ function displaySchedule(schedule = null) {
     showRound(currentRound || 0);  
 }
 
-
-
 let currentRound = 0;
 
 // 試合詳細のスタッツ表を生成する関数
@@ -1141,10 +1139,36 @@ function sortGoalDetails(roundIndex, matchIndex) {
     rows.forEach(row => goalDetailsBody.appendChild(row));
 }
 
-function getTeamIdByName(teamName) {
-    let teams = JSON.parse(localStorage.getItem('teams')) || [];
-    return teams.indexOf(teamName);  // チーム名に対応するIDを取得
+// 日程表データの自動読み込みをする関数
+function loadMatchData(roundIndex, matchIndex) {
+    let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
+    let matchKey = `round${roundIndex}-match${matchIndex}`;
+
+    if (matchData[matchKey]) {
+        let match = matchData[matchKey];
+        // スコアを表示
+        document.getElementById(`homeScore${roundIndex}-${matchIndex}`).value = match.home.score !== null ? match.home.score : '';
+        document.getElementById(`awayScore${roundIndex}-${matchIndex}`).value = match.away.score !== null ? match.away.score : '';
+
+        // スタッツデータを表示（ハーフタイムとフルタイム）
+        const statCategories = ["possession", "shots", "shotsonFrame", "fouls", "offsides", "cornerKicks", "freeKicks", "passes", "successfulPasses", "crosses", "PassCuts", "successfulTackles", "save"];
+
+        statCategories.forEach((category, index) => {
+            document.getElementById(`homeHalfStat${index}-${roundIndex}-${matchIndex}`).value = match.home.halfTime[category] !== null ? match.home.halfTime[category] : '';
+            document.getElementById(`homeFullStat${index}-${roundIndex}-${matchIndex}`).value = match.home.fullTime[category] !== null ? match.home.fullTime[category] : '';
+            document.getElementById(`awayHalfStat${index}-${roundIndex}-${matchIndex}`).value = match.away.halfTime[category] !== null ? match.away.halfTime[category] : '';
+            document.getElementById(`awayFullStat${index}-${roundIndex}-${matchIndex}`).value = match.away.fullTime[category] !== null ? match.away.fullTime[category] : '';
+        });
+        // スコアに基づいて得点詳細行を表示
+        updateGoalDetails(roundIndex, matchIndex, 'home', match.home);
+        updateGoalDetails(roundIndex, matchIndex, 'away', match.away);
+    }
 }
+
+// function getTeamIdByName(teamName) {
+//     let teams = JSON.parse(localStorage.getItem('teams')) || [];
+//     return teams.indexOf(teamName);  // チーム名に対応するIDを取得
+// }
 
 // 日程表の情報を保存する関数
 function saveMatchData(roundIndex, matchIndex) {
@@ -1171,4 +1195,607 @@ function saveMatchData(roundIndex, matchIndex) {
     let goalPlayersAway = Array.from(document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-player.away`)).map(input => input.value.trim());
     let timesAway = Array.from(document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-time.away`)).map(input => input.value === '' ? null : parseInt(input.value.trim()));
 
-    // ハーフタイムとフルタイムのス�
+    // ハーフタイムとフルタイムのスタッツを取得
+    const statCategories = ["possession", "shots", "shotsonFrame", "fouls", "offsides", "cornerKicks", "freeKicks", "passes", "successfulPasses", "crosses", "PassCuts", "successfulTackles", "save"];
+
+    let homeHalfStats = {};
+    let homeFullStats = {};
+    let awayHalfStats = {};
+    let awayFullStats = {};
+
+    statCategories.forEach((category, index) => {
+        const homeHalfStatValue = document.getElementById(`homeHalfStat${index}-${roundIndex}-${matchIndex}`).value;
+        const homeFullStatValue = document.getElementById(`homeFullStat${index}-${roundIndex}-${matchIndex}`).value;
+        const awayHalfStatValue = document.getElementById(`awayHalfStat${index}-${roundIndex}-${matchIndex}`).value;
+        const awayFullStatValue = document.getElementById(`awayFullStat${index}-${roundIndex}-${matchIndex}`).value;
+    
+        // 未入力の場合はnull、それ以外は数値として保存
+        homeHalfStats[category] = homeHalfStatValue === '' ? null : parseFloat(homeHalfStatValue);
+        homeFullStats[category] = homeFullStatValue === '' ? null : parseFloat(homeFullStatValue);
+        awayHalfStats[category] = awayHalfStatValue === '' ? null : parseFloat(awayHalfStatValue);
+        awayFullStats[category] = awayFullStatValue === '' ? null : parseFloat(awayFullStatValue);
+    });
+
+    // teamIdを上書きせず、スコアやアシストなどの情報だけを更新
+    matchData[matchKey] = {
+        home: {
+            teamId: homeTeamId,  // 既存のteamIdを維持
+            score: homeScore,
+            assistPlayers: assistPlayersHome,
+            goalPlayers: goalPlayersHome,
+            times: timesHome,
+            halfTime: homeHalfStats,
+            fullTime: homeFullStats
+        },
+        away: {
+            teamId: awayTeamId,  // 既存のteamIdを維持
+            score: awayScore,
+            assistPlayers: assistPlayersAway,
+            goalPlayers: goalPlayersAway,
+            times: timesAway,
+            halfTime: awayHalfStats,
+            fullTime: awayFullStats
+        }
+    };
+
+    localStorage.setItem('matchData', JSON.stringify(matchData));
+}
+
+
+// スコア入力をキャンセルしてリセットする関数
+function cancelScoreInput(roundIndex, matchIndex) {
+    // スコアをリセット
+    document.getElementById(`homeScore${roundIndex}-${matchIndex}`).value = '';
+    document.getElementById(`awayScore${roundIndex}-${matchIndex}`).value = '';
+
+    // アシスト、ゴール、時間の入力欄をリセット
+    let assistPlayersHome = document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .assist-player.home`);
+    let goalPlayersHome = document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-player.home`);
+    let timesHome = document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-time.home`);
+
+    assistPlayersHome.forEach(input => input.value = '');
+    goalPlayersHome.forEach(input => input.value = '');
+    timesHome.forEach(input => input.value = '');
+
+    let assistPlayersAway = document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .assist-player.away`);
+    let goalPlayersAway = document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-player.away`);
+    let timesAway = document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-time.away`);
+
+    assistPlayersAway.forEach(input => input.value = '');
+    goalPlayersAway.forEach(input => input.value = '');
+    timesAway.forEach(input => input.value = '');
+
+    // ローカルストレージから該当の試合データを削除
+    let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
+    let matchKey = `round${roundIndex}-match${matchIndex}`;
+    delete matchData[matchKey];
+    localStorage.setItem('matchData', JSON.stringify(matchData));
+
+    // 順位表を即時更新
+    updateStandingsTable();  // 順位表の更新
+    updateIndividualRecords();  // 個人戦績の更新
+    
+    alert(`第${roundIndex + 1}節の試合データがリセットされました。`);
+}
+
+// スコア入力完了ボタンの処理に関する関数
+function completeScoreInput(roundIndex, matchIndex) {
+    // let schedule = generateSchedule(JSON.parse(localStorage.getItem('teams')));
+
+    // 1つの試合（roundIndex と matchIndex）のデータを保存
+    saveMatchData(roundIndex, matchIndex);  // 該当する試合のみデータを保存
+
+    // スコアが入力された後に順位表を更新
+    updateStandingsTable();
+    updateIndividualRecords(); // 個人戦績を更新
+    // 順位変動を保存
+    // let standings = calculateStandings();
+    // saveStandingsData(standings);
+    // 順位表や個人戦績を更新
+    alert(`第${roundIndex + 1}節のスコアが保存されました。`);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// 順位表タブ
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 順位を決める関数
+// function calculateStandings() {
+//     let responsiveTeams = getResponsiveTeams(); // 画面幅に応じたチーム配列を取得
+//     let previousStandings = JSON.parse(localStorage.getItem('previousStandings')) || {};
+
+//     let standings = responsiveTeams.map((index) => {
+        
+//         let lastRank = previousStandings[index] ? previousStandings[index].currentRank : null;
+
+//         return {
+//             teamId: index, // チームIDは0始まりに統一
+//             points: 0,
+//             matchesPlayed: 0,
+//             wins: 0,
+//             draws: 0,
+//             losses: 0,
+//             goalDifference: 0,
+//             totalGoals: 0,
+//             lastRank: lastRank,
+//             currentRank: null
+//         };
+//     });
+
+//     // 日程の結果を取得して順位計算
+//     let schedule = generateSchedule(responsiveTeams);
+//     schedule.forEach((round, roundIndex) => {
+//         round.forEach((match, matchIndex) => {
+//             let homeScore = document.getElementById(`homeScore${roundIndex}-${matchIndex}`).value;
+//             let awayScore = document.getElementById(`awayScore${roundIndex}-${matchIndex}`).value;
+
+//             // スコアが未入力の場合は無視
+//             if (homeScore === "" || awayScore === "") return;
+
+//             homeScore = parseInt(homeScore);
+//             awayScore = parseInt(awayScore);
+
+//             let homeTeam = standings.find(t => t.teamId === match.home);
+//             let awayTeam = standings.find(t => t.teamId === match.away);
+
+//             if (homeTeam && awayTeam) {
+//                 if (homeScore > awayScore) {
+//                     homeTeam.wins++;
+//                     homeTeam.points += 3;
+//                     awayTeam.losses++;
+//                 } else if (homeScore < awayScore) {
+//                     awayTeam.wins++;
+//                     awayTeam.points += 3;
+//                     homeTeam.losses++;
+//                 } else {
+//                     homeTeam.draws++;
+//                     awayTeam.draws++;
+//                     homeTeam.points++;
+//                     awayTeam.points++;
+//                 }
+
+//                 homeTeam.matchesPlayed++;
+//                 awayTeam.matchesPlayed++;
+//                 homeTeam.totalGoals += homeScore;
+//                 awayTeam.totalGoals += awayScore;
+//                 homeTeam.goalDifference += (homeScore - awayScore);
+//                 awayTeam.goalDifference += (awayScore - homeScore);
+//             }
+//         });
+//     });
+
+//     // ランキングの計算
+//     standings.sort((a, b) => {
+//         if (b.points !== a.points) return b.points - a.points;
+//         if (b.goalDifference !== a.goalDifference) return b.goalDifference - a.goalDifference;
+//         return b.totalGoals - a.totalGoals;
+//     });
+
+//     standings.forEach((standing, index) => {
+//         standing.currentRank = index + 1; // チームの順位を設定
+//     });
+    
+
+//     return standings;
+// }
+
+
+
+
+// 順位表を更新する関数（矢印なし）
+// function updateStandingsTable() {
+//     let standings = calculateStandings();
+//     let teams = getResponsiveTeams(); // 画面幅に応じたチーム配列を取得
+
+//     let tbody = document.querySelector('#standingsTable tbody');
+//     tbody.innerHTML = ''; // 順位表を初期化
+
+//     standings.forEach(team => {
+//         let teamName = (team.teamId >= 0 && team.teamId < teams.length) ? teams[team.teamId] : `${team.teamId}`;
+        
+//         let row = `
+//             <tr>
+//                 <td>${team.currentRank}</td>
+//                 <td>${teamName}</td>
+//                 <td>${team.points}</td>
+//                 <td>${team.matchesPlayed}</td>
+//                 <td>${team.wins}</td>
+//                 <td>${team.draws}</td>
+//                 <td>${team.losses}</td>
+//                 <td>${team.goalDifference}</td>
+//                 <td>${team.totalGoals}</td>
+//             </tr>`;
+//         tbody.insertAdjacentHTML('beforeend', row);
+//     });
+// }
+
+
+
+// 順位変動の保存
+// function saveStandingsData(standings) {
+//     // standingsは詳細なデータを含んでいる可能性があるので、シンプルに変換
+//     let currentStandings = standings.map(team => ({
+//         Rank: team.currentRank,
+//         teamId: team.teamId // TeamIdを保存
+//     }));
+
+//     // 現在の順位を previousStandings に移動
+//     let previousStandings = JSON.parse(localStorage.getItem('currentStandings')) || [];
+//     localStorage.setItem('previousStandings', JSON.stringify(previousStandings));
+
+//     // 現在の順位のみを保存
+//     localStorage.setItem('currentStandings', JSON.stringify(currentStandings));
+
+//     // デバッグ用の確認
+//     console.log('Previous Standings: ', previousStandings);
+//     console.log('Current Standings: ', currentStandings);
+// }
+
+
+// 順位変動の矢印を表示する関数
+// function updateRankChangeArrows() {
+//     let previousStandings = JSON.parse(localStorage.getItem('previousStandings')) || [];
+//     let currentStandings = JSON.parse(localStorage.getItem('currentStandings')) || [];
+//     let teams = getResponsiveTeams(); // 画面幅に応じたチーム配列を取得
+
+//     let tbody = document.querySelector('#standingsTable tbody');
+//     tbody.innerHTML = ''; // 順位表を初期化
+
+//     let standings = calculateStandings();
+
+//     standings.forEach(team => {
+//         let previousTeam = previousStandings.find(t => t.teamId === team.teamId);
+//         let currentTeam = currentStandings.find(t => t.teamId === team.teamId);
+
+//         let previousRank = previousTeam ? previousTeam.Rank : null;
+//         let currentRank = currentTeam ? currentTeam.Rank : team.currentRank;
+
+//         let rankChange = '';
+//         let rankClass = '';
+
+//         if (previousRank !== null) {
+//             if (currentRank < previousRank) {
+//                 rankChange = '▲'; // 順位上昇
+//                 rankClass = 'rank-up';
+//             } else if (currentRank > previousRank) {
+//                 rankChange = '▼'; // 順位下降
+//                 rankClass = 'rank-down';
+//             } else {
+//                 rankChange = '---'; // 順位変動なし
+//                 rankClass = 'rank-no-change';
+//             }
+//         } else {
+//             rankChange = '-';
+//             rankClass = 'rank-no-change';
+//         }
+
+//         let teamName = (team.teamId >= 0 && team.teamId < teams.length) ? teams[team.teamId] : `${team.teamId}`;
+
+//         let row = `
+//             <tr>
+//                 <td>${team.currentRank} <span class="${rankClass}">${rankChange}</span></td>
+//                 <td>${teamName}</td>
+//                 <td>${team.points}</td>
+//                 <td>${team.matchesPlayed}</td>
+//                 <td>${team.wins}</td>
+//                 <td>${team.draws}</td>
+//                 <td>${team.losses}</td>
+//                 <td>${team.goalDifference}</td>
+//                 <td>${team.totalGoals}</td>
+//             </tr>`;
+//         tbody.insertAdjacentHTML('beforeend', row);
+//     });
+
+//     localStorage.setItem('currentStandings', JSON.stringify(currentStandings));
+// }
+
+
+
+
+// 今節のデータ入力完了時に順位変動を保存し、矢印を表示する関数
+// function completeRound(roundIndex) {
+//     let standings = calculateStandings();
+
+//     // standingsから簡略化したデータを保存
+//     saveStandingsData(standings);
+
+//     // 順位表を更新
+//     updateRankChangeArrows();
+
+//     alert(`第${roundIndex + 1}節のデータが確定しました。順位表を更新しました。`);
+// }
+
+
+
+// 順位を決める関数
+function calculateStandings() {
+    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
+    let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
+
+    let standings = teamsData.map(team => {
+        return {
+            teamId: team.teamId,
+            points: 0,
+            matchesPlayed: 0,
+            wins: 0,
+            draws: 0,
+            losses: 0,
+            goalDifference: 0,
+            totalGoals: 0,
+            currentRank: null
+        };
+    });
+
+    // スコアが入力されている試合の結果を元に順位計算
+    for (const matchKey in matchData) {
+        let match = matchData[matchKey];
+        let homeScore = match.home.score;
+        let awayScore = match.away.score;
+
+        if (homeScore === null || awayScore === null) continue; // スコアが未入力ならスキップ
+
+        let homeTeam = standings.find(t => t.teamId === match.home.teamId);
+        let awayTeam = standings.find(t => t.teamId === match.away.teamId);
+
+        if (homeTeam && awayTeam) {
+            if (homeScore > awayScore) {
+                homeTeam.wins++;
+                homeTeam.points += 3;
+                awayTeam.losses++;
+            } else if (homeScore < awayScore) {
+                awayTeam.wins++;
+                awayTeam.points += 3;
+                homeTeam.losses++;
+            } else {
+                homeTeam.draws++;
+                awayTeam.draws++;
+                homeTeam.points++;
+                awayTeam.points++;
+            }
+
+            homeTeam.matchesPlayed++;
+            awayTeam.matchesPlayed++;
+            homeTeam.totalGoals += homeScore;
+            awayTeam.totalGoals += awayScore;
+            homeTeam.goalDifference += (homeScore - awayScore);
+            awayTeam.goalDifference += (awayScore - homeScore);
+        }
+    }
+
+    // ランキングの計算
+    standings.sort((a, b) => {
+        if (b.points !== a.points) return b.points - a.points;
+        if (b.goalDifference !== a.goalDifference) return b.goalDifference - a.goalDifference;
+        return b.totalGoals - a.totalGoals;
+    });
+
+    standings.forEach((standing, index) => {
+        standing.currentRank = index + 1; // チームの順位を設定
+    });
+
+    return standings;
+}
+
+// 順位表を更新する関数
+function updateStandingsTable() {
+    let standings = calculateStandings();
+    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
+
+    let tbody = document.querySelector('#standingsTable tbody');
+    tbody.innerHTML = ''; // 順位表を初期化
+
+    standings.forEach(team => {
+        let teamName = teamsData.find(t => t.teamId === team.teamId).teams;
+        
+        let row = `
+            <tr>
+                <td>${team.currentRank}</td>
+                <td>${teamName}</td>
+                <td>${team.points}</td>
+                <td>${team.matchesPlayed}</td>
+                <td>${team.wins}</td>
+                <td>${team.draws}</td>
+                <td>${team.losses}</td>
+                <td>${team.goalDifference}</td>
+                <td>${team.totalGoals}</td>
+            </tr>`;
+        tbody.insertAdjacentHTML('beforeend', row);
+    });
+}
+
+// 順位変動の保存
+function saveStandingsData(standings) {
+    let currentStandings = standings.map(team => ({
+        Rank: team.currentRank,
+        teamId: team.teamId // TeamIdを保存
+    }));
+
+    // 現在の順位を previousStandings に移動
+    let previousStandings = JSON.parse(localStorage.getItem('currentStandings')) || [];
+    localStorage.setItem('previousStandings', JSON.stringify(previousStandings));
+
+    // 現在の順位のみを保存
+    localStorage.setItem('currentStandings', JSON.stringify(currentStandings));
+}
+
+// 順位変動の矢印を表示する関数
+function updateRankChangeArrows() {
+    let previousStandings = JSON.parse(localStorage.getItem('previousStandings')) || [];
+    let currentStandings = JSON.parse(localStorage.getItem('currentStandings')) || [];
+    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
+
+    let tbody = document.querySelector('#standingsTable tbody');
+    tbody.innerHTML = ''; // 順位表を初期化
+
+    let standings = calculateStandings();
+
+    standings.forEach(team => {
+        let previousTeam = previousStandings.find(t => t.teamId === team.teamId);
+        let currentTeam = currentStandings.find(t => t.teamId === team.teamId);
+
+        let previousRank = previousTeam ? previousTeam.Rank : null;
+        let currentRank = currentTeam ? currentTeam.Rank : team.currentRank;
+
+        let rankChange = '';
+        let rankClass = '';
+
+        if (previousRank !== null) {
+            if (currentRank < previousRank) {
+                rankChange = '▲'; // 順位上昇
+                rankClass = 'rank-up';
+            } else if (currentRank > previousRank) {
+                rankChange = '▼'; // 順位下降
+                rankClass = 'rank-down';
+            } else {
+                rankChange = '---'; // 順位変動なし
+                rankClass = 'rank-no-change';
+            }
+        } else {
+            rankChange = '-';
+            rankClass = 'rank-no-change';
+        }
+
+        let teamName = teamsData.find(t => t.teamId === team.teamId).teams;
+
+        let row = `
+            <tr>
+                <td>${team.currentRank} <span class="${rankClass}">${rankChange}</span></td>
+                <td>${teamName}</td>
+                <td>${team.points}</td>
+                <td>${team.matchesPlayed}</td>
+                <td>${team.wins}</td>
+                <td>${team.draws}</td>
+                <td>${team.losses}</td>
+                <td>${team.goalDifference}</td>
+                <td>${team.totalGoals}</td>
+            </tr>`;
+        tbody.insertAdjacentHTML('beforeend', row);
+    });
+
+    localStorage.setItem('currentStandings', JSON.stringify(currentStandings));
+}
+
+// 今節のデータ入力完了時に順位変動を保存し、矢印を表示する関数
+function completeRound(roundIndex) {
+    let standings = calculateStandings();
+
+    // standingsから簡略化したデータを保存
+    saveStandingsData(standings);
+
+    // 順位表を更新
+    updateRankChangeArrows();
+
+    alert(`第${roundIndex + 1}節のデータが確定しました。順位表を更新しました。`);
+}
+
+
+////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// 個人戦績タブ
+///////////////////////////////////////////////////////////////////////////////////////////////////
+function displayIndividualRecords() {
+    let individualRecords = JSON.parse(localStorage.getItem('individualRecords')) || { assists: {}, goals: {} };
+
+    // アシストのランキングを表示
+    let assistsTable = document.getElementById('assistPlayersTable');
+    let goalsTable = document.getElementById('goalPlayersTable');
+
+    // テーブルをクリア
+    assistsTable.querySelector('tbody').innerHTML = '';
+    goalsTable.querySelector('tbody').innerHTML = '';
+
+    // アシストランキング
+    let assistsSorted = Object.entries(individualRecords.assists).sort((a, b) => b[1] - a[1]);
+    assistsSorted.forEach(([player, count], index) => {
+        let row = `<tr><td>${index + 1}</td><td>${player}</td><td>${count}</td></tr>`;
+        assistsTable.querySelector('tbody').insertAdjacentHTML('beforeend', row);
+    });
+
+    // ゴールランキング
+    let goalsSorted = Object.entries(individualRecords.goals).sort((a, b) => b[1] - a[1]);
+    goalsSorted.forEach(([player, count], index) => {
+        let row = `<tr><td>${index + 1}</td><td>${player}</td><td>${count}</td></tr>`;
+        goalsTable.querySelector('tbody').insertAdjacentHTML('beforeend', row);
+    });
+}
+
+// ページロード時に個人戦績を表示
+document.addEventListener('DOMContentLoaded', () => {
+    displayIndividualRecords();
+    updateIndividualRecords();  // 必要な場合に個人戦績を更新
+});
+
+
+
+function updateIndividualRecords() {
+    let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
+
+    let goalPlayers = {};
+    let assistPlayers = {};
+
+    // 各試合のデータを集計
+    Object.values(matchData).forEach(match => {
+        // ホームチームのゴールとアシストをカウント
+        if (match.home && Array.isArray(match.home.goalPlayers)) {
+            match.home.goalPlayers.forEach(player => {
+                if (player) {
+                    goalPlayers[player] = (goalPlayers[player] || 0) + 1;
+                }
+            });
+        }
+        if (match.home && Array.isArray(match.home.assistPlayers)) {
+            match.home.assistPlayers.forEach(player => {
+                if (player) {
+                    assistPlayers[player] = (assistPlayers[player] || 0) + 1;
+                }
+            });
+        }
+
+        // アウェイチームのゴールとアシストをカウント
+        if (match.away && Array.isArray(match.away.goalPlayers)) {
+            match.away.goalPlayers.forEach(player => {
+                if (player) {
+                    goalPlayers[player] = (goalPlayers[player] || 0) + 1;
+                }
+            });
+        }
+        if (match.away && Array.isArray(match.away.assistPlayers)) {
+            match.away.assistPlayers.forEach(player => {
+                if (player) {
+                    assistPlayers[player] = (assistPlayers[player] || 0) + 1;
+                }
+            });
+        }
+    });
+
+    // ゴールランキングの表示
+    displayPlayerRanking('goalPlayersTable', goalPlayers);
+
+    // アシストランキングの表示
+    displayPlayerRanking('assistPlayersTable', assistPlayers);
+}
+
+
+// ランキング表示用の関数
+function displayPlayerRanking(tableId, players) {
+    let sortedPlayers = Object.entries(players).sort((a, b) => b[1] - a[1]); // 得点順にソート
+    let tbody = document.querySelector(`#${tableId} tbody`);
+    tbody.innerHTML = '';  // テーブルを初期化
+
+    sortedPlayers.forEach(([player, count], index) => {
+        let row = `
+            <tr>
+                <td>${index + 1}</td>
+                <td>${player}</td>
+                <td>${count}</td>
+            </tr>
+        `;
+        tbody.insertAdjacentHTML('beforeend', row);
+    });
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
