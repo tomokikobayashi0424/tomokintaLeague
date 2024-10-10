@@ -372,6 +372,20 @@ function calculateTeamStats(teamId) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // 日程タブ
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+// 画面幅に応じてチーム名を選択する関数
+function getTeamNameByScreenSize(team) {
+    // 画面幅を取得
+    let screenWidth = window.innerWidth;
+
+    // 画面幅が一定の幅（例えば600px以下）なら短い名前を表示
+    if (screenWidth <= 600) {
+        return team.teamsSub; // 短い名前を表示
+    } else {
+        return team.teams; // 通常の名前を表示
+    }
+}
+
+// 日程表を表示する関数
 function displaySchedule(schedule = null) {
     // matchDataを取得して表示
     let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
@@ -387,7 +401,10 @@ function displaySchedule(schedule = null) {
                 let matchKey = `round${round}-match${match}`;
                 let homeTeam = teamsData.find(team => team.teamId === matchData[matchKey].home.teamId); // チームIDからチーム名を取得
                 let awayTeam = teamsData.find(team => team.teamId === matchData[matchKey].away.teamId);
-                roundMatches.push({ home: homeTeam.teams, away: awayTeam.teams });
+                roundMatches.push({ 
+                    home: getTeamNameByScreenSize(homeTeam), // 画面幅に応じたチーム名
+                    away: getTeamNameByScreenSize(awayTeam)  // 画面幅に応じたチーム名
+                });
             }
             schedule.push(roundMatches); // スケジュールに追加
         }
@@ -945,27 +962,4 @@ function updateIndividualRecords() {
         }
     });
 
-    // ゴールランキングの表示
-    displayPlayerRanking('goalPlayersTable', goalPlayers);
-
-    // アシストランキングの表示
-    displayPlayerRanking('assistPlayersTable', assistPlayers);
-}
-
-// ランキング表示用の関数
-function displayPlayerRanking(tableId, players) {
-    let sortedPlayers = Object.entries(players).sort((a, b) => b[1] - a[1]); // 得点順にソート
-    let tbody = document.querySelector(`#${tableId} tbody`);
-    tbody.innerHTML = '';  // テーブルを初期化
-
-    sortedPlayers.forEach(([player, count], index) => {
-        let row = `
-            <tr>
-                <td>${index + 1}</td>
-                <td>${player}</td>
-                <td>${count}</td>
-            </tr>
-        `;
-        tbody.insertAdjacentHTML('beforeend', row);
-    });
-}
+    // ゴールランキン�
