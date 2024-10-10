@@ -367,10 +367,6 @@ function calculateOverallTeamStats() {
             overallStats.losses++;
         }
     }
-
-    // 平均を計算
-    overallStats.possession = overallStats.possession / (2 * Object.keys(matchData).length);
-
     return overallStats;
 }
 
