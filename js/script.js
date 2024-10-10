@@ -405,9 +405,9 @@ function displaySchedule(schedule = null) {
         scheduleHTML += `<div class="round" id="round${i}" style="display: none;">`;
         scheduleHTML +=  `
             <div class="schedule-header">
-                <button class="button-common" onclick="previousRound()">前節</button>
+                <button class="button-common2" onclick="previousRound()">前節</button>
                 <h3 class="week-info">${weekInfo}</h3>
-                <button class="button-common" onclick="nextRound()">次節</button>
+                <button class="button-common2" onclick="nextRound()">次節</button>
             </div>`;
         schedule[i].forEach((match, index) => {
             scheduleHTML += `
@@ -415,9 +415,9 @@ function displaySchedule(schedule = null) {
                     <table id="goalDetailsTable${i}-${index}" class="match-table">
                         <thead>
                             <tr>
-                                <th id="homeTeam${i}-${index}">${match.home} <input type="number" id="homeScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'home')"></th>
+                                <th id="homeTeam${i}-${index}">${match.home}</th><th> <input type="number" id="homeScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'home')"></th>
                                 <th> - </th>
-                                <th id="awayTeam${i}-${index}"><input type="number" id="awayScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'away')"> ${match.away}</th>
+                                <th id="awayTeam${i}-${index}"><input type="number" id="awayScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'away')"></th><th> ${match.away}</th>
                             </tr>
                         </thead>
                         <tbody id="goalDetailsBody${i}-${index}"></tbody>
@@ -426,13 +426,7 @@ function displaySchedule(schedule = null) {
             // スタッツ表をスコア入力完了ボタンの前に追加
             const statsTableElement = generateStatsTable(i, index);
             scheduleHTML += statsTableElement.outerHTML;
-            scheduleHTML += `
-                
-                    <div class="round-buttons">
-                        <button class="button-score" onclick="completeScoreInput(${i}, ${index})">スコア入力完了</button>
-                        <button class="button-score" onclick="cancelScoreInput(${i}, ${index})">スコア入力キャンセル</button>
-                    </div>
-                </div>`;
+            scheduleHTML += `</div>`;
         });
         scheduleHTML += `<button class="complete-round-btn" onclick="completeRound(${i})">今節のデータ入力完了</button>`;
         scheduleHTML += `</div>`;
@@ -615,7 +609,7 @@ function updateGoalDetails(roundIndex, matchIndex, teamType, data = null) {
 
             let rowHTML = `
                 <tr>
-                    <td>
+                    <td colspan="2">
                         ${teamType === 'home' ? `
                             アシスト：<input type="text" class="assist-player home" value="${assist}">
                             ゴール　：<input type="text" class="goal-player home" value="${goal}">
@@ -625,7 +619,7 @@ function updateGoalDetails(roundIndex, matchIndex, teamType, data = null) {
                         <input type="number" class="goal-time ${teamType}" value="${time}" min="0" step="1" onchange="sortGoalDetails(${roundIndex}, ${matchIndex})"> 分
                     </td>
 
-                    <td>
+                    <td colspan="2">
                         ${teamType === 'away' ? `
                             アシスト：<input type="text" class="assist-player away" value="${assist}">
                             ゴール　：<input type="text" class="goal-player away" value="${goal}">
@@ -978,4 +972,3 @@ function displayPlayerRanking(tableId, players) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
