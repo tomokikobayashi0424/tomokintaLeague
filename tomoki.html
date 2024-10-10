@@ -134,6 +134,8 @@
         <!-- 日程タブ：試合の日程を表示 -->
         <section id="schedule" class="tabcontent">
             <h2>日程</h2>
+            <button id="generateScheduleButton" onclick="generateAndSaveSchedule()">日程を生成</button>
+            <div id="scheduleContent"></div>
             <div id="scheduleContent">
                 <!-- JavaScriptでスケジュールがここに挿入されます -->
             </div>
@@ -143,6 +145,7 @@
         <!-- 順位表タブ -->
         <section id="standings" class="tabcontent">
             <h2>順位表</h2>
+
             <table id="standingsTable" class="standings-table">
                 <thead>
                     <tr>

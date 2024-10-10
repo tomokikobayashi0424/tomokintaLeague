@@ -18,8 +18,7 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";  // クリックされたリンクに 'active' クラスを追加
 }
 
-
-// ナビのホバーについて
+// ナビのホバーについての関数
 document.querySelectorAll('nav ul li a').forEach(link => {
     link.addEventListener('click', function() {
         // すべてのリンクから 'active' クラスを削除
@@ -35,69 +34,6 @@ document.getElementById("home").style.display = "block";
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // ホームタブ
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// チーム名を取得してローカルストレージに保存する関数
-function saveTeams() {
-    let teams = [];
-    let teamsSub = [];
-    for (let i = 1; i <= totalTeamNum; i++) {
-        // チーム名を取得し、前後の空白を削除してから保存
-        let teamName = document.getElementById(`team${i}`).value.trim();
-        teams.push(teamName);
-        // 三文字チーム名を取得し、前後の空白を削除してから保存
-        let teamSubName = document.getElementById(`teamSub${i}`).value.trim();
-        teamsSub.push(teamSubName);
-    }
-    // チーム名をローカルストレージに保存
-    localStorage.setItem('teams', JSON.stringify(teams));
-    localStorage.setItem('teamsSub', JSON.stringify(teamsSub));
-    alert("チーム名と3文字略称が保存されました！");
-    // チーム名を更新した後、日程と順位表を再生成
-    displaySchedule();
-    updateStandingsTable();
-}
-
-// 保存したチーム名を取得する関数
-function getTeams() {
-    let teams = JSON.parse(localStorage.getItem('teams')) || [];
-    let teamsSub = JSON.parse(localStorage.getItem('teamsSub')) || [];
-    for (let i = 1; i <= totalTeamNum; i++) {
-        document.getElementById(`team${i}`).value = teams[i - 1] || `Team${i}`;
-        document.getElementById(`teamSub${i}`).value = teamsSub[i - 1] || `Sub${i}`; // 三文字チーム名
-    }
-}
-
-
-// ローカルストレージの内容をJSONファイルにしてダウンロードする関数
-function downloadLocalStorageAsJson() {
-    // ローカルストレージから必要なデータを取得
-    let teams = JSON.parse(localStorage.getItem('teams')) || [];
-    let teamsSub = JSON.parse(localStorage.getItem('teamsSub')) || {};
-    let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
-    let previousStandings = JSON.parse(localStorage.getItem('previousStandings')) || {};
-    let currentStandings = JSON.parse(localStorage.getItem('currentStandings')) || {};
-
-    // 保存するデータをオブジェクトにまとめる
-    let dataToSave = {
-        teams: teams,
-        teamsSub: teamsSub,
-        matchData: matchData,
-        previousStandings: previousStandings,
-        currentStandings: currentStandings
-    };
-
-    // JSON文字列に変換
-    let jsonStr = JSON.stringify(dataToSave, null, 2);
-
-    // JSONファイルを作成してダウンロード
-    let blob = new Blob([jsonStr], { type: 'application/json' });
-    let url = URL.createObjectURL(blob);
-    let a = document.createElement('a');
-    a.href = url;
-    a.download = 'league_data.json'; // ダウンロードするファイル名
-    a.click();
-    URL.revokeObjectURL(url); // メモリ解放
-}
-
 // GitHubリポジトリからJSONデータを取得し、ローカルストレージに保存する関数
 function fetchAndSaveJsonFromGitHub() {
     const url = './league_data.json'; // JSONファイルの相対パス
@@ -127,6 +63,9 @@ function fetchAndSaveJsonFromGitHub() {
             if (data.currentStandings) {
                 localStorage.setItem('currentStandings', JSON.stringify(data.currentStandings));
             }
+            if (data.teamsData) {
+                localStorage.setItem('teamsData', JSON.stringify(data.teamsData));
+            }
             console.log('JSONデータがローカルストレージに保存されました');
 
             // ページのデータを更新
@@ -151,7 +90,20 @@ function resetLocalStorageAndLoadJson() {
     fetchAndSaveJsonFromGitHub();
 }
 
+// 保存したチーム名を取得する関数
+function getTeams() {
+    // teamsDataをローカルストレージから取得
+    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
 
+    // データが存在しない場合はデフォルトの値を設定
+    for (let i = 1; i <= totalTeamNum; i++) {
+        let teamData = teamsData[i - 1] || { teamId: i, teamName: `Team${i}`, teamSub: `Sub${i}` };
+
+        // フォームにチーム名と略称を設定
+        document.getElementById(`team${i}`).value = teamData.teams;
+        document.getElementById(`teamSub${i}`).value = teamData.teamsSub;
+    }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const teamContainer = document.querySelector('.team-list');
