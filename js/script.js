@@ -179,6 +179,68 @@ function closeTeamPerformanceTab() {
     document.getElementById('home').style.display = 'block';
 }
 
+// チーム専用のゴール・アシストランキング表示用の関数
+// チームごとのプレイヤーランキングを表示する関数
+// function displayTeamPlayerRanking(tableId, players) {
+//     let sortedPlayers = Object.entries(players).sort((a, b) => b[1] - a[1]); // 得点順にソート
+//     let tbody = document.querySelector(`#${tableId} tbody`);
+    
+//     if (!tbody) {
+//         console.error(`テーブルID ${tableId} が見つかりませんでした`);
+//         return;
+//     }
+
+//     tbody.innerHTML = '';  // テーブルを初期化
+
+//     sortedPlayers.forEach(([player, count], index) => {
+//         let row = `
+//             <tr>
+//                 <td>${index + 1}</td>
+//                 <td>${player}</td>
+//                 <td>${count}</td>
+//             </tr>
+//         `;
+//         tbody.insertAdjacentHTML('beforeend', row);
+//     });
+// }
+// チームごとのプレイヤーランキングを表示する関数
+function displayTeamPlayerRanking(tableId, players) {
+    let sortedPlayers = Object.entries(players).sort((a, b) => b[1] - a[1]); // 得点順にソート
+    let tbody = document.querySelector(`#${tableId} tbody`);
+    
+    if (!tbody) {
+        console.error(`テーブルID ${tableId} が見つかりませんでした`);
+        return;
+    }
+
+    tbody.innerHTML = '';  // テーブルを初期化
+
+    let rank = 1;  // 順位
+    let prevScore = null;  // 前のスコア
+    let offset = 0;  // 順位のオフセット
+
+    sortedPlayers.forEach(([player, count], index) => {
+        // 前のスコアと異なる場合は順位を更新
+        if (prevScore !== count) {
+            rank = index + 1 - offset;  // 順位更新
+        } else {
+            offset++;  // 同率の場合オフセットを増加
+        }
+
+        prevScore = count;  // 前のスコアを更新
+
+        let row = `
+            <tr>
+                <td>${rank}</td>  <!-- 順位 -->
+                <td>${player}</td>  <!-- 選手名 -->
+                <td>${count}</td>  <!-- 得点/アシスト数 -->
+            </tr>
+        `;
+        tbody.insertAdjacentHTML('beforeend', row);
+    });
+}
+
+
 // 全チームの統計データを集計する関数
 function calculateOverallTeamStats() {
     const matchData = JSON.parse(localStorage.getItem('matchData')) || {};
@@ -266,6 +328,9 @@ function calculateTeamStats(teamId) {
         save: 0
     };
 
+    let goalPlayers = {};
+    let assistPlayers = {};
+
     for (const matchKey in matchData) {
         const match = matchData[matchKey];
         const isHome = match.home.teamId === teamId;
@@ -292,6 +357,27 @@ function calculateTeamStats(teamId) {
             teamStats.PassCuts += isHome ? (match.home.fullTime.PassCuts || 0) : (match.away.fullTime.PassCuts || 0);
             teamStats.successfulTackles += isHome ? (match.home.fullTime.successfulTackles || 0) : (match.away.fullTime.successfulTackles || 0);
             teamStats.save += isHome ? (match.home.fullTime.save || 0) : (match.away.fullTime.save || 0);
+
+            // goalPlayersArrayとassistPlayersArrayを適切に定義
+            const goalPlayersArray = isHome ? match.home.goalPlayers : match.away.goalPlayers;
+            const assistPlayersArray = isHome ? match.home.assistPlayers : match.away.assistPlayers;
+
+
+            if (Array.isArray(goalPlayersArray)) {
+                goalPlayersArray.forEach(player => {
+                    if (player) {
+                        goalPlayers[player] = (goalPlayers[player] || 0) + 1;
+                    }
+                });
+            }
+
+            if (Array.isArray(assistPlayersArray)) {
+                assistPlayersArray.forEach(player => {
+                    if (player) {
+                        assistPlayers[player] = (assistPlayers[player] || 0) + 1;
+                    }
+                });
+            }
 
             if (isHome && homeScore > awayScore || isAway && awayScore > homeScore) {
                 teamStats.wins++;
@@ -362,6 +448,11 @@ function calculateTeamStats(teamId) {
     document.getElementById('PassCuts-tl-avg').textContent = (overallStats.PassCuts / overallStats.matches).toFixed(2);
     document.getElementById('successfulTackles-tl-avg').textContent = (overallStats.successfulTackles / overallStats.matches).toFixed(2);
     document.getElementById('saves-tl-avg').textContent = (overallStats.save / overallStats.matches).toFixed(2);
+
+    // ゴールとアシストランキングの表示（新しく作った関数を使用）
+    displayTeamPlayerRanking('teamGoalPlayersTable', goalPlayers);  // チームゴールランキング
+    displayTeamPlayerRanking('teamAssistPlayersTable', assistPlayers);  // チームアシストランキング
+
 }
 
 
@@ -974,12 +1065,25 @@ function displayPlayerRanking(tableId, players) {
     let tbody = document.querySelector(`#${tableId} tbody`);
     tbody.innerHTML = '';  // テーブルを初期化
 
+    let rank = 1;  // 順位
+    let prevScore = null;  // 前のスコア
+    let offset = 0;  // 順位のオフセット
+
     sortedPlayers.forEach(([player, count], index) => {
+        // 前のスコアと異なる場合は順位を更新
+        if (prevScore !== count) {
+            rank = index + 1 - offset;  // 順位更新
+        } else {
+            offset++;  // 同率の場合オフセットを増加
+        }
+
+        prevScore = count;  // 前のスコアを更新
+
         let row = `
             <tr>
-                <td>${index + 1}</td>
-                <td>${player}</td>
-                <td>${count}</td>
+                <td>${rank}</td>  <!-- 順位 -->
+                <td>${player}</td>  <!-- 選手名 -->
+                <td>${count}</td>  <!-- 得点/アシスト数 -->
             </tr>
         `;
         tbody.insertAdjacentHTML('beforeend', row);
