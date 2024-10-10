@@ -917,6 +917,7 @@ function displayIndividualRecords() {
     });
 }
 
+
 // ページロード時に個人戦績を表示
 document.addEventListener('DOMContentLoaded', () => {
     displayIndividualRecords();
