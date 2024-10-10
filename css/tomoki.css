@@ -209,6 +209,22 @@ nav ul li a.active {
     /* 左右に10%ずつの余白を設定 */
 }
 
+
+/* フッターのスタイル */
+/*footer {
+    background-color: black;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer img {
+    width: 30px;
+    margin: 0 10px;
+}*/
+
 /*
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
@@ -343,6 +359,17 @@ nav ul li a.active {
     background-color: var(--white-color-1); /* 明るいグレーの背景 */
 }
 
+/* 偶数行の背景色を薄いグレーに
+.team-stats-table tr:nth-child(even) {
+    background-color: white;
+}
+
+テーブルの行がホバーされたときのスタイル
+.team-stats-table tr:hover {
+    background-color: #ddd; ホバー時に少し濃いグレーに
+} */
+
+
 /*
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
@@ -425,7 +452,6 @@ nav ul li a.active {
 /* 2列目と4列目のセルの背景色を変更 */
 .match-table th:nth-child(2), .match-table th:nth-child(4) {
     background-color: var(--sub-color-1); /* 背景色 */
-    color: var(--main-color-1); /* ヘッダーセルの文字色 */
 }
 
 .match-table td {
@@ -446,26 +472,22 @@ nav ul li a.active {
     border: 2px solid var(--sub-color-1); /* 入力欄の枠線色 */
     padding: 5px;
     border-radius: 0px; /* 入力欄の角を丸く */
-    font-size: var(--body2-font-size); /* スコア入力欄のフォントサイズを調整 */
+    font-size: var(--body-font-size); /* スコア入力欄のフォントサイズを調整 */
     font-weight: bold; /* 入力欄の文字を太字に */
 }
 .assist-player, .goal-player {
     /* ここに共通のスタイルを定義 */
     font-weight: bold; /* 入力欄の文字を太字に */
-    white-space: normal;  /* テキストを折り返す */
-    word-wrap: break-word;  /* テキストがボックスの幅を超える場合に折り返す */
-    overflow-wrap: break-word;  /* ブラウザ互換性のために overflow-wrap を追加 */
-    width: 100%;  /* ボックスの幅を最大に設定 */
 }
 /* スコア入力欄に特化したスタイルも追加 */
-.match-table input[type="number"] {
+.match-table thead input[type="number"] {
     font-weight: bold; /* ボールドに設定 */
-    font-size: var(--subtitle-font-size); /* スコア入力欄のフォントサイズを調整 */
+    font-size: var(--Stitle-font-size); /* スコア入力欄のフォントサイズを調整 */
     text-align: center; /* 入力内容を中央揃え */
 }
 /* 数字入力のカーソルが消える魔法 */
-.match-table input[type="number"]::-webkit-outer-spin-button,
-.match-table input[type="number"]::-webkit-inner-spin-button {
+.match-table thead input[type="number"]::-webkit-outer-spin-button,
+.match-table thead input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }

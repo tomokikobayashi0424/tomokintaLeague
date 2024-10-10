@@ -327,7 +327,7 @@ function calculateTeamStats(teamId) {
     document.getElementById('successfulTackles-total').textContent = teamStats.successfulTackles;
     document.getElementById('saves-total').textContent = teamStats.save;
 
-    // // 各種平均の計算と表示
+    // 各種平均の計算と表示
     document.getElementById('matches-avg').textContent = "-";
     document.getElementById('wins-avg').textContent = (teamStats.wins / teamStats.matches).toFixed(2);
     document.getElementById('goals-avg').textContent = (teamStats.goals / teamStats.matches).toFixed(2);
@@ -415,9 +415,11 @@ function displaySchedule(schedule = null) {
                     <table id="goalDetailsTable${i}-${index}" class="match-table">
                         <thead>
                             <tr>
-                                <th id="homeTeam${i}-${index}">${match.home}</th><th> <input type="number" id="homeScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'home')"></th>
+                                <th id="homeTeam${i}-${index}">${match.home}</th>
+                                <th> <input type="number" id="homeScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'home')"readonly></th>
                                 <th> - </th>
-                                <th id="awayTeam${i}-${index}"><input type="number" id="awayScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'away')"></th><th> ${match.away}</th>
+                                <th id="awayTeam${i}-${index}"><input type="number" id="awayScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'away')"readonly></th>
+                                <th> ${match.away}</th>
                             </tr>
                         </thead>
                         <tbody id="goalDetailsBody${i}-${index}"></tbody>
@@ -428,7 +430,6 @@ function displaySchedule(schedule = null) {
             scheduleHTML += statsTableElement.outerHTML;
             scheduleHTML += `</div>`;
         });
-        scheduleHTML += `<button class="complete-round-btn" onclick="completeRound(${i})">今節のデータ入力完了</button>`;
         scheduleHTML += `</div>`;
     }
 
@@ -501,6 +502,7 @@ function createStatsTable(statCategories, roundIndex, matchIndex) {
         homeHalfInput.placeholder = "0";
         homeHalfInput.min = (index === 0) ? "0" : "0";  // 支配率なら0～100に制限
         homeHalfInput.max = (index === 0) ? "100" : "";
+        homeHalfInput.readOnly = true;  // readonlyを追加
 
         // ホームチームのフルタイム入力欄
         const homeFullInput = document.createElement('input');
@@ -509,6 +511,7 @@ function createStatsTable(statCategories, roundIndex, matchIndex) {
         homeFullInput.placeholder = "0";
         homeFullInput.min = (index === 0) ? "0" : "0";
         homeFullInput.max = (index === 0) ? "100" : "";
+        homeFullInput.readOnly = true;  // readonlyを追加
 
         // 真ん中列（データの説明）
         const categoryCell = document.createElement('td');
@@ -521,6 +524,7 @@ function createStatsTable(statCategories, roundIndex, matchIndex) {
         awayHalfInput.placeholder = "0";
         awayHalfInput.min = (index === 0) ? "0" : "0";
         awayHalfInput.max = (index === 0) ? "100" : "";
+        awayHalfInput.readOnly = true;  // readonlyを追加
 
         // アウェーチームのフルタイム入力欄
         const awayFullInput = document.createElement('input');
@@ -529,6 +533,7 @@ function createStatsTable(statCategories, roundIndex, matchIndex) {
         awayFullInput.placeholder = "0";
         awayFullInput.min = (index === 0) ? "0" : "0";
         awayFullInput.max = (index === 0) ? "100" : "";
+        awayFullInput.readOnly = true;  // readonlyを追加
 
         // 行にセルを追加
         const homeHalfCell = document.createElement('td');
@@ -611,8 +616,8 @@ function updateGoalDetails(roundIndex, matchIndex, teamType, data = null) {
                 <tr>
                     <td colspan="2">
                         ${teamType === 'home' ? `
-                            アシスト：<input type="text" class="assist-player home" value="${assist}">
-                            ゴール　：<input type="text" class="goal-player home" value="${goal}">
+                            アシスト：<input type="text" class="assist-player home" value="${assist}" readonly>
+                            ゴール　：<input type="text" class="goal-player home" value="${goal}" readonly>
                         ` : `<span></span>`}
                     </td>
                     <td>
@@ -621,8 +626,8 @@ function updateGoalDetails(roundIndex, matchIndex, teamType, data = null) {
 
                     <td colspan="2">
                         ${teamType === 'away' ? `
-                            アシスト：<input type="text" class="assist-player away" value="${assist}">
-                            ゴール　：<input type="text" class="goal-player away" value="${goal}">
+                            アシスト：<input type="text" class="assist-player away" value="${assist}" readonly>
+                            ゴール　：<input type="text" class="goal-player away" value="${goal}" readonly>
                         ` : `<span></span>`}
                     </td>
                 </tr>
@@ -862,9 +867,10 @@ function completeRound(roundIndex) {
     alert(`第${roundIndex + 1}節のデータが確定しました。順位表を更新しました。`);
 }
 
-////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // 個人戦績タブ
+///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 function displayIndividualRecords() {
     let individualRecords = JSON.parse(localStorage.getItem('individualRecords')) || { assists: {}, goals: {} };
@@ -897,8 +903,6 @@ document.addEventListener('DOMContentLoaded', () => {
     displayIndividualRecords();
     updateIndividualRecords();  // 必要な場合に個人戦績を更新
 });
-
-
 
 function updateIndividualRecords() {
     let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
@@ -948,7 +952,6 @@ function updateIndividualRecords() {
     displayPlayerRanking('assistPlayersTable', assistPlayers);
 }
 
-
 // ランキング表示用の関数
 function displayPlayerRanking(tableId, players) {
     let sortedPlayers = Object.entries(players).sort((a, b) => b[1] - a[1]); // 得点順にソート
@@ -966,10 +969,3 @@ function displayPlayerRanking(tableId, players) {
         tbody.insertAdjacentHTML('beforeend', row);
     });
 }
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
