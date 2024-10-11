@@ -675,31 +675,21 @@ nav ul li a.active {
 
 /* レコードテーブルのヘッダーのスタイル */
 .records-table th {
-    background-color: rgb(36, 0, 255); /* ヘッダーの背景色を青に設定 */
-    color: white; /* ヘッダーの文字色を白に設定 */
+    background-color: var(--main-color-1); /* ヘッダーの背景色を青に設定 */
+    color: var(--white-color-1); /* ヘッダーの文字色を白に設定 */
     font-weight: bold; /* ヘッダーの文字をボールドに設定 */
-    border: 1px solid rgb(0, 0, 132); /* 枠の色を濃い青に設定 */
+    border: 1px solid var(--main-color-1); /* 枠の色を濃い青に設定 */
     padding: 8px; /* セルのパディング */
     text-align: center; /* テキストを中央揃えに */
 }
 
 /* ヘッダー以外のセルのスタイル */
 .records-table td {
-    background-color: #ffffff; /* 背景を白に */
-    color: rgb(0, 0, 132); /* 文字色を濃い青に */
-    border: 1px solid rgb(0, 0, 132); /* 枠の色を濃い青に設定 */
+    background-color: var(--white-color-1); /* 背景を白に */
+    color: var(--main-color-1); /* 文字色を濃い青に */
+    border: 1px solid var(--main-color-1); /* 枠の色を濃い青に設定 */
     padding: 8px;
     text-align: center; /* テキストを中央揃えに */
-}
-
-/* 偶数行の背景色を設定 */
-.records-table tr:nth-child(even) {
-    background-color: #f9f9f9; /* 偶数行の背景色 */
-}
-
-/* ホバー時の行の背景色 */
-.records-table tr:hover {
-    background-color: #f1f1f1; /* ホバー時の背景色 */
 }
 
 /* 
@@ -716,10 +706,10 @@ nav ul li a.active {
 
 /* ランキングテーブルのヘッダーのスタイル */
 .ranking-table th {
-    background-color: rgb(36, 0, 255); /* ヘッダーの背景色を青に設定 */
-    color: white; /* ヘッダーの文字色を白に設定 */
+    background-color: var(--main-color-2); /* ヘッダーの背景色を青に設定 */
+    color: var(--white-color-1); /* ヘッダーの文字色を白に設定 */
     font-weight: bold; /* ヘッダーの文字をボールドに */
-    border: 1px solid rgb(0, 0, 132); /* 枠の色を濃い青に設定 */
+    border: 1px solid var(--main-color-1); /* 枠の色を濃い青に設定 */
     padding: 8px;
     text-align: center; /* テキストを中央揃えに */
 }
@@ -732,21 +722,6 @@ nav ul li a.active {
     padding: 0px;
     text-align: center; /* テキストを中央揃えに */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* スマホ向けのメディアクエリ (画面幅が600px未満) */
 @media screen and (max-width: 850px) {

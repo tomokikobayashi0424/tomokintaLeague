@@ -168,6 +168,8 @@ function openTabWithTeam(evt, tabName, teamIndex) {
 
     // チーム名を戦績タブに表示
     document.getElementById('teamNameHeader').textContent = teamName;
+    // チームIDを表示して確認（デバッグ用）
+    console.log("Displaying stats for teamId:", teamIndex);
     // チーム戦績を計算して表示
     // calculateTeamStats(teamId);  // ここでチーム戦績を計算する
     calculateTeamStats(teamIndex); // ここでチーム戦績を計算する
@@ -178,31 +180,6 @@ function closeTeamPerformanceTab() {
     document.getElementById('teamPerformanceTab').style.display = 'none';
     document.getElementById('home').style.display = 'block';
 }
-
-// チーム専用のゴール・アシストランキング表示用の関数
-// チームごとのプレイヤーランキングを表示する関数
-// function displayTeamPlayerRanking(tableId, players) {
-//     let sortedPlayers = Object.entries(players).sort((a, b) => b[1] - a[1]); // 得点順にソート
-//     let tbody = document.querySelector(`#${tableId} tbody`);
-    
-//     if (!tbody) {
-//         console.error(`テーブルID ${tableId} が見つかりませんでした`);
-//         return;
-//     }
-
-//     tbody.innerHTML = '';  // テーブルを初期化
-
-//     sortedPlayers.forEach(([player, count], index) => {
-//         let row = `
-//             <tr>
-//                 <td>${index + 1}</td>
-//                 <td>${player}</td>
-//                 <td>${count}</td>
-//             </tr>
-//         `;
-//         tbody.insertAdjacentHTML('beforeend', row);
-//     });
-// }
 // チームごとのプレイヤーランキングを表示する関数
 function displayTeamPlayerRanking(tableId, players) {
     let sortedPlayers = Object.entries(players).sort((a, b) => b[1] - a[1]); // 得点順にソート
@@ -239,7 +216,6 @@ function displayTeamPlayerRanking(tableId, players) {
         tbody.insertAdjacentHTML('beforeend', row);
     });
 }
-
 
 // 全チームの統計データを集計する関数
 function calculateOverallTeamStats() {
@@ -452,8 +428,136 @@ function calculateTeamStats(teamId) {
     // ゴールとアシストランキングの表示（新しく作った関数を使用）
     displayTeamPlayerRanking('teamGoalPlayersTable', goalPlayers);  // チームゴールランキング
     displayTeamPlayerRanking('teamAssistPlayersTable', assistPlayers);  // チームアシストランキング
+    // チームのゴール・失点グラフを描画
+    drawGoalGraph(teamId);
 
 }
+
+// ゴールと失点のグラフを描画する関数
+function drawGoalGraph(teamId) {
+    console.log("Drawing graph for teamId:", teamId); // 追加: チームIDを確認
+
+    const matchData = JSON.parse(localStorage.getItem('matchData')) || [];
+    let goalTimes = [];  // 自チームの得点時間
+    let concededTimes = [];  // 自チームの失点時間
+
+    // 試合データを取得し、ゴール時間を抽出
+    for (const matchKey in matchData) {
+        const match = matchData[matchKey];
+        const isHome = match.home.teamId === teamId;
+        const isAway = match.away.teamId === teamId;
+
+        if (isHome) {
+            goalTimes = goalTimes.concat(match.home.times || []);  // 自チームの得点時間
+            concededTimes = concededTimes.concat(match.away.times || []);  // 相手チームの得点時間
+        } else if (isAway) {
+            goalTimes = goalTimes.concat(match.away.times || []);  // 自チームの得点時間
+            concededTimes = concededTimes.concat(match.home.times || []);  // 相手チームの得点時間
+        }
+    }
+
+    // 時間でソート
+    goalTimes.sort((a, b) => a - b);
+    concededTimes.sort((a, b) => a - b);
+
+    // グラフを描画
+    createGoalChart(goalTimes, concededTimes);
+}
+
+
+let currentChart = null;  // グローバル変数として現在のグラフを保持
+
+function createGoalChart(goalTimes, concededTimes) {
+    const ctx = document.getElementById('goalChart').getContext('2d');
+
+    // キャンバスの背景色を白に設定
+    ctx.canvas.style.backgroundColor = 'white';
+
+    // 既存のグラフがあれば破棄
+    if (currentChart) {
+        currentChart.destroy();
+    }
+
+    // ゴールタイムを集計して、同じ時間のゴール数をカウントする
+    const goalCounts = {};
+    const concededCounts = {};
+
+    // 自チーム得点の集計
+    goalTimes.forEach(time => {
+        goalCounts[time] = (goalCounts[time] || 0) + 1;
+    });
+
+    // 失点の集計
+    concededTimes.forEach(time => {
+        concededCounts[time] = (concededCounts[time] || 0) + 1;
+    });
+
+    // 縦軸の最大値を設定（余裕を持たせる）
+    const maxGoals = Math.max(...Object.values(goalCounts), ...Object.values(concededCounts), 0);
+    const yMax = maxGoals + 1; // 1つ余裕を持たせる
+
+    // 新しいグラフを作成
+    currentChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: Array.from({ length: 91 }, (_, i) => i), // 0～90分までを横軸に設定
+            datasets: [
+                {
+                    label: '自チーム得点時間',
+                    data: Object.keys(goalCounts).map(time => ({ x: parseInt(time), y: goalCounts[time] })), // 自チームの得点データをプロット
+                    borderColor: 'blue',
+                    fill: false,
+                    pointBackgroundColor: 'blue',
+                    pointRadius: 5,
+                },
+                {
+                    label: '失点時間',
+                    data: Object.keys(concededCounts).map(time => ({ x: parseInt(time), y: concededCounts[time] })), // 相手チームの得点データをプロット
+                    borderColor: 'red',
+                    fill: false,
+                    pointBackgroundColor: 'red',
+                    pointRadius: 5,
+                }
+            ]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'チームの得点時間と失点時間のグラフ', // グラフのタイトル
+                    font: {
+                        size: 20
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    type: 'linear',
+                    min: 0,
+                    max: 90, // 横軸（時間）の範囲を0から90に設定
+                    title: {
+                        display: true,
+                        text: '時間（分）'
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    max: yMax,  // 縦軸の最大値を動的に設定
+                    title: {
+                        display: true,
+                        text: 'ゴール数'
+                    },
+                    ticks: {
+                        stepSize: 1  // y軸のステップを1に設定
+                    }
+                }
+            }
+        }
+    });
+}
+
+
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

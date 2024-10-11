@@ -37,15 +37,12 @@ document.getElementById("home").style.display = "block";
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // GitHubリポジトリからJSONデータを取得し、ローカルストレージに保存する関数
 function fetchAndSaveJsonFromGitHub() {
-
-
-
-
-    //////
-    //////
-    //////
-    //////
-    //////
+    //
+    //
+    //
+    //
+    //
+    //
     //////なぜかローカルは絶対パスでgitにあげるときは相対パス
     const url = 'https://raw.githubusercontent.com/tomokikobayashi0424/tomokintaLeague/master/league_data.json'; // JSONファイルのURL
 
@@ -1789,4 +1786,3 @@ function displayPlayerRanking(tableId, players) {
         tbody.insertAdjacentHTML('beforeend', row);
     });
 }
-
