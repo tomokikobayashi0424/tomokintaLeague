@@ -10244,31 +10244,31 @@
     },
     {
       "Rank": 2,
-      "teamId": 10
-    },
-    {
-      "Rank": 3,
-      "teamId": 0
-    },
-    {
-      "Rank": 4,
-      "teamId": 2
-    },
-    {
-      "Rank": 5,
       "teamId": 4
     },
     {
-      "Rank": 6,
-      "teamId": 5
-    },
-    {
-      "Rank": 7,
+      "Rank": 3,
       "teamId": 6
     },
     {
+      "Rank": 4,
+      "teamId": 10
+    },
+    {
+      "Rank": 5,
+      "teamId": 2
+    },
+    {
+      "Rank": 6,
+      "teamId": 0
+    },
+    {
+      "Rank": 7,
+      "teamId": 11
+    },
+    {
       "Rank": 8,
-      "teamId": 7
+      "teamId": 1
     },
     {
       "Rank": 9,
@@ -10276,15 +10276,15 @@
     },
     {
       "Rank": 10,
-      "teamId": 11
+      "teamId": 7
     },
     {
       "Rank": 11,
-      "teamId": 1
+      "teamId": 8
     },
     {
       "Rank": 12,
-      "teamId": 8
+      "teamId": 5
     }
   ],
   "currentStandings": [
@@ -10294,31 +10294,31 @@
     },
     {
       "Rank": 2,
-      "teamId": 10
-    },
-    {
-      "Rank": 3,
-      "teamId": 0
-    },
-    {
-      "Rank": 4,
-      "teamId": 2
-    },
-    {
-      "Rank": 5,
       "teamId": 4
     },
     {
-      "Rank": 6,
-      "teamId": 5
-    },
-    {
-      "Rank": 7,
+      "Rank": 3,
       "teamId": 6
     },
     {
+      "Rank": 4,
+      "teamId": 10
+    },
+    {
+      "Rank": 5,
+      "teamId": 2
+    },
+    {
+      "Rank": 6,
+      "teamId": 0
+    },
+    {
+      "Rank": 7,
+      "teamId": 11
+    },
+    {
       "Rank": 8,
-      "teamId": 7
+      "teamId": 1
     },
     {
       "Rank": 9,
@@ -10326,15 +10326,15 @@
     },
     {
       "Rank": 10,
-      "teamId": 11
+      "teamId": 7
     },
     {
       "Rank": 11,
-      "teamId": 1
+      "teamId": 8
     },
     {
       "Rank": 12,
-      "teamId": 8
+      "teamId": 5
     }
   ]
 }
