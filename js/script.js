@@ -194,21 +194,20 @@ function displayTeamPlayerRanking(tableId, players) {
 
     let rank = 1;  // 順位
     let prevScore = null;  // 前のスコア
-    let offset = 0;  // 順位のオフセット
+    let displayRank = rank; // 表示する順位
 
     sortedPlayers.forEach(([player, count], index) => {
-        // 前のスコアと異なる場合は順位を更新
+        // 前のスコアと異なる場合は表示する順位を更新
         if (prevScore !== count) {
-            rank = index + 1 - offset;  // 順位更新
-        } else {
-            offset++;  // 同率の場合オフセットを増加
+            displayRank = rank;  // 表示する順位を設定
         }
 
         prevScore = count;  // 前のスコアを更新
+        rank++; // 次の順位へインクリメント
 
         let row = `
             <tr>
-                <td>${rank}</td>  <!-- 順位 -->
+                <td>${displayRank}</td>  <!-- 順位 -->
                 <td>${player}</td>  <!-- 選手名 -->
                 <td>${count}</td>  <!-- 得点/アシスト数 -->
             </tr>
@@ -216,6 +215,7 @@ function displayTeamPlayerRanking(tableId, players) {
         tbody.insertAdjacentHTML('beforeend', row);
     });
 }
+
 
 // 全チームの統計データを集計する関数
 function calculateOverallTeamStats() {
@@ -1008,25 +1008,23 @@ function saveStandingsData(standings) {
 
 // 順位変動の矢印を表示する関数
 function updateRankChangeArrows() {
-    let previousStandings = JSON.parse(localStorage.getItem('previousStandings')) || [];
     let currentStandings = JSON.parse(localStorage.getItem('currentStandings')) || [];
+    let standings = calculateStandings(); // 現在の順位を再計算
     let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
 
     let tbody = document.querySelector('#standingsTable tbody');
     tbody.innerHTML = ''; // 順位表を初期化
 
-    let standings = calculateStandings();
-
     standings.forEach(team => {
-        let previousTeam = previousStandings.find(t => t.teamId === team.teamId);
         let currentTeam = currentStandings.find(t => t.teamId === team.teamId);
 
-        let previousRank = previousTeam ? previousTeam.Rank : null;
-        let currentRank = currentTeam ? currentTeam.Rank : team.currentRank;
+        let previousRank = currentTeam ? currentTeam.Rank : null;
+        let currentRank = team.currentRank;
 
         let rankChange = '';
         let rankClass = '';
 
+        // previousRank と currentRank を比較して順位の変動をチェック
         if (previousRank !== null) {
             if (currentRank < previousRank) {
                 rankChange = '▲'; // 順位上昇
@@ -1045,7 +1043,7 @@ function updateRankChangeArrows() {
 
         let teamInfo = teamsData.find(t => t.teamId === team.teamId);
         let teamName = getTeamNameByScreenSize(teamInfo); // 画面幅に応じたチーム名
-        
+
         let row = `
             <tr>
                 <td>${team.currentRank} <span class="${rankClass}">${rankChange}</span></td>
@@ -1061,8 +1059,8 @@ function updateRankChangeArrows() {
         tbody.insertAdjacentHTML('beforeend', row);
     });
 
-    localStorage.setItem('currentStandings', JSON.stringify(currentStandings));
 }
+
 
 // 今節のデータ入力完了時に順位変動を保存し、矢印を表示する関数
 function completeRound(roundIndex) {
@@ -1164,6 +1162,7 @@ function updateIndividualRecords() {
 }
 
 // ランキング表示用の関数
+// ランキング表示用の関数
 function displayPlayerRanking(tableId, players) {
     let sortedPlayers = Object.entries(players).sort((a, b) => b[1] - a[1]); // 得点順にソート
     let tbody = document.querySelector(`#${tableId} tbody`);
@@ -1171,21 +1170,20 @@ function displayPlayerRanking(tableId, players) {
 
     let rank = 1;  // 順位
     let prevScore = null;  // 前のスコア
-    let offset = 0;  // 順位のオフセット
+    let displayRank = rank; // 表示する順位
 
     sortedPlayers.forEach(([player, count], index) => {
         // 前のスコアと異なる場合は順位を更新
         if (prevScore !== count) {
-            rank = index + 1 - offset;  // 順位更新
-        } else {
-            offset++;  // 同率の場合オフセットを増加
+            displayRank = rank;  // 表示する順位を更新
         }
 
         prevScore = count;  // 前のスコアを更新
+        rank++; // 次の順位へインクリメント
 
         let row = `
             <tr>
-                <td>${rank}</td>  <!-- 順位 -->
+                <td>${displayRank}</td>  <!-- 順位 -->
                 <td>${player}</td>  <!-- 選手名 -->
                 <td>${count}</td>  <!-- 得点/アシスト数 -->
             </tr>
