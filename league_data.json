@@ -5,7 +5,7 @@
     "Real Kotarid",
     "Forester United f.c.",
     "TKBEAMS",
-    "Astroboy FC",
+    "atox astronomy",
     "Shunsenal FC",
     "FC Shigecelona",
     "Matsubars",
@@ -19,7 +19,7 @@
     "RKD",
     "FUN",
     "TKB",
-    "AFC",
+    "ATX",
     "SFC",
     "FCS",
     "MTB",
@@ -55,8 +55,8 @@
     },
     {
       "teamId": 5,
-      "teams": "Astroboy FC",
-      "teamsSub": "AFC"
+      "teams": "atox astronomy",
+      "teamsSub": "ATX"
     },
     {
       "teamId": 6,
