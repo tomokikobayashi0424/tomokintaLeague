@@ -10336,27 +10336,27 @@
   "previousStandings": [
     {
       "Rank": 1,
-      "teamId": 3
-    },
-    {
-      "Rank": 2,
       "teamId": 4
     },
     {
-      "Rank": 3,
+      "Rank": 2,
       "teamId": 6
     },
     {
-      "Rank": 4,
+      "Rank": 3,
       "teamId": 10
     },
     {
+      "Rank": 4,
+      "teamId": 0
+    },
+    {
       "Rank": 5,
-      "teamId": 2
+      "teamId": 3
     },
     {
       "Rank": 6,
-      "teamId": 0
+      "teamId": 2
     },
     {
       "Rank": 7,
@@ -10368,19 +10368,19 @@
     },
     {
       "Rank": 9,
-      "teamId": 9
-    },
-    {
-      "Rank": 10,
-      "teamId": 7
-    },
-    {
-      "Rank": 11,
       "teamId": 8
     },
     {
-      "Rank": 12,
+      "Rank": 10,
       "teamId": 5
+    },
+    {
+      "Rank": 11,
+      "teamId": 9
+    },
+    {
+      "Rank": 12,
+      "teamId": 7
     }
   ],
   "currentStandings": [
