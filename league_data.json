@@ -1564,76 +1564,88 @@
     "round2-match4": {
       "home": {
         "teamId": 6,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 1,
+        "assistPlayers": [
+          "ハリー ケイン"
+        ],
+        "goalPlayers": [
+          "リオネル メッシ"
+        ],
+        "times": [
+          24
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 36,
+          "shots": 2,
+          "shotsonFrame": 1,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 42,
+          "successfulPasses": 35,
+          "crosses": 2,
+          "PassCuts": 9,
+          "successfulTackles": 1,
+          "save": 1
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 35,
+          "shots": 2,
+          "shotsonFrame": 1,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 87,
+          "successfulPasses": 71,
+          "crosses": 2,
+          "PassCuts": 14,
+          "successfulTackles": 3,
+          "save": 1
         }
       },
       "away": {
         "teamId": 9,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 1,
+        "assistPlayers": [
+          "リオネル メッシ"
+        ],
+        "goalPlayers": [
+          "ヴィニシウス ジュニオール"
+        ],
+        "times": [
+          87
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 64,
+          "shots": 1,
+          "shotsonFrame": 1,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 71,
+          "successfulPasses": 58,
+          "crosses": 0,
+          "PassCuts": 5,
+          "successfulTackles": 2,
+          "save": 0
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 65,
+          "shots": 4,
+          "shotsonFrame": 2,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 144,
+          "successfulPasses": 124,
+          "crosses": 0,
+          "PassCuts": 12,
+          "successfulTackles": 3,
+          "save": 0
         }
       }
     },
