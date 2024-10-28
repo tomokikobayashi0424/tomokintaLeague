@@ -1968,7 +1968,7 @@
     "round3-match3": {
       "home": {
         "teamId": 6,
-        "score": null,
+        "score": 0,
         "assistPlayers": [],
         "goalPlayers": [],
         "times": [],
@@ -1988,27 +1988,42 @@
           "save": null
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 54,
+          "shots": 3,
+          "shotsonFrame": 2,
+          "fouls": 2,
+          "offsides": 0,
+          "cornerKicks": 1,
+          "freeKicks": 0,
+          "passes": 127,
+          "successfulPasses": 99,
+          "crosses": 5,
+          "PassCuts": 9,
+          "successfulTackles": 9,
+          "save": 0
         }
       },
       "away": {
         "teamId": 0,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 4,
+        "assistPlayers": [
+          "",
+          "エドガー ダーヴィッツ",
+          "",
+          "マイケル オーウェン"
+        ],
+        "goalPlayers": [
+          "フリスト ストイチコフ",
+          "パトリック ヴィエラ",
+          "エドガー ダーヴィッツ",
+          "ジェレミ ドク"
+        ],
+        "times": [
+          10,
+          33,
+          55,
+          85
+        ],
         "halfTime": {
           "possession": null,
           "shots": null,
@@ -2025,19 +2040,19 @@
           "save": null
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 46,
+          "shots": 6,
+          "shotsonFrame": 5,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 1,
+          "freeKicks": 2,
+          "passes": 73,
+          "successfulPasses": 54,
+          "crosses": 3,
+          "PassCuts": 17,
+          "successfulTackles": 5,
+          "save": 3
         }
       }
     },
