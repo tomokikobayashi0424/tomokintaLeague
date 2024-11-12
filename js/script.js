@@ -445,90 +445,86 @@ function calculateTeamStats(teamId) {
 
 }
 
+
+
+
+
+
+
+let lineChart = null;  // 折れ線グラフ用の変数
+let barChart5Min = null;   // 5分間隔の棒グラフ用の変数
+let barChart15Min = null;   // 15分間隔の棒グラフ用の変数
+
 // ゴールと失点のグラフを描画する関数
 function drawGoalGraph(teamId) {
-    console.log("Drawing graph for teamId:", teamId); // 追加: チームIDを確認
-
     const matchData = JSON.parse(localStorage.getItem('matchData')) || [];
-    let goalTimes = [];  // 自チームの得点時間
-    let concededTimes = [];  // 自チームの失点時間
+    let goalTimes = [];
+    let concededTimes = [];
 
-    // 試合データを取得し、ゴール時間を抽出
     for (const matchKey in matchData) {
         const match = matchData[matchKey];
         const isHome = match.home.teamId === teamId;
         const isAway = match.away.teamId === teamId;
 
         if (isHome) {
-            goalTimes = goalTimes.concat(match.home.times || []);  // 自チームの得点時間
-            concededTimes = concededTimes.concat(match.away.times || []);  // 相手チームの得点時間
+            goalTimes = goalTimes.concat(match.home.times || []);
+            concededTimes = concededTimes.concat(match.away.times || []);
         } else if (isAway) {
-            goalTimes = goalTimes.concat(match.away.times || []);  // 自チームの得点時間
-            concededTimes = concededTimes.concat(match.home.times || []);  // 相手チームの得点時間
+            goalTimes = goalTimes.concat(match.away.times || []);
+            concededTimes = concededTimes.concat(match.home.times || []);
         }
     }
 
-    // 時間でソート
     goalTimes.sort((a, b) => a - b);
     concededTimes.sort((a, b) => a - b);
 
-    // グラフを描画
-    createGoalChart(goalTimes, concededTimes);
+    createGoalScatterPlot(goalTimes, concededTimes);  // 折れ線グラフの作成（線なし）
+    drawStackedGoalGraph(goalTimes, concededTimes, 5);  // 5分刻みの棒グラフ
+    drawStackedGoalGraph(goalTimes, concededTimes, 15); // 15分刻みの棒グラフ
 }
 
-
-let currentChart = null;  // グローバル変数として現在のグラフを保持
-
-function createGoalChart(goalTimes, concededTimes) {
+// 折れ線グラフ（プロットのみ）を作成する関数
+function createGoalScatterPlot(goalTimes, concededTimes) {
     const ctx = document.getElementById('goalChart').getContext('2d');
+    ctx.canvas.style.backgroundColor = 'white';  // グラフの背景を白に設定
 
-    // キャンバスの背景色を白に設定
-    ctx.canvas.style.backgroundColor = 'white';
-
-    // 既存のグラフがあれば破棄
-    if (currentChart) {
-        currentChart.destroy();
+    if (lineChart) {
+        lineChart.destroy();
     }
 
-    // ゴールタイムを集計して、同じ時間のゴール数をカウントする
     const goalCounts = {};
     const concededCounts = {};
 
-    // 自チーム得点の集計
     goalTimes.forEach(time => {
         goalCounts[time] = (goalCounts[time] || 0) + 1;
     });
 
-    // 失点の集計
     concededTimes.forEach(time => {
         concededCounts[time] = (concededCounts[time] || 0) + 1;
     });
 
-    // 縦軸の最大値を設定（余裕を持たせる）
     const maxGoals = Math.max(...Object.values(goalCounts), ...Object.values(concededCounts), 0);
-    const yMax = maxGoals + 1; // 1つ余裕を持たせる
+    const yMax = maxGoals + 1;
 
-    // 新しいグラフを作成
-    currentChart = new Chart(ctx, {
-        type: 'line',
+    lineChart = new Chart(ctx, {
+        type: 'scatter',
         data: {
-            labels: Array.from({ length: 91 }, (_, i) => i), // 0～90分までを横軸に設定
             datasets: [
                 {
                     label: '自チーム得点時間',
-                    data: Object.keys(goalCounts).map(time => ({ x: parseInt(time), y: goalCounts[time] })), // 自チームの得点データをプロット
-                    borderColor: 'blue',
-                    fill: false,
-                    pointBackgroundColor: 'blue',
-                    pointRadius: 5,
+                    data: Object.keys(goalCounts).map(time => ({ x: parseInt(time), y: goalCounts[time] })),
+                    backgroundColor: 'blue',
+                    pointStyle: 'triangle',  // 自チーム得点のマーカー形状
+                    pointRadius: 6,
+                    showLine: false
                 },
                 {
                     label: '失点時間',
-                    data: Object.keys(concededCounts).map(time => ({ x: parseInt(time), y: concededCounts[time] })), // 相手チームの得点データをプロット
-                    borderColor: 'red',
-                    fill: false,
-                    pointBackgroundColor: 'red',
-                    pointRadius: 5,
+                    data: Object.keys(concededCounts).map(time => ({ x: parseInt(time), y: concededCounts[time] })),
+                    backgroundColor: 'red',
+                    pointStyle: 'rect',  // 失点のマーカー形状
+                    pointRadius: 6,
+                    showLine: false
                 }
             ]
         },
@@ -536,37 +532,111 @@ function createGoalChart(goalTimes, concededTimes) {
             plugins: {
                 title: {
                     display: true,
-                    text: '得点時間と失点時間のグラフ', // グラフのタイトル
-                    font: {
-                        size: 20
-                    }
+                    text: '得点時間と失点時間のグラフ（プロットのみ）',
+                    font: { size: 20 }
                 }
             },
             scales: {
                 x: {
                     type: 'linear',
                     min: 0,
-                    max: 90, // 横軸（時間）の範囲を0から90に設定
-                    title: {
-                        display: true,
-                        text: '時間（分）'
-                    }
+                    max: 90,
+                    title: { display: true, text: '時間（分）' }
                 },
                 y: {
                     beginAtZero: true,
-                    max: yMax,  // 縦軸の最大値を動的に設定
-                    title: {
-                        display: true,
-                        text: 'ゴール数'
-                    },
-                    ticks: {
-                        stepSize: 1  // y軸のステップを1に設定
-                    }
+                    max: yMax,
+                    title: { display: true, text: 'ゴール数' },
+                    ticks: { stepSize: 1 }
                 }
             }
         }
     });
 }
+
+// 5分または15分刻みの棒グラフを作成する関数
+function drawStackedGoalGraph(goalTimes, concededTimes, interval) {
+    const ctxId = interval === 5 ? 'stackedGoalChart5Min' : 'stackedGoalChart15Min';
+    const ctx = document.getElementById(ctxId).getContext('2d');
+    ctx.canvas.style.backgroundColor = 'white';  // 棒グラフの背景を白に設定
+
+    if (interval === 5 && barChart5Min) {
+        barChart5Min.destroy();
+    }
+    if (interval === 15 && barChart15Min) {
+        barChart15Min.destroy();
+    }
+
+    const numBuckets = Math.ceil(90 / interval);
+    const goalBuckets = Array(numBuckets).fill(0);
+    const concededBuckets = Array(numBuckets).fill(0);
+
+    goalTimes.forEach(time => {
+        const bucketIndex = Math.floor(time / interval);
+        goalBuckets[bucketIndex]++;
+    });
+
+    concededTimes.forEach(time => {
+        const bucketIndex = Math.floor(time / interval);
+        concededBuckets[bucketIndex] = -concededBuckets[bucketIndex] - 1;
+    });
+
+    const labels = Array.from({ length: numBuckets }, (_, i) => `${i * interval + 1}~${(i + 1) * interval}分`);
+
+    const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: '自チーム得点',
+                    data: goalBuckets,
+                    backgroundColor: 'blue',
+                    stack: 'stacked',
+                },
+                {
+                    label: '失点',
+                    data: concededBuckets,
+                    backgroundColor: 'red',
+                    stack: 'stacked',
+                }
+            ]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: `${interval}分刻みの得点と失点の分布`,
+                    font: { size: 20 }
+                }
+            },
+            scales: {
+                x: {
+                    stacked: true,
+                    title: { display: true, text: '時間帯（分）' }
+                },
+                y: {
+                    beginAtZero: true,
+                    stacked: true,
+                    title: { display: true, text: 'ゴール数' },
+                    ticks: { stepSize: 1 }
+                }
+            }
+        }
+    });
+
+    if (interval === 5) {
+        barChart5Min = chart;
+    } else {
+        barChart15Min = chart;
+    }
+}
+
+
+
+
+
+
 
 
 
@@ -649,7 +719,7 @@ function displaySchedule(schedule = null) {
                     <table id="goalDetailsTable${i}-${index}" class="match-table">
                         <thead>
                             <tr>
-                                <td colspan="3">日付: <input type="date" id="matchDate${i}-${index}" value="${match.date || ''}"></td>
+                                <td colspan="5"><input type="date" id="matchDate${i}-${index}" value="${match.date || ''}"readonly></td>
                             </tr>
                             <tr>
                                 <th id="homeTeam${i}-${index}">${match.home}</th>

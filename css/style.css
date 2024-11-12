@@ -309,7 +309,7 @@ nav ul li a.active {
     padding: 0px; /* 入力欄にパディングを追加 */
     margin: 0px; /* ロゴと入力欄の間に余白を追加 */
     text-align: center; /* テキストを中央揃えに */
-    border: 1px solid var(--main-color-1); /* 入力欄の枠線 */
+    border: 0px solid var(--main-color-1); /* 入力欄の枠線 */
     background-color: var(--main-color-1); /* 背景色 */
     color: var(--sub-color-1); /* 文字色 */
     font-size: var(--name-font-size);
@@ -318,9 +318,9 @@ nav ul li a.active {
 .team-subname-input {
     width: 100px; /* 入力欄の横幅をロゴに合わせる */
     padding: 0px 0px 0px 0px; /* 入力欄にパディングを追加 */
-    margin: 5px 0px 10px 0px; /* ロゴと入力欄の間に余白を追加 */
+    margin: 5px 0px 0px 0px; /* ロゴと入力欄の間に余白を追加 */
     text-align: center; /* テキストを中央揃えに */
-    border: 1px solid var(--main-color-1); /* 入力欄の枠線 */
+    border: 0px solid var(--main-color-1); /* 入力欄の枠線 */
     background-color: var(--main-color-1); /* 背景色 */
     color: var(--sub-color-1); /* 文字色 */
     font-size: var(--subtitle-font-size);
@@ -368,44 +368,15 @@ nav ul li a.active {
 /* チーム名のヘッダーのスタイル */
 #teamNameHeader {
     text-align: center;
-    margin-bottom: 10px;
-}
-
-/* チーム戦績テーブル全体のスタイル */
-.team-stats-table {
-    width: 100%; /* テーブルを画面いっぱいに広げる */
-    border-collapse: collapse; /* 枠線を統一して表示 */
-    margin-bottom: 20px; /* 戻るボタンとの間に余白を追加 */
-    background-color: var(--white-color-1); /* 背景色を白に */
-}
-
-/* テーブルのヘッダー部分のスタイル */
-.team-stats-table th {
-    background-color: var(--accent-color-1); /*  */
-    color: var(--main-color-1); /* テキストを白に */
-    font-size: var(--subtitle-font-size); /* フォントサイズ */
-    font-weight: bold;
-    padding: 0px; /* セルの余白を追加 */
-    text-align: center; /* テキストを中央揃え */
-    border: 1px solid var(--main-color-1); /* 境界線 */
-}
-
-/* テーブルのボディ部分のスタイル */
-.team-stats-table td {
-    padding: 0px;
-    text-align: center; /* テキストを中央揃え */
-    border: 1px solid var(--main-color-1); /* 境界線 */
-    font-size: var(--body-font-size); /* フォントサイズ */
-    color: var(--main-color-1); /* 濃いグレーのテキスト色 */
-    background-color: var(--white-color-1); /* 明るいグレーの背景 */
+    margin-bottom: 0px;
 }
 
 /*
----------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------
+===================================================================================================
+===================================================================================================
 日程表タブのスタイル 
----------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------
+===================================================================================================
+===================================================================================================
 */
 /* 日程タブ全体のスタイル */
 #schedule {
@@ -417,11 +388,11 @@ nav ul li a.active {
 /* スケジュールヘッダーのスタイル */
 .schedule-header {
     text-align: center; /* タイトルを中央に配置 */
-    padding: 10px 0;
+    padding: 0px 0;
 }
 
 .week-info {
-    margin-bottom: 10px; /* ボタンとの間にスペースを追加 */
+    margin-bottom: 0px; /* ボタンとの間にスペースを追加 */
 }
 
 .button-container {
@@ -437,21 +408,13 @@ nav ul li a.active {
     font-size: var(--title-font-size);
     font-weight: bold;
     margin: 0;
-    flex-grow: 1; /* 余ったスペースをタイトルに与える */
-    word-wrap: break-word; /* 空白での改行を許可 */
-    /* overflow-wrap: break-word; 空白や長い単語での改行を許可 */
 }
-/* 
----------------------------------------------------------------------------------------------------
-試合結果表のスタイル 
----------------------------------------------------------------------------------------------------
-*/
-/* 
----------------------------------------------------------------------------------------------------
-各試合のコンテナ（横並びの設定）
----------------------------------------------------------------------------------------------------
-*/
 
+/* 
+===================================================================================================
+試合日程パネルのスタイル 
+===================================================================================================
+*/
 /* 各試合ごとのコンテナを定義。中に日程表とスタッツテーブルが含まれる */
 .match-container {
     background-color: var(--white-color-1); /* パネルの背景色を白に設定 */
@@ -464,6 +427,13 @@ nav ul li a.active {
     align-items: flex-start; /* コンテンツを上揃えにする（高さを揃えない） */
 }
 
+
+
+/* 
+---------------------------------------------------------------------------------------------------
+日付とスコア，アシストゴール選手の表
+---------------------------------------------------------------------------------------------------
+*/
 /* .match-table クラスは、各試合の表（ホームとアウェイのスコアを表示する表）に適用されます */
 .match-table {
     width: 45%; /* 横幅 */
@@ -480,28 +450,40 @@ nav ul li a.active {
     font-weight: bold; /* ボールドに設定 */
     font-size: var(--subtitle-font-size); /* フォントサイズを大きく設定 */
     text-align: center; /* テキストを中央揃えにする */
-    padding: 0px; /* セルのパディングを設定 */
-    /* border: 1px solid rgb(0, 0, 132);  */
-    /* 枠線を設定 */
-    box-sizing: border-box; /* 枠線とパディングを含めた幅を計算 */
+    margin: 0px; 
+    padding: 5px; /* セルのパディングを設定 */
     text-align: center; /* 入力内容を中央揃え */
     background-color: var(--main-color-1); /* 日程表のヘッダーセルの背景色 */
     color: var(--sub-color-1); /* ヘッダーセルの文字色 */
 }
+
 /* 2列目と4列目のセルの背景色を変更 */
 .match-table th:nth-child(2), .match-table th:nth-child(4) {
     background-color: var(--sub-color-1); /* 背景色 */
     color: var(--main-color-1); /* ヘッダーセルの文字色 */
 }
 
+/* 日付フィールドのスタイル */
+.match-table input[type="date"] {
+    background-color: var(--sub-color-1); /* 背景色 */
+    border: 0px solid var(--sub-color-1); /* 枠線の色 */
+    color: var(--main-color-1); /* 文字色 */
+    padding: 0px;
+    margin: 0px;
+    border-radius: 0px; /* 角を丸くする（オプション） */
+    font-size: var(--body-font-size); /* 文字のサイズ */
+}
+
 .match-table td {
     border: 1px solid var(--main-color-1); /* セルの枠線の色 */
-    padding: 10px; /* セルの余白 */
+    padding: 5px; /* セルの余白 */
     background-color: var(--sub-color-1); /* セルの背景色 */
     color: var(--main-color-1); /* セル内の文字色 */
 }
 
-
+.match-table td:nth-child(2) {
+    text-align: center;
+}
 
 /* テキストや数値入力欄のスタイル */
 .match-table input[type="text"],.match-table input[type="number"]{
@@ -509,17 +491,16 @@ nav ul li a.active {
     box-sizing: border-box; /* 境界線やパディングを含む要素の幅と高さ */
     background-color: var(--sub-color-1); /* 入力欄の背景色 */
     color: var(--main-color-1);/* 入力欄の文字色 */
-    border: 2px solid var(--sub-color-1); /* 入力欄の枠線色 */
-    padding: 5px;
+    border: 0px solid var(--sub-color-1); /* 入力欄の枠線色 */
+    margin: 0px;
+    padding: 0px;
     border-radius: 0px; /* 入力欄の角を丸く */
     font-size: var(--body2-font-size); /* スコア入力欄のフォントサイズを調整 */
     font-weight: bold; /* 入力欄の文字を太字に */
 }
+
 .assist-player, .goal-player {
-    /* ここに共通のスタイルを定義 */
     font-weight: bold; /* 入力欄の文字を太字に */
-    white-space: normal;  /* テキストを折り返す */
-    word-wrap: break-word;  /* テキストがボックスの幅を超える場合に折り返す */
     overflow-wrap: break-word;  /* ブラウザ互換性のために overflow-wrap を追加 */
     width: 100%;  /* ボックスの幅を最大に設定 */
 }
@@ -533,51 +514,19 @@ nav ul li a.active {
 .match-table input[type="number"]::-webkit-outer-spin-button,
 .match-table input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    margin: 0;
 }
 
 
-/* 左右のセルの幅を設定 */
-.match-table th:nth-child(1) {
-    width: 12.5%; /* 1列目を10%に設定 */
-    max-width: 12.5%;
-    min-width: 12.5%;
-    /* text-align: right; 右寄せ */
+.match-table th:nth-child(1), .match-table th:nth-child(5) {
+    width: 14.5%;
 }
-.match-table th:nth-child(2) {
-    width: 5%; /* 1列目を10%に設定 */
-    max-width: 5%;
-    min-width: 5%;
+
+.match-table th:nth-child(2), .match-table th:nth-child(4) {
+    width: 5%;
 }
 
 .match-table th:nth-child(3) {
-    width: 10%; /* 2列目を5%に設定 */
-    max-width: 10%;
-    min-width: 10%;
-    /* text-align: center; 真ん中のセルのテキストを中央揃え */
-}
-
-.match-table th:nth-child(4) {
-    width: 5%; /* 3列目を10%に設定 */
-    max-width: 5%;
-    min-width: 5%;
-}
-.match-table th:nth-child(5) {
-    width: 12.5%; /* 3列目を10%に設定 */
-    max-width: 12.5%;
-    min-width: 12.5%;
-    /* text-align: left; 左寄せ */
-}
-/* 左右のセルの幅を設定 */
-.match-table td:nth-child(1) {
-    text-align: left; /* 右寄せ */
-}
-.match-table td:nth-child(2) {
-    text-align: center; /* 右寄せ */
-}
-
-.match-table td:nth-child(3) {
-    text-align: left; /* 真ん中のセルのテキストを中央揃え */
+    width: 6%;
 }
 
 /* 
@@ -585,7 +534,6 @@ nav ul li a.active {
 スタッツテーブルのスタイル 
 ---------------------------------------------------------------------------------------------------
 */
-
 /* スタッツテーブル全体のスタイル */
 .stats-table {
     border-collapse: collapse; /* テーブルの境界線を統一 */
@@ -628,7 +576,7 @@ nav ul li a.active {
     box-sizing: border-box; /* パディングを幅に含むようにする */
     background-color: var(--main-color-1); /* 入力欄の背景色 */
     color: var(--sub-color-1); /* 入力欄の文字色 */
-    border: 2px solid var(--main-color-1); /* 入力欄の枠線色 */
+    border: 0px solid var(--main-color-1); /* 入力欄の枠線色 */
     padding: 0px;
     border-radius: 0px; /* 入力欄の角を丸く */
     font-weight: bold; /* 入力欄の文字を太字に */
@@ -648,13 +596,11 @@ nav ul li a.active {
 .stats-table td:nth-child(5) {
     width: 8%; /* 各列を10%に固定 */
     max-width: 8%;
-    /* min-width: 100px;  */
     box-sizing: border-box;
 }
 .stats-table td:nth-child(3) {
     width: 18%; /* 各列を10%に固定 */
     max-width: 18%;
-    /* min-width: 100px;  */
     box-sizing: border-box;
 }
 
@@ -671,7 +617,7 @@ nav ul li a.active {
 .standings-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 /* ヘッダー部分のスタイル */
@@ -735,6 +681,15 @@ nav ul li a.active {
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
 */
+
+.chart-container {
+    align-items: center;
+    background-color: white; /* 背景色を白に設定 */
+    padding: 20px; /* コンテナの内側の余白を設定 */
+    border: 1px solid #ddd; /* 枠線の追加 */
+    border-radius: 8px; /* 角を丸く */
+}
+
 
 
 /* スマホ向けのメディアクエリ (画面幅が600px未満) */
