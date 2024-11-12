@@ -71,7 +71,7 @@ function fetchAndSaveJsonFromGitHub() {
             // ページのデータを更新
             getTeams();
             displaySchedule();  // 日程を表示
-            showRound(0);       // ページロード時に最初のラウンドを表示
+            //showRound(0);       // ページロード時に最初のラウンドを表示
             updateStandingsTable();  // 順位表を表示
             updateRankChangeArrows() // 矢印も表示
 
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 初期化処理
     displaySchedule();  // 日程を表示
-    showRound(0);       // ページロード時に最初のラウンドを表示
+    //showRound(0);       // ページロード時に最初のラウンドを表示
     updateStandingsTable();  // 順位表を表示
     updateRankChangeArrows() // 矢印も
     displayIndividualRecords();
@@ -576,9 +576,18 @@ function getTeamNameByScreenSize(team) {
     }
 }
 
+// 現在の日付に基づいて表示すべきラウンドを計算する関数
+function calculateCurrentRound(startDate, scheduleLength) {
+    const today = new Date();
+    const dayDifference = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+    const weekDifference = Math.floor(dayDifference / 7);
+
+    // 0 以上 scheduleLength - 1 以下の範囲に制限
+    return Math.max(0, Math.min(weekDifference, scheduleLength - 1));
+}
+
 // 日程表を表示する関数
 function displaySchedule(schedule = null) {
-    // matchDataを取得して表示
     let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
     let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
 
@@ -590,18 +599,17 @@ function displaySchedule(schedule = null) {
             let roundMatches = [];
             for (let match = 0; match < teamsData.length / 2; match++) {
                 let matchKey = `round${round}-match${match}`;
-                let homeTeam = teamsData.find(team => team.teamId === matchData[matchKey].home.teamId); // チームIDからチーム名を取得
+                let homeTeam = teamsData.find(team => team.teamId === matchData[matchKey].home.teamId); 
                 let awayTeam = teamsData.find(team => team.teamId === matchData[matchKey].away.teamId);
                 roundMatches.push({ 
-                    home: getTeamNameByScreenSize(homeTeam), // 画面幅に応じたチーム名
-                    away: getTeamNameByScreenSize(awayTeam)  // 画面幅に応じたチーム名
+                    home: getTeamNameByScreenSize(homeTeam), 
+                    away: getTeamNameByScreenSize(awayTeam)  
                 });
             }
-            schedule.push(roundMatches); // スケジュールに追加
+            schedule.push(roundMatches);
         }
     }
 
-    // スケジュールを表示するためのHTMLを生成
     let scheduleHTML = '';
     const startDate = new Date(2024, 9, 8); // スタート日付
 
@@ -613,9 +621,11 @@ function displaySchedule(schedule = null) {
         scheduleHTML += `<div class="round" id="round${i}" style="display: none;">`;
         scheduleHTML +=  `
             <div class="schedule-header">
-                <button class="button-common2" onclick="previousRound()">前節</button>
                 <h3 class="week-info">${weekInfo}</h3>
-                <button class="button-common2" onclick="nextRound()">次節</button>
+                <div class="button-container">
+                    <button class="button-common" onclick="previousRound()">前節</button>
+                    <button class="button-common" onclick="nextRound()">次節</button>
+                </div>
             </div>`;
         schedule[i].forEach((match, index) => {
             scheduleHTML += `
@@ -633,7 +643,6 @@ function displaySchedule(schedule = null) {
                         <tbody id="goalDetailsBody${i}-${index}"></tbody>
                     </table>`;
 
-            // スタッツ表をスコア入力完了ボタンの前に追加
             const statsTableElement = generateStatsTable(i, index);
             scheduleHTML += statsTableElement.outerHTML;
             scheduleHTML += `</div>`;
@@ -643,18 +652,17 @@ function displaySchedule(schedule = null) {
 
     document.getElementById('scheduleContent').innerHTML = scheduleHTML;
 
-    // 保存されたデータをロードして表示
     for (let roundIndex = 0; roundIndex < schedule.length; roundIndex++) {
         for (let matchIndex = 0; matchIndex < schedule[roundIndex].length; matchIndex++) {
-            loadMatchData(roundIndex, matchIndex);  // 保存されたデータをロードして表示
+            loadMatchData(roundIndex, matchIndex);
         }
     }
 
-    // 最初のラウンドを表示
-    showRound(currentRound || 0);  
+    // 日付に基づいて現在のラウンドを設定
+    currentRound = calculateCurrentRound(startDate, schedule.length);
+    showRound(currentRound);
 }
 
-let currentRound = 0;
 
 // 試合詳細のスタッツ表を生成する関数
 function generateStatsTable(roundIndex, matchIndex) {

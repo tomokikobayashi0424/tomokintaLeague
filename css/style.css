@@ -83,7 +83,7 @@ h2 {
     margin: 10px 0; /* 上下に余白 */
     border: none; /* 枠線を消す */
     cursor: pointer; /* クリックできるようにカーソル変更 */
-    width: 10%; /* 横幅を100%にして左右いっぱいに広げる */
+    width: 100%; /* 横幅を100%にして左右いっぱいに広げる */
     text-align: center; /* テキストを中央揃え */
     font-weight: bold; /* 太字に */
     font-size: var(--body2-font-size); /* フォントサイズ */
@@ -359,11 +359,20 @@ nav ul li a.active {
 
 /* スケジュールヘッダーのスタイル */
 .schedule-header {
-    display: flex; /* 横並びにする */
-    justify-content: space-between; /* 左右にボタンを配置し、中央にタイトルを配置 */
-    align-items: center; /* 垂直方向に中央揃え */
+    text-align: center; /* タイトルを中央に配置 */
     padding: 10px 0;
 }
+
+.week-info {
+    margin-bottom: 10px; /* ボタンとの間にスペースを追加 */
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px; /* ボタンを左右に配置 */
+}
+
 
 /* 週情報のスタイル */
 .schedule-header .week-info {
