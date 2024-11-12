@@ -231,12 +231,14 @@ function calculateOverallTeamStats() {
         possession: 0,
         shots: 0,
         shotsonFrame: 0,
+        shotsonFrameRate: 0,
         fouls: 0,
         offsides: 0,
         cornerKicks: 0,
         freeKicks: 0,
         passes: 0,
         successfulPasses: 0,
+        passSuccessRate: 0,
         crosses: 0,
         PassCuts: 0,
         successfulTackles: 0,
@@ -294,12 +296,14 @@ function calculateTeamStats(teamId) {
         possession: 0,
         shots: 0,
         shotsonFrame: 0,
+        shotsonFrameRate: 0,
         fouls: 0,
         offsides: 0,
         cornerKicks: 0,
         freeKicks: 0,
         passes: 0,
         successfulPasses: 0,
+        passSuccessRate: 0,
         crosses: 0,
         PassCuts: 0,
         successfulTackles: 0,
@@ -376,12 +380,14 @@ function calculateTeamStats(teamId) {
     document.getElementById('possession-total').textContent = "-";
     document.getElementById('shots-total').textContent = teamStats.shots;
     document.getElementById('shotsonFrame-total').textContent = teamStats.shotsonFrame;
+    document.getElementById('shotsonFrameRate-total').textContent = (teamStats.shotsonFrame*100 / teamStats.shots).toFixed(2) + '%';
     document.getElementById('fouls-total').textContent = teamStats.fouls;
     document.getElementById('offsides-total').textContent = teamStats.offsides;
     document.getElementById('cornerKicks-total').textContent = teamStats.cornerKicks;
     document.getElementById('freeKicks-total').textContent = teamStats.freeKicks;
     document.getElementById('passes-total').textContent = teamStats.passes;
     document.getElementById('successfulPasses-total').textContent = teamStats.successfulPasses;
+    document.getElementById('passSuccessRate-total').textContent = (teamStats.successfulPasses*100 / teamStats.passes).toFixed(2) + '%';
     document.getElementById('crosses-total').textContent = teamStats.crosses;
     document.getElementById('PassCuts-total').textContent = teamStats.PassCuts;
     document.getElementById('successfulTackles-total').textContent = teamStats.successfulTackles;
@@ -391,17 +397,19 @@ function calculateTeamStats(teamId) {
     document.getElementById('matches-avg').textContent = "-";
     document.getElementById('wins-avg').textContent = (teamStats.wins*100 / teamStats.matches).toFixed(2) + '%';
     document.getElementById('goals-avg').textContent = (teamStats.goals / teamStats.matches).toFixed(2);
-    document.getElementById('draws-avg').textContent = (teamStats.draws / teamStats.matches).toFixed(2);
-    document.getElementById('losses-avg').textContent = (teamStats.losses / teamStats.matches).toFixed(2);
-    document.getElementById('possession-avg').textContent = (teamStats.possession / teamStats.matches).toFixed(2);
+    document.getElementById('draws-avg').textContent = (teamStats.draws*100 / teamStats.matches).toFixed(2) + '%';
+    document.getElementById('losses-avg').textContent = (teamStats.losses*100 / teamStats.matches).toFixed(2) + '%';
+    document.getElementById('possession-avg').textContent = (teamStats.possession / teamStats.matches).toFixed(2) + '%';
     document.getElementById('shots-avg').textContent = (teamStats.shots / teamStats.matches).toFixed(2);
     document.getElementById('shotsonFrame-avg').textContent = (teamStats.shotsonFrame / teamStats.matches).toFixed(2);
+    document.getElementById('shotsonFrameRate-avg').textContent = (teamStats.shotsonFrame*100 / teamStats.shots).toFixed(2) + '%';
     document.getElementById('fouls-avg').textContent = (teamStats.fouls / teamStats.matches).toFixed(2);
     document.getElementById('offsides-avg').textContent = (teamStats.offsides / teamStats.matches).toFixed(2);
     document.getElementById('cornerKicks-avg').textContent = (teamStats.cornerKicks / teamStats.matches).toFixed(2);
     document.getElementById('freeKicks-avg').textContent = (teamStats.freeKicks / teamStats.matches).toFixed(2);
     document.getElementById('passes-avg').textContent = (teamStats.passes / teamStats.matches).toFixed(2);
     document.getElementById('successfulPasses-avg').textContent = (teamStats.successfulPasses / teamStats.matches).toFixed(2);
+    document.getElementById('passSuccessRate-avg').textContent = (teamStats.successfulPasses*100 / teamStats.passes).toFixed(2) + '%';
     document.getElementById('crosses-avg').textContent = (teamStats.crosses / teamStats.matches).toFixed(2);
     document.getElementById('PassCuts-avg').textContent = (teamStats.PassCuts / teamStats.matches).toFixed(2);
     document.getElementById('successfulTackles-avg').textContent = (teamStats.successfulTackles / teamStats.matches).toFixed(2);
@@ -409,19 +417,21 @@ function calculateTeamStats(teamId) {
     // 全体平均（TL平均）の計算
     const overallStats = calculateOverallTeamStats();
     document.getElementById('matches-tl-avg').textContent = overallStats.matches;
-    document.getElementById('wins-tl-avg').textContent = (overallStats.wins / overallStats.matches).toFixed(2);
+    document.getElementById('wins-tl-avg').textContent = (overallStats.wins*100 / overallStats.matches).toFixed(2) + '%';
     document.getElementById('goals-tl-avg').textContent = (overallStats.goals / overallStats.matches).toFixed(2);
-    document.getElementById('draws-tl-avg').textContent = (overallStats.draws / overallStats.matches).toFixed(2);
-    document.getElementById('losses-tl-avg').textContent = (overallStats.losses / overallStats.matches).toFixed(2);
-    document.getElementById('possession-tl-avg').textContent = (overallStats.possession / overallStats.matches).toFixed(2);
+    document.getElementById('draws-tl-avg').textContent = (overallStats.draws*100 / overallStats.matches).toFixed(2) + '%';
+    document.getElementById('losses-tl-avg').textContent = (overallStats.losses*100 / overallStats.matches).toFixed(2) + '%';
+    document.getElementById('possession-tl-avg').textContent = (overallStats.possession / overallStats.matches).toFixed(2) + '%';
     document.getElementById('shots-tl-avg').textContent = (overallStats.shots / overallStats.matches).toFixed(2);
     document.getElementById('shotsonFrame-tl-avg').textContent = (overallStats.shotsonFrame / overallStats.matches).toFixed(2);
+    document.getElementById('shotsonFrameRate-tl-avg').textContent = (overallStats.shotsonFrame*100 / overallStats.shots).toFixed(2) + '%';
     document.getElementById('fouls-tl-avg').textContent = (overallStats.fouls / overallStats.matches).toFixed(2);
     document.getElementById('offsides-tl-avg').textContent = (overallStats.offsides / overallStats.matches).toFixed(2);
     document.getElementById('cornerKicks-tl-avg').textContent = (overallStats.cornerKicks / overallStats.matches).toFixed(2);
     document.getElementById('freeKicks-tl-avg').textContent = (overallStats.freeKicks / overallStats.matches).toFixed(2);
     document.getElementById('passes-tl-avg').textContent = (overallStats.passes / overallStats.matches).toFixed(2);
     document.getElementById('successfulPasses-tl-avg').textContent = (overallStats.successfulPasses / overallStats.matches).toFixed(2);
+    document.getElementById('passSuccessRate-tl-avg').textContent = (overallStats.successfulPasses*100 / overallStats.passes).toFixed(2) + '%';
     document.getElementById('crosses-tl-avg').textContent = (overallStats.crosses / overallStats.matches).toFixed(2);
     document.getElementById('PassCuts-tl-avg').textContent = (overallStats.PassCuts / overallStats.matches).toFixed(2);
     document.getElementById('successfulTackles-tl-avg').textContent = (overallStats.successfulTackles / overallStats.matches).toFixed(2);
