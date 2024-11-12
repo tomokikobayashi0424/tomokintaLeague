@@ -380,14 +380,14 @@ function calculateTeamStats(teamId) {
     document.getElementById('possession-total').textContent = "-";
     document.getElementById('shots-total').textContent = teamStats.shots;
     document.getElementById('shotsonFrame-total').textContent = teamStats.shotsonFrame;
-    document.getElementById('shotsonFrameRate-total').textContent = (teamStats.shotsonFrame*100 / teamStats.shots).toFixed(2) + '%';
+    document.getElementById('shotsonFrameRate-total').textContent = "-";
     document.getElementById('fouls-total').textContent = teamStats.fouls;
     document.getElementById('offsides-total').textContent = teamStats.offsides;
     document.getElementById('cornerKicks-total').textContent = teamStats.cornerKicks;
     document.getElementById('freeKicks-total').textContent = teamStats.freeKicks;
     document.getElementById('passes-total').textContent = teamStats.passes;
     document.getElementById('successfulPasses-total').textContent = teamStats.successfulPasses;
-    document.getElementById('passSuccessRate-total').textContent = (teamStats.successfulPasses*100 / teamStats.passes).toFixed(2) + '%';
+    document.getElementById('passSuccessRate-total').textContent = "-";
     document.getElementById('crosses-total').textContent = teamStats.crosses;
     document.getElementById('PassCuts-total').textContent = teamStats.PassCuts;
     document.getElementById('successfulTackles-total').textContent = teamStats.successfulTackles;
