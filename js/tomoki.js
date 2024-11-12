@@ -846,12 +846,11 @@ function generateAndSaveSchedule() {
 //     showRound(currentRound || 0);  // 初期値が0のとき最初のラウンドを表示
 // }
 
+// 日程表を表示する関数
 function displaySchedule(schedule = null) {
-    // matchDataを取得して表示
     let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
     let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
 
-    // 保存されたスケジュールを取得
     if (!schedule) {
         schedule = [];
         let numRounds = Object.keys(matchData).length / (teamsData.length / 2); // ラウンド数を計算
@@ -859,35 +858,37 @@ function displaySchedule(schedule = null) {
             let roundMatches = [];
             for (let match = 0; match < teamsData.length / 2; match++) {
                 let matchKey = `round${round}-match${match}`;
-                let homeTeam = teamsData.find(team => team.teamId === matchData[matchKey].home.teamId); // チームIDからチーム名を取得
+                let homeTeam = teamsData.find(team => team.teamId === matchData[matchKey].home.teamId);
                 let awayTeam = teamsData.find(team => team.teamId === matchData[matchKey].away.teamId);
-                roundMatches.push({ home: homeTeam.teams, away: awayTeam.teams });
+
+                // 既存のmatchDataに日付がある場合はそれを使用し、なければcalculateMondayDateを使う
+                let matchDate = matchData[matchKey]?.date || calculateMondayDate(round);
+
+                roundMatches.push({ home: homeTeam.teams, away: awayTeam.teams, date: matchDate });
             }
-            schedule.push(roundMatches); // スケジュールに追加
+            schedule.push(roundMatches);
         }
     }
 
-    // スケジュールを表示するためのHTMLを生成
     let scheduleHTML = '';
-    const startDate = new Date(2024, 9, 8); // スタート日付
-
     for (let i = 0; i < schedule.length; i++) {
-        let weekDate = new Date(startDate);
-        weekDate.setDate(startDate.getDate() + i * 7);
-        let weekInfo = `第${i + 1}節 ${weekDate.getFullYear()}年${weekDate.getMonth() + 1}月第${Math.ceil(weekDate.getDate() / 7)}週`;
-
         scheduleHTML += `<div class="round" id="round${i}" style="display: none;">`;
-        scheduleHTML +=  `
+        scheduleHTML += `
             <div class="schedule-header">
                 <button class="button-common" onclick="previousRound()">前節</button>
-                <h3 class="week-info">${weekInfo}</h3>
+                <h3 class="week-info">第${i + 1}節 (${schedule[i][0].date})</h3>
                 <button class="button-common" onclick="nextRound()">次節</button>
             </div>`;
+        
         schedule[i].forEach((match, index) => {
             scheduleHTML += `
                 <div class="match-container">
                     <table id="goalDetailsTable${i}-${index}" class="match-table">
                         <thead>
+                            <tr>
+                                <!-- 日付入力フィールド -->
+                                <td colspan="3">日付: <input type="date" id="matchDate${i}-${index}" value="${match.date || calculateMondayDate(i)}" onchange="saveMatchDate(${i}, ${index})"></td>
+                            </tr>
                             <tr>
                                 <th id="homeTeam${i}-${index}">${match.home} <input type="number" id="homeScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'home')"></th>
                                 <th> - </th>
@@ -896,12 +897,10 @@ function displaySchedule(schedule = null) {
                         </thead>
                         <tbody id="goalDetailsBody${i}-${index}"></tbody>
                     </table>`;
-
-            // スタッツ表をスコア入力完了ボタンの前に追加
+            
             const statsTableElement = generateStatsTable(i, index);
             scheduleHTML += statsTableElement.outerHTML;
             scheduleHTML += `
-                
                     <div class="round-buttons">
                         <button class="button-score" onclick="completeScoreInput(${i}, ${index})">スコア入力完了</button>
                         <button class="button-score" onclick="cancelScoreInput(${i}, ${index})">スコア入力キャンセル</button>
@@ -913,16 +912,20 @@ function displaySchedule(schedule = null) {
     }
 
     document.getElementById('scheduleContent').innerHTML = scheduleHTML;
-
-    // 保存されたデータをロードして表示
     for (let roundIndex = 0; roundIndex < schedule.length; roundIndex++) {
         for (let matchIndex = 0; matchIndex < schedule[roundIndex].length; matchIndex++) {
-            loadMatchData(roundIndex, matchIndex);  // 保存されたデータをロードして表示
+            loadMatchData(roundIndex, matchIndex);
         }
     }
-
-    // 最初のラウンドを表示
     showRound(currentRound || 0);  
+}
+
+// 月曜日の日付を計算する関数
+function calculateMondayDate(round) {
+    const startDate = new Date(2024, 9, 14); // 1週間後の日付（2024年10月14日: 月曜日）
+    const mondayDate = new Date(startDate);
+    mondayDate.setDate(startDate.getDate() + round * 7); // 各節の週の月曜日を計算
+    return mondayDate.toISOString().split('T')[0]; // YYYY-MM-DD形式で返す
 }
 
 let currentRound = 0;
@@ -1168,15 +1171,16 @@ function saveMatchData(roundIndex, matchIndex) {
     let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
     let matchKey = `round${roundIndex}-match${matchIndex}`;
 
-    // 既に存在するmatchDataからhomeTeamIdとawayTeamIdを取得
+    // 該当する節の月曜日の日付を取得（既存のデータがある場合はそれを使用）
+    let matchDate = document.getElementById(`matchDate${roundIndex}-${matchIndex}`).value || 
+                    matchData[matchKey]?.date || 
+                    calculateMondayDate(roundIndex);
+
     let homeTeamId = matchData[matchKey].home.teamId;
     let awayTeamId = matchData[matchKey].away.teamId;
-
-    // ホームチームのスコア、アシスト、ゴール、時間
     let homeScore = document.getElementById(`homeScore${roundIndex}-${matchIndex}`).value;
     let awayScore = document.getElementById(`awayScore${roundIndex}-${matchIndex}`).value;
 
-    // スコアが入力されているか（入力済みの0と未入力の0を区別）
     homeScore = homeScore === '' ? null : parseInt(homeScore);
     awayScore = awayScore === '' ? null : parseInt(awayScore);
 
@@ -1188,7 +1192,6 @@ function saveMatchData(roundIndex, matchIndex) {
     let goalPlayersAway = Array.from(document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-player.away`)).map(input => input.value.trim());
     let timesAway = Array.from(document.querySelectorAll(`#goalDetailsTable${roundIndex}-${matchIndex} .goal-time.away`)).map(input => input.value === '' ? null : parseInt(input.value.trim()));
 
-    // ハーフタイムとフルタイムのスタッツを取得
     const statCategories = ["possession", "shots", "shotsonFrame", "fouls", "offsides", "cornerKicks", "freeKicks", "passes", "successfulPasses", "crosses", "PassCuts", "successfulTackles", "save"];
 
     let homeHalfStats = {};
@@ -1202,17 +1205,15 @@ function saveMatchData(roundIndex, matchIndex) {
         const awayHalfStatValue = document.getElementById(`awayHalfStat${index}-${roundIndex}-${matchIndex}`).value;
         const awayFullStatValue = document.getElementById(`awayFullStat${index}-${roundIndex}-${matchIndex}`).value;
     
-        // 未入力の場合はnull、それ以外は数値として保存
         homeHalfStats[category] = homeHalfStatValue === '' ? null : parseFloat(homeHalfStatValue);
         homeFullStats[category] = homeFullStatValue === '' ? null : parseFloat(homeFullStatValue);
         awayHalfStats[category] = awayHalfStatValue === '' ? null : parseFloat(awayHalfStatValue);
         awayFullStats[category] = awayFullStatValue === '' ? null : parseFloat(awayFullStatValue);
     });
 
-    // teamIdを上書きせず、スコアやアシストなどの情報だけを更新
     matchData[matchKey] = {
         home: {
-            teamId: homeTeamId,  // 既存のteamIdを維持
+            teamId: homeTeamId,
             score: homeScore,
             assistPlayers: assistPlayersHome,
             goalPlayers: goalPlayersHome,
@@ -1221,18 +1222,20 @@ function saveMatchData(roundIndex, matchIndex) {
             fullTime: homeFullStats
         },
         away: {
-            teamId: awayTeamId,  // 既存のteamIdを維持
+            teamId: awayTeamId,
             score: awayScore,
             assistPlayers: assistPlayersAway,
             goalPlayers: goalPlayersAway,
             times: timesAway,
             halfTime: awayHalfStats,
             fullTime: awayFullStats
-        }
+        },
+        date: matchDate // 該当する節の月曜日の日付またはユーザーが入力した日付を保存
     };
 
     localStorage.setItem('matchData', JSON.stringify(matchData));
 }
+
 
 
 // スコア入力をキャンセルしてリセットする関数

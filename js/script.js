@@ -613,9 +613,13 @@ function displaySchedule(schedule = null) {
                 let matchKey = `round${round}-match${match}`;
                 let homeTeam = teamsData.find(team => team.teamId === matchData[matchKey].home.teamId); 
                 let awayTeam = teamsData.find(team => team.teamId === matchData[matchKey].away.teamId);
+                // 日付を取得（既に保存されている場合のみ）
+                let matchDate = matchData[matchKey]?.date;  // 日付を取得
                 roundMatches.push({ 
                     home: getTeamNameByScreenSize(homeTeam), 
-                    away: getTeamNameByScreenSize(awayTeam)  
+                    away: getTeamNameByScreenSize(awayTeam),
+                    date: matchDate  // 日付を追加
+                    //,date: getTeamNameByScreenSize(matchDate)
                 });
             }
             schedule.push(roundMatches);
@@ -644,6 +648,9 @@ function displaySchedule(schedule = null) {
                 <div class="match-container">
                     <table id="goalDetailsTable${i}-${index}" class="match-table">
                         <thead>
+                            <tr>
+                                <td colspan="3">日付: <input type="date" id="matchDate${i}-${index}" value="${match.date || ''}"></td>
+                            </tr>
                             <tr>
                                 <th id="homeTeam${i}-${index}">${match.home}</th>
                                 <th> <input type="number" id="homeScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'home')"readonly></th>
