@@ -684,10 +684,10 @@ nav ul li a.active {
 
 .chart-container {
     align-items: center;
-    background-color: white; /* 背景色を白に設定 */
-    padding: 20px; /* コンテナの内側の余白を設定 */
-    border: 1px solid #ddd; /* 枠線の追加 */
-    border-radius: 8px; /* 角を丸く */
+    background-color: var(--white-color-1); /* 背景色を白に設定 */
+    padding: 0px; /* コンテナの内側の余白を設定 */
+    border: 0px solid var(--white-color-1); /* 枠線の追加 */
+    border-radius: 0px; /* 角を丸く */
 }
 
 

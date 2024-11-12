@@ -511,17 +511,17 @@ function createGoalScatterPlot(goalTimes, concededTimes) {
         data: {
             datasets: [
                 {
-                    label: '自チーム得点時間',
+                    label: '得点',
                     data: Object.keys(goalCounts).map(time => ({ x: parseInt(time), y: goalCounts[time] })),
-                    backgroundColor: 'blue',
+                    backgroundColor: '#32CD32',
                     pointStyle: 'triangle',  // 自チーム得点のマーカー形状
                     pointRadius: 6,
                     showLine: false
                 },
                 {
-                    label: '失点時間',
+                    label: '失点',
                     data: Object.keys(concededCounts).map(time => ({ x: parseInt(time), y: concededCounts[time] })),
-                    backgroundColor: 'red',
+                    backgroundColor: '#FF0000',
                     pointStyle: 'rect',  // 失点のマーカー形状
                     pointRadius: 6,
                     showLine: false
@@ -532,8 +532,15 @@ function createGoalScatterPlot(goalTimes, concededTimes) {
             plugins: {
                 title: {
                     display: true,
-                    text: '得点時間と失点時間のグラフ（プロットのみ）',
+                    text: '得点時間と失点時間のグラフ',
+                    color: 'rgb(0, 0, 132)', // タイトル文字色
                     font: { size: 20 }
+                },
+                legend: {
+                    labels: {
+                        
+                        font: { size: 12 } // 凡例フォントサイズ
+                    }
                 }
             },
             scales: {
@@ -541,13 +548,23 @@ function createGoalScatterPlot(goalTimes, concededTimes) {
                     type: 'linear',
                     min: 0,
                     max: 90,
-                    title: { display: true, text: '時間（分）' }
+                    title: { display: true, text: '時間（分）'
+
+                    },
+                    ticks: {  // タイトル文字色
+                    },
+                    grid: {
+                        color: 'lightgray' // 横軸グリッド線の色
+                    }
+
+                    
                 },
                 y: {
                     beginAtZero: true,
                     max: yMax,
-                    title: { display: true, text: 'ゴール数' },
-                    ticks: { stepSize: 1 }
+                    // title: { display: true, text: 'ゴール数' },
+                    ticks: { 
+                        stepSize: 1 }
                 }
             }
         }
@@ -581,7 +598,8 @@ function drawStackedGoalGraph(goalTimes, concededTimes, interval) {
         concededBuckets[bucketIndex] = -concededBuckets[bucketIndex] - 1;
     });
 
-    const labels = Array.from({ length: numBuckets }, (_, i) => `${i * interval + 1}~${(i + 1) * interval}分`);
+    const labels = Array.from({ length: numBuckets }, (_, i) => `${(i + 1) * interval}`);
+    // const labels = Array.from({ length: numBuckets }, (_, i) => `~${(i + 1) * interval}分`);
 
     const chart = new Chart(ctx, {
         type: 'bar',
@@ -589,15 +607,15 @@ function drawStackedGoalGraph(goalTimes, concededTimes, interval) {
             labels: labels,
             datasets: [
                 {
-                    label: '自チーム得点',
+                    label: '得点',
                     data: goalBuckets,
-                    backgroundColor: 'blue',
+                    backgroundColor: '#32CD32',
                     stack: 'stacked',
                 },
                 {
                     label: '失点',
                     data: concededBuckets,
-                    backgroundColor: 'red',
+                    backgroundColor: '#FF0000',
                     stack: 'stacked',
                 }
             ]
@@ -607,19 +625,22 @@ function drawStackedGoalGraph(goalTimes, concededTimes, interval) {
                 title: {
                     display: true,
                     text: `${interval}分刻みの得点と失点の分布`,
+                    color: 'rgb(0, 0, 132)', // タイトル文字色
                     font: { size: 20 }
                 }
             },
             scales: {
                 x: {
                     stacked: true,
-                    title: { display: true, text: '時間帯（分）' }
+                    title: { display: true, text: '時間帯（分）' },
+                    ticks: { font: { size: 8 } } // X軸目盛りのフォントサイズ
                 },
                 y: {
                     beginAtZero: true,
                     stacked: true,
-                    title: { display: true, text: 'ゴール数' },
-                    ticks: { stepSize: 1 }
+                    // title: { display: true, text: 'ゴール数' },
+                    ticks: { stepSize: 1 },
+                    // ticks: { font: { size: 10 } } // X軸目盛りのフォントサイズ
                 }
             }
         }
