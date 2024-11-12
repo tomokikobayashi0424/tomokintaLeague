@@ -536,7 +536,7 @@ function createGoalChart(goalTimes, concededTimes) {
             plugins: {
                 title: {
                     display: true,
-                    text: 'チームの得点時間と失点時間のグラフ', // グラフのタイトル
+                    text: '得点時間と失点時間のグラフ', // グラフのタイトル
                     font: {
                         size: 20
                     }

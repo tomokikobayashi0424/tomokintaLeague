@@ -117,6 +117,63 @@ h2 {
 }
 
 
+/* テーブルのスタイル */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* レコードテーブルのヘッダーのスタイル */
+.table th {
+    background-color: var(--main-color-2); /* ヘッダーの背景色を青に設定 */
+    color: var(--white-color-1); /* ヘッダーの文字色を白に設定 */
+    font-size: var(--body-font-size);
+    font-weight: bold; /* ヘッダーの文字をボールドに設定 */
+    border: 1px solid var(--main-color-1); /* 枠の色を濃い青に設定 */
+    padding: 8px; /* セルのパディング */
+    text-align: center; /* テキストを中央揃えに */
+}
+
+/* ヘッダー以外のセルのスタイル */
+.table td {
+    background-color: var(--white-color-1); /* 背景を白に */
+    color: var(--main-color-1); /* 文字色を濃い青に */
+    border: 1px solid var(--main-color-1); /* 枠の色を濃い青に設定 */
+    padding: 8px;
+    text-align: center; /* テキストを中央揃えに */
+    font-size: var(--body-font-size);
+}
+
+
+
+/* 順位表全体のスタイル */
+.table2 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* ヘッダー部分のスタイル */
+.table2 th {
+    background-color: var(--accent-color-1); /* ヘッダーの背景色をピンクに設定 */
+    color: var(--white-color-1); /* ヘッダーの文字色を白に設定 */
+    font-size: var(--body-font-size);
+    font-weight: bold; /* ヘッダーの文字をボールドに設定 */
+    border: 1px solid var(--main-color-1); /* 枠の色を濃い青に設定 */
+    padding: 8px; /* セルのパディング */
+    text-align: center; /* テキストを中央揃え */
+}
+
+/* ヘッダー以外のセルのスタイル */
+.table2 td {
+    background-color: var(--white-color-1); /* セルの背景色を白に */
+    color: var(--main-color-1); /* セルの文字色を濃い青に */
+    border: 1px solid var(--main-color-1); /* 枠線の色を濃い青に設定 */
+    padding: 5px; /* セルのパディング */
+    text-align: center; /* テキストを中央揃え */
+    font-size: var(--body-font-size);
+}
 /* 
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
@@ -607,22 +664,24 @@ nav ul li a.active {
 ---------------------------------------------------------------------------------------------------
 順位表のスタイル 
 ---------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------*/
+---------------------------------------------------------------------------------------------------
+*/
+
 /* 順位表全体のスタイル */
 .standings-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 0px;
+    margin-top: 20px;
 }
 
 /* ヘッダー部分のスタイル */
 .standings-table th {
-    background-color: var(--accent-color-1); /* ヘッダーの背景色を青に設定 */
+    background-color: var(--accent-color-1); /* ヘッダーの背景色をピンクに設定 */
     color: var(--white-color-1); /* ヘッダーの文字色を白に設定 */
     font-size: var(--body-font-size);
     font-weight: bold; /* ヘッダーの文字をボールドに設定 */
-    border: 0px solid var(--accent-color-1); /* ヘッダーの枠線の色を濃い青に設定 */
-    padding: 0px; /* セルのパディング */
+    border: 1px solid var(--main-color-1); /* ヘッダーの枠線の色を濃い青に設定 */
+    padding: 5px 7px; /* セルのパディング */
     text-align: center; /* テキストを中央揃え */
 }
 
@@ -676,66 +735,7 @@ nav ul li a.active {
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
 */
-/* 
----------------------------------------------------------------------------------------------------
-個人戦績タブ 
----------------------------------------------------------------------------------------------------
-*/
-.records-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
 
-/* レコードテーブルのヘッダーのスタイル */
-.records-table th {
-    background-color: var(--main-color-1); /* ヘッダーの背景色を青に設定 */
-    color: var(--white-color-1); /* ヘッダーの文字色を白に設定 */
-    font-weight: bold; /* ヘッダーの文字をボールドに設定 */
-    border: 1px solid var(--main-color-1); /* 枠の色を濃い青に設定 */
-    padding: 8px; /* セルのパディング */
-    text-align: center; /* テキストを中央揃えに */
-}
-
-/* ヘッダー以外のセルのスタイル */
-.records-table td {
-    background-color: var(--white-color-1); /* 背景を白に */
-    color: var(--main-color-1); /* 文字色を濃い青に */
-    border: 1px solid var(--main-color-1); /* 枠の色を濃い青に設定 */
-    padding: 8px;
-    text-align: center; /* テキストを中央揃えに */
-}
-
-/* 
----------------------------------------------------------------------------------------------------
-個人戦績のランキングテーブル 
----------------------------------------------------------------------------------------------------
-*/
-
-.ranking-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-/* ランキングテーブルのヘッダーのスタイル */
-.ranking-table th {
-    background-color: var(--main-color-2); /* ヘッダーの背景色を青に設定 */
-    color: var(--white-color-1); /* ヘッダーの文字色を白に設定 */
-    font-weight: bold; /* ヘッダーの文字をボールドに */
-    border: 1px solid var(--main-color-1); /* 枠の色を濃い青に設定 */
-    padding: 8px;
-    text-align: center; /* テキストを中央揃えに */
-}
-
-/* ヘッダー以外のセルのスタイル */
-.ranking-table td {
-    background-color: var(--white-color-1); /* 背景を白に */
-    color: var(--main-color-1); /* 文字色を濃い青に */
-    border: 1px solid var(--main-color-1); /* 枠の色を濃い青に設定 */
-    padding: 0px;
-    text-align: center; /* テキストを中央揃えに */
-}
 
 /* スマホ向けのメディアクエリ (画面幅が600px未満) */
 @media screen and (max-width: 850px) {
