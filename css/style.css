@@ -38,9 +38,9 @@
 @media screen and (max-width: 440px) {
     :root {
         --title-font-size: 20px;
-        --subtitle-font-size: 18px;
-        --body-font-size: 15px;
-        --body2-font-size: 8px;
+        --subtitle-font-size: 15px;
+        --body-font-size: 10px;
+        --body2-font-size: 7px;
     }
 }
 
@@ -587,11 +587,16 @@ nav ul li a.active {
 /* 各列の幅を10%に設定 */
 .stats-table td:nth-child(1),
 .stats-table td:nth-child(2),
-.stats-table td:nth-child(3),
 .stats-table td:nth-child(4),
 .stats-table td:nth-child(5) {
-    width: 10%; /* 各列を10%に固定 */
-    max-width: 10%;
+    width: 8%; /* 各列を10%に固定 */
+    max-width: 8%;
+    /* min-width: 100px;  */
+    box-sizing: border-box;
+}
+.stats-table td:nth-child(3) {
+    width: 18%; /* 各列を10%に固定 */
+    max-width: 18%;
     /* min-width: 100px;  */
     box-sizing: border-box;
 }
