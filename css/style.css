@@ -86,9 +86,9 @@ h2 {
     width: 100%; /* 横幅を100%にして左右いっぱいに広げる */
     text-align: center; /* テキストを中央揃え */
     font-weight: bold; /* 太字に */
-    font-size: var(--body2-font-size); /* フォントサイズ */
+    font-size: var(--body-font-size); /* フォントサイズ */
     display: block;
-    border-radius: 5px; /* 角を丸くする */
+    border-radius: 0px; /* 角を丸くする */
 }
 
 /* ホバー時のスタイル */

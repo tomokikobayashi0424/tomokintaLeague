@@ -74,6 +74,8 @@ function fetchAndSaveJsonFromGitHub() {
             //showRound(0);       // ページロード時に最初のラウンドを表示
             updateStandingsTable();  // 順位表を表示
             updateRankChangeArrows() // 矢印も表示
+            displayIndividualRecords();
+            updateIndividualRecords();  // 必要な場合に個人戦績を更新
 
         })
         .catch(error => {
@@ -387,7 +389,7 @@ function calculateTeamStats(teamId) {
 
     // 各種平均の計算と表示
     document.getElementById('matches-avg').textContent = "-";
-    document.getElementById('wins-avg').textContent = (teamStats.wins / teamStats.matches).toFixed(2);
+    document.getElementById('wins-avg').textContent = (teamStats.wins*100 / teamStats.matches).toFixed(2) + '%';
     document.getElementById('goals-avg').textContent = (teamStats.goals / teamStats.matches).toFixed(2);
     document.getElementById('draws-avg').textContent = (teamStats.draws / teamStats.matches).toFixed(2);
     document.getElementById('losses-avg').textContent = (teamStats.losses / teamStats.matches).toFixed(2);
@@ -623,8 +625,8 @@ function displaySchedule(schedule = null) {
             <div class="schedule-header">
                 <h3 class="week-info">${weekInfo}</h3>
                 <div class="button-container">
-                    <button class="button-common" onclick="previousRound()">前節</button>
-                    <button class="button-common" onclick="nextRound()">次節</button>
+                    <button class="button-common2" onclick="previousRound()">前節</button>
+                    <button class="button-common2" onclick="nextRound()">次節</button>
                 </div>
             </div>`;
         schedule[i].forEach((match, index) => {
@@ -1113,13 +1115,6 @@ function displayIndividualRecords() {
         goalsTable.querySelector('tbody').insertAdjacentHTML('beforeend', row);
     });
 }
-
-
-// ページロード時に個人戦績を表示
-document.addEventListener('DOMContentLoaded', () => {
-    displayIndividualRecords();
-    updateIndividualRecords();  // 必要な場合に個人戦績を更新
-});
 
 function updateIndividualRecords() {
     let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
