@@ -90,6 +90,21 @@ h2 {
     display: block;
     border-radius: 0px; /* 角を丸くする */
 }
+/* ボタンのスタイル */
+.button-common3 {
+    background-color: var(--accent-color-1); /* 背景色 */
+    color: var(--white-color-1); /* テキストの色 */
+    padding: 0px 0px; /* パディング */
+    margin: 0px 0; /* 上下に余白 */
+    border: none; /* 枠線を消す */
+    cursor: pointer; /* クリックできるようにカーソル変更 */
+    width: 30%; /* 横幅を100%にして左右いっぱいに広げる */
+    text-align: center; /* テキストを中央揃え */
+    font-weight: bold; /* 太字に */
+    font-size: var(--body-font-size); /* フォントサイズ */
+    display: block;
+    border-radius: 4px; /* 角を丸くする */
+}
 
 /* ホバー時のスタイル */
 .button-common:hover {
@@ -98,6 +113,11 @@ h2 {
 }
 /* ホバー時のスタイル */
 .button-common2:hover {
+    background-color: var(--accent-color-1); /* ホバー時の背景色 */
+    color: var(--gray-color-1); /*  */
+}
+/* ホバー時のスタイル */
+.button-common3:hover {
     background-color: var(--accent-color-1); /* ホバー時の背景色 */
     color: var(--gray-color-1); /*  */
 }
@@ -743,7 +763,12 @@ nav ul li a.active {
     margin-bottom: 0px;
 }
 
-.month-navigation {
+
+
+.button-container2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0px; /* ボタンを左右に配置 */
     margin-bottom: 0px;
     color: var(--main-color-1); /* セルの文字色を濃い青に */
     font-weight: bold; /* ヘッダーの文字をボールドに設定 */
