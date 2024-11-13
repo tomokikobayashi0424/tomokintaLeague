@@ -174,6 +174,33 @@ h2 {
     text-align: center; /* テキストを中央揃え */
     font-size: var(--body-font-size);
 }
+
+.table3 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* ヘッダー部分のスタイル */
+.table3 th {
+    background-color: var(--sub-color-1); /* ヘッダーの背景色をピンクに設定 */
+    color: var(--main-color-1); /* ヘッダーの文字色を白に設定 */
+    font-size: var(--body-font-size);
+    font-weight: bold; /* ヘッダーの文字をボールドに設定 */
+    border: 1px solid var(--main-color-1); /* 枠の色を濃い青に設定 */
+    padding: 8px; /* セルのパディング */
+    text-align: center; /* テキストを中央揃え */
+}
+
+/* ヘッダー以外のセルのスタイル */
+.table3 td {
+    background-color: var(--main-color-1); /* セルの背景色を白に */
+    color: var(--sub-color-1); /* セルの文字色を濃い青に */
+    border: 1px solid var(--sub-color-1); /* 枠線の色を濃い青に設定 */
+    padding: 5px; /* セルのパディング */
+    text-align: center; /* テキストを中央揃え */
+    font-size: var(--body-font-size);
+}
 /* 
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
@@ -704,4 +731,21 @@ nav ul li a.active {
         margin-right: 0; /* 右側の余白を削除 */
         margin-bottom: 20px; /* 下に余白を追加 */
     }
+}
+
+
+
+
+
+
+
+#teamSchedule {
+    margin-bottom: 0px;
+}
+
+.month-navigation {
+    margin-bottom: 0px;
+    color: var(--main-color-1); /* セルの文字色を濃い青に */
+    font-weight: bold; /* ヘッダーの文字をボールドに設定 */
+    text-align: center;
 }

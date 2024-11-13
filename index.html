@@ -68,6 +68,35 @@
         <!-- チーム戦績タブ -->
         <section id="teamPerformanceTab" class="tabcontent" style="display:none;">
             <h2 id="teamNameHeader"></h2>
+            <!-- チーム日程表 -->
+            <h3>チーム日程</h3>
+            <div class="match-container">
+                <div id="teamSchedule">
+                    <div class="month-navigation">
+                        <span id="currentMonthLabel"></span>
+                        <div class="button-container">
+                            <button class="button-common2" onclick="previousMonth()">前の月</button>
+                            <button class="button-common2" onclick="nextMonth()">次の月</button>
+                        </div>
+                    </div>
+                    <table id="teamScheduleTable" class="table3">
+                        <thead>
+                            <tr>
+                                <th>日付</th>
+                                <th>場所</th>
+                                <th>対戦相手</th>
+                                <th>スコア</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teamScheduleTableBody">
+                            <!-- 試合の行がここに挿入されます -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <h3>チームスタッツ</h3>
             <table id="teamStatsTable" class="table2">
                 <thead>
                     <tr>

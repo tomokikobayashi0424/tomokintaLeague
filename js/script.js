@@ -147,9 +147,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
 });
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // チームスタッツ
+///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // チームスタッツを開く関数
 function openTabWithTeam(evt, tabName, teamIndex) {
@@ -176,6 +177,90 @@ function openTabWithTeam(evt, tabName, teamIndex) {
     // calculateTeamStats(teamId);  // ここでチーム戦績を計算する
     calculateTeamStats(teamIndex); // ここでチーム戦績を計算する
 }
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// チーム戦績タブに日程表を追加
+///////////////////////////////////////////////////////////////////////////////////////////////////
+let currentMonthOffset = 0; // 現在の月を基準としたオフセット
+
+// チームごとの月ごとの試合を表示する関数
+function displayTeamMonthlySchedule(teamId) {
+    let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
+    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
+    let scheduleHTML = '';
+
+    // 現在の月を基準にして表示月を計算
+    let displayMonth = new Date();
+    displayMonth.setMonth(displayMonth.getMonth() + currentMonthOffset);
+    const displayYear = displayMonth.getFullYear();
+    const displayMonthIndex = displayMonth.getMonth();
+
+    // 表示月と年に基づいて日程をフィルタリング
+    for (const matchKey in matchData) {
+        const match = matchData[matchKey];
+        const matchDate = new Date(match.date);
+        if (matchDate.getFullYear() === displayYear && matchDate.getMonth() === displayMonthIndex) {
+            const isHome = match.home.teamId === teamId;
+            const isAway = match.away.teamId === teamId;
+            if (isHome || isAway) {
+                let opponentTeam = teamsData.find(team => team.teamId === (isHome ? match.away.teamId : match.home.teamId));
+                scheduleHTML += `
+                    <tr>
+                        <td>${matchDate.getDate()}${(match.home.score !== null && match.away.score !== null) ? '日' : '日まで'}</td>
+                        <td>${isHome ? 'ホーム' : 'アウェイ'}</td>
+                        <td>${opponentTeam ? opponentTeam.teams : '不明'}</td>
+                        <td>${match.home.score ?? '-'} - ${match.away.score ?? '-'}</td>
+                    </tr>
+                `;
+            }
+        }
+    }
+
+    // 日程が存在しない場合のメッセージ
+    if (scheduleHTML === '') {
+        scheduleHTML = `<tr><td colspan="4">この月の試合はありません</td></tr>`;
+    }
+
+    document.getElementById('teamScheduleTableBody').innerHTML = scheduleHTML;
+    document.getElementById('currentMonthLabel').textContent = `${displayYear}年${displayMonthIndex + 1}月`;
+}
+
+// 前の月を表示
+function previousMonth() {
+    currentMonthOffset--;
+    const teamId = parseInt(document.getElementById('teamNameHeader').getAttribute('data-team-id'));
+    displayTeamMonthlySchedule(teamId);
+}
+
+// 次の月を表示
+function nextMonth() {
+    currentMonthOffset++;
+    const teamId = parseInt(document.getElementById('teamNameHeader').getAttribute('data-team-id'));
+    displayTeamMonthlySchedule(teamId);
+}
+
+// タブを開くときにチームの日程表と戦績を表示
+function openTabWithTeam(evt, tabName, teamIndex) {
+    openTab(evt, tabName);
+    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
+    const team = teamsData.find(t => t.teamId === teamIndex);
+    const teamName = team ? team.teams : `Team ${teamIndex + 1}`;
+
+    document.getElementById('teamNameHeader').textContent = teamName;
+    document.getElementById('teamNameHeader').setAttribute('data-team-id', teamIndex);
+
+    // 初回に現在の月のスケジュールを表示
+    currentMonthOffset = 0;
+    displayTeamMonthlySchedule(teamIndex);
+    calculateTeamStats(teamIndex); // チーム戦績を表示
+}
+
+
+
+
 
 // チームスタッツを閉じる関数
 function closeTeamPerformanceTab() {
