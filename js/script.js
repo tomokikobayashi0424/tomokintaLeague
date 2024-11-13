@@ -588,14 +588,15 @@ function drawStackedGoalGraph(goalTimes, concededTimes, interval) {
     const goalBuckets = Array(numBuckets).fill(0);
     const concededBuckets = Array(numBuckets).fill(0);
 
+    
     goalTimes.forEach(time => {
-        const bucketIndex = Math.floor(time / interval);
+        const bucketIndex = Math.min(Math.floor(time / interval), numBuckets - 1);
         goalBuckets[bucketIndex]++;
     });
 
     concededTimes.forEach(time => {
-        const bucketIndex = Math.floor(time / interval);
-        concededBuckets[bucketIndex] = -concededBuckets[bucketIndex] - 1;
+        const bucketIndex = Math.min(Math.floor(time / interval), numBuckets - 1);
+        concededBuckets[bucketIndex]++;
     });
 
     const labels = Array.from({ length: numBuckets }, (_, i) => `${(i + 1) * interval}`);
@@ -614,7 +615,7 @@ function drawStackedGoalGraph(goalTimes, concededTimes, interval) {
                 },
                 {
                     label: '失点',
-                    data: concededBuckets,
+                    data: concededBuckets.map(val => -val),
                     backgroundColor: '#FF0000',
                     stack: 'stacked',
                 }
