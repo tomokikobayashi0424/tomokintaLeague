@@ -3185,79 +3185,94 @@
     "round5-match4": {
       "home": {
         "teamId": 9,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 1,
+        "assistPlayers": [
+          "キリアン エムバペ"
+        ],
+        "goalPlayers": [
+          "カイ ハヴァーツ"
+        ],
+        "times": [
+          54
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 53,
+          "shots": 1,
+          "shotsonFrame": 0,
+          "fouls": 1,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 64,
+          "successfulPasses": 50,
+          "crosses": 0,
+          "PassCuts": 6,
+          "successfulTackles": 1,
+          "save": 0
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 55,
+          "shots": 4,
+          "shotsonFrame": 2,
+          "fouls": 1,
+          "offsides": 0,
+          "cornerKicks": 1,
+          "freeKicks": 0,
+          "passes": 136,
+          "successfulPasses": 108,
+          "crosses": 0,
+          "PassCuts": 13,
+          "successfulTackles": 3,
+          "save": 2
         }
       },
       "away": {
         "teamId": 1,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 2,
+        "assistPlayers": [
+          "",
+          "マテウス クーニャ"
+        ],
+        "goalPlayers": [
+          "フェデリコ バルベルデ",
+          "アデモラ ルックマン"
+        ],
+        "times": [
+          73,
+          82
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 47,
+          "shots": 4,
+          "shotsonFrame": 4,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 2,
+          "freeKicks": 1,
+          "passes": 49,
+          "successfulPasses": 38,
+          "crosses": 3,
+          "PassCuts": 12,
+          "successfulTackles": 1,
+          "save": 1
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 45,
+          "shots": 10,
+          "shotsonFrame": 8,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 2,
+          "freeKicks": 1,
+          "passes": 93,
+          "successfulPasses": 73,
+          "crosses": 4,
+          "PassCuts": 21,
+          "successfulTackles": 2,
+          "save": 2
         }
       },
-      "date": "2024-11-17"
+      "date": "2024-11-14"
     },
     "round5-match5": {
       "home": {
