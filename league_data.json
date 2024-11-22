@@ -3520,7 +3520,7 @@
     "round6-match2": {
       "home": {
         "teamId": 8,
-        "score": null,
+        "score": 0,
         "assistPlayers": [],
         "goalPlayers": [],
         "times": [],
@@ -3540,27 +3540,36 @@
           "save": null
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 56,
+          "shots": 6,
+          "shotsonFrame": 4,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 1,
+          "freeKicks": 1,
+          "passes": 106,
+          "successfulPasses": 89,
+          "crosses": 0,
+          "PassCuts": 24,
+          "successfulTackles": 3,
+          "save": 4
         }
       },
       "away": {
         "teamId": 4,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 2,
+        "assistPlayers": [
+          "リオネル メッシ",
+          "ルート フリット"
+        ],
+        "goalPlayers": [
+          "ルート フリット",
+          "カイ ハヴァーツ"
+        ],
+        "times": [
+          null,
+          null
+        ],
         "halfTime": {
           "possession": null,
           "shots": null,
@@ -3577,19 +3586,19 @@
           "save": null
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 44,
+          "shots": 8,
+          "shotsonFrame": 7,
+          "fouls": 1,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 61,
+          "successfulPasses": 33,
+          "crosses": 0,
+          "PassCuts": 15,
+          "successfulTackles": 8,
+          "save": 3
         }
       },
       "date": "2024-11-24"
