@@ -4193,10 +4193,16 @@
     "round7-match4": {
       "home": {
         "teamId": 0,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 1,
+        "assistPlayers": [
+          "エドガー ダーヴィッツ"
+        ],
+        "goalPlayers": [
+          "ルイス フィーゴ"
+        ],
+        "times": [
+          53
+        ],
         "halfTime": {
           "possession": null,
           "shots": null,
@@ -4213,27 +4219,33 @@
           "save": null
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 50,
+          "shots": 4,
+          "shotsonFrame": 3,
+          "fouls": 1,
+          "offsides": 1,
+          "cornerKicks": 2,
+          "freeKicks": 0,
+          "passes": 87,
+          "successfulPasses": 59,
+          "crosses": 11,
+          "PassCuts": 19,
+          "successfulTackles": 4,
+          "save": 0
         }
       },
       "away": {
         "teamId": 3,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 1,
+        "assistPlayers": [
+          ""
+        ],
+        "goalPlayers": [
+          "リオネル メッシ"
+        ],
+        "times": [
+          41
+        ],
         "halfTime": {
           "possession": null,
           "shots": null,
@@ -4250,22 +4262,22 @@
           "save": null
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 50,
+          "shots": 3,
+          "shotsonFrame": 1,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 1,
+          "passes": 106,
+          "successfulPasses": 83,
+          "crosses": 0,
+          "PassCuts": 14,
+          "successfulTackles": 3,
+          "save": 1
         }
       },
-      "date": "2024-12-01"
+      "date": "2024-11-28"
     },
     "round7-match5": {
       "home": {
