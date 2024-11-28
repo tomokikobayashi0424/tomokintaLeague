@@ -4039,79 +4039,100 @@
     "round7-match2": {
       "home": {
         "teamId": 9,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 3,
+        "assistPlayers": [
+          "コール パーマー",
+          "エンソ フェルナンデス",
+          "マルティン ウーデゴーア"
+        ],
+        "goalPlayers": [
+          "リオネル メッシ",
+          "コール パーマー",
+          "リオネル メッシ"
+        ],
+        "times": [
+          16,
+          38,
+          55
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 68,
+          "shots": 6,
+          "shotsonFrame": 5,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 1,
+          "freeKicks": 0,
+          "passes": 75,
+          "successfulPasses": 68,
+          "crosses": 2,
+          "PassCuts": 6,
+          "successfulTackles": 1,
+          "save": 0
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 60,
+          "shots": 8,
+          "shotsonFrame": 7,
+          "fouls": 1,
+          "offsides": 1,
+          "cornerKicks": 1,
+          "freeKicks": 0,
+          "passes": 146,
+          "successfulPasses": 125,
+          "crosses": 2,
+          "PassCuts": 15,
+          "successfulTackles": 3,
+          "save": 2
         }
       },
       "away": {
         "teamId": 5,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 2,
+        "assistPlayers": [
+          "ジュード ベリンガム",
+          "ニコ ウィリアムス"
+        ],
+        "goalPlayers": [
+          "ジャック ウィルシャー",
+          "クリスティアーノ ロナウド"
+        ],
+        "times": [
+          48,
+          90
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 32,
+          "shots": 1,
+          "shotsonFrame": 1,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 32,
+          "successfulPasses": 26,
+          "crosses": 0,
+          "PassCuts": 6,
+          "successfulTackles": 1,
+          "save": 4
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 40,
+          "shots": 5,
+          "shotsonFrame": 5,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 1,
+          "freeKicks": 1,
+          "passes": 97,
+          "successfulPasses": 78,
+          "crosses": 0,
+          "PassCuts": 16,
+          "successfulTackles": 4,
+          "save": 5
         }
       },
-      "date": "2024-12-01"
+      "date": "2024-11-28"
     },
     "round7-match3": {
       "home": {
