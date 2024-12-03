@@ -67,7 +67,7 @@
 
         <!-- チーム戦績タブ -->
         <section id="teamPerformanceTab" class="tabcontent" style="display:none;">
-            <h2 id="teamNameHeader"></h2>
+            <h2 id="teamNameHeader" class="sticky-header"></h2></h2>
             <!-- チーム日程表 -->
             <h3>チーム日程</h3>
             <div class="match-container">
@@ -95,8 +95,8 @@
             </div>
 
 
-            <h3>チームスタッツ</h3>
-            <table id="teamStatsTable" class="table2">
+            <h3 class="sticky-title">チームスタッツ</h3>
+            <table id="teamStatsTable" class="table2 sticky-table">
                 <thead>
                     <tr>
                         <th></th> <!-- 空白のセル -->
@@ -205,8 +205,8 @@
                     </tr>
                 </tbody>
             </table>
-            <h3>チームゴールランキング</h3>
-            <table id="teamGoalPlayersTable" class="table">
+            <h3 class="sticky-title">チームゴールランキング</h3>
+            <table id="teamGoalPlayersTable" class="table sticky-table">
                 <thead>
                     <tr>
                         <th>順位</th>
@@ -219,8 +219,8 @@
                 </tbody>
             </table>
 
-            <h3>チームアシストランキング</h3>
-            <table id="teamAssistPlayersTable" class="table">
+            <h3 class="sticky-title">チームアシストランキング</h3>
+            <table id="teamAssistPlayersTable" class="table sticky-table">
                 <thead>
                     <tr>
                         <th>順位</th>
@@ -235,6 +235,7 @@
             <br>
 
             <!-- グラフを描画するためのキャンバス -->
+            <h3 class="sticky-title">得点時間のグラフ</h3>
             <div class="chart-container">
                 <canvas id="goalChart" width="400" height="400"></canvas>
                 <canvas id="stackedGoalChart5Min" width="400" height="400"></canvas>

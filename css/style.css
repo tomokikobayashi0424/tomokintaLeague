@@ -413,10 +413,47 @@ nav ul li a.active {
 }
 
 /* チーム名のヘッダーのスタイル */
-#teamNameHeader {
+/* #teamNameHeader { 
     text-align: center;
     margin-bottom: 0px;
+}*/
+
+/* チーム名のヘッダーを固定するスタイル */
+/* ヘッダーの固定 */
+.sticky-header {
+    position: sticky;
+    top: 102px;
+    z-index: 990;
+    background-color: var(--main-color-1); /* ヘッダーの背景色を変更 */
+    color: var(--sub-color-1);; /* 文字色を白に設定 */
+    padding: 10px;
+    /* font-size: 24px; */
+    text-align: center;
+    /* border-bottom: 2px solid var(--main-color-2); 見やすくするためのボーダー */
 }
+
+/* 表タイトルの固定 */
+.sticky-title {
+    position: sticky;
+    top: 144px; /* ヘッダーの高さを考慮 */
+    z-index: 900;
+    background-color: var(--main-color-1); /* ヘッダーの背景色を変更 */
+    padding: 5px;
+}
+
+/* 表ヘッダーの固定 */
+.sticky-table thead th {
+    position: sticky;
+    top: calc(144px + 37px); /* ヘッダーとタイトルの高さを考慮 */
+    z-index: 800;
+}
+
+/* 表の固定要素に影を追加して視覚的区別 */
+.sticky-header, .sticky-title, .sticky-table thead th {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
 
 /*
 ===================================================================================================
