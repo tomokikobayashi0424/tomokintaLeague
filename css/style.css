@@ -455,6 +455,31 @@ nav ul li a.active {
 
 
 
+.table-notes {
+    font-size: 10px; /* フォントサイズを小さくする */
+    margin-top: 5px;
+    line-height: 1.4;
+}
+
+.fraction {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 1;
+}
+
+.fraction .numerator {
+    display: block;
+    font-size: 0.9em; /* 分子のフォントサイズ */
+    border-bottom: 1px solid; /* 分子と分母の間に線を引く */
+}
+
+.fraction .denominator {
+    display: block;
+    font-size: 0.9em; /* 分母のフォントサイズ */
+}
+
+
 /*
 ===================================================================================================
 ===================================================================================================
