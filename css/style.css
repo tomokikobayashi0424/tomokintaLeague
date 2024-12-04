@@ -414,7 +414,7 @@ h2 {
 .team-subname-input {
     width: 100px;
     /* padding: 0px 0px 0px 0px; */
-    margin: 5px 0px 0px 0px;
+    /* margin: 5px 0px 0px 0px; */
     text-align: center; /* テキストを中央揃えに */
     border: 0px solid var(--main-color-1); /* 入力欄の枠線 */
     background-color: var(--main-color-1); /* 背景色 */
