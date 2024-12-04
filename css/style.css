@@ -125,7 +125,7 @@ nav ul {
     /*横並び*/
     display: flex;
     /*横並び要素の位置*/
-    justify-content: left;
+    justify-content: center;
     /*箇条書きの・*/
     list-style-type: none;
     margin: 0;
