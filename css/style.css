@@ -40,7 +40,7 @@
 @media screen and (max-width: 440px) {
     :root {
         --h2-font-size: 20px;
-        --subtitle-font-size: 15px;
+        --subtitle-font-size: 14px;
         --body-font-size: 10px;
         --body2-font-size: 7px;
     }
