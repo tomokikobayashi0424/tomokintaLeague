@@ -9,14 +9,16 @@
     --gray-color-1: rgb(110, 110, 110);   /* 文字色3（補助） */
     --white-color-1: rgb(255, 255, 255);   /* 文字色3（補助） */
     --header-font-size: 15px;
-    --navi-font-size: 15px;
     --name-font-size: 10px;
+    --button-font-size: 20;
+
+    --px10: 10px;
 }
 
 /* PC向けのメディアクエリ (画面幅が1024px以上) */
 @media screen and (min-width: 961px) {
     :root {
-        --title-font-size: 30px;
+        --h2-font-size: 30px;
         --subtitle-font-size: 25px;
         --body-font-size: 20px;
         --body2-font-size: 12px;
@@ -26,7 +28,7 @@
 /* タブレットやスマホ向けのメディアクエリ (画面幅が1024px未満) */
 @media screen and (max-width: 960px) {
     :root {
-        --title-font-size: 25px;
+        --h2-font-size: 25px;
         --subtitle-font-size: 23px;
         --body-font-size: 18px;
         --body2-font-size: 10px;
@@ -37,7 +39,7 @@
 /* スマホ向けのメディアクエリ (画面幅が600px未満) */
 @media screen and (max-width: 440px) {
     :root {
-        --title-font-size: 20px;
+        --h2-font-size: 20px;
         --subtitle-font-size: 15px;
         --body-font-size: 10px;
         --body2-font-size: 7px;
@@ -45,99 +47,297 @@
 }
 
 
-body {
-    font-family: Arial, sans-serif;
-    overflow-y: scroll; /* スクロールバーが常に表示されるように設定 */
-    background-color: var(--main-color-1); /* 全体の背景色を青にする */
-    color: var(--sub-color-1);
+/* 
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+ヘッダーのスタイル 
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+*/
+/*説明*/
+header {
+    /* Z軸方向設定 */
+    z-index: 1000;
+    /*box-sizing,デフォルトはcontent-boxで高さなどにpaddingとborderが含まれない*/
+    box-sizing: border-box;
+    /* スクロール時に画面上部に固定 */
+    position: fixed;
+    /* 高さ固定 */
+    height: 50px;
+    /* 横幅設定 */
+    width: 90%;
+    /* 上位置 */
+    top: 0;
+    /* 左位置 */
+    left: 10%;
+    /* 外側　上右下左 */
+    margin: 0;
+    /* 外線　上右下左 */
+    border: 0;
+    /* 内側 上下 左右 */
+    padding: 5px 0;
+    /*テキストをヘッダーの中央に配置するためのラインハイト */
+    line-height: 0px; 
+    /* 背景色 */
+    background-color: var(--main-color-1);
+    /* テキスト色 */
+    color: var(--accent-color-1);
+    /* テキスト寄せ */
+    text-align: left;
+    /* テキストサイズ 10/3の高さ*/
+    font-size: var(--header-font-size);
+    
+    
+
+}
+
+/* 
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+ナビゲーションメニューのスタイル
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+*/
+nav {
+    z-index: 999;
+    box-sizing: border-box;
+    position: fixed;
+    height: 32.5px;
+    width: 100%;
+    /* ヘッダーの下に配置 */
+    top: 50px; 
+    /* left: 0; */
+    /* margin: 0; */
+    /* border: 0; */
+    padding: 0 10%;
+    /* line-height: 0px;  */
+    background-color: var(--main-color-2); /* ナビゲーションの背景色 */
+    /* color: var(); */
+    /* text-align: left; */
+    /* font-size: var(--navi-font-size); */
+}
+
+nav ul {
+    /*横並び*/
+    display: flex;
+    /*横並び要素の位置*/
+    justify-content: left;
+    /*箇条書きの・*/
+    list-style-type: none;
     margin: 0;
     padding: 0;
-    padding-top: 80px; /* ヘッダーとナビゲーションの高さ分のスペースを確保 */
+    /* padding-left: 10%; 左から10%の位置にテキストを配置 */
+}
+
+/* nav ul li {
+    margin: 0;
+    padding: 0;
+} */
+
+nav ul li a {
+    display: block;
+    color: var(--white-color-1);
+    /* リンクの下線 */
+    text-decoration: none;
+    /* margin: 0; */
+    padding: 5px 10px;
+    font-weight: bold;
+    /*フォントサイズの1.5倍の高さ*/
+    font-size: var(--header-font-size);
+}
+
+/* ホバー時と選択中のリンクのスタイルをまとめる */
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: var(--sub-color-1); /* 背景色 */
+    color: var(--main-color-2); /* テキスト色 */
+    font-weight: bold; /* ボールドに設定 */
+}
+
+
+
+/* 
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+ボディのスタイル
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+*/
+body {
+    /*フォント設定*/
+    font-family: Arial, sans-serif;
+    /* スクロールバーが常に表示されるように設定 */
+    overflow-y: scroll;
+    z-index: 900;
+    box-sizing: border-box;
+    /* 高さ固定 */
+    /* height: 50px; */
+    /* width: 100%; */
+    /* 上位置82.5px*/
+    /* top: 85px; */
+    /* 左位置 */
+    /* left: 10%; */
+    margin: 90px 0 0 0;
+    border: 0;
+    padding: 0;
+    /*テキストをヘッダーの中央に配置するためのラインハイト */
+    /* line-height: 0px; */
+    background-color: var(--main-color-1);
+    color: var(--sub-color-1);
+    /* テキスト寄せ */
+    /* text-align: left; */
+    /* font-size: var(--header-font-size); */
 }
 h2 {
-    font-size: var(--title-font-size); /* フォントサイズを指定 */
+    font-size: var(--h2-font-size); /* フォントサイズを指定 */
     font-weight: bold;
     color: var(--sub-color-1);
 }
 
-/* ボタンの共通スタイル */
+/*-------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+共通スタイル
+---------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------------
+ボタンのスタイル
+-------------------------------------------------------------------------------------------------*/
 .button-common {
-    background-color: var(--accent-color-1); /* 背景色 */
-    color: var(--white-color-1); /* テキストの色 */
-    padding: 10px; /* パディング */
-    margin: 10px 0; /* 上下に余白 */
-    border: none; /* 枠線を消す */
-    cursor: pointer; /* クリックできるようにカーソル変更 */
-    width: 100%; /* 横幅を100%にして左右いっぱいに広げる */
-    text-align: center; /* テキストを中央揃え */
-    font-weight: bold; /* 太字に */
-    font-size: var(--body-font-size); /* フォントサイズ */
-    display: block;
-    border-radius: 5px; /* 角を丸くする */
+    /* display: block; */
+    box-sizing: border-box;
+    /* height: 50px; */
+    /* width: 100%; */
+    /* top: 0; */
+    /* left: 10%; */
+    margin: 10px 0;
+    border: none;
+    /* padding: 10px; */
+    /* line-height: 0px; */
+    background-color: var(--accent-color-1);
+    color: var(--white-color-1);
+    text-align: center;
+    /* テキストサイズ 10/3の高さ*/
+    font-size: var(--button-font-size);
+    
+    /* クリックできるようにカーソル変更 */
+    cursor: pointer; 
+
 }
-/* ボタンのスタイル */
-.button-common2 {
-    background-color: var(--accent-color-1); /* 背景色 */
-    color: var(--white-color-1); /* テキストの色 */
-    padding: 10px 10px; /* パディング */
-    margin: 10px 0; /* 上下に余白 */
-    border: none; /* 枠線を消す */
-    cursor: pointer; /* クリックできるようにカーソル変更 */
-    width: 100%; /* 横幅を100%にして左右いっぱいに広げる */
-    text-align: center; /* テキストを中央揃え */
-    font-weight: bold; /* 太字に */
-    font-size: var(--body-font-size); /* フォントサイズ */
-    display: block;
-    border-radius: 0px; /* 角を丸くする */
+.button1 {
+    margin-right: 5%;
+    padding: 5px;
+    width: 20%;
+    /* 角を丸くする */
+    border-radius: 5px;
 }
-/* ボタンのスタイル */
-.button-common3 {
-    background-color: var(--accent-color-1); /* 背景色 */
-    color: var(--white-color-1); /* テキストの色 */
-    padding: 0px 0px; /* パディング */
-    margin: 0px 0; /* 上下に余白 */
-    border: none; /* 枠線を消す */
-    cursor: pointer; /* クリックできるようにカーソル変更 */
-    width: 30%; /* 横幅を100%にして左右いっぱいに広げる */
-    text-align: center; /* テキストを中央揃え */
-    font-weight: bold; /* 太字に */
-    font-size: var(--body-font-size); /* フォントサイズ */
-    display: block;
-    border-radius: 4px; /* 角を丸くする */
+
+.button2 {
+    padding: 10px;
+    width: 30%;
+    border-radius: 5px;
+}
+
+.button3 {
+    padding: 0 10px;
+    width: 49%;
+    border-radius: 5px;
 }
 
 /* ホバー時のスタイル */
-.button-common:hover {
-    background-color: var(--accent-color-1); /* ホバー時の背景色 */
-    color: var(--gray-color-1); /*  */
-}
-/* ホバー時のスタイル */
-.button-common2:hover {
-    background-color: var(--accent-color-1); /* ホバー時の背景色 */
-    color: var(--gray-color-1); /*  */
-}
-/* ホバー時のスタイル */
+.button-common:hover,
+.button-common2:hover,
 .button-common3:hover {
-    background-color: var(--accent-color-1); /* ホバー時の背景色 */
-    color: var(--gray-color-1); /*  */
+    background-color: var(--accent-color-1);
+    color: var(--gray-color-1);
 }
 
-/* ボタンの共通スタイル */
-.button-score {
-    background-color: var(--accent-color-1); /* 背景色 */
-    color: var(--white-color-1); /* テキストの色 */
-    padding: 10px; /* パディング */
-    border: none; /* 枠線を消す */
-    cursor: pointer; /* クリックできるようにカーソル変更 */
-    width: 20%; /* 横幅を100%にして左右いっぱいに広げる */
-    text-align: center; /* テキストを中央揃え */
-    font-weight: bold; /* 太字に */
-    font-size: 10px; /* フォントサイズ */
-    margin: 10px 0; /* 上下に余白 */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    /* padding: 0; */
+}
+
+.button-container2 {
+    display: flex;
+    /* 縦方向の中央揃え */
+    align-items: center;
+    justify-content: space-between;
+    padding: 0; /* ボタンを左右に配置 */
+    margin: 0;
+    color: var(--main-color-1); /* セルの文字色を濃い青に */
+    font-weight: bold; /* ヘッダーの文字をボールドに設定 */
+    text-align: center;
+}
+
+ 
+/*---------------------------------------------------------------------------------------------------
+表のスタイル
+---------------------------------------------------------------------------------------------------*/
+/* 共通のテーブルスタイル */
+.table-common {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* ヘッダー部分の共通スタイル */
+.table-common th {
+    font-size: var(--body-font-size);
+    font-weight: bold;
+    border: 1px solid var(--main-color-1);
+    padding: 8px;
+    text-align: center;
+}
+
+/* ヘッダー以外のセルの共通スタイル */
+.table-common td {
+    padding: 8px;
+    text-align: center;
+    font-size: var(--body-font-size);
+    border: 1px solid var(--main-color-1);
 }
 
 
-/* テーブルのスタイル */
+/* table1のスタイル（ヘッダーの背景色を青に設定） */
+.table1 th {
+    background-color: var(--main-color-2); /* ヘッダーの背景色 */
+    color: var(--white-color-1); /* ヘッダーの文字色 */
+}
+
+.table1 td {
+    background-color: var(--white-color-1); /* 背景を白に */
+    color: var(--main-color-1); /* 文字色を濃い青に */
+}
+
+
+/* table2のスタイル（ヘッダーの背景色をピンクに設定） */
+.table2 th {
+    background-color: var(--accent-color-1); /* ヘッダーの背景色 */
+    color: var(--white-color-1); /* ヘッダーの文字色 */
+}
+
+.table2 td {
+    background-color: var(--white-color-1); /* セルの背景色を白に */
+    color: var(--main-color-1); /* セルの文字色を濃い青に */
+}
+
+/* table3のスタイル（ヘッダーの背景色をピンクに設定、セルの背景色は濃い青） */
+.table-team-Schedule th {
+    background-color: var(--sub-color-1); /* ヘッダーの背景色 */
+    color: var(--main-color-1); /* ヘッダーの文字色 */
+}
+
+.table-team-Schedule td {
+    background-color: var(--main-color-1); /* セルの背景色 */
+    color: var(--sub-color-1); /* セルの文字色 */
+    border: 1px solid var(--sub-color-1); /* 枠線の色を設定 */
+}
+
+
+
+
+
 .table {
     width: 100%;
     border-collapse: collapse;
@@ -221,79 +421,6 @@ h2 {
     text-align: center; /* テキストを中央揃え */
     font-size: var(--body-font-size);
 }
-/* 
----------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------
-ヘッダーのスタイル 
----------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------
-*/
-header {
-    background-color: var(--main-color-1); /* 背景色 */
-    color: var(--accent-color-1); /* テキスト色 */
-    text-align: left;
-    padding: 10px 0px 10px 0px;
-    margin: 0px 0px 0px 10%;
-    padding-left: 0%; /* 左から20%の位置にテキストを配置 */
-    position: fixed; /* スクロール時に画面上部に固定 */
-    top: 0;
-    width: 100%; /* 横幅を80%に設定し、左右に10%ずつ余白を設ける */
-    left: 0%;
-    z-index: 1000; /* 他の要素より上に表示するための設定 */
-    font-size: var(--header-font-size);
-    height: 40px; /* ヘッダーの高さを60pxに固定 */
-    line-height: 0px; /* テキストをヘッダーの中央に配置するためのラインハイト */
-}
-
-/* 
----------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------
-ナビゲーションメニューのスタイル
----------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------
-*/
-nav {
-    position: fixed;
-    top: 60px; /* ヘッダーの下に配置 */
-    width: 100%; /* 横幅を80%に設定し、左右に10%ずつ余白を設ける */
-    left: 0%;
-    background-color: var(--main-color-2); /* ナビゲーションの背景色 */
-    z-index: 999; /* ヘッダーのすぐ下に表示 */
-    font-size: var(--navi-font-size);
-}
-
-nav ul {
-    display: flex;
-    justify-content: left;
-    list-style-type: none;
-    padding: 0px 10% 0px 10%;
-    margin:  0px 0px 0px 0px;
-    /* padding-left: 10%; 左から10%の位置にテキストを配置 */
-}
-
-nav ul li {
-    margin: 0; /* ボタン間の隙間をなくす */
-    padding: 0; /* 余白をなくす */
-}
-
-nav ul li a {
-    color: var(--white-color-1); /* リンクのテキスト色 */
-    text-decoration: none;
-    padding: 10px 10px;
-    margin: 0px 0px;
-    display: block;
-    font-weight: bold; /* 文字をボールドに設定 */
-}
-
-/* ホバー時と選択中のリンクのスタイルをまとめる */
-nav ul li a:hover,
-nav ul li a.active {
-    background-color: var(--sub-color-1); /* 背景色 */
-    color: var(--main-color-2); /* テキスト色 */
-    font-weight: bold; /* ボールドに設定 */
-}
-
-
 
 /* 
 ---------------------------------------------------------------------------------------------------
@@ -412,17 +539,23 @@ nav ul li a.active {
     background-color: var(--main-color-1);
 }
 
-/* チーム名のヘッダーのスタイル */
-/* #teamNameHeader { 
+.header-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--main-color-1); /* 必要に応じて背景色を変更 */
+    padding: 0px;
+    position: sticky;
+    top: 82.5px;
+    z-index: 998; /* 他の要素の上に表示 */
     text-align: center;
-    margin-bottom: 0px;
-}*/
+}
+
 
 /* チーム名のヘッダーを固定するスタイル */
 /* ヘッダーの固定 */
 .sticky-header {
     position: sticky;
-    top: 102px;
+    top: 82.5px;
     z-index: 990;
     background-color: var(--main-color-1); /* ヘッダーの背景色を変更 */
     color: var(--sub-color-1);; /* 文字色を白に設定 */
@@ -435,8 +568,15 @@ nav ul li a.active {
 /* 表タイトルの固定 */
 .sticky-title {
     position: sticky;
-    top: 144px; /* ヘッダーの高さを考慮 */
+    top: calc(82.5px + var(--h2-font-size)*2.5); /* ヘッダーの高さを考慮 */
     z-index: 900;
+    background-color: var(--main-color-1); /* ヘッダーの背景色を変更 */
+    padding: 5px;
+}
+.sticky-title2 {
+    position: sticky;
+    top: 82.5px; /* ヘッダーの高さを考慮 */
+    z-index: 990;
     background-color: var(--main-color-1); /* ヘッダーの背景色を変更 */
     padding: 5px;
 }
@@ -444,20 +584,25 @@ nav ul li a.active {
 /* 表ヘッダーの固定 */
 .sticky-table thead th {
     position: sticky;
-    top: calc(144px + 37px); /* ヘッダーとタイトルの高さを考慮 */
+    top: calc(102.5px + var(--h2-font-size)*3); /* ヘッダーとタイトルの高さを考慮 */
+    z-index: 800;
+}
+.sticky-table2 thead th {
+    position: sticky;
+    top: calc(82.5px + 37px); /* ヘッダーとタイトルの高さを考慮 */
     z-index: 800;
 }
 
-/* 表の固定要素に影を追加して視覚的区別 */
+/* 表の固定要素に影を追加して視覚的区別
 .sticky-header, .sticky-title, .sticky-table thead th {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+} */
 
 
 .table-notes {
     font-size: 8px; /* 少し小さいフォントサイズ */
     margin-top: 10px;
-    line-height: 1.5; /* 行間を少し広げる */
+    /* line-height: 1.5; 行間を少し広げる */
 }
 
 
@@ -486,17 +631,10 @@ nav ul li a.active {
     margin-bottom: 0px; /* ボタンとの間にスペースを追加 */
 }
 
-.button-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 0px; /* ボタンを左右に配置 */
-}
-
-
 /* 週情報のスタイル */
 .schedule-header .week-info {
     text-align: center;
-    font-size: var(--title-font-size);
+    font-size: var(--h2-font-size);
     font-weight: bold;
     margin: 0;
 }
@@ -809,12 +947,3 @@ nav ul li a.active {
 
 
 
-.button-container2 {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 0px; /* ボタンを左右に配置 */
-    margin-bottom: 0px;
-    color: var(--main-color-1); /* セルの文字色を濃い青に */
-    font-weight: bold; /* ヘッダーの文字をボールドに設定 */
-    text-align: center;
-}

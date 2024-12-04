@@ -67,18 +67,21 @@
 
         <!-- チーム戦績タブ -->
         <section id="teamPerformanceTab" class="tabcontent" style="display:none;">
-            <h2 id="teamNameHeader" class="sticky-header"></h2></h2>
+            <div class="header-container">
+                <button class="button-common button1" onclick="closeTeamPerformanceTab()">戻る</button>
+                <h2 id="teamNameHeader"class="header-title"></h2>
+            </div>
             <!-- チーム日程表 -->
             <h3>チーム日程</h3>
             <div class="match-container">
                 <div id="teamSchedule">
                     <div class="button-container2">
-                        <button class="button-common3" onclick="previousMonth()">前の月</button>
+                        <button class="button-common button2" onclick="previousMonth()">前の月</button>
                         <span id="currentMonthLabel"></span>
-                        <button class="button-common3" onclick="nextMonth()">次の月</button>
+                        <button class="button-common button2" onclick="nextMonth()">次の月</button>
                     
                     </div>
-                    <table id="teamScheduleTable" class="table3">
+                    <table id="teamScheduleTable" class="table-common table-team-Schedule">
                         <thead>
                             <tr>
                                 <th>日付</th>
@@ -96,7 +99,7 @@
 
 
             <h3 class="sticky-title">チームスタッツ</h3>
-            <table id="teamStatsTable" class="table2 sticky-table">
+            <table id="teamStatsTable" class="table-common table2 sticky-table">
                 <thead>
                     <tr>
                         <th></th> <!-- 空白のセル -->
@@ -215,7 +218,7 @@
             </p>
 
             <h3 class="sticky-title">チームゴールランキング</h3>
-            <table id="teamGoalPlayersTable" class="table sticky-table">
+            <table id="teamGoalPlayersTable" class="table-common table1  sticky-table">
                 <thead>
                     <tr>
                         <th>順位</th>
@@ -229,7 +232,7 @@
             </table>
 
             <h3 class="sticky-title">チームアシストランキング</h3>
-            <table id="teamAssistPlayersTable" class="table sticky-table">
+            <table id="teamAssistPlayersTable" class="table-common table1 sticky-table">
                 <thead>
                     <tr>
                         <th>順位</th>
@@ -250,9 +253,6 @@
                 <canvas id="stackedGoalChart5Min" width="400" height="400"></canvas>
                 <canvas id="stackedGoalChart15Min" width="400" height="400"></canvas>
             </div>
-
-
-            <button class="button-common" onclick="closeTeamPerformanceTab()">戻る</button>
         </section>
 
       
@@ -295,8 +295,8 @@
             <h2>個人戦績</h2>
 
             <!-- ゴールランキング -->
-            <h3>ゴールランキング</h3>
-            <table id="goalPlayersTable" class="table">
+            <h3 class="sticky-title2">ゴールランキング</h3>
+            <table id="goalPlayersTable" class="table-common table1 sticky-table2">
                 <thead>
                     <tr>
                         <th>順位</th>
@@ -310,8 +310,8 @@
             </table>
 
             <!-- アシストランキング -->
-            <h3>アシストランキング</h3>
-            <table id="assistPlayersTable" class="table">
+            <h3 class="sticky-title2">アシストランキング</h3>
+            <table id="assistPlayersTable" class="table-common table1 sticky-table2">
                 <thead>
                     <tr>
                         <th>順位</th>

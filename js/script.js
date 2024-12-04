@@ -1090,11 +1090,11 @@ function displaySchedule(schedule = null) {
 
         scheduleHTML += `<div class="round" id="round${i}" style="display: none;">`;
         scheduleHTML +=  `
-            <div class="schedule-header">
-                <h3 class="week-info">${weekInfo}</h3>
+            <div class="schedule-header sticky-header">
+                <h2 class="week-info">${weekInfo}</h2>
                 <div class="button-container">
-                    <button class="button-common2" onclick="previousRound()">前節</button>
-                    <button class="button-common2" onclick="nextRound()">次節</button>
+                    <button class="button-common button3" onclick="previousRound()">前節</button>
+                    <button class="button-common button3" onclick="nextRound()">次節</button>
                 </div>
             </div>`;
         schedule[i].forEach((match, index) => {
