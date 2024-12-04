@@ -460,7 +460,7 @@ h3 {
     padding: 0px;
     position: sticky;
     top: 82.5px;
-    z-index: 998; /* 他の要素の上に表示 */
+    z-index: 900;
     text-align: center;
 }
 
@@ -468,7 +468,7 @@ h3 {
 .sticky-title {
     position: sticky;
     top: calc(82.5px + var(--h2-font-size)*2.5); /* ヘッダーの高さを考慮 */
-    z-index: 900;
+    z-index: 800;
     background-color: var(--main-color-1); /* ヘッダーの背景色を変更 */
     padding: 5px;
 }
@@ -476,8 +476,8 @@ h3 {
 /* 表ヘッダーの固定 */
 .sticky-table thead th {
     position: sticky;
-    top: calc(92.5px + (var(--h2-font-size)*2.5) + var(--h3-line-height));
-    z-index: 1000;
+    top: calc(97.5px + (var(--h2-font-size)*2.5) + var(--h3-line-height));
+    z-index: 700;
 }
 
 /*他のタブについて*/
@@ -485,7 +485,7 @@ h3 {
 .sticky-header {
     position: sticky;
     top: 82.5px;
-    z-index: 990;
+    z-index: 900;
     background-color: var(--main-color-1); /* ヘッダーの背景色を変更 */
     color: var(--sub-color-1);; /* 文字色を白に設定 */
     padding: 10px;
@@ -497,7 +497,7 @@ h3 {
 .sticky-title2 {
     position: sticky;
     top: 82.5px; /* ヘッダーの高さを考慮 */
-    z-index: 990;
+    z-index: 900;
     background-color: var(--main-color-1); /* ヘッダーの背景色を変更 */
     padding: 5px;
 }
@@ -505,7 +505,7 @@ h3 {
 .sticky-table2 thead th {
     position: sticky;
     top: calc(92.5px + var(--h2-line-height));
-    z-index: 1000;
+    z-index: 800;
 }
 
 .table-notes {
@@ -812,6 +812,24 @@ h3 {
     color: #808080; /* グレー */
     font-weight: bold;
 }
+
+
+/* 
+.ranking-rules {
+    margin-top: 20px;
+    font-size: var(--body-font-size);
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.ranking-rules h3 {
+    font-size: var(--body-font-size);
+    margin-bottom: 10px;
+    font-weight: bold;
+} */
 
 
 /*=================================================================================================
