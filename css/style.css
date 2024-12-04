@@ -9,7 +9,7 @@
     --gray-color-1: rgb(110, 110, 110);   /* 文字色3（補助） */
     --white-color-1: rgb(255, 255, 255);   /* 文字色3（補助） */
     --header-font-size: 15px;
-    --name-font-size: 10px;
+    --name-font-size: 9px;
     --button-font-size: 20;
 
     --px10: 10px;
@@ -42,7 +42,7 @@
 @media screen and (max-width: 440px) {
     :root {
         --h2-font-size: 20px;
-        --subtitle-font-size: 14px;
+        --subtitle-font-size: 20px;
         --body-font-size: 11px;
         --body2-font-size: 10px;
         --body3-font-size: 8px;
@@ -669,7 +669,7 @@ h2 {
 }
 
 /* スタッツテーブルのセル内のスタイル */
-.stats-table th, .stats-table td {
+.stats-table td {
     padding: 0px; /* セル内のコンテンツに8pxの余白 */
     text-align: center; /* テキストを中央揃え */
     border: 1px solid var(--sub-color-1); /* セルの枠線の色 */
@@ -681,8 +681,15 @@ h2 {
 
 /* スタッツ表のヘッダーセルのスタイル */
 .stats-table th {
+    padding: 0px; /* セル内のコンテンツに8pxの余白 */
+    text-align: center; /* テキストを中央揃え */
+    border: 1px solid var(--sub-color-1); /* セルの枠線の色 */
+    font-weight: bold; /* ヘッダーのテキストを太字に */
     background-color: var(--sub-color-1); /* スタッツ表のヘッダーセルの背景色 */
+    border-left: none; /* テーブル全体の左枠線を削除 */
+    border-right: none; /* テーブル全体の右枠線を削除 */
     color: var(--main-color-1); /* ヘッダーセルの文字色 */
+    font-size: var(--body3-font-size); /* フォントサイズを大きく設定 */
 }
 
 /* スタッツ表の入力欄のスタイル */
