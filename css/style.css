@@ -431,11 +431,18 @@ h2 {
     padding: 0px;
     background-color: var(--main-color-1);
 } */
+
+.match-container2 {
+    /* パネル内に余白を追加 */
+    padding: 1%;
+    background-color: var(--white-color-1);
+}
+
 /* ヘッダーの固定 */
 .header-container {
     display: flex;
     align-items: center;
-    background-color: var(--main-color-1); /* 必要に応じて背景色を変更 */
+    background-color: var(--main-color-1);
     padding: 0px;
     position: sticky;
     top: 82.5px;
@@ -492,7 +499,10 @@ h2 {
     /* line-height: 1.5; 行間を少し広げる */
 }
 
+.team-schedule {
+    font-size:var(--h2-font-size);
 
+}
 
 
 /* グラフ描画に関する設定 */
