@@ -374,8 +374,8 @@ h2 {
 /* リストのデフォルトスタイルを無効にする */
 .team-item ul {
     list-style-type: none; /* 箇条書きの丸を消す */
-    /* margin: 0; */
-    padding: 0;
+    margin: 0;
+    padding: 0 5px;
 }
 
 .team-logo {
@@ -386,9 +386,10 @@ h2 {
 }
 
 .team-logo-button {
-    background-color: transparent;
+    /* background-color: transparent; */
+    margin: 0;
     border: none;
-    padding: 0 5px;
+    padding: 0;
     cursor: pointer;
 }
 
