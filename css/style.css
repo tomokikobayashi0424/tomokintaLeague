@@ -81,7 +81,7 @@ header {
     /* テキスト色 */
     color: var(--accent-color-1);
     /* テキスト寄せ */
-    text-align: left;
+    text-align: center;
     /* テキストサイズ 10/3の高さ*/
     font-size: var(--header-font-size);
     
