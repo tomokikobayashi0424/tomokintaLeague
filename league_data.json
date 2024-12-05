@@ -4446,7 +4446,7 @@
     "round8-match0": {
       "home": {
         "teamId": 8,
-        "score": null,
+        "score": 0,
         "assistPlayers": [],
         "goalPlayers": [],
         "times": [],
@@ -4466,27 +4466,39 @@
           "save": null
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 51,
+          "shots": 7,
+          "shotsonFrame": 4,
+          "fouls": 4,
+          "offsides": 1,
+          "cornerKicks": 1,
+          "freeKicks": 0,
+          "passes": 128,
+          "successfulPasses": 98,
+          "crosses": 1,
+          "PassCuts": 18,
+          "successfulTackles": 9,
+          "save": 5
         }
       },
       "away": {
         "teamId": 11,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 3,
+        "assistPlayers": [
+          "",
+          "",
+          "リオネル メッシ"
+        ],
+        "goalPlayers": [
+          "アーリング ハーランド",
+          "ルイス スアレス",
+          "アーリング ハーランド"
+        ],
+        "times": [
+          16,
+          32,
+          80
+        ],
         "halfTime": {
           "possession": null,
           "shots": null,
@@ -4503,22 +4515,22 @@
           "save": null
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 49,
+          "shots": 8,
+          "shotsonFrame": 8,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 1,
+          "freeKicks": 4,
+          "passes": 86,
+          "successfulPasses": 63,
+          "crosses": 0,
+          "PassCuts": 25,
+          "successfulTackles": 2,
+          "save": 3
         }
       },
-      "date": "2024-12-08"
+      "date": "2024-12-05"
     },
     "round8-match1": {
       "home": {
@@ -4831,10 +4843,22 @@
     "round8-match5": {
       "home": {
         "teamId": 2,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 3,
+        "assistPlayers": [
+          "カール ハインツ ルンメニゲ",
+          "ルート フリット",
+          "リオネル メッシ"
+        ],
+        "goalPlayers": [
+          "ルート フリット",
+          "カール ハインツ ルンメニゲ",
+          "ディディエ ドログバ"
+        ],
+        "times": [
+          47,
+          50,
+          84
+        ],
         "halfTime": {
           "possession": null,
           "shots": null,
@@ -4851,27 +4875,36 @@
           "save": null
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 56,
+          "shots": 15,
+          "shotsonFrame": 11,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 6,
+          "freeKicks": 0,
+          "passes": 132,
+          "successfulPasses": 104,
+          "crosses": 1,
+          "PassCuts": 22,
+          "successfulTackles": 1,
+          "save": 0
         }
       },
       "away": {
         "teamId": 3,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 2,
+        "assistPlayers": [
+          "",
+          "ブルーノ フェルナンデス"
+        ],
+        "goalPlayers": [
+          "リオネル メッシ",
+          "ルイス スアレス"
+        ],
+        "times": [
+          40,
+          88
+        ],
         "halfTime": {
           "possession": null,
           "shots": null,
@@ -4888,22 +4921,22 @@
           "save": null
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 44,
+          "shots": 4,
+          "shotsonFrame": 2,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 96,
+          "successfulPasses": 73,
+          "crosses": 0,
+          "PassCuts": 15,
+          "successfulTackles": 0,
+          "save": 11
         }
       },
-      "date": "2024-12-08"
+      "date": "2024-12-05"
     },
     "round9-match0": {
       "home": {
@@ -10919,11 +10952,11 @@
     },
     {
       "Rank": 2,
-      "teamId": 10
+      "teamId": 1
     },
     {
       "Rank": 3,
-      "teamId": 1
+      "teamId": 10
     },
     {
       "Rank": 4,
@@ -10931,7 +10964,7 @@
     },
     {
       "Rank": 5,
-      "teamId": 2
+      "teamId": 9
     },
     {
       "Rank": 6,
@@ -10939,23 +10972,23 @@
     },
     {
       "Rank": 7,
-      "teamId": 9
+      "teamId": 2
     },
     {
       "Rank": 8,
-      "teamId": 6
-    },
-    {
-      "Rank": 9,
-      "teamId": 5
-    },
-    {
-      "Rank": 10,
       "teamId": 3
     },
     {
-      "Rank": 11,
+      "Rank": 9,
       "teamId": 8
+    },
+    {
+      "Rank": 10,
+      "teamId": 6
+    },
+    {
+      "Rank": 11,
+      "teamId": 5
     },
     {
       "Rank": 12,
@@ -10969,11 +11002,11 @@
     },
     {
       "Rank": 2,
-      "teamId": 10
+      "teamId": 1
     },
     {
       "Rank": 3,
-      "teamId": 1
+      "teamId": 10
     },
     {
       "Rank": 4,
@@ -10981,7 +11014,7 @@
     },
     {
       "Rank": 5,
-      "teamId": 2
+      "teamId": 9
     },
     {
       "Rank": 6,
@@ -10989,23 +11022,23 @@
     },
     {
       "Rank": 7,
-      "teamId": 9
+      "teamId": 2
     },
     {
       "Rank": 8,
-      "teamId": 6
-    },
-    {
-      "Rank": 9,
-      "teamId": 5
-    },
-    {
-      "Rank": 10,
       "teamId": 3
     },
     {
-      "Rank": 11,
+      "Rank": 9,
       "teamId": 8
+    },
+    {
+      "Rank": 10,
+      "teamId": 6
+    },
+    {
+      "Rank": 11,
+      "teamId": 5
     },
     {
       "Rank": 12,
