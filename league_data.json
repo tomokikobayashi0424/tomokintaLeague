@@ -4689,79 +4689,85 @@
     "round8-match3": {
       "home": {
         "teamId": 0,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 1,
+        "assistPlayers": [
+          "アレクシス マク アリステル"
+        ],
+        "goalPlayers": [
+          "モハメド サラー"
+        ],
+        "times": [
+          17
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 40,
+          "shots": 2,
+          "shotsonFrame": 2,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 22,
+          "successfulPasses": 14,
+          "crosses": 0,
+          "PassCuts": 9,
+          "successfulTackles": 4,
+          "save": 0
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 38,
+          "shots": 4,
+          "shotsonFrame": 2,
+          "fouls": 1,
+          "offsides": 1,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 47,
+          "successfulPasses": 26,
+          "crosses": 0,
+          "PassCuts": 19,
+          "successfulTackles": 6,
+          "save": 1
         }
       },
       "away": {
         "teamId": 5,
-        "score": null,
+        "score": 0,
         "assistPlayers": [],
         "goalPlayers": [],
         "times": [],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 60,
+          "shots": 1,
+          "shotsonFrame": 0,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 1,
+          "freeKicks": 0,
+          "passes": 56,
+          "successfulPasses": 43,
+          "crosses": 1,
+          "PassCuts": 8,
+          "successfulTackles": 0,
+          "save": 1
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 62,
+          "shots": 4,
+          "shotsonFrame": 2,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 2,
+          "freeKicks": 1,
+          "passes": 123,
+          "successfulPasses": 98,
+          "crosses": 2,
+          "PassCuts": 17,
+          "successfulTackles": 3,
+          "save": 2
         }
       },
-      "date": "2024-12-08"
+      "date": "2024-12-06"
     },
     "round8-match4": {
       "home": {
