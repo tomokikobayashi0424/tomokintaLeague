@@ -4784,76 +4784,94 @@
     "round8-match4": {
       "home": {
         "teamId": 1,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 2,
+        "assistPlayers": [
+          "アーリング ハーランド",
+          "ルート ファン 二ステルローイ"
+        ],
+        "goalPlayers": [
+          "ルート ファン 二ステルローイ",
+          "ネイマール"
+        ],
+        "times": [
+          66,
+          77
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 56,
+          "shots": 2,
+          "shotsonFrame": 1,
+          "fouls": 1,
+          "offsides": 1,
+          "cornerKicks": 0,
+          "freeKicks": 1,
+          "passes": 67,
+          "successfulPasses": 49,
+          "crosses": 0,
+          "PassCuts": 9,
+          "successfulTackles": 2,
+          "save": 3
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 58,
+          "shots": 4,
+          "shotsonFrame": 3,
+          "fouls": 1,
+          "offsides": 1,
+          "cornerKicks": 0,
+          "freeKicks": 1,
+          "passes": 131,
+          "successfulPasses": 94,
+          "crosses": 1,
+          "PassCuts": 18,
+          "successfulTackles": 3,
+          "save": 4
         }
       },
       "away": {
         "teamId": 4,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 2,
+        "assistPlayers": [
+          "ウリ へーネス",
+          "デニス ザカリア"
+        ],
+        "goalPlayers": [
+          "リオネル メッシ",
+          "ウリ へーネス"
+        ],
+        "times": [
+          59,
+          89
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 44,
+          "shots": 4,
+          "shotsonFrame": 4,
+          "fouls": 1,
+          "offsides": 1,
+          "cornerKicks": 2,
+          "freeKicks": 1,
+          "passes": 36,
+          "successfulPasses": 17,
+          "crosses": 0,
+          "PassCuts": 14,
+          "successfulTackles": 2,
+          "save": 1
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 42,
+          "shots": 8,
+          "shotsonFrame": 7,
+          "fouls": 1,
+          "offsides": 1,
+          "cornerKicks": 2,
+          "freeKicks": 1,
+          "passes": 75,
+          "successfulPasses": 44,
+          "crosses": 0,
+          "PassCuts": 25,
+          "successfulTackles": 3,
+          "save": 1
         }
       },
       "date": "2024-12-08"
