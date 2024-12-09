@@ -5306,79 +5306,94 @@
     "round9-match4": {
       "home": {
         "teamId": 2,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 2,
+        "assistPlayers": [
+          "デイヴィッド ベッカム",
+          "デイヴィッド ベッカム"
+        ],
+        "goalPlayers": [
+          "フランク ライカールト",
+          "フランク ライカールト"
+        ],
+        "times": [
+          6,
+          22
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 54,
+          "shots": 11,
+          "shotsonFrame": 7,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 3,
+          "freeKicks": 0,
+          "passes": 55,
+          "successfulPasses": 45,
+          "crosses": 0,
+          "PassCuts": 14,
+          "successfulTackles": 2,
+          "save": 0
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 50,
+          "shots": 14,
+          "shotsonFrame": 9,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 4,
+          "freeKicks": 0,
+          "passes": 92,
+          "successfulPasses": 72,
+          "crosses": 1,
+          "PassCuts": 21,
+          "successfulTackles": 4,
+          "save": 0
         }
       },
       "away": {
         "teamId": 5,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 1,
+        "assistPlayers": [
+          "コール パーマー"
+        ],
+        "goalPlayers": [
+          "ロベルト レヴァンドフスキ"
+        ],
+        "times": [
+          76
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 46,
+          "shots": 0,
+          "shotsonFrame": 0,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 48,
+          "successfulPasses": 31,
+          "crosses": 0,
+          "PassCuts": 9,
+          "successfulTackles": 2,
+          "save": 5
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 50,
+          "shots": 1,
+          "shotsonFrame": 1,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 105,
+          "successfulPasses": 77,
+          "crosses": 0,
+          "PassCuts": 15,
+          "successfulTackles": 4,
+          "save": 7
         }
       },
-      "date": "2024-12-15"
+      "date": "2024-12-09"
     },
     "round9-match5": {
       "home": {
@@ -11037,15 +11052,15 @@
     },
     {
       "Rank": 9,
-      "teamId": 8
+      "teamId": 5
     },
     {
       "Rank": 10,
-      "teamId": 6
+      "teamId": 8
     },
     {
       "Rank": 11,
-      "teamId": 5
+      "teamId": 6
     },
     {
       "Rank": 12,
@@ -11087,15 +11102,15 @@
     },
     {
       "Rank": 9,
-      "teamId": 8
+      "teamId": 5
     },
     {
       "Rank": 10,
-      "teamId": 6
+      "teamId": 8
     },
     {
       "Rank": 11,
-      "teamId": 5
+      "teamId": 6
     },
     {
       "Rank": 12,

@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tomokinta League</title>
+    <title>Tomokinta Champions League</title>
     <link rel="stylesheet" href="css/tomoki.css">
 </head>
 <body>
     <!-- タブメニュー -->
     <header>
-        <h1>Tomokinta League</h1> <!-- ヘッダーにリーグタイトルを表示 -->
+        <h1>Tomokinta Champions League</h1> <!-- ヘッダーにリーグタイトルを表示 -->
     </header>
     <nav>
         <ul>
@@ -27,7 +27,7 @@
         <!-- ホームタブ：チーム名入力フォーム -->
         <section id="home" class="tabcontent">
             <div class="link-container">
-                <a href="tomoki_champions.html" class="button-common button2">Tomokinta Champions Leagueへ</a>
+                <a href="tomoki.html" class="button-common button2">Tomokinta Leagueへ</a>
             </div>
             <h2>参加チーム一覧</h2>
             <div class="team-list">
@@ -134,15 +134,57 @@
         
 
         
-        <!-- 日程タブ：試合の日程を表示 -->
         <section id="schedule" class="tabcontent">
             <h2>日程</h2>
-            <button id="generateScheduleButton" onclick="generateAndSaveSchedule()">日程を生成</button>
-            <div id="scheduleContent"></div>
-            <div id="scheduleContent">
-                <!-- JavaScriptでスケジュールがここに挿入されます -->
+        
+            <!-- フェーズ名表示 -->
+            <div id="currentPhaseDisplay" style="text-align: center; margin-bottom: 20px; font-size: 18px; font-weight: bold;">
+                初戦
+            </div>
+        
+            <!-- 対戦表 -->
+            <div id="matchTableContainer" class="match-table">
+                <h3>対戦表</h3>
+                <ul id="matchTable">
+                    <!-- JavaScriptで動的に生成 -->
+                </ul>
+            </div>
+        
+            <!-- 保存ボタン -->
+            <div style="text-align: center; margin-top: 20px;">
+                <button id="saveTeamIdsButton" style="padding: 10px 20px; font-size: 16px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                    保存
+                </button>
+            </div>
+        
+            <!-- 日程表 -->
+            <div id="scheduleContainer">
+                <h3>日程表</h3>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>試合</th>
+                            <th>ホームチーム</th>
+                            <th>アウェーチーム</th>
+                            <th>日時</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scheduleBody">
+                        <!-- JavaScriptで動的に生成 -->
+                    </tbody>
+                </table>
+            </div>
+        
+            <!-- 前フェーズ・次フェーズボタン -->
+            <div class="phase-buttons">
+                <button id="prevPhaseButton">前フェーズ</button>
+                <button id="nextPhaseButton">次フェーズ</button>
             </div>
         </section>
+        
+        
+        
+        
         
         
         <!-- 順位表タブ -->
@@ -209,9 +251,4 @@
 
     </main>
     <!--<footer>
-        フッター：各タブへのリンク 
-        <a href="#home"><img src="images/home.png" alt="ホーム"></a>
-        <a href="#schedule"><img src="images/schedule.png" alt="日程"></a>
-        <a href="#standings"><img src="images/standings.png" alt="順位表"></a>
-        <a href="#records"><img src="images/records.png" alt="個人戦績"></a>
-        <a href="#videos"><i
+        フッター

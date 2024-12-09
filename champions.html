@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tomokinta League</title>
+    <title>Tomokinta Champions League</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <!-- タブメニュー -->
     <header>
-        <h1>Tomokinta League</h1> <!-- ヘッダーにリーグタイトルを表示 -->
+        <h1>Tomokinta Champions League</h1> <!-- ヘッダーにリーグタイトルを表示 -->
     </header>
     <nav>
         <ul>
@@ -25,7 +25,7 @@
         <!-- ホームタブ：チーム名入力フォーム -->
         <section id="home" class="tabcontent">
             <div class="link-container">
-                <a href="champions.html" class="button-common button2">Tomokinta Champions Leagueへ</a>
+                <a href="index.html" class="button-common button2">Tomokinta Leagueへ</a>
             </div>
             <h2>参加チーム一覧</h2>
             <div class="team-list">
@@ -34,36 +34,37 @@
                 </form>
             </div>
             <!-- ルール説明セクション -->
-            <section id="rules" class="rules-content">
-                <h3>試合ルール</h3>
+    <section id="rules" class="rules-content">
+        <h3>試合ルール</h3>
+        <ul>
+            <li>使用チーム: ドリーム</li>
+            <li>試合設定:
                 <ul>
-                    <li>使用チーム: ドリーム</li>
-                    <li>試合設定:
+                    <li>マッチルール：ノーマル</li>
+                    <li>試合時間：8分</li>
+                    <li>ケガ：あり</li>
+                    <li>延長：なし</li>
+                    <li>PK：なし</li>
+                    <li>選手交代人数：5人</li>
+                    <li>選手交代回数：3回</li>
+                    <li>コンディション：
                         <ul>
-                            <li>マッチルール：ノーマル</li>
-                            <li>試合時間：8分</li>
-                            <li>ケガ：あり</li>
-                            <li>延長：なし</li>
-                            <li>PK：なし</li>
-                            <li>選手交代人数：5人</li>
-                            <li>選手交代回数：3回</li>
-                            <li>コンディション：
-                                <ul>
-                                    <li>HOME：ランダム</li>
-                                    <li>AWAY：ランダム</li>
-                                </ul>
-                            </li>
+                            <li>HOME：ランダム</li>
+                            <li>AWAY：ランダム</li>
                         </ul>
                     </li>
-                    <li>HOMEチームのタスク:
-                        <ul>
-                            <li>ハーフタイムとフルタイム時にスタッツのスクショを撮影</li>
-                            <li>ゴール時にアシスト選手、ゴール選手、時間を記録</li>
-                            <li>試合終了時にハイライト動画の画面録画を実施</li>
-                        </ul>
-                    
                 </ul>
-            </section>
+            </li>
+            <li>HOMEチームのタスク:
+                <ul>
+                    <li>ハーフタイムとフルタイム時にスタッツのスクショを撮影</li>
+                    <li>ゴール時にアシスト選手、ゴール選手、時間を記録</li>
+                    <li>試合終了時にハイライト動画の画面録画を実施</li>
+                </ul>
+            
+        </ul>
+    </section>
+
         </section>
 
 
@@ -336,4 +337,11 @@
     <!--<footer>
         フッター：各タブへのリンク 
         <a href="#home"><img src="images/home.png" alt="ホーム"></a>
-        <a href="#schedule"><img src="imag
+        <a href="#schedule"><img src="images/schedule.png" alt="日程"></a>
+        <a href="#standings"><img src="images/standings.png" alt="順位表"></a>
+        <a href="#records"><img src="images/records.png" alt="個人戦績"></a>
+        <a href="#videos"><img src="images/videos.png" alt="動画"></a>
+    </footer>-->
+    <script src="js/champions.js"></script> <!-- 外部JavaScriptファイルの読み込み -->
+</body>
+</html>
