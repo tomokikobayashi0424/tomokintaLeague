@@ -793,3 +793,64 @@ footer img {
         margin-bottom: 20px; /* 下に余白を追加 */
     }
 }
+
+
+
+
+
+
+/* 対戦表と日程表のスタイル */
+#currentPhaseDisplay {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.match-table ul {
+    list-style: none;
+    padding: 0;
+}
+
+.match-table li {
+    margin: 5px 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.schedule-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.schedule-table th, .schedule-table td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 8px;
+}
+
+.schedule-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.phase-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.phase-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.phase-buttons button:hover {
+    background-color: #0056b3;
+}

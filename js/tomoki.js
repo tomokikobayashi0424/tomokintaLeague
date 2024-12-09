@@ -1789,3 +1789,10 @@ function displayPlayerRanking(tableId, players) {
         tbody.insertAdjacentHTML('beforeend', row);
     });
 }
+
+
+
+
+
+
+
