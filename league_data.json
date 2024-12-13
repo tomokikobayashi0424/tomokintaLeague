@@ -5173,10 +5173,16 @@
     "round9-match2": {
       "home": {
         "teamId": 0,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 1,
+        "assistPlayers": [
+          "トレント アレクサンダー アーノルド"
+        ],
+        "goalPlayers": [
+          "ディエゴ マラドーナ"
+        ],
+        "times": [
+          33
+        ],
         "halfTime": {
           "possession": null,
           "shots": null,
@@ -5193,27 +5199,39 @@
           "save": null
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 53,
+          "shots": 4,
+          "shotsonFrame": 3,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 2,
+          "freeKicks": 0,
+          "passes": 95,
+          "successfulPasses": 59,
+          "crosses": 5,
+          "PassCuts": 23,
+          "successfulTackles": 3,
+          "save": 2
         }
       },
       "away": {
         "teamId": 7,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 3,
+        "assistPlayers": [
+          "ローター マテウス",
+          "トニー アダムス",
+          "ネイマール"
+        ],
+        "goalPlayers": [
+          "リオネル メッシ",
+          "ルイス スアレス",
+          "ルイス スアレス"
+        ],
+        "times": [
+          23,
+          50,
+          83
+        ],
         "halfTime": {
           "possession": null,
           "shots": null,
@@ -5230,22 +5248,22 @@
           "save": null
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 47,
+          "shots": 10,
+          "shotsonFrame": 5,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 1,
+          "freeKicks": 0,
+          "passes": 74,
+          "successfulPasses": 42,
+          "crosses": 1,
+          "PassCuts": 21,
+          "successfulTackles": 2,
+          "save": 2
         }
       },
-      "date": "2024-12-15"
+      "date": "2024-12-13"
     },
     "round9-match3": {
       "home": {
