@@ -5075,79 +5075,100 @@
     "round9-match1": {
       "home": {
         "teamId": 10,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 2,
+        "assistPlayers": [
+          "シャビ アロンソ",
+          "オーレリアン チュアメニ"
+        ],
+        "goalPlayers": [
+          "マルクス テュラム",
+          "マルクス テュラム"
+        ],
+        "times": [
+          74,
+          78
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 53,
+          "shots": 1,
+          "shotsonFrame": 1,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 1,
+          "freeKicks": 1,
+          "passes": 48,
+          "successfulPasses": 33,
+          "crosses": 0,
+          "PassCuts": 10,
+          "successfulTackles": 0,
+          "save": 2
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 55,
+          "shots": 6,
+          "shotsonFrame": 6,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 2,
+          "freeKicks": 1,
+          "passes": 105,
+          "successfulPasses": 80,
+          "crosses": 1,
+          "PassCuts": 16,
+          "successfulTackles": 3,
+          "save": 3
         }
       },
       "away": {
         "teamId": 8,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 3,
+        "assistPlayers": [
+          "",
+          "ルイス スアレス",
+          "デクラン ライス"
+        ],
+        "goalPlayers": [
+          "リオネル メッシ",
+          "リオネル メッシ",
+          "リオネル メッシ"
+        ],
+        "times": [
+          11,
+          61,
+          80
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 47,
+          "shots": 5,
+          "shotsonFrame": 5,
+          "fouls": 1,
+          "offsides": 1,
+          "cornerKicks": 1,
+          "freeKicks": 0,
+          "passes": 48,
+          "successfulPasses": 35,
+          "crosses": 0,
+          "PassCuts": 11,
+          "successfulTackles": 2,
+          "save": 1
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 45,
+          "shots": 9,
+          "shotsonFrame": 8,
+          "fouls": 1,
+          "offsides": 1,
+          "cornerKicks": 1,
+          "freeKicks": 0,
+          "passes": 95,
+          "successfulPasses": 74,
+          "crosses": 0,
+          "PassCuts": 17,
+          "successfulTackles": 5,
+          "save": 4
         }
       },
-      "date": "2024-12-15"
+      "date": "2024-12-12"
     },
     "round9-match2": {
       "home": {
