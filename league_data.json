@@ -5452,76 +5452,88 @@
     "round9-match5": {
       "home": {
         "teamId": 3,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 1,
+        "assistPlayers": [
+          "アレハンドロ ガルナチョ"
+        ],
+        "goalPlayers": [
+          "アマド ディアロ"
+        ],
+        "times": [
+          90
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 47,
+          "shots": 2,
+          "shotsonFrame": 2,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 1,
+          "passes": 52,
+          "successfulPasses": 36,
+          "crosses": 1,
+          "PassCuts": 8,
+          "successfulTackles": 6,
+          "save": 2
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 47,
+          "shots": 4,
+          "shotsonFrame": 3,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 1,
+          "passes": 110,
+          "successfulPasses": 81,
+          "crosses": 1,
+          "PassCuts": 18,
+          "successfulTackles": 8,
+          "save": 6
         }
       },
       "away": {
         "teamId": 4,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 1,
+        "assistPlayers": [
+          ""
+        ],
+        "goalPlayers": [
+          "リオネル メッシ"
+        ],
+        "times": [
+          63
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 53,
+          "shots": 3,
+          "shotsonFrame": 2,
+          "fouls": 1,
+          "offsides": 1,
+          "cornerKicks": 2,
+          "freeKicks": 0,
+          "passes": 42,
+          "successfulPasses": 27,
+          "crosses": 1,
+          "PassCuts": 13,
+          "successfulTackles": 1,
+          "save": 0
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 53,
+          "shots": 10,
+          "shotsonFrame": 8,
+          "fouls": 1,
+          "offsides": 1,
+          "cornerKicks": 3,
+          "freeKicks": 0,
+          "passes": 88,
+          "successfulPasses": 60,
+          "crosses": 2,
+          "PassCuts": 24,
+          "successfulTackles": 2,
+          "save": 0
         }
       },
       "date": "2024-12-15"
