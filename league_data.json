@@ -5618,87 +5618,114 @@
     "round10-match1": {
       "home": {
         "teamId": 0,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 1,
+        "assistPlayers": [
+          "パトリック ヴィエラ"
+        ],
+        "goalPlayers": [
+          "スティーブン ジェラード"
+        ],
+        "times": [
+          81
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 32,
+          "shots": 0,
+          "shotsonFrame": 0,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 27,
+          "successfulPasses": 18,
+          "crosses": 0,
+          "PassCuts": 5,
+          "successfulTackles": 3,
+          "save": 0
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 33,
+          "shots": 1,
+          "shotsonFrame": 1,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 53,
+          "successfulPasses": 31,
+          "crosses": 0,
+          "PassCuts": 15,
+          "successfulTackles": 4,
+          "save": 3
         }
       },
       "away": {
         "teamId": 9,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 4,
+        "assistPlayers": [
+          "ブカヨ サカ",
+          "カイ ハヴァーツ",
+          "サフィー サリー",
+          ""
+        ],
+        "goalPlayers": [
+          "デイヴィッド ベッカム",
+          "マルティン ウーデゴーア",
+          "デイヴィッド ベッカム",
+          "デイヴィッド ベッカム"
+        ],
+        "times": [
+          4,
+          74,
+          79,
+          89
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 68,
+          "shots": 1,
+          "shotsonFrame": 1,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 79,
+          "successfulPasses": 71,
+          "crosses": 0,
+          "PassCuts": 7,
+          "successfulTackles": 1,
+          "save": 0
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 67,
+          "shots": 7,
+          "shotsonFrame": 7,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 1,
+          "freeKicks": 0,
+          "passes": 171,
+          "successfulPasses": 149,
+          "crosses": 0,
+          "PassCuts": 18,
+          "successfulTackles": 2,
+          "save": 0
         }
       },
-      "date": "2024-12-22"
+      "date": "2024-12-21"
     },
     "round10-match2": {
       "home": {
         "teamId": 1,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 1,
+        "assistPlayers": [
+          "カール ハインツ ルンメニゲ"
+        ],
+        "goalPlayers": [
+          "ルート ファン にステルローイ"
+        ],
+        "times": [
+          55
+        ],
         "halfTime": {
           "possession": null,
           "shots": null,
@@ -5715,27 +5742,36 @@
           "save": null
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 51,
+          "shots": 9,
+          "shotsonFrame": 6,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 4,
+          "freeKicks": 0,
+          "passes": 109,
+          "successfulPasses": 81,
+          "crosses": 7,
+          "PassCuts": 18,
+          "successfulTackles": 2,
+          "save": 1
         }
       },
       "away": {
         "teamId": 8,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 2,
+        "assistPlayers": [
+          "リオネル メッシ",
+          "ルイス スアレス"
+        ],
+        "goalPlayers": [
+          "香川 真司",
+          "香川 真司"
+        ],
+        "times": [
+          25,
+          43
+        ],
         "halfTime": {
           "possession": null,
           "shots": null,
@@ -5752,19 +5788,19 @@
           "save": null
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 49,
+          "shots": 5,
+          "shotsonFrame": 4,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 2,
+          "freeKicks": 0,
+          "passes": 94,
+          "successfulPasses": 71,
+          "crosses": 3,
+          "PassCuts": 16,
+          "successfulTackles": 6,
+          "save": 5
         }
       },
       "date": "2024-12-22"
