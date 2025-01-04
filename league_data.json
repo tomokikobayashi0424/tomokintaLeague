@@ -6437,79 +6437,97 @@
     "round11-match4": {
       "home": {
         "teamId": 7,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 2,
+        "assistPlayers": [
+          "",
+          ""
+        ],
+        "goalPlayers": [
+          "クラレンス セードルフ",
+          "ギャレス ベイル"
+        ],
+        "times": [
+          8,
+          71
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 50,
+          "shots": 4,
+          "shotsonFrame": 4,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 54,
+          "successfulPasses": 39,
+          "crosses": 1,
+          "PassCuts": 5,
+          "successfulTackles": 3,
+          "save": 4
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 51,
+          "shots": 4,
+          "shotsonFrame": 4,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 107,
+          "successfulPasses": 72,
+          "crosses": 5,
+          "PassCuts": 19,
+          "successfulTackles": 5,
+          "save": 6
         }
       },
       "away": {
         "teamId": 4,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 2,
+        "assistPlayers": [
+          "ルイス スアレス",
+          "ロドリ"
+        ],
+        "goalPlayers": [
+          "ギャレス ベイル",
+          "ルイス フィーゴ"
+        ],
+        "times": [
+          37,
+          45
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 50,
+          "shots": 7,
+          "shotsonFrame": 5,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 2,
+          "freeKicks": 0,
+          "passes": 32,
+          "successfulPasses": 25,
+          "crosses": 0,
+          "PassCuts": 9,
+          "successfulTackles": 3,
+          "save": 0
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 49,
+          "shots": 10,
+          "shotsonFrame": 7,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 4,
+          "freeKicks": 0,
+          "passes": 76,
+          "successfulPasses": 50,
+          "crosses": 0,
+          "PassCuts": 20,
+          "successfulTackles": 6,
+          "save": 0
         }
       },
-      "date": "2024-12-29"
+      "date": "2025-01-04"
     },
     "round11-match5": {
       "home": {
