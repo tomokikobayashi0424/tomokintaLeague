@@ -6262,79 +6262,94 @@
     "round11-match2": {
       "home": {
         "teamId": 9,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 2,
+        "assistPlayers": [
+          "アダマ トラオレ",
+          "カイ ハヴァーツ"
+        ],
+        "goalPlayers": [
+          "ダビド ビジャ",
+          "エンドリッキ"
+        ],
+        "times": [
+          20,
+          75
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 76,
+          "shots": 5,
+          "shotsonFrame": 4,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 1,
+          "freeKicks": 0,
+          "passes": 83,
+          "successfulPasses": 72,
+          "crosses": 1,
+          "PassCuts": 10,
+          "successfulTackles": 1,
+          "save": 0
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 68,
+          "shots": 8,
+          "shotsonFrame": 5,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 1,
+          "freeKicks": 0,
+          "passes": 155,
+          "successfulPasses": 135,
+          "crosses": 4,
+          "PassCuts": 18,
+          "successfulTackles": 3,
+          "save": 0
         }
       },
       "away": {
         "teamId": 2,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 1,
+        "assistPlayers": [
+          ""
+        ],
+        "goalPlayers": [
+          "カール ハインツ ルンメニゲ"
+        ],
+        "times": [
+          30
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 24,
+          "shots": 1,
+          "shotsonFrame": 1,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 29,
+          "successfulPasses": 17,
+          "crosses": 0,
+          "PassCuts": 8,
+          "successfulTackles": 2,
+          "save": 3
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 32,
+          "shots": 3,
+          "shotsonFrame": 1,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 77,
+          "successfulPasses": 51,
+          "crosses": 0,
+          "PassCuts": 16,
+          "successfulTackles": 3,
+          "save": 3
         }
       },
-      "date": "2024-12-29"
+      "date": "2025-01-04"
     },
     "round11-match3": {
       "home": {
