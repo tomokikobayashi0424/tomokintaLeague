@@ -7315,79 +7315,97 @@
     "round13-match2": {
       "home": {
         "teamId": 0,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 2,
+        "assistPlayers": [
+          "",
+          "パトリック ヴィエラ"
+        ],
+        "goalPlayers": [
+          "オウンゴール",
+          "リオネル メッシ"
+        ],
+        "times": [
+          26,
+          90
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 54,
+          "shots": 2,
+          "shotsonFrame": 0,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 42,
+          "successfulPasses": 31,
+          "crosses": 1,
+          "PassCuts": 11,
+          "successfulTackles": 0,
+          "save": 3
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 55,
+          "shots": 3,
+          "shotsonFrame": 1,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 88,
+          "successfulPasses": 64,
+          "crosses": 2,
+          "PassCuts": 20,
+          "successfulTackles": 2,
+          "save": 5
         }
       },
       "away": {
         "teamId": 4,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 2,
+        "assistPlayers": [
+          "",
+          "ウリ へーネス"
+        ],
+        "goalPlayers": [
+          "ルート フリット",
+          "カール ハインツ ルンメニゲ"
+        ],
+        "times": [
+          15,
+          24
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 46,
+          "shots": 8,
+          "shotsonFrame": 5,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 1,
+          "freeKicks": 0,
+          "passes": 33,
+          "successfulPasses": 20,
+          "crosses": 1,
+          "PassCuts": 9,
+          "successfulTackles": 3,
+          "save": 1
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 45,
+          "shots": 11,
+          "shotsonFrame": 6,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 2,
+          "freeKicks": 0,
+          "passes": 67,
+          "successfulPasses": 41,
+          "crosses": 1,
+          "PassCuts": 20,
+          "successfulTackles": 6,
+          "save": 1
         }
       },
-      "date": "2025-01-12"
+      "date": "2025-01-14"
     },
     "round13-match3": {
       "home": {
