@@ -7695,79 +7695,85 @@
     "round14-match0": {
       "home": {
         "teamId": 11,
-        "score": null,
+        "score": 0,
         "assistPlayers": [],
         "goalPlayers": [],
         "times": [],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 41,
+          "shots": 1,
+          "shotsonFrame": 1,
+          "fouls": 2,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 0,
+          "passes": 50,
+          "successfulPasses": 31,
+          "crosses": 0,
+          "PassCuts": 10,
+          "successfulTackles": 4,
+          "save": 2
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 47,
+          "shots": 3,
+          "shotsonFrame": 3,
+          "fouls": 3,
+          "offsides": 1,
+          "cornerKicks": 1,
+          "freeKicks": 0,
+          "passes": 113,
+          "successfulPasses": 78,
+          "crosses": 0,
+          "PassCuts": 17,
+          "successfulTackles": 4,
+          "save": 2
         }
       },
       "away": {
         "teamId": 3,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 1,
+        "assistPlayers": [
+          "ダレン フレッチャー"
+        ],
+        "goalPlayers": [
+          "香川 真司"
+        ],
+        "times": [
+          32
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 59,
+          "shots": 3,
+          "shotsonFrame": 3,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 2,
+          "passes": 72,
+          "successfulPasses": 58,
+          "crosses": 1,
+          "PassCuts": 15,
+          "successfulTackles": 1,
+          "save": 1
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 53,
+          "shots": 3,
+          "shotsonFrame": 3,
+          "fouls": 0,
+          "offsides": 0,
+          "cornerKicks": 0,
+          "freeKicks": 3,
+          "passes": 133,
+          "successfulPasses": 107,
+          "crosses": 1,
+          "PassCuts": 26,
+          "successfulTackles": 3,
+          "save": 2
         }
       },
-      "date": "2025-01-19"
+      "date": "2025-01-20"
     },
     "round14-match1": {
       "home": {
