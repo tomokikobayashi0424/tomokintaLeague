@@ -8588,79 +8588,94 @@
     "round15-match4": {
       "home": {
         "teamId": 0,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 1,
+        "assistPlayers": [
+          "ダルウィン ヌニェス"
+        ],
+        "goalPlayers": [
+          "リオネル メッシ"
+        ],
+        "times": [
+          35
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 41,
+          "shots": 2,
+          "shotsonFrame": 2,
+          "fouls": 1,
+          "offsides": 1,
+          "cornerKicks": 1,
+          "freeKicks": 1,
+          "passes": 37,
+          "successfulPasses": 22,
+          "crosses": 2,
+          "PassCuts": 10,
+          "successfulTackles": 4,
+          "save": 0
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 43,
+          "shots": 4,
+          "shotsonFrame": 4,
+          "fouls": 1,
+          "offsides": 1,
+          "cornerKicks": 2,
+          "freeKicks": 2,
+          "passes": 75,
+          "successfulPasses": 47,
+          "crosses": 4,
+          "PassCuts": 15,
+          "successfulTackles": 5,
+          "save": 2
         }
       },
       "away": {
         "teamId": 8,
-        "score": null,
-        "assistPlayers": [],
-        "goalPlayers": [],
-        "times": [],
+        "score": 2,
+        "assistPlayers": [
+          "ジュード ベリンガム",
+          "ジュード ベリンガム"
+        ],
+        "goalPlayers": [
+          "リオネル メッシ",
+          "マルコ ファンバステン"
+        ],
+        "times": [
+          8,
+          14
+        ],
         "halfTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 59,
+          "shots": 2,
+          "shotsonFrame": 2,
+          "fouls": 1,
+          "offsides": 1,
+          "cornerKicks": 0,
+          "freeKicks": 1,
+          "passes": 58,
+          "successfulPasses": 44,
+          "crosses": 0,
+          "PassCuts": 8,
+          "successfulTackles": 1,
+          "save": 1
         },
         "fullTime": {
-          "possession": null,
-          "shots": null,
-          "shotsonFrame": null,
-          "fouls": null,
-          "offsides": null,
-          "cornerKicks": null,
-          "freeKicks": null,
-          "passes": null,
-          "successfulPasses": null,
-          "crosses": null,
-          "PassCuts": null,
-          "successfulTackles": null,
-          "save": null
+          "possession": 57,
+          "shots": 5,
+          "shotsonFrame": 4,
+          "fouls": 2,
+          "offsides": 2,
+          "cornerKicks": 1,
+          "freeKicks": 1,
+          "passes": 98,
+          "successfulPasses": 72,
+          "crosses": 4,
+          "PassCuts": 16,
+          "successfulTackles": 6,
+          "save": 2
         }
       },
-      "date": "2025-01-26"
+      "date": "2025-01-27"
     },
     "round15-match5": {
       "home": {
