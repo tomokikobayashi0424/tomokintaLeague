@@ -1,32 +1,4 @@
 {
-  "teams": [
-    "Koverpool FC",
-    "free to play FC",
-    "Real Kotarid",
-    "Forester United f.c.",
-    "TKBEAMS",
-    "atox astronomy",
-    "Shunsenal FC",
-    "FC Shigecelona",
-    "Matsubars",
-    "Hisenal",
-    "Nob Angels Dodgers",
-    "Ueyuz"
-  ],
-  "teamsSub": [
-    "KFC",
-    "FTP",
-    "RKD",
-    "FUN",
-    "TKB",
-    "ATX",
-    "SFC",
-    "FCS",
-    "MTB",
-    "HFC",
-    "NAD",
-    "UYZ"
-  ],
   "teamsData": [
     {
       "teamId": 0,
@@ -11578,56 +11550,6 @@
       "date": "2025-03-09"
     }
   },
-  "previousStandings": [
-    {
-      "Rank": 1,
-      "teamId": 4
-    },
-    {
-      "Rank": 2,
-      "teamId": 9
-    },
-    {
-      "Rank": 3,
-      "teamId": 1
-    },
-    {
-      "Rank": 4,
-      "teamId": 11
-    },
-    {
-      "Rank": 5,
-      "teamId": 3
-    },
-    {
-      "Rank": 6,
-      "teamId": 0
-    },
-    {
-      "Rank": 7,
-      "teamId": 10
-    },
-    {
-      "Rank": 8,
-      "teamId": 8
-    },
-    {
-      "Rank": 9,
-      "teamId": 2
-    },
-    {
-      "Rank": 10,
-      "teamId": 7
-    },
-    {
-      "Rank": 11,
-      "teamId": 5
-    },
-    {
-      "Rank": 12,
-      "teamId": 6
-    }
-  ],
   "currentStandings": [
     {
       "Rank": 1,
