@@ -60,8 +60,8 @@
       "teamsSub": "SFC",
 	"teamsColor": "DC362A",
       "teamsSubColor": "FFFFFF",
-	"teamsTextColor": "143C30",
-      "teamsBgColor": "FFFFFF"
+	"teamsTextColor": "132052",
+      "teamsBgColor": "998855"
     },
     {
       "teamId": 7,
@@ -87,8 +87,8 @@
       "teamsSub": "HFC",
 	"teamsColor": "DC362A",
       "teamsSubColor": "FFFFFF",
-	"teamsTextColor": "143C30",
-      "teamsBgColor": "FFFFFF"
+	"teamsTextColor": "132052",
+      "teamsBgColor": "998855"
     },
     {
       "teamId": 10,
