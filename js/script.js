@@ -195,8 +195,10 @@ function openTabWithTeam(evt, tabName, teamIndex) {
         const teamName = team.teams || `Team ${teamIndex + 1}`;
         const teamColor = team.teamsColor || 'FFFFFF'; // デフォルト背景色：白
         const teamSubColor = team.teamsSubColor || '000000'; // デフォルト文字色：黒
-        const teamTextColor = team.teamsTextColor || '000000'; // デフォルト背景色：白
+        // const teamTextColor = team.teamsTextColor || '000000'; // デフォルト背景色：白
         const teamBgColor = team.teamsBgColor || 'FFFFFF'; // デフォルト文字色：黒
+        // let teamColor2 = teamInfo ? `#${teamInfo.teamsColor}` : "#FFFFFF"; // デフォルト白
+        let textColor = getTextColor(teamColor);
 // // CSS変数を更新（body用）
 // document.documentElement.style.setProperty('--main-color-1', `#${teamColor}`);
 // document.documentElement.style.setProperty('--sub-color-1', `#${teamSubColor}`);
@@ -206,6 +208,7 @@ function openTabWithTeam(evt, tabName, teamIndex) {
         document.documentElement.style.setProperty('--teamsub-color-1', `#${teamSubColor}`);
         document.documentElement.style.setProperty('--teamtext-color-1', `#000000`);
         document.documentElement.style.setProperty('--teambg-color-1', `#${teamBgColor}`);
+        document.documentElement.style.setProperty('--teamhead-color-1', `${textColor}`);
 
 
         // タブのタイトルにチーム名を設定
@@ -1495,11 +1498,12 @@ function updateStandingsTable() {
     standings.forEach(team => {
         let teamInfo = teamsData.find(t => t.teamId === team.teamId);
         let teamName = getTeamNameByScreenSize(teamInfo); // 画面幅に応じたチーム名
+        let teamColor = teamInfo ? `#${teamInfo.teamsColor}` : "#FFFFFF"; // デフォルト白
         
         let row = `
             <tr>
                 <td>${team.currentRank}</td>
-                <td>${teamName}</td>
+                <td style="background-color:${teamColor}; color:white; font-weight:bold; text-align:center;">${teamName}</td>
                 <td>${team.points}</td>
                 <td>${team.matchesPlayed}</td>
                 <td>${team.wins}</td>
@@ -1538,7 +1542,6 @@ function updateRankChangeArrows() {
 
     standings.forEach(team => {
         let currentTeam = currentStandings.find(t => t.teamId === team.teamId);
-
         let previousRank = currentTeam ? currentTeam.Rank : null;
         let currentRank = team.currentRank;
 
@@ -1564,11 +1567,19 @@ function updateRankChangeArrows() {
 
         let teamInfo = teamsData.find(t => t.teamId === team.teamId);
         let teamName = getTeamNameByScreenSize(teamInfo); // 画面幅に応じたチーム名
+        let teamColor = teamInfo ? `${teamInfo.teamsColor}` : "FFFFFF"; // デフォルト白
+        let teamSubColor = teamInfo ? `${teamInfo.teamsSubColor}` : "FFFFFF"; // デフォルト白
+        let textColor = getTextColor(teamColor);
+
 
         let row = `
             <tr>
                 <td>${team.currentRank} <span class="${rankClass}">${rankChange}</span></td>
-                <td>${teamName}</td>
+                <td style="
+                    background-color:#${teamColor}; 
+                    background: linear-gradient(to right, #${teamColor} 70%, #${teamSubColor} 90%);
+                    color:${textColor}; font-weight:bold; 
+                    text-align:center;">${teamName}</td>
                 <td>${team.points}</td>
                 <td>${team.matchesPlayed}</td>
                 <td>${team.wins}</td>
@@ -1581,6 +1592,17 @@ function updateRankChangeArrows() {
     });
 
 }
+
+// チームの文字色を白か黒か選択する関数
+function getTextColor(bgColor) {
+    let r = parseInt(bgColor.substring(0, 2), 16); // 赤成分
+    let g = parseInt(bgColor.substring(2, 4), 16); // 緑成分
+    let b = parseInt(bgColor.substring(4, 6), 16); // 青成分
+    let brightness = (r * 299 + g * 587 + b * 114) / 1000; // 輝度計算
+
+    return brightness > 128 ? "#606060" : "#FFFFFF"; // 明るい色なら黒、暗い色なら白
+}
+
 
 
 // 今節のデータ入力完了時に順位変動を保存し、矢印を表示する関数
@@ -1675,7 +1697,6 @@ function updateIndividualRecords() {
     displayPlayerRanking('assistPlayersTable', assistPlayers);
 }
 
-// ランキング表示用の関数
 // ランキング表示用の関数
 function displayPlayerRanking(tableId, players) {
     let sortedPlayers = Object.entries(players).sort((a, b) => b[1] - a[1]); // 得点順にソート

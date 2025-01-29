@@ -470,7 +470,7 @@ main{
 }
 
 #teamNameHeader{
-    color: var(--white-color-1);
+    color: var(--teamhead-color-1);
 }
 
 .team-container{
@@ -547,7 +547,7 @@ main{
 /* table3のスタイル（ヘッダーの背景色をピンクに設定、セルの背景色は濃い青） */
 .table-team-Schedule th {
     background-color: var(--team-color-1); /* ヘッダーの背景色 */
-    color: var(--white-color-1); /* ヘッダーの文字色 */
+    color: var(--teamhead-color-1); /* ヘッダーの文字色 */
     border: 1px solid var(--team-color-1); /* 枠線の色を設定 */
 }
 
