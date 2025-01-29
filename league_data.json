@@ -58,19 +58,19 @@
       "teamId": 6,
       "teams": "Shunsenal FC",
       "teamsSub": "SFC",
-	"teamsColor": "DC362A",
-      "teamsSubColor": "FFFFFF",
+	"teamsColor": "FDF150",
+      "teamsSubColor": "211816",
 	"teamsTextColor": "132052",
-      "teamsBgColor": "998855"
+      "teamsBgColor": "C7343D"
     },
     {
       "teamId": 7,
       "teams": "FC Shigecelona",
       "teamsSub": "FCS",
-	"teamsColor": "FDF150",
-      "teamsSubColor": "211816",
-	"teamsTextColor": "211816",
-      "teamsBgColor": "211816"
+	"teamsColor": "0D1FB2",
+      "teamsSubColor": "B42B58",
+	"teamsTextColor": "000000",
+      "teamsBgColor": "ECBC45"
     },
     {
       "teamId": 8,
@@ -79,7 +79,7 @@
 	"teamsColor": "6D1E69",
       "teamsSubColor": "FFFFFF",
 	"teamsTextColor": "000000",
-      "teamsBgColor": "DADADA"
+      "teamsBgColor": "D4343D"
     },
     {
       "teamId": 9,
