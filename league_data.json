@@ -23,7 +23,7 @@
       "teams": "Real Kotarid",
       "teamsSub": "RKD",
 	"teamsColor": "DADADA",
-      "teamsSubColor": "F1B94F",
+      "teamsSubColor": "FFFFFF",
 	"teamsTextColor": "353692",
       "teamsBgColor": "F1B94F"
     },
@@ -52,7 +52,7 @@
 	"teamsColor": "E43F4C",
       "teamsSubColor": "FFFFFF",
 	"teamsTextColor": "143C30",
-      "teamsBgColor": "FFFFFF"
+      "teamsBgColor": "DADADA"
     },
     {
       "teamId": 6,
