@@ -7,7 +7,7 @@
 	"teamsColor": "DD0813",
       "teamsSubColor": "FFD701",
 	"teamsTextColor": "143C30",
-      "teamsBgColor": "FFFFFF"
+      "teamsBgColor": "FFD701"
     },
     {
       "teamId": 1,
@@ -25,7 +25,7 @@
 	"teamsColor": "E5E5E5",
       "teamsSubColor": "F1B94F",
 	"teamsTextColor": "353692",
-      "teamsBgColor": "FFFFFF"
+      "teamsBgColor": "F1B94F"
     },
     {
       "teamId": 3,
@@ -34,7 +34,7 @@
 	"teamsColor": "BC4936",
       "teamsSubColor": "FAEF71",
 	"teamsTextColor": "143C30",
-      "teamsBgColor": "FFFFFF"
+      "teamsBgColor": "FAEF71"
     },
     {
       "teamId": 4,
