@@ -15,16 +15,16 @@
       "teamsSub": "FTP",
 	"teamsColor": "183786",
       "teamsSubColor": "080808",
-	"teamsTextColor": "143C30",
+	"teamsTextColor": "7F400D",
       "teamsBgColor": "FFFFFF"
     },
     {
       "teamId": 2,
       "teams": "Real Kotarid",
       "teamsSub": "RKD",
-	"teamsColor": "FFFFFF",
+	"teamsColor": "E5E5E5",
       "teamsSubColor": "F1B94F",
-	"teamsTextColor": "143C30",
+	"teamsTextColor": "353692",
       "teamsBgColor": "FFFFFF"
     },
     {
