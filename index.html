@@ -68,20 +68,19 @@
 
 
         <!-- チーム戦績タブ -->
-        <section id="teamPerformanceTab" class="tabcontent" style="display:none;">
+        <section id="teamPerformanceTab" class="tabcontent">
             <div class="header-container">
                 <button class="button-common button1" onclick="closeTeamPerformanceTab()">戻る</button>
-                <h2 id="teamNameHeader"class="header-title"></h2>
+                <h2 id="teamNameHeader"></h2>
             </div>
             <!-- チーム日程表 -->
-            <h3>チーム日程</h3>
-            <div class="match-container2">
+            <div class="team-container">
+                <h3 class="teamsticky-title">チーム日程</h3>
                 <div id="teamSchedule">
                     <div class="button-container2">
-                        <button class="button-common button2" onclick="previousMonth()">前の月</button>
+                        <button class="button-common button1" onclick="previousMonth()">前の月</button>
                         <span id="currentMonthLabel" class="team-schedule"></span>
-                        <button class="button-common button2" onclick="nextMonth()">次の月</button>
-                    
+                        <button class="button-common button1" onclick="nextMonth()">次の月</button>
                     </div>
                     <table id="teamScheduleTable" class="table-common table-team-Schedule">
                         <thead>
@@ -97,163 +96,161 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
 
+                <h3 class="teamsticky-title">チームスタッツ</h3>
+                <table id="teamStatsTable" class="table-common table2 sticky-table">
+                    <thead>
+                        <tr>
+                            <th></th> <!-- 空白のセル -->
+                            <th>自チーム</th>
+                            <th>相手チーム</th>
+                            <th>リーグ全体</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>試合数</td><td id="matches-team"></td><td id="matches-opp"></td><td id="matches-tl"></td>
+                        </tr>
+                        <tr><td>勝ち数<br>(率)</td>
+                            <td><span id="wins-team-total"></span><br>(<span id="wins-team-per"></span>)</td>
+                            <td><span id="wins-opp-total"></span><br>(<span id="wins-opp-per"></span>)</td>
+                            <td><span id="wins-tl-total"></span><br>(<span id="wins-tl-per"></span>)</td>
+                        </tr>
+                        <tr><td>引き分け数<br>(率)</td>
+                            <td><span id="draws-team-total"></span><br>(<span id="draws-team-per"></span>)</td>
+                            <td><span id="draws-opp-total"></span><br>(<span id="draws-opp-per"></span>)</td>
+                            <td><span id="draws-tl-total"></span><br>(<span id="draws-tl-per"></span>)</td>
+                        </tr>
+                        <tr><td>負け数<br>(率)</td>
+                            <td><span id="losses-team-total"></span><br>(<span id="losses-team-per"></span>)</td>
+                            <td><span id="losses-opp-total"></span><br>(<span id="losses-opp-per"></span>)</td>
+                            <td><span id="losses-tl-total"></span><br>(<span id="losses-tl-per"></span>)</td>
+                        </tr>
+                        <tr><td>ゴール数<br>(平均)</td>
+                            <td><span id="goals-team-total"></span><br>(<span id="goals-team-avg"></span>)</td>
+                            <td><span id="goals-opp-total"></span><br>(<span id="goals-opp-avg"></span>)</td>
+                            <td><span id="goals-tl-total"></span><br>(<span id="goals-tl-avg"></span>)</td>
+                        </tr>
+                        <tr><td>支配率</td>
+                            <td id="possession-team"></td><td id="possession-opp"></td><td id="possession-tl"></td>
+                        </tr>
+                        <tr><td>シュート数<br>(平均)</td>
+                            <td><span id="shots-team-total"></span><br>(<span id="shots-team-avg"></span>)</td>
+                            <td><span id="shots-opp-total"></span><br>(<span id="shots-opp-avg"></span>)</td>
+                            <td><span id="shots-tl-total"></span><br>(<span id="shots-tl-avg"></span>)</td>
+                        </tr>
+                        <tr><td>枠内シュート数<br>(平均)</td>
+                            <td><span id="shotsonFrame-team-total"></span><br>(<span id="shotsonFrame-team-avg"></span>)</td>
+                            <td><span id="shotsonFrame-opp-total"></span><br>(<span id="shotsonFrame-opp-avg"></span>)</td>
+                            <td><span id="shotsonFrame-tl-total"></span><br>(<span id="shotsonFrame-tl-avg"></span>)</td>
+                        </tr>
+                        <tr><td>枠内シュート率</td>
+                            <td id="shotsonFrame-team-per"></td><td id="shotsonFrame-opp-per"></td><td id="shotsonFrame-tl-per"></td>
+                        </tr>
+                        <tr><td>ファウル数<br>(平均)</td>
+                            <td><span id="fouls-team-total"></span><br>(<span id="fouls-team-avg"></span>)</td>
+                            <td><span id="fouls-opp-total"></span><br>(<span id="fouls-opp-avg"></span>)</td>
+                            <td><span id="fouls-tl-total"></span><br>(<span id="fouls-tl-avg"></span>)</td>
+                        </tr>
+                        <tr><td>オフサイド数<br>(平均)</td>
+                            <td><span id="offsides-team-total"></span><br>(<span id="offsides-team-avg"></span>)</td>
+                            <td><span id="offsides-opp-total"></span><br>(<span id="offsides-opp-avg"></span>)</td>
+                            <td><span id="offsides-tl-total"></span><br>(<span id="offsides-tl-avg"></span>)</td>
+                        </tr>
+                        <tr><td>コーナーキック数<br>(平均)</td>
+                            <td><span id="cornerKicks-team-total"></span><br>(<span id="cornerKicks-team-avg"></span>)</td>
+                            <td><span id="cornerKicks-opp-total"></span><br>(<span id="cornerKicks-opp-avg"></span>)</td>
+                            <td><span id="cornerKicks-tl-total"></span><br>(<span id="cornerKicks-tl-avg"></span>)</td>
+                        </tr>
+                        <tr><td>フリーキック数<br>(平均)</td>
+                            <td><span id="freeKicks-team-total"></span><br>(<span id="freeKicks-team-avg"></span>)</td>
+                            <td><span id="freeKicks-opp-total"></span><br>(<span id="freeKicks-opp-avg"></span>)</td>
+                            <td><span id="freeKicks-tl-total"></span><br>(<span id="freeKicks-tl-avg"></span>)</td>
+                        </tr>
+                        <tr><td>パス数<br>(平均)</td>
+                            <td><span id="passes-team-total"></span><br>(<span id="passes-team-avg"></span>)</td>
+                            <td><span id="passes-opp-total"></span><br>(<span id="passes-opp-avg"></span>)</td>
+                            <td><span id="passes-tl-total"></span><br>(<span id="passes-tl-avg"></span>)</td>
+                        </tr>
+                        <tr><td>パス成功数<br>(平均)</td>
+                            <td><span id="successfulPasses-team-total"></span><br>(<span id="successfulPasses-team-avg"></span>)</td>
+                            <td><span id="successfulPasses-opp-total"></span><br>(<span id="successfulPasses-opp-avg"></span>)</td>
+                            <td><span id="successfulPasses-tl-total"></span><br>(<span id="successfulPasses-tl-avg"></span>)</td>
+                        </tr>
+                        <tr><td>パス成功率</td>
+                            <td id="successfulPasses-team-per"></td><td id="successfulPasses-opp-per"></td><td id="successfulPasses-tl-per"></td>
+                        </tr>
+                        <tr><td>クロス数<br>(平均)</td>
+                            <td><span id="crosses-team-total"></span><br>(<span id="crosses-team-avg"></span>)</td>
+                            <td><span id="crosses-opp-total"></span><br>(<span id="crosses-opp-avg"></span>)</td>
+                            <td><span id="crosses-tl-total"></span><br>(<span id="crosses-tl-avg"></span>)</td>
+                        </tr>
+                        <tr><td>パスカット数<br>(平均)</td>
+                            <td><span id="PassCuts-team-total"></span><br>(<span id="PassCuts-team-avg"></span>)</td>
+                            <td><span id="PassCuts-opp-total"></span><br>(<span id="PassCuts-opp-avg"></span>)</td>
+                            <td><span id="PassCuts-tl-total"></span><br>(<span id="PassCuts-tl-avg"></span>)</td>
+                        </tr>
+                        <tr><td>タックル成功数<br>(平均)</td>
+                            <td><span id="successfulTackles-team-total"></span><br>(<span id="successfulTackles-team-avg"></span>)</td>
+                            <td><span id="successfulTackles-opp-total"></span><br>(<span id="successfulTackles-opp-avg"></span>)</td>
+                            <td><span id="successfulTackles-tl-total"></span><br>(<span id="successfulTackles-tl-avg"></span>)</td>
+                        </tr>
+                        <tr><td>セーブ数<br>(平均)</td>
+                            <td><span id="saves-team-total"></span><br>(<span id="saves-team-avg"></span>)</td>
+                            <td><span id="saves-opp-total"></span><br>(<span id="saves-opp-avg"></span>)</td>
+                            <td><span id="saves-tl-total"></span><br>(<span id="saves-tl-avg"></span>)</td>
+                        </tr>
+                        <tr><td>キーパーセーブ率<sup id="footnote1">※1</sup></td>
+                            <td id="saves-team-per"></td><td id="saves-opp-per"></td><td id="saves-tl-per"></td>
+                        </tr>
+                        <tr><td>シュートブロック率<sup id="footnote2">※2</sup></td>
+                            <td id="saves2-team-per"></td><td id="saves2-opp-per"></td><td id="saves2-tl-per"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- 注釈 -->
+                <p class="table-notes">
+                    <sup>※1</sup> キーパーセーブ率 = セーブ数 / 被枠内シュート数 × 100%
+                </p>
+                <p class="table-notes">
+                    <sup>※2</sup> シュートブロック率 = (被枠内シュート数 - 被ゴール数) / 被枠内シュート数 × 100%
+                </p>
 
-            <h3 class="sticky-title">チームスタッツ</h3>
-            <table id="teamStatsTable" class="table-common table2 sticky-table">
-                <thead>
-                    <tr>
-                        <th></th> <!-- 空白のセル -->
-                        <th>自チーム</th>
-                        <th>相手チーム</th>
-                        <th>リーグ全体</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>試合数</td><td id="matches-team"></td><td id="matches-opp"></td><td id="matches-tl"></td>
-                    </tr>
-                    <tr><td>勝ち数<br>(率)</td>
-                        <td><span id="wins-team-total"></span><br>(<span id="wins-team-per"></span>)</td>
-                        <td><span id="wins-opp-total"></span><br>(<span id="wins-opp-per"></span>)</td>
-                        <td><span id="wins-tl-total"></span><br>(<span id="wins-tl-per"></span>)</td>
-                    </tr>
-                    <tr><td>引き分け数<br>(率)</td>
-                        <td><span id="draws-team-total"></span><br>(<span id="draws-team-per"></span>)</td>
-                        <td><span id="draws-opp-total"></span><br>(<span id="draws-opp-per"></span>)</td>
-                        <td><span id="draws-tl-total"></span><br>(<span id="draws-tl-per"></span>)</td>
-                    </tr>
-                    <tr><td>負け数<br>(率)</td>
-                        <td><span id="losses-team-total"></span><br>(<span id="losses-team-per"></span>)</td>
-                        <td><span id="losses-opp-total"></span><br>(<span id="losses-opp-per"></span>)</td>
-                        <td><span id="losses-tl-total"></span><br>(<span id="losses-tl-per"></span>)</td>
-                    </tr>
-                    <tr><td>ゴール数<br>(平均)</td>
-                        <td><span id="goals-team-total"></span><br>(<span id="goals-team-avg"></span>)</td>
-                        <td><span id="goals-opp-total"></span><br>(<span id="goals-opp-avg"></span>)</td>
-                        <td><span id="goals-tl-total"></span><br>(<span id="goals-tl-avg"></span>)</td>
-                    </tr>
-                    <tr><td>支配率</td>
-                        <td id="possession-team"></td><td id="possession-opp"></td><td id="possession-tl"></td>
-                    </tr>
-                    <tr><td>シュート数<br>(平均)</td>
-                        <td><span id="shots-team-total"></span><br>(<span id="shots-team-avg"></span>)</td>
-                        <td><span id="shots-opp-total"></span><br>(<span id="shots-opp-avg"></span>)</td>
-                        <td><span id="shots-tl-total"></span><br>(<span id="shots-tl-avg"></span>)</td>
-                    </tr>
-                    <tr><td>枠内シュート数<br>(平均)</td>
-                        <td><span id="shotsonFrame-team-total"></span><br>(<span id="shotsonFrame-team-avg"></span>)</td>
-                        <td><span id="shotsonFrame-opp-total"></span><br>(<span id="shotsonFrame-opp-avg"></span>)</td>
-                        <td><span id="shotsonFrame-tl-total"></span><br>(<span id="shotsonFrame-tl-avg"></span>)</td>
-                    </tr>
-                    <tr><td>枠内シュート率</td>
-                        <td id="shotsonFrame-team-per"></td><td id="shotsonFrame-opp-per"></td><td id="shotsonFrame-tl-per"></td>
-                    </tr>
-                    <tr><td>ファウル数<br>(平均)</td>
-                        <td><span id="fouls-team-total"></span><br>(<span id="fouls-team-avg"></span>)</td>
-                        <td><span id="fouls-opp-total"></span><br>(<span id="fouls-opp-avg"></span>)</td>
-                        <td><span id="fouls-tl-total"></span><br>(<span id="fouls-tl-avg"></span>)</td>
-                    </tr>
-                    <tr><td>オフサイド数<br>(平均)</td>
-                        <td><span id="offsides-team-total"></span><br>(<span id="offsides-team-avg"></span>)</td>
-                        <td><span id="offsides-opp-total"></span><br>(<span id="offsides-opp-avg"></span>)</td>
-                        <td><span id="offsides-tl-total"></span><br>(<span id="offsides-tl-avg"></span>)</td>
-                    </tr>
-                    <tr><td>コーナーキック数<br>(平均)</td>
-                        <td><span id="cornerKicks-team-total"></span><br>(<span id="cornerKicks-team-avg"></span>)</td>
-                        <td><span id="cornerKicks-opp-total"></span><br>(<span id="cornerKicks-opp-avg"></span>)</td>
-                        <td><span id="cornerKicks-tl-total"></span><br>(<span id="cornerKicks-tl-avg"></span>)</td>
-                    </tr>
-                    <tr><td>フリーキック数<br>(平均)</td>
-                        <td><span id="freeKicks-team-total"></span><br>(<span id="freeKicks-team-avg"></span>)</td>
-                        <td><span id="freeKicks-opp-total"></span><br>(<span id="freeKicks-opp-avg"></span>)</td>
-                        <td><span id="freeKicks-tl-total"></span><br>(<span id="freeKicks-tl-avg"></span>)</td>
-                    </tr>
-                    <tr><td>パス数<br>(平均)</td>
-                        <td><span id="passes-team-total"></span><br>(<span id="passes-team-avg"></span>)</td>
-                        <td><span id="passes-opp-total"></span><br>(<span id="passes-opp-avg"></span>)</td>
-                        <td><span id="passes-tl-total"></span><br>(<span id="passes-tl-avg"></span>)</td>
-                    </tr>
-                    <tr><td>パス成功数<br>(平均)</td>
-                        <td><span id="successfulPasses-team-total"></span><br>(<span id="successfulPasses-team-avg"></span>)</td>
-                        <td><span id="successfulPasses-opp-total"></span><br>(<span id="successfulPasses-opp-avg"></span>)</td>
-                        <td><span id="successfulPasses-tl-total"></span><br>(<span id="successfulPasses-tl-avg"></span>)</td>
-                    </tr>
-                    <tr><td>パス成功率</td>
-                        <td id="successfulPasses-team-per"></td><td id="successfulPasses-opp-per"></td><td id="successfulPasses-tl-per"></td>
-                    </tr>
-                    <tr><td>クロス数<br>(平均)</td>
-                        <td><span id="crosses-team-total"></span><br>(<span id="crosses-team-avg"></span>)</td>
-                        <td><span id="crosses-opp-total"></span><br>(<span id="crosses-opp-avg"></span>)</td>
-                        <td><span id="crosses-tl-total"></span><br>(<span id="crosses-tl-avg"></span>)</td>
-                    </tr>
-                    <tr><td>パスカット数<br>(平均)</td>
-                        <td><span id="PassCuts-team-total"></span><br>(<span id="PassCuts-team-avg"></span>)</td>
-                        <td><span id="PassCuts-opp-total"></span><br>(<span id="PassCuts-opp-avg"></span>)</td>
-                        <td><span id="PassCuts-tl-total"></span><br>(<span id="PassCuts-tl-avg"></span>)</td>
-                    </tr>
-                    <tr><td>タックル成功数<br>(平均)</td>
-                        <td><span id="successfulTackles-team-total"></span><br>(<span id="successfulTackles-team-avg"></span>)</td>
-                        <td><span id="successfulTackles-opp-total"></span><br>(<span id="successfulTackles-opp-avg"></span>)</td>
-                        <td><span id="successfulTackles-tl-total"></span><br>(<span id="successfulTackles-tl-avg"></span>)</td>
-                    </tr>
-                    <tr><td>セーブ数<br>(平均)</td>
-                        <td><span id="saves-team-total"></span><br>(<span id="saves-team-avg"></span>)</td>
-                        <td><span id="saves-opp-total"></span><br>(<span id="saves-opp-avg"></span>)</td>
-                        <td><span id="saves-tl-total"></span><br>(<span id="saves-tl-avg"></span>)</td>
-                    </tr>
-                    <tr><td>キーパーセーブ率<sup id="footnote1">※1</sup></td>
-                        <td id="saves-team-per"></td><td id="saves-opp-per"></td><td id="saves-tl-per"></td>
-                    </tr>
-                    <tr><td>シュートブロック率<sup id="footnote2">※2</sup></td>
-                        <td id="saves2-team-per"></td><td id="saves2-opp-per"></td><td id="saves2-tl-per"></td>
-                    </tr>
-                </tbody>
-            </table>
-            <!-- 注釈 -->
-            <!-- 注釈 -->
-            <p class="table-notes">
-                <sup>※1</sup> キーパーセーブ率 = セーブ数 / 被枠内シュート数 × 100%
-            </p>
-            <p class="table-notes">
-                <sup>※2</sup> シュートブロック率 = (被枠内シュート数 - 被ゴール数) / 被枠内シュート数 × 100%
-            </p>
+                <h3 class="teamsticky-title">チームゴールランキング</h3>
+                <table id="teamGoalPlayersTable" class="table-common table1  sticky-table">
+                    <thead>
+                        <tr>
+                            <th>順位</th>
+                            <th>選手名</th>
+                            <th>ゴール数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ゴールプレイヤーのデータがここに挿入されます -->
+                    </tbody>
+                </table>
 
-            <h3 class="sticky-title">チームゴールランキング</h3>
-            <table id="teamGoalPlayersTable" class="table-common table1  sticky-table">
-                <thead>
-                    <tr>
-                        <th>順位</th>
-                        <th>選手名</th>
-                        <th>ゴール数</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- ゴールプレイヤーのデータがここに挿入されます -->
-                </tbody>
-            </table>
+                <h3 class="teamsticky-title">チームアシストランキング</h3>
+                <table id="teamAssistPlayersTable" class="table-common table1 sticky-table">
+                    <thead>
+                        <tr>
+                            <th>順位</th>
+                            <th>選手名</th>
+                            <th>アシスト数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- アシストプレイヤーのデータがここに挿入されます -->
+                    </tbody>
+                </table>
+                
 
-            <h3 class="sticky-title">チームアシストランキング</h3>
-            <table id="teamAssistPlayersTable" class="table-common table1 sticky-table">
-                <thead>
-                    <tr>
-                        <th>順位</th>
-                        <th>選手名</th>
-                        <th>アシスト数</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- アシストプレイヤーのデータがここに挿入されます -->
-                </tbody>
-            </table>
-            <br>
-
-            <!-- グラフを描画するためのキャンバス -->
-            <h3 class="sticky-title">得点時間のグラフ</h3>
-            <div class="chart-container">
-                <canvas id="goalChart" width="400" height="400"></canvas>
-                <canvas id="stackedGoalChart5Min" width="400" height="400"></canvas>
-                <canvas id="stackedGoalChart15Min" width="400" height="400"></canvas>
+                <!-- グラフを描画するためのキャンバス -->
+                <h3 class="teamsticky-title">得点時間のグラフ</h3>
+                <div class="chart-container">
+                    <canvas id="goalChart" width="400" height="400"></canvas>
+                    <canvas id="stackedGoalChart5Min" width="400" height="400"></canvas>
+                    <canvas id="stackedGoalChart15Min" width="400" height="400"></canvas>
+                </div>
             </div>
         </section>
 

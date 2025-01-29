@@ -5,6 +5,7 @@ let totalTeamNum = 12;
 // ヘッダー・navi
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // タブを切り替える関数
+// タブを切り替える関数
 function openTab(evt, tabName) {
     let tabcontent = document.getElementsByClassName("tabcontent");
     for (let i = 0; i < tabcontent.length; i++) {
@@ -31,12 +32,19 @@ document.querySelectorAll('nav ul li a').forEach(link => {
 
 // デフォルトでホームタブを表示
 document.getElementById("home").style.display = "block";
+
+// ホームのリンクに 'active' クラスを追加
+document.querySelector('nav ul li a[href="javascript:void(0)"][onclick*="home"]').classList.add('active');
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // ホームタブ
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // GitHubリポジトリからJSONデータを取得し、ローカルストレージに保存する関数
 function fetchAndSaveJsonFromGitHub() {
     const url = './league_data.json'; // JSONファイルの相対パス
+    // const url = 'https://raw.githubusercontent.com/tomokikobayashi0424/tomokintaLeague/master/league_data.json'; // JSONファイルのURL
+
     fetch(url)
         .then(response => {
             console.log(response); // ここでレスポンスを確認
@@ -47,19 +55,25 @@ function fetchAndSaveJsonFromGitHub() {
         })
         .then(data => {
             // JSONデータからteamsとmatchDataをローカルストレージに保存
-            if (data.teamsSub) {
-                localStorage.setItem('teamsSub', JSON.stringify(data.teamsSub));
-            }
-            if (data.teams) {
-                localStorage.setItem('teams', JSON.stringify(data.teams));
-            }
+            // if (data.teamsSub) {
+            //     localStorage.setItem('teamsSub', JSON.stringify(data.teamsSub));
+            // }
+            // if (data.teams) {
+            //     localStorage.setItem('teams', JSON.stringify(data.teams));
+            // }
+            // if (data.teamsSubColor) {
+            //     localStorage.setItem('teamsSubColor', JSON.stringify(data.teamsSubColor));
+            // }
+            // if (data.teamsColor) {
+            //     localStorage.setItem('teamsColor', JSON.stringify(data.teamsColor));
+            // }
             
             if (data.matchData) {
                 localStorage.setItem('matchData', JSON.stringify(data.matchData));
             }
-            if (data.previousStandings) {
-                localStorage.setItem('previousStandings', JSON.stringify(data.previousStandings));
-            }
+            // if (data.previousStandings) {
+            //     localStorage.setItem('previousStandings', JSON.stringify(data.previousStandings));
+            // }
             if (data.currentStandings) {
                 localStorage.setItem('currentStandings', JSON.stringify(data.currentStandings));
             }
@@ -158,25 +172,54 @@ function openTabWithTeam(evt, tabName, teamIndex) {
     openTab(evt, tabName);
 
     // ローカルストレージからチーム名を取得
-    // let teams = JSON.parse(localStorage.getItem('teams')) || [];
-    // ローカルストレージからteamsDataを取得
     let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
 
     // クリックしたロゴに対応するチーム名を取得
-    // const teamName = teams[teamIndex] || `Team ${teamIndex + 1}`;
-    // const teamId = teamIndex + 1; // チームIDはインデックス + 1
-    // クリックしたロゴに対応するチーム名を取得
     const team = teamsData.find(t => t.teamId === teamIndex);
-    const teamName = team ? team.teams : `Team ${teamIndex + 1}`;
+    // const teamName = team ? team.teams : `Team ${teamIndex + 1}`;
 
     // チーム名を戦績タブに表示
-    document.getElementById('teamNameHeader').textContent = teamName;
-    // チームIDを表示して確認（デバッグ用）
-    console.log("Displaying stats for teamId:", teamIndex);
+    // document.getElementById('teamNameHeader').textContent = teamName;
+    // document.getElementById('teamNameHeader').setAttribute('data-team-id', teamIndex);
+    // // チームIDを表示して確認（デバッグ用）
+    // console.log("Displaying stats for teamId:", teamIndex);
     // チーム戦績を計算して表示
     //calculateTeamStats(teamIndex); // ここでチーム戦績を計算する
+    // 初回に現在の月のスケジュールを表示
+    currentMonthOffset = 0;
+    displayTeamMonthlySchedule(teamIndex);
+    //calculateTeamStats(teamIndex); // チーム戦績を表示
     calculateTeamAndOpponentStats(teamIndex);
+    // チーム情報が存在する場合に背景色と文字色を適用
+    if (team) {
+        const teamName = team.teams || `Team ${teamIndex + 1}`;
+        const teamColor = team.teamsColor || 'FFFFFF'; // デフォルト背景色：白
+        const teamSubColor = team.teamsSubColor || '000000'; // デフォルト文字色：黒
+        const teamTextColor = team.teamsTextColor || '000000'; // デフォルト背景色：白
+        const teamBgColor = team.teamsBgColor || 'FFFFFF'; // デフォルト文字色：黒
+// // CSS変数を更新（body用）
+// document.documentElement.style.setProperty('--main-color-1', `#${teamColor}`);
+// document.documentElement.style.setProperty('--sub-color-1', `#${teamSubColor}`);
+
+        // CSS変数を更新
+        document.documentElement.style.setProperty('--team-color-1', `#${teamColor}`);
+        document.documentElement.style.setProperty('--teamsub-color-1', `#${teamSubColor}`);
+        document.documentElement.style.setProperty('--teamtext-color-1', `#${teamTextColor}`);
+        document.documentElement.style.setProperty('--teambg-color-1', `#${teamBgColor}`);
+
+
+        // タブのタイトルにチーム名を設定
+        const teamHeader = document.getElementById('teamNameHeader');
+        teamHeader.textContent = teamName;
+        teamHeader.setAttribute('data-team-id', teamIndex);
+
+        // 初回に現在の月のスケジュールを表示
+        currentMonthOffset = 0;
+        displayTeamMonthlySchedule(teamIndex);
+        calculateTeamAndOpponentStats(teamIndex); // チーム戦績を表示
+    }
 }
+
 
 
 
@@ -194,6 +237,7 @@ function displayTeamMonthlySchedule(teamId) {
 
     // 現在の月を基準にして表示月を計算
     let displayMonth = new Date();
+    displayMonth.setDate(1); // 月の初日に設定
     displayMonth.setMonth(displayMonth.getMonth() + currentMonthOffset);
     const displayYear = displayMonth.getFullYear();
     const displayMonthIndex = displayMonth.getMonth();
@@ -207,12 +251,27 @@ function displayTeamMonthlySchedule(teamId) {
             const isAway = match.away.teamId === teamId;
             if (isHome || isAway) {
                 let opponentTeam = teamsData.find(team => team.teamId === (isHome ? match.away.teamId : match.home.teamId));
+                // 勝敗を判定
+                let scoreClass = '';
+                if (isHome && match.home.score !== null && match.away.score !== null) {
+                    if (match.home.score > match.away.score) {
+                        scoreClass = 'highlight-green'; // 勝利
+                    } else if (match.home.score < match.away.score) {
+                        scoreClass = 'highlight-red'; // 敗北
+                    }
+                } else if (isAway && match.home.score !== null && match.away.score !== null) {
+                    if (match.away.score > match.home.score) {
+                        scoreClass = 'highlight-green'; // 勝利
+                    } else if (match.away.score < match.home.score) {
+                        scoreClass = 'highlight-red'; // 敗北
+                    }
+                }
                 scheduleHTML += `
                     <tr>
-                        <td>${matchDate.getDate()}${(match.home.score !== null && match.away.score !== null) ? '日' : '日まで'}</td>
+                        <td>${matchDate.getDate()}${(match.home.score !== null && match.away.score !== null) ? '日' : '日予定'}</td>
                         <td>${isHome ? 'ホーム' : 'アウェイ'}</td>
                         <td>${opponentTeam ? opponentTeam.teams : '不明'}</td>
-                        <td>${match.home.score ?? '-'} - ${match.away.score ?? '-'}</td>
+                        <td class="${scoreClass}">${match.home.score ?? '-'} - ${match.away.score ?? '-'}</td>
                     </tr>
                 `;
             }
@@ -242,29 +301,18 @@ function nextMonth() {
     displayTeamMonthlySchedule(teamId);
 }
 
-// タブを開くときにチームの日程表と戦績を表示
-function openTabWithTeam(evt, tabName, teamIndex) {
-    openTab(evt, tabName);
-    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
-    const team = teamsData.find(t => t.teamId === teamIndex);
-    const teamName = team ? team.teams : `Team ${teamIndex + 1}`;
-
-    document.getElementById('teamNameHeader').textContent = teamName;
-    document.getElementById('teamNameHeader').setAttribute('data-team-id', teamIndex);
-
-    // 初回に現在の月のスケジュールを表示
-    currentMonthOffset = 0;
-    displayTeamMonthlySchedule(teamIndex);
-    //calculateTeamStats(teamIndex); // チーム戦績を表示
-    calculateTeamAndOpponentStats(teamIndex);
-}
-
-
 
 
 
 // チームスタッツを閉じる関数
 function closeTeamPerformanceTab() {
+    // デフォルトのCSS変数に戻す
+    document.documentElement.style.setProperty('--team-color-1', 'rgb(0, 0, 132)');
+    document.documentElement.style.setProperty('--teamsub-color-1', 'rgb(251, 0, 111)');
+    document.documentElement.style.setProperty('--teambg-color-1', 'rgb(0, 0, 0)');
+    document.documentElement.style.setProperty('--teamtext-color-1', 'rgb(255, 255, 9)');
+
+    // タブの表示を切り替え
     document.getElementById('teamPerformanceTab').style.display = 'none';
     document.getElementById('home').style.display = 'block';
 }
@@ -1081,7 +1129,7 @@ function displaySchedule(schedule = null) {
     }
 
     let scheduleHTML = '';
-    const startDate = new Date(2024, 9, 8); // スタート日付
+    const startDate = new Date(2024, 9, 15); // スタート日付
 
     for (let i = 0; i < schedule.length; i++) {
         let weekDate = new Date(startDate);
@@ -1479,9 +1527,9 @@ function saveStandingsData(standings) {
         teamId: team.teamId // TeamIdを保存
     }));
 
-    // 現在の順位を previousStandings に移動
-    let previousStandings = JSON.parse(localStorage.getItem('currentStandings')) || [];
-    localStorage.setItem('previousStandings', JSON.stringify(previousStandings));
+    // // 現在の順位を previousStandings に移動
+    // let previousStandings = JSON.parse(localStorage.getItem('currentStandings')) || [];
+    // localStorage.setItem('previousStandings', JSON.stringify(previousStandings));
 
     // 現在の順位のみを保存
     localStorage.setItem('currentStandings', JSON.stringify(currentStandings));

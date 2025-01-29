@@ -22,7 +22,6 @@
     }
 }
 
-
 /* スマホ向けのメディアクエリ (画面幅が600px未満) */
 @media screen and (max-width: 440px) {
     :root {
@@ -37,9 +36,13 @@
 
 :root {
     /* カラーパレットの変数定義 */
+    --team-color-1: rgb(0, 0, 132);         /* メインの色 */
+    --teamsub-color-1: rgb(251, 0, 111);         /* メインの色 */
+    --teambg-color-1:rgb(0, 0, 0);
+    --teamtext-color-1:rgb(255, 255, 9);
     --main-color-1: rgb(0, 0, 132);         /* メインの色 */
     --main-color-2: rgb(36, 0, 255); /* メインの色 */
-    --accent-color-1: rgb(251, 0, 111);     /* アクセントカラー */
+    --accent-color-1: rgb(251, 0, 111);     /*アクセントカラー */
     
     --sub-color-1: rgb(255, 255, 9);     /* 文字色1（メイン） */
     --black-color-1: rgb(0, 0, 0);         /* 文字色2（サブ） */
@@ -57,112 +60,7 @@
 
 /*-------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
-ヘッダーのスタイル 
----------------------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------------------*/
-/*説明*/
-header {
-    /* Z軸方向設定 */
-    z-index: 1000;
-    /*box-sizing,デフォルトはcontent-boxで高さなどにpaddingとborderが含まれない*/
-    box-sizing: border-box;
-    /* スクロール時に画面上部に固定 */
-    position: fixed;
-    /* 高さ固定 */
-    height: 50px;
-    /* 横幅設定 */
-    width: 90%;
-    /* 上位置 */
-    top: 0;
-    /* 左位置 */
-    left: 5%;
-    /* 外側　上右下左 */
-    margin: 0;
-    /* 外線　上右下左 */
-    border: 0;
-    /* 内側 上下 左右 */
-    padding: 5px 0;
-    /*テキストをヘッダーの中央に配置するためのラインハイト */
-    line-height: 0px; 
-    /* 背景色 */
-    background-color: var(--main-color-1);
-    /* テキスト色 */
-    color: var(--accent-color-1);
-    /* テキスト寄せ */
-    text-align: center;
-    /* テキストサイズ 10/3の高さ*/
-    font-size: var(--header-font-size);
-    
-    
-
-}
-
-/*-------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------
-ナビゲーションメニューのスタイル
----------------------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------------------*/
-nav {
-    z-index: 999;
-    box-sizing: border-box;
-    position: fixed;
-    height: 32.5px;
-    width: 100%;
-    /* ヘッダーの下に配置 */
-    top: 50px; 
-    /* left: 0; */
-    /* margin: 0; */
-    /* border: 0; */
-    padding: 0 10%;
-    /* line-height: 0px;  */
-    background-color: var(--main-color-2); /* ナビゲーションの背景色 */
-    /* color: var(); */
-    /* text-align: left; */
-    /* font-size: var(--navi-font-size); */
-}
-
-nav ul {
-    /*横並び*/
-    display: flex;
-    /*横並び要素の位置*/
-    justify-content: center;
-    /*箇条書きの・*/
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    /* padding-left: 10%; 左から10%の位置にテキストを配置 */
-}
-
-/* nav ul li {
-    margin: 0;
-    padding: 0;
-} */
-
-nav ul li a {
-    display: block;
-    color: var(--white-color-1);
-    /* リンクの下線 */
-    text-decoration: none;
-    /* margin: 0; */
-    padding: 5px 10px;
-    font-weight: bold;
-    /*フォントサイズの1.5倍の高さ*/
-    font-size: var(--header-font-size);
-}
-
-/* ホバー時と選択中のリンクのスタイルをまとめる */
-nav ul li a:hover,
-nav ul li a.active {
-    background-color: var(--sub-color-1); /* 背景色 */
-    color: var(--main-color-2); /* テキスト色 */
-    font-weight: bold; /* ボールドに設定 */
-}
-
-
-
-/*-------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------
-ボディのスタイル
+bodyのスタイル
 ---------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------*/
 body {
@@ -171,7 +69,7 @@ body {
     /* スクロールバーが常に表示されるように設定 */
     overflow-y: scroll;
     z-index: 900;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     /* 高さ固定 */
     /* height: 50px; */
     /* width: 100%; */
@@ -179,26 +77,17 @@ body {
     /* top: 85px; */
     /* 左位置 */
     /* left: 10%; */
-    margin: 90px 0 0 0;
-    border: 0;
-    padding: 0;
+    /* margin: 0 0 0 0; */
+    /* border: 10px; */
+    /* padding: 10px; */
     /*テキストをヘッダーの中央に配置するためのラインハイト */
     /* line-height: 0px; */
     background-color: var(--main-color-1);
     color: var(--sub-color-1);
+    /* transition: background-color 0.3s ease, color 0.3s ease; スムーズな変化 */
     /* テキスト寄せ */
     /* text-align: left; */
     /* font-size: var(--header-font-size); */
-}
-h2 {
-    font-size: var(--h2-font-size); /* フォントサイズを指定 */
-    font-weight: bold;
-    color: var(--sub-color-1);
-}
-h3 {
-    font-size: var(--h3-font-size); /* フォントサイズを指定 */
-    font-weight: bold;
-    color: var(--sub-color-1);
 }
 
 /*-------------------------------------------------------------------------------------------------
@@ -212,8 +101,7 @@ h3 {
 -------------------------------------------------------------------------------------------------*/
 .button-common {
     /* display: block; */
-    box-sizing: border-box;
-    /* height: 50px; */
+    /* box-sizing: border-box; */
     /* width: 100%; */
     /* top: 0; */
     /* left: 10%; */
@@ -232,10 +120,12 @@ h3 {
 
 }
 .button1 {
-    margin-right: 5%;
+    margin: 5%;
     padding: 5px;
     width: 20%;
     /* 角を丸くする */
+    background-color: var(--teambg-color-1);
+    color: var(--teamtext-color-1);
     border-radius: 5px;
 }
 
@@ -256,6 +146,10 @@ h3 {
 .button-common2:hover,
 .button-common3:hover {
     background-color: var(--accent-color-1);
+    color: var(--gray-color-1);
+}
+.button1:hover {
+    background-color: var(--teambg-color-1);
     color: var(--gray-color-1);
 }
 
@@ -285,7 +179,7 @@ h3 {
 .table-common {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 /* ヘッダー部分の共通スタイル */
@@ -342,6 +236,129 @@ h3 {
 }
 
 
+
+h2 {
+    font-size: var(--h2-font-size); /* フォントサイズを指定 */
+    font-weight: bold;
+    color: var(--sub-color-1);
+}
+h3 {
+    font-size: var(--h3-font-size); /* フォントサイズを指定 */
+    font-weight: bold;
+    color: var(--sub-color-1);
+}
+/*-------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+headerのスタイル 
+---------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------*/
+/*説明*/
+header {
+    /* Z軸方向設定 */
+    z-index: 1000;
+    /*box-sizing,デフォルトはcontent-boxで高さなどにpaddingとborderが含まれない*/
+    box-sizing: border-box;
+    /* スクロール時に画面上部に固定 */
+    position: fixed;
+    /* 高さ固定 */
+    height: 50px;
+    /* 横幅設定 */
+    width: 100%;
+    /* 上位置 */
+    top: 0;
+    /* 左位置 */
+    left: 0%;
+    /* 外側　上右下左 */
+    /* margin: 0; */
+    /* 外線　上右下左 */
+    /* border: 0; */
+    /* 内側 上下 左右 */
+    padding: 5px 0;
+    /*テキストをヘッダーの中央に配置するためのラインハイト */
+    line-height: 0px; 
+    /* 背景色 */
+    background-color: var(--main-color-1);
+    /* テキスト色 */
+    color: var(--accent-color-1);
+    /* テキスト寄せ */
+    text-align: center;
+    /* テキストサイズ 10/3の高さ*/
+    font-size: var(--header-font-size);
+}
+
+
+/*-------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+navのスタイル
+---------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------*/
+nav {
+    z-index: 999;
+    box-sizing: border-box;
+    position: fixed;
+    height: 32.5px;
+    width: 100%;
+    /* ヘッダーの下に配置 */
+    top: 50px; 
+    /* left: 0; */
+    /* margin: 0; */
+    /* border: 0; */
+    /* padding: 0 10%; */
+    /* line-height: 0px;  */
+    background-color: var(--main-color-2); /* ナビゲーションの背景色 */
+    /* color: var(); */
+    /* text-align: left; */
+    /* font-size: var(--navi-font-size); */
+}
+
+nav ul {
+    /*横並び*/
+    display: flex;
+    /*横並び要素の位置*/
+    justify-content: center;
+    /*箇条書きの・*/
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /* padding-left: 10%; 左から10%の位置にテキストを配置 */
+}
+
+/* nav ul li {
+    margin: 0;
+    padding: 0;
+} */
+
+nav ul li a {
+    display: block;
+    color: var(--white-color-1);
+    /* リンクの下線 */
+    text-decoration: none;
+    /* margin: 5px; */
+    padding: 5px 10px;
+    font-weight: bold;
+    /*フォントサイズの1.5倍の高さ*/
+    font-size: var(--header-font-size);
+}
+
+/* ホバー時と選択中のリンクのスタイルをまとめる */
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: var(--sub-color-1); /* 背景色 */
+    color: var(--main-color-2); /* テキスト色 */
+    font-weight: bold; /* ボールドに設定 */
+}
+
+
+/*-------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+mainのスタイル
+---------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------*/
+main{
+    margin: 90px 0 0 0;
+}
+
+
 /*-------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
 各タブのコンテンツ
@@ -349,13 +366,14 @@ h3 {
 -------------------------------------------------------------------------------------------------*/
 .tabcontent {
     display: none;
-    /* margin-top: 40px;  */
-    /* padding: 0px; */
+    /* margin-top: 5%; */
+    /* padding: 0%; */
     /* ヘッダーとナビゲーションの高さ分の余白を追加 */
-    width: 90%; 
+    width: 96%; 
     /* コンテンツの横幅を80%に設定 */
-    margin-left: 5%; 
+    margin-left: 2%; 
     /* 左右に10%ずつの余白を設定 */
+    background-color: var(--main-color-1); /* 背景色 */
 }
 
 
@@ -441,22 +459,57 @@ h3 {
 ===================================================================================================
 =================================================================================================*/
 /* チーム戦績タブ全体のスタイル 今後チームカラー搭載時に役立つかも*/
-/* #teamPerformanceTab {
-    padding: 0px;
-    background-color: var(--main-color-1);
-} */
+#teamPerformanceTab {
+    /* padding: 0px; */
+    /* display: none; */
+    /* margin-top: 5%; */
+    /* padding-left: 3%; */
+    /* ヘッダーとナビゲーションの高さ分の余白を追加 */
+    /* width: 90%;  */
+    /* コンテンツの横幅を80%に設定 */
+    /* margin-left: 2%;  */
+    /* border: 10px solid var(--teamsub-color-1); 
+    border: 10px solid;
+    border-image: linear-gradient(45deg, var(--teamsub-color-1), var(--team-color-1)) 1;
+    border: 10px double var(--teamsub-color-1);  */
 
-.match-container2 {
-    /* パネル内に余白を追加 */
-    padding: 1%;
+    /* 左右に10%ずつの余白を設定 */
     background-color: var(--white-color-1);
+    color: var(--teambg-color-1);
+
 }
 
+#teamNameHeader{
+    color: var(--white-color-1);
+}
+
+.team-container{
+    
+    /* margin-top: 5%; */
+    /* padding: 0%; */
+    /* ヘッダーとナビゲーションの高さ分の余白を追加 */
+    width: 96%; 
+    /* コンテンツの横幅を80%に設定 */
+    margin-left: 2%; 
+    /* 左右に10%ずつの余白を設定 */
+    background-color: var(--main-color-1); /* 背景色 */
+}
+
+#currentMonthLabel {
+    color: var(--teamtext-color-1);;
+}
 /* ヘッダーの固定 */
 .header-container {
+    border: 10px solid;
+    /* border-image: linear-gradient(45deg, var(--teamsub-color-1), var(--team-color-1)) 1; */
+    border: 5px double var(--teambg-color-1);
     display: flex;
     align-items: center;
-    background-color: var(--main-color-1);
+    height: 60px;
+    background-color: var(--team-color-1);
+    background: linear-gradient(to right, var(--team-color-1)70% , var(--teamsub-color-1)90%); /* 横方向のグラデーション */
+   
+    margin: 0;
     padding: 0px;
     position: sticky;
     top: 82.5px;
@@ -464,21 +517,43 @@ h3 {
     text-align: center;
 }
 
-/* 表タイトルの固定 */
-.sticky-title {
-    position: sticky;
-    top: calc(82.5px + var(--h2-font-size)*2.5); /* ヘッダーの高さを考慮 */
-    z-index: 800;
-    background-color: var(--main-color-1); /* ヘッダーの背景色を変更 */
-    padding: 5px;
+#teamSchedule{
+    background-color: var(--white-color-1);
+    padding-bottom: 5%;
 }
+
+
+/* 表タイトルの固定 */
+.teamsticky-title {
+    display: flex;
+    /* align-items: flex-end; */
+    align-items: center; /* 縦方向の中央揃え */
+    position: sticky;
+    /* top: calc(82.5px + var(--h2-font-size)*2.5); */
+    top:152.5px;
+    z-index: 800;
+    height: 40px;
+    background-color: var(--white-color-1); 
+    color: var(--teamtext-color-1); 
+    margin: 0;
+    padding: 0;
+}
+/* .sticky-title {
+    position: sticky;
+    top: calc(82.5px + var(--h2-font-size)*2.5);
+    z-index: 800;
+    background-color: var(--main-color-1); 
+    padding: 5px;
+} */
 
 /* 表ヘッダーの固定 */
 .sticky-table thead th {
     position: sticky;
-    top: calc(97.5px + (var(--h2-font-size)*2.5) + var(--h3-line-height));
+    top: 192.5px;
     z-index: 700;
+    
 }
+
 
 /*他のタブについて*/
 /* ヘッダーの固定 */
@@ -495,23 +570,30 @@ h3 {
 }
 
 .sticky-title2 {
+    display: flex;
+    /* align-items: flex-end; */
+    align-items: center; /* 縦方向の中央揃え */
     position: sticky;
     top: 82.5px; /* ヘッダーの高さを考慮 */
     z-index: 900;
     background-color: var(--main-color-1); /* ヘッダーの背景色を変更 */
-    padding: 5px;
+    padding: 0;
+    height: 40px;
 }
 
 .sticky-table2 thead th {
     position: sticky;
-    top: calc(92.5px + var(--h2-line-height));
+    top: 122.5px;
     z-index: 800;
 }
 
+
 .table-notes {
     font-size: var(--body3-font-size); /* 少し小さいフォントサイズ */
-    margin-top: 10px;
+    margin: 0;
     /* line-height: 1.5; 行間を少し広げる */
+    background-color: var(--white-color-1);
+    color: var(--teamtext-color-1);
 }
 
 .team-schedule {
@@ -528,6 +610,19 @@ h3 {
     border: 0px solid var(--white-color-1); /* 枠線の追加 */
     border-radius: 0px; /* 角を丸く */
 }
+.highlight-green {
+    /* background-color: #d4edda !important; 緑背景 */
+    color: #32CD32 !important;          /* 緑文字 */
+    font-weight: bold !important;
+}
+
+.highlight-red {
+    /* background-color: #f8d7da !important; 赤背景 */
+    color: #FF0000 !important;           /* 赤文字 */
+    font-weight: bold !important;
+}
+
+
 /*=================================================================================================
 ===================================================================================================
 日程表タブのスタイル 
@@ -837,3 +932,5 @@ h3 {
 個人戦績タブのスタイル 
 ===================================================================================================
 =================================================================================================*/
+/* align-items: flex-end; */
+/* align-items: center; 縦方向の中央揃え */
