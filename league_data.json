@@ -16,7 +16,7 @@
 	"teamsColor": "183786",
       "teamsSubColor": "080808",
 	"teamsTextColor": "7F400D",
-      "teamsBgColor": "FFFFFF"
+      "teamsBgColor": "C2A43E"
     },
     {
       "teamId": 2,
@@ -106,7 +106,7 @@
 	"teamsColor": "080808",
       "teamsSubColor": "FFFFFF",
 	"teamsTextColor": "143C30",
-      "teamsBgColor": "FFFFFF"
+      "teamsBgColor": "C2A43E"
     }
   ],
   "matchData": {
