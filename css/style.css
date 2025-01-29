@@ -223,17 +223,7 @@ body {
     color: var(--main-color-1); /* セルの文字色を濃い青に */
 }
 
-/* table3のスタイル（ヘッダーの背景色をピンクに設定、セルの背景色は濃い青） */
-.table-team-Schedule th {
-    background-color: var(--sub-color-1); /* ヘッダーの背景色 */
-    color: var(--main-color-1); /* ヘッダーの文字色 */
-}
 
-.table-team-Schedule td {
-    background-color: var(--main-color-1); /* セルの背景色 */
-    color: var(--sub-color-1); /* セルの文字色 */
-    border: 1px solid var(--sub-color-1); /* 枠線の色を設定 */
-}
 
 
 
@@ -554,7 +544,18 @@ main{
     
 }
 
+/* table3のスタイル（ヘッダーの背景色をピンクに設定、セルの背景色は濃い青） */
+.table-team-Schedule th {
+    background-color: var(--team-color-1); /* ヘッダーの背景色 */
+    color: var(--white-color-1); /* ヘッダーの文字色 */
+    border: 1px solid var(--team-color-1); /* 枠線の色を設定 */
+}
 
+.table-team-Schedule td {
+    background-color: var(--white-color-1); /* セルの背景色 */
+    color: var(--teamtext-color-1); /* セルの文字色 */
+    border: 1px solid var(--team-color-1); /* 枠線の色を設定 */
+}
 /*他のタブについて*/
 /* ヘッダーの固定 */
 .sticky-header {

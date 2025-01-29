@@ -204,7 +204,7 @@ function openTabWithTeam(evt, tabName, teamIndex) {
         // CSS変数を更新
         document.documentElement.style.setProperty('--team-color-1', `#${teamColor}`);
         document.documentElement.style.setProperty('--teamsub-color-1', `#${teamSubColor}`);
-        document.documentElement.style.setProperty('--teamtext-color-1', `#${teamTextColor}`);
+        document.documentElement.style.setProperty('--teamtext-color-1', `#000000`);
         document.documentElement.style.setProperty('--teambg-color-1', `#${teamBgColor}`);
 
 
@@ -302,16 +302,8 @@ function nextMonth() {
 }
 
 
-
-
 // チームスタッツを閉じる関数
 function closeTeamPerformanceTab() {
-    // デフォルトのCSS変数に戻す
-    document.documentElement.style.setProperty('--team-color-1', 'rgb(0, 0, 132)');
-    document.documentElement.style.setProperty('--teamsub-color-1', 'rgb(251, 0, 111)');
-    document.documentElement.style.setProperty('--teambg-color-1', 'rgb(0, 0, 0)');
-    document.documentElement.style.setProperty('--teamtext-color-1', 'rgb(255, 255, 9)');
-
     // タブの表示を切り替え
     document.getElementById('teamPerformanceTab').style.display = 'none';
     document.getElementById('home').style.display = 'block';
@@ -943,7 +935,7 @@ function createGoalScatterPlot(goalTimes, concededTimes) {
                 title: {
                     display: true,
                     text: '得点時間と失点時間のグラフ',
-                    color: 'rgb(0, 0, 132)', // タイトル文字色
+                    color: 'rgb(0, 0, 0)', // タイトル文字色
                     font: { size: 20 }
                 },
                 legend: {
@@ -1036,7 +1028,7 @@ function drawStackedGoalGraph(goalTimes, concededTimes, interval) {
                 title: {
                     display: true,
                     text: `${interval}分刻みの得点と失点の分布`,
-                    color: 'rgb(0, 0, 132)', // タイトル文字色
+                    color: 'rgb(0, 0, 0)', // タイトル文字色
                     font: { size: 20 }
                 }
             },
