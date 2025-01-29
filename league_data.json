@@ -67,10 +67,10 @@
       "teamId": 7,
       "teams": "FC Shigecelona",
       "teamsSub": "FCS",
-	"teamsColor": "0D1FB2",
-      "teamsSubColor": "AD2955",
-	"teamsTextColor": "000000",
-      "teamsBgColor": "C2A43E"
+	"teamsColor": "FDF150",
+      "teamsSubColor": "211816",
+	"teamsTextColor": "211816",
+      "teamsBgColor": "211816"
     },
     {
       "teamId": 8,
@@ -78,7 +78,7 @@
       "teamsSub": "MTB",
 	"teamsColor": "6D1E69",
       "teamsSubColor": "FFFFFF",
-	"teamsTextColor": "143C30",
+	"teamsTextColor": "000000",
       "teamsBgColor": "DADADA"
     },
     {
@@ -94,10 +94,10 @@
       "teamId": 10,
       "teams": "Nob Angels Dodgers",
       "teamsSub": "NAD",
-	"teamsColor": "1E3D83",
+	"teamsColor": "3A5B8F",
       "teamsSubColor": "FFFFFF",
-	"teamsTextColor": "143C30",
-      "teamsBgColor": "FFFFFF"
+	"teamsTextColor": "2D3461",
+      "teamsBgColor": "DD706A"
     },
     {
       "teamId": 11,
@@ -105,7 +105,7 @@
       "teamsSub": "UYZ",
 	"teamsColor": "080808",
       "teamsSubColor": "FFFFFF",
-	"teamsTextColor": "143C30",
+	"teamsTextColor": "000000",
       "teamsBgColor": "C2A43E"
     }
   ],
