@@ -43,7 +43,7 @@
 	"teamsColor": "9DB2D6",
       "teamsSubColor": "FFFFFF",
 	"teamsTextColor": "143C30",
-      "teamsBgColor": "FFFFFF"
+      "teamsBgColor": "143C30"
     },
     {
       "teamId": 5,
@@ -70,7 +70,7 @@
 	"teamsColor": "0D1FB2",
       "teamsSubColor": "AD2955",
 	"teamsTextColor": "143C30",
-      "teamsBgColor": "FFFFFF"
+      "teamsBgColor": "C2A43E"
     },
     {
       "teamId": 8,
