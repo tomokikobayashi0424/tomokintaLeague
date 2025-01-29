@@ -1577,7 +1577,7 @@ function updateRankChangeArrows() {
                 <td>${team.currentRank} <span class="${rankClass}">${rankChange}</span></td>
                 <td style="
                     background-color:#${teamColor}; 
-                    background: linear-gradient(to right, #${teamColor} 70%, #${teamSubColor} 90%);
+                    background: linear-gradient(to bottom, #${teamSubColor} 0%, #${teamSubColor} 10%, #${teamColor} 20%, #${teamColor} 80%, #${teamSubColor} 90%);
                     color:${textColor}; font-weight:bold; 
                     text-align:center;">${teamName}</td>
                 <td>${team.points}</td>
