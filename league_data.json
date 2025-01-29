@@ -4,85 +4,109 @@
       "teamId": 0,
       "teams": "Koverpool FC",
 	"teamsSub": "KFC",
-	"teamsColor": "CA2D25",
-      "teamsSubColor": "F9D849"
+	"teamsColor": "DD0813",
+      "teamsSubColor": "FFD701",
+	"teamsTextColor": "143C30",
+      "teamsBgColor": "FFFFFF"
     },
     {
       "teamId": 1,
       "teams": "free to play FC",
       "teamsSub": "FTP",
-	"teamsColor": "FF0000",
-      "teamsSubColor": "000000"
+	"teamsColor": "183786",
+      "teamsSubColor": "080808",
+	"teamsTextColor": "143C30",
+      "teamsBgColor": "FFFFFF"
     },
     {
       "teamId": 2,
       "teams": "Real Kotarid",
       "teamsSub": "RKD",
-	"teamsColor": "FF0000",
-      "teamsSubColor": "000000"
+	"teamsColor": "FFFFFF",
+      "teamsSubColor": "F1B94F",
+	"teamsTextColor": "143C30",
+      "teamsBgColor": "FFFFFF"
     },
     {
       "teamId": 3,
       "teams": "Forester United f.c.",
       "teamsSub": "FUN",
-	"teamsColor": "FF0000",
-      "teamsSubColor": "000000"
+	"teamsColor": "BC4936",
+      "teamsSubColor": "FAEF71",
+	"teamsTextColor": "143C30",
+      "teamsBgColor": "FFFFFF"
     },
     {
       "teamId": 4,
       "teams": "TKBEAMS",
       "teamsSub": "TKB",
-	"teamsColor": "FF0000",
-      "teamsSubColor": "000000"
+	"teamsColor": "9DB2D6",
+      "teamsSubColor": "FFFFFF",
+	"teamsTextColor": "143C30",
+      "teamsBgColor": "FFFFFF"
     },
     {
       "teamId": 5,
       "teams": "atox astronomy",
       "teamsSub": "ATX",
-	"teamsColor": "FF0000",
-      "teamsSubColor": "000000"
+	"teamsColor": "E43F4C",
+      "teamsSubColor": "FFFFFF",
+	"teamsTextColor": "143C30",
+      "teamsBgColor": "FFFFFF"
     },
     {
       "teamId": 6,
       "teams": "Shunsenal FC",
       "teamsSub": "SFC",
-	"teamsColor": "FF0000",
-      "teamsSubColor": "000000"
+	"teamsColor": "DC362A",
+      "teamsSubColor": "FFFFFF",
+	"teamsTextColor": "143C30",
+      "teamsBgColor": "FFFFFF"
     },
     {
       "teamId": 7,
       "teams": "FC Shigecelona",
       "teamsSub": "FCS",
-	"teamsColor": "FF0000",
-      "teamsSubColor": "000000"
+	"teamsColor": "0D1FB2",
+      "teamsSubColor": "AD2955",
+	"teamsTextColor": "143C30",
+      "teamsBgColor": "FFFFFF"
     },
     {
       "teamId": 8,
       "teams": "Matsubars",
       "teamsSub": "MTB",
-	"teamsColor": "FF0000",
-      "teamsSubColor": "000000"
+	"teamsColor": "6D1E69",
+      "teamsSubColor": "FFFFFF",
+	"teamsTextColor": "143C30",
+      "teamsBgColor": "FFFFFF"
     },
     {
       "teamId": 9,
       "teams": "Hisenal",
       "teamsSub": "HFC",
-	"teamsColor": "FF0000",
-      "teamsSubColor": "000000"
+	"teamsColor": "DC362A",
+      "teamsSubColor": "FFFFFF",
+	"teamsTextColor": "143C30",
+      "teamsBgColor": "FFFFFF"
     },
     {
       "teamId": 10,
       "teams": "Nob Angels Dodgers",
       "teamsSub": "NAD",
-	"teamsColor": "FF0000",
-      "teamsSubColor": "000000"
+	"teamsColor": "1E3D83",
+      "teamsSubColor": "FFFFFF",
+	"teamsTextColor": "143C30",
+      "teamsBgColor": "FFFFFF"
     },
     {
       "teamId": 11,
       "teams": "Ueyuz",
       "teamsSub": "UYZ",
-	"teamsColor": "FF0000",
-      "teamsSubColor": "000000"
+	"teamsColor": "080808",
+      "teamsSubColor": "FFFFFF",
+	"teamsTextColor": "143C30",
+      "teamsBgColor": "FFFFFF"
     }
   ],
   "matchData": {
