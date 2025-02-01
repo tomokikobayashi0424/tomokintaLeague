@@ -257,7 +257,7 @@ header {
     /* 上位置 */
     top: 0;
     /* 左位置 */
-    left: 0%;
+    left: 0;
     /* 外側　上右下左 */
     /* margin: 0; */
     /* 外線　上右下左 */
@@ -284,14 +284,14 @@ navのスタイル
 -------------------------------------------------------------------------------------------------*/
 nav {
     z-index: 999;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     position: fixed;
     height: 32.5px;
     width: 100%;
     /* ヘッダーの下に配置 */
     top: 50px; 
     /* left: 0; */
-    /* margin: 0; */
+    margin-left: -8px; /*スクロールバーの分*/
     /* border: 0; */
     /* padding: 0 10%; */
     /* line-height: 0px;  */
@@ -346,6 +346,7 @@ mainのスタイル
 -------------------------------------------------------------------------------------------------*/
 main{
     margin: 90px 0 0 0;
+    padding-bottom: 90px; /* フッター高さ + 余白 */
 }
 
 
@@ -935,3 +936,84 @@ main{
 =================================================================================================*/
 /* align-items: flex-end; */
 /* align-items: center; 縦方向の中央揃え */
+
+
+
+
+
+
+/* 
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+フッター
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+*/
+footer {
+    z-index: 999;
+    /* box-sizing: border-box; */
+    position: fixed;
+    height:90px; /* 高さを自動調整 */
+    width: 100%;
+    bottom: 0;
+    background-color: var(--main-color-2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 0;
+    margin-left: -8px; /*スクロールバーの分 */
+}
+
+/* ナビゲーションメニュー */
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-nav li a {
+    display: block;
+    color: var(--white-color-1);
+    text-decoration: none;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: var(--header-font-size);
+}
+
+/* SNSアイコンメニュー */
+.footer-social {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 10px; /* 上に少しマージン */
+    padding: 0;
+}
+
+.footer-social li {
+    margin: 0 10px;
+}
+
+.footer-social li a img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* 白色に変更（必要に応じて削除） */
+}
+
+/* ホバー時のスタイル */
+.footer-nav li a:hover,
+.footer-nav li a.active {
+    background-color: var(--sub-color-1);
+    color: var(--main-color-2);
+    font-weight: bold;
+}
+
+/* .footer-social li a:hover img {
+    filter: brightness(1); ホバー時は元の色に 
+} */
+
+/* ホバー時に黄色に変更 */
+.footer-social li a:hover img {
+    filter: sepia(100%) saturate(500%) hue-rotate(0deg) brightness(0) contrast(1);
+}

@@ -124,23 +124,53 @@ function getTeams() {
 document.addEventListener('DOMContentLoaded', () => {
     const teamContainer = document.querySelector('.team-list');
     const teamLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').slice(0, totalTeamNum);
+    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
 
     // チームロゴを動的に生成
+    // for (let i = 0; i < totalTeamNum; i++) {
+    //     const teamLetter = teamLetters[i];
+    //     const teamItem = `
+    //         <div class="team-item">
+    //             <button class="team-logo-button" data-team="${teamLetter}">
+    //                 <ul>
+    //                     <li>
+    //                         <a href="javascript:void(0)" class="tablinks" onclick="openTabWithTeam(event, 'teamPerformanceTab', ${i})">
+    //                             <img src="Pictures/Team${teamLetter}.jpg" alt="Team ${teamLetter}" class="team-logo">
+    //                         </a>
+    //                     </li>
+    //                 </ul>
+    //             </button>
+    //             <input type="text" id="team${i + 1}" name="team${i + 1}" value="Team${teamLetter}" class="team-name-input" readonly>
+    //             <input type="text" id="teamSub${i + 1}" name="teamSub${i + 1}" value="Sub${teamLetter}" class="team-subname-input" readonly><br> <!-- 三文字チーム名入力欄 -->
+    //         </div>
+    //     `;
+    //     teamContainer.insertAdjacentHTML('beforeend', teamItem);
+    // }
+
     for (let i = 0; i < totalTeamNum; i++) {
-        const teamLetter = teamLetters[i];
+        let team = teamsData.find(t => t.teamId === i) || {
+            teamId: maxTeamId + i,
+            teams: `Team${i + 1}`,
+            teamsSub: `Sub${i + 1}`,
+            teamsColor: '000000',
+            teamsSubColor: '000000',
+            teamsTextColor: 'FFFFFF',
+            teamsBgColor: 'FFFFFF'
+        };
+
         const teamItem = `
             <div class="team-item">
-                <button class="team-logo-button" data-team="${teamLetter}">
+                <button class="team-logo-button" data-team="${team.teams}">
                     <ul>
                         <li>
                             <a href="javascript:void(0)" class="tablinks" onclick="openTabWithTeam(event, 'teamPerformanceTab', ${i})">
-                                <img src="Pictures/Team${teamLetter}.jpg" alt="Team ${teamLetter}" class="team-logo">
+                                <img src="Pictures/Team${team.teamId}.jpg" alt="${team.teamId}" class="team-logo">
                             </a>
                         </li>
                     </ul>
                 </button>
-                <input type="text" id="team${i + 1}" name="team${i + 1}" value="Team${teamLetter}" class="team-name-input" readonly>
-                <input type="text" id="teamSub${i + 1}" name="teamSub${i + 1}" value="Sub${teamLetter}" class="team-subname-input" readonly><br> <!-- 三文字チーム名入力欄 -->
+                <input type="text" id="team${i + 1}" name="team${i + 1}" value="${team.teams}" class="team-name-input" readonly>
+                <input type="text" id="teamSub${i + 1}" name="teamSub${i + 1}" value="${team.teamsSub}" class="team-subname-input" readonly><br> <!-- 三文字チーム名入力欄 -->
             </div>
         `;
         teamContainer.insertAdjacentHTML('beforeend', teamItem);

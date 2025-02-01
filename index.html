@@ -24,9 +24,9 @@
     <main>
         <!-- ホームタブ：チーム名入力フォーム -->
         <section id="home" class="tabcontent">
-            <div class="link-container">
+            <!-- <div class="link-container">
                 <a href="champions.html" class="button-common button2">Tomokinta Champions Leagueへ</a>
-            </div>
+            </div> -->
             <h2>参加チーム一覧</h2>
             <div class="team-list">
                 <form id="teamForm">
@@ -34,7 +34,7 @@
                 </form>
             </div>
             <!-- ルール説明セクション -->
-            <section id="rules" class="rules-content">
+            <!-- <section id="rules" class="rules-content">
                 <h3>試合ルール</h3>
                 <ul>
                     <li>使用チーム: ドリーム</li>
@@ -63,7 +63,7 @@
                         </ul>
                     
                 </ul>
-            </section>
+            </section> -->
         </section>
 
 
@@ -331,14 +331,23 @@
         </section>
 
     </main>
-    <!--<footer>
-        フッター：各タブへのリンク 
-        <a href="#home"><img src="images/home.png" alt="ホーム"></a>
-        <a href="#schedule"><img src="images/schedule.png" alt="日程"></a>
-        <a href="#standings"><img src="images/standings.png" alt="順位表"></a>
-        <a href="#records"><img src="images/records.png" alt="個人戦績"></a>
-        <a href="#videos"><img src="images/videos.png" alt="動画"></a>
-    </footer>-->
+    <footer>
+        <!-- ナビゲーション用のリンク -->
+        <ul class="footer-nav">
+            <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'home')">ホーム</a></li>
+            <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'schedule')">日程</a></li>
+            <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'standings')">順位表</a></li>
+            <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'records')">選手戦績</a></li>
+        </ul>
+    
+        <!-- SNSリンクボタン -->
+        <ul class="footer-social">
+            <li><a href="https://www.instagram.com/" target="_blank"><img src="Pictures/instagram.svg" alt="Instagram"></a></li>
+            <li><a href="https://twitter.com/" target="_blank"><img src="Pictures/x.svg" alt="X"></a></li>
+            <li><a href="https://www.youtube.com/" target="_blank"><img src="Pictures/youtube.png" alt="YouTube"></a></li>
+            <li><a href="https://www.tiktok.com/" target="_blank"><img src="Pictures/tiktok.svg" alt="TikTok"></a></li>
+        </ul>
+    </footer>
     <script src="js/script.js"></script> <!-- 外部JavaScriptファイルの読み込み -->
 </body>
 </html>
