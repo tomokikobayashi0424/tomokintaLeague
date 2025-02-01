@@ -3,113 +3,115 @@
     {
       "teamId": 0,
       "teams": "Koverpool FC",
-	"teamsSub": "KFC",
-	"teamsColor": "DD0813",
-      "teamsSubColor": "A82A21",
-	"teamsTextColor": "143C30",
-      "teamsBgColor": "FFD701"
+      "teamsSub": "KFC",
+      "teamsColor": "dd0813",
+      "teamsSubColor": "a82a21",
+      "teamsTextColor": "143c30",
+      "teamsBgColor": "ffd701"
     },
     {
       "teamId": 1,
       "teams": "free to play FC",
       "teamsSub": "FTP",
-	"teamsColor": "183786",
+      "teamsColor": "183786",
       "teamsSubColor": "080808",
-	"teamsTextColor": "000000",
-      "teamsBgColor": "C2A43E"
+      "teamsTextColor": "000000",
+      "teamsBgColor": "c2a43e"
     },
     {
       "teamId": 2,
       "teams": "Real Kotarid",
       "teamsSub": "RKD",
-	"teamsColor": "DADADA",
-      "teamsSubColor": "FFFFFF",
-	"teamsTextColor": "353692",
-      "teamsBgColor": "F1B94F"
+      "teamsColor": "dadada",
+      "teamsSubColor": "ffffff",
+      "teamsTextColor": "353692",
+      "teamsBgColor": "f1b94f"
     },
     {
       "teamId": 3,
       "teams": "Forester United f.c.",
       "teamsSub": "FUN",
-	"teamsColor": "BC4936",
-      "teamsSubColor": "FAEF71",
-	"teamsTextColor": "000000",
-      "teamsBgColor": "FAEF71"
+      "teamsColor": "bc4936",
+      "teamsSubColor": "faef71",
+      "teamsTextColor": "000000",
+      "teamsBgColor": "faef71"
     },
     {
       "teamId": 4,
       "teams": "TKBEAMS",
       "teamsSub": "TKB",
-	"teamsColor": "9DB2D6",
-      "teamsSubColor": "FFFFFF",
-	"teamsTextColor": "183161",
-      "teamsBgColor": "C2A43E"
+      "teamsColor": "9db2d6",
+      "teamsSubColor": "ffffff",
+      "teamsTextColor": "183161",
+      "teamsBgColor": "c2a43e"
     },
     {
       "teamId": 5,
       "teams": "atox astronomy",
       "teamsSub": "ATX",
-	"teamsColor": "E43F4C",
-      "teamsSubColor": "FFFFFF",
-	"teamsTextColor": "000000",
-      "teamsBgColor": "DADADA"
+      "teamsColor": "e43f4c",
+      "teamsSubColor": "ffffff",
+      "teamsTextColor": "000000",
+      "teamsBgColor": "dadada"
     },
     {
       "teamId": 6,
       "teams": "Shunsenal FC",
       "teamsSub": "SFC",
-	"teamsColor": "FDF150",
-      "teamsSubColor": "211816",
-	"teamsTextColor": "132052",
-      "teamsBgColor": "C7343D"
+      "teamsColor": "dc362a",
+      "teamsSubColor": "ffffff",
+      "teamsTextColor": "132052",
+      "teamsBgColor": "998855"
     },
     {
       "teamId": 7,
       "teams": "FC Shigecelona",
       "teamsSub": "FCS",
-	"teamsColor": "0D1FB2",
-      "teamsSubColor": "B42B58",
-	"teamsTextColor": "000000",
-      "teamsBgColor": "ECBC45"
+      "teamsColor": "fdf150",
+      "teamsSubColor": "211816",
+      "teamsTextColor": "211816",
+      "teamsBgColor": "211816"
     },
     {
       "teamId": 8,
       "teams": "Matsubars",
       "teamsSub": "MTB",
-	"teamsColor": "6D1E69",
-      "teamsSubColor": "FFFFFF",
-	"teamsTextColor": "000000",
-      "teamsBgColor": "D4343D"
+      "teamsColor": "6d1e69",
+      "teamsSubColor": "ffffff",
+      "teamsTextColor": "000000",
+      "teamsBgColor": "dadada"
     },
     {
       "teamId": 9,
       "teams": "Hisenal",
       "teamsSub": "HFC",
-	"teamsColor": "DC362A",
-      "teamsSubColor": "FFFFFF",
-	"teamsTextColor": "132052",
+      "teamsColor": "dc362a",
+      "teamsSubColor": "ffffff",
+      "teamsTextColor": "132052",
       "teamsBgColor": "998855"
     },
     {
       "teamId": 10,
       "teams": "Nob Angels Dodgers",
       "teamsSub": "NAD",
-	"teamsColor": "7C96FE",
-      "teamsSubColor": "FFFFFF",
-	"teamsTextColor": "2F6896",
-      "teamsBgColor": "CB463C"
+      "teamsColor": "3a5b8f",
+      "teamsSubColor": "ffffff",
+      "teamsTextColor": "2d3461",
+      "teamsBgColor": "dd706a"
     },
     {
       "teamId": 11,
       "teams": "Ueyuz",
       "teamsSub": "UYZ",
-	"teamsColor": "080808",
-      "teamsSubColor": "FFFFFF",
-	"teamsTextColor": "000000",
-      "teamsBgColor": "C2A43E"
+      "teamsColor": "080808",
+      "teamsSubColor": "ffffff",
+      "teamsTextColor": "000000",
+      "teamsBgColor": "c2a43e"
     }
   ],
-  "matchData": {
+    "matchData": {
+	"24-s1":{
+	    "teamsNum": 12,
     "round0-match1": {
       "home": {
         "teamId": 1,
@@ -11624,4 +11626,5 @@
       "teamId": 6
     }
   ]
+    }
 }
