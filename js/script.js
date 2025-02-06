@@ -1644,8 +1644,71 @@ function saveStandingsData(standings) {
 }
 
 // 順位変動の矢印を表示する関数
+// function updateRankChangeArrows() {
+//     let currentStandings = JSON.parse(localStorage.getItem('currentStandings')) || [];
+//     let standings = calculateStandings(); // 現在の順位を再計算
+//     let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
+
+//     let tbody = document.querySelector('#standingsTable tbody');
+//     tbody.innerHTML = ''; // 順位表を初期化
+
+//     standings.forEach(team => {
+//         let currentTeam = currentStandings.find(t => t.teamId === team.teamId);
+//         let previousRank = currentTeam ? currentTeam.Rank : null;
+//         let currentRank = team.currentRank;
+
+//         let rankChange = '';
+//         let rankClass = '';
+
+//         // previousRank と currentRank を比較して順位の変動をチェック
+//         if (previousRank !== null) {
+//             if (currentRank < previousRank) {
+//                 rankChange = '▲'; // 順位上昇
+//                 rankClass = 'rank-up';
+//             } else if (currentRank > previousRank) {
+//                 rankChange = '▼'; // 順位下降
+//                 rankClass = 'rank-down';
+//             } else {
+//                 rankChange = '---'; // 順位変動なし
+//                 rankClass = 'rank-no-change';
+//             }
+//         } else {
+//             rankChange = '-';
+//             rankClass = 'rank-no-change';
+//         }
+
+//         let teamInfo = teamsData.find(t => t.teamId === team.teamId);
+//         let teamName = getTeamNameByScreenSize(teamInfo); // 画面幅に応じたチーム名
+//         let teamColor = teamInfo ? `${teamInfo.teamsColor}` : "FFFFFF"; // デフォルト白
+//         let teamSubColor = teamInfo ? `${teamInfo.teamsSubColor}` : "FFFFFF"; // デフォルト白
+//         let textColor = getTextColor(teamColor);
+
+
+//         let row = `
+//             <tr>
+//                 <td>${team.currentRank} <span class="${rankClass}">${rankChange}</span></td>
+//                 <td style="
+//                     background-color:#${teamColor}; 
+//                     background: linear-gradient(to bottom, #${teamSubColor} 0%, #${teamSubColor} 10%, #${teamColor} 20%, #${teamColor} 80%, #${teamSubColor} 90%);
+//                     color:${textColor}; font-weight:bold; 
+//                     text-align:center;">${teamName}</td>
+//                 <td>${team.points}</td>
+//                 <td>${team.matchesPlayed}</td>
+//                 <td>${team.wins}</td>
+//                 <td>${team.draws}</td>
+//                 <td>${team.losses}</td>
+//                 <td>${team.goalDifference}</td>
+//                 <td>${team.totalGoals}</td>
+//             </tr>`;
+//         tbody.insertAdjacentHTML('beforeend', row);
+//     });
+//     // localStorage.setItem('currentStandings', JSON.stringify(currentStandings));
+
+// }
 function updateRankChangeArrows() {
-    let currentStandings = JSON.parse(localStorage.getItem('currentStandings')) || [];
+    let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
+    let currentSeason = "24-s1"; // 現在のシーズンを指定
+    let currentStandings = matchData[currentSeason]?.currentStandings || [];
     let standings = calculateStandings(); // 現在の順位を再計算
     let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
 
@@ -1683,7 +1746,6 @@ function updateRankChangeArrows() {
         let teamSubColor = teamInfo ? `${teamInfo.teamsSubColor}` : "FFFFFF"; // デフォルト白
         let textColor = getTextColor(teamColor);
 
-
         let row = `
             <tr>
                 <td>${team.currentRank} <span class="${rankClass}">${rankChange}</span></td>
@@ -1702,9 +1764,8 @@ function updateRankChangeArrows() {
             </tr>`;
         tbody.insertAdjacentHTML('beforeend', row);
     });
-    // localStorage.setItem('currentStandings', JSON.stringify(currentStandings));
-
 }
+
 
 // チームの文字色を白か黒か選択する関数
 function getTextColor(bgColor) {
