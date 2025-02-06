@@ -107,6 +107,33 @@
       "teamsSubColor": "ffffff",
       "teamsTextColor": "000000",
       "teamsBgColor": "c2a43e"
+    },
+    {
+      "teamId": 12,
+      "teams": "Takimura",
+      "teamsSub": "FCT",
+      "teamsColor": "000000",
+      "teamsSubColor": "000000",
+      "teamsTextColor": "ffffff",
+      "teamsBgColor": "ffffff"
+    },
+    {
+      "teamId": 13,
+      "teams": "Murayama",
+      "teamsSub": "FCM",
+      "teamsColor": "000000",
+      "teamsSubColor": "000000",
+      "teamsTextColor": "ffffff",
+      "teamsBgColor": "ffffff"
+    },
+    {
+      "teamId": 14,
+      "teams": "kawaguchi",
+      "teamsSub": "FCK",
+      "teamsColor": "000000",
+      "teamsSubColor": "000000",
+      "teamsTextColor": "ffffff",
+      "teamsBgColor": "ffffff"
     }
   ],
   "matchData": {
