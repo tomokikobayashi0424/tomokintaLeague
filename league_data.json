@@ -9085,79 +9085,94 @@
       "round16-match2": {
         "home": {
           "teamId": 3,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "ジョアン カンセロ",
+            "ギャレス ベイル"
+          ],
+          "goalPlayers": [
+            "ロベルト バッジョ",
+            "リオネル メッシ"
+          ],
+          "times": [
+            4,
+            57
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 59,
+            "shots": 1,
+            "shotsonFrame": 1,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 1,
+            "passes": 75,
+            "successfulPasses": 59,
+            "crosses": 1,
+            "PassCuts": 9,
+            "successfulTackles": 1,
+            "save": 1
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 62,
+            "shots": 3,
+            "shotsonFrame": 2,
+            "fouls": 1,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 1,
+            "passes": 137,
+            "successfulPasses": 108,
+            "crosses": 1,
+            "PassCuts": 20,
+            "successfulTackles": 1,
+            "save": 2
           }
         },
         "away": {
           "teamId": 7,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "ルイス スアレス"
+          ],
+          "goalPlayers": [
+            "ギャレス ベイル"
+          ],
+          "times": [
+            21
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 41,
+            "shots": 2,
+            "shotsonFrame": 2,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 44,
+            "successfulPasses": 30,
+            "crosses": 1,
+            "PassCuts": 11,
+            "successfulTackles": 0,
+            "save": 0
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 38,
+            "shots": 5,
+            "shotsonFrame": 4,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 2,
+            "freeKicks": 1,
+            "passes": 91,
+            "successfulPasses": 62,
+            "crosses": 2,
+            "PassCuts": 21,
+            "successfulTackles": 1,
+            "save": 0
           }
         },
-        "date": "2025-02-02"
+        "date": "2025-02-06"
       },
       "round16-match3": {
         "home": {
@@ -11737,5 +11752,6 @@
         "date": "2025-03-09"
       }
     }
-  }
+  },
+  "currentStandings": []
 }
