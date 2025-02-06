@@ -1,101 +1,99 @@
-// チーム数を指定
-let totalTeamNum = 12;
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ヘッダー・navi
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// ヘッダー・navi・フッター
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////
-// タブを切り替える関数
 // タブを切り替える関数
 function openTab(evt, tabName) {
     let tabcontent = document.getElementsByClassName("tabcontent");
     for (let i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";  // すべてのタブのコンテンツを非表示にする
+        tabcontent[i].style.display = "none";  
     }
+
     let tablinks = document.getElementsByClassName("tablinks");
     for (let i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");  // 全てのナビリンクから 'active' クラスを削除
+        tablinks[i].classList.remove("active");  
     }
-    document.getElementById(tabName).style.display = "block";  // 指定されたタブのコンテンツを表示する
-    evt.currentTarget.className += " active";  // クリックされたリンクに 'active' クラスを追加
+
+    document.getElementById(tabName).style.display = "block";
+
+    // `evt` が null の場合（タブを手動で開く場合）は、対応するリンクを探して `active` を付与
+    if (evt) {
+        evt.currentTarget.classList.add("active");
+    } else {
+        let targetLink = document.querySelector(`.tablinks[onclick*="${tabName}"]`);
+        if (targetLink) {
+            targetLink.classList.add("active");
+        }
+    }
 }
 
-// ナビのホバーについての関数
-document.querySelectorAll('nav ul li a').forEach(link => {
-    link.addEventListener('click', function() {
-        // すべてのリンクから 'active' クラスを削除
-        document.querySelectorAll('nav ul li a').forEach(link => link.classList.remove('active'));
-        
-        // クリックされたリンクに 'active' クラスを追加
-        this.classList.add('active');
-    });
+
+// ページロード時に最初のタブを開く
+document.addEventListener("DOMContentLoaded", function() {
+    let defaultTab = document.querySelector('.tablinks.active') || document.querySelector('.tablinks[onclick*="home"]');
+    
+    if (defaultTab) {
+        openTab(null, defaultTab.getAttribute('onclick').match(/'([^']+)'/)[1]);
+    } else {
+        openTab(null, "home"); // 明示的に 'home' を開く
+    }
 });
 
-// デフォルトでホームタブを表示
-document.getElementById("home").style.display = "block";
-
-// ホームのリンクに 'active' クラスを追加
-document.querySelector('nav ul li a[href="javascript:void(0)"][onclick*="home"]').classList.add('active');
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // ホームタブ
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 // GitHubリポジトリからJSONデータを取得し、ローカルストレージに保存する関数
 function fetchAndSaveJsonFromGitHub() {
-    const url = './league_data.json'; // JSONファイルの相対パス
-    // const url = 'https://raw.githubusercontent.com/tomokikobayashi0424/tomokintaLeague/master/league_data.json'; // JSONファイルのURL
+    // const url = './league_data.json'; // JSONファイルの相対パス
+    const url = 'https://raw.githubusercontent.com/tomokikobayashi0424/tomokintaLeague/master/league_data.json'; // GitHubから取得する場合はこちらを有効化
 
     fetch(url)
         .then(response => {
-            console.log(response); // ここでレスポンスを確認
             if (!response.ok) {
                 throw new Error('GitHubからデータを取得できませんでした');
             }
             return response.json();
         })
         .then(data => {
-            // JSONデータからteamsとmatchDataをローカルストレージに保存
-            // if (data.teamsSub) {
-            //     localStorage.setItem('teamsSub', JSON.stringify(data.teamsSub));
-            // }
-            // if (data.teams) {
-            //     localStorage.setItem('teams', JSON.stringify(data.teams));
-            // }
-            // if (data.teamsSubColor) {
-            //     localStorage.setItem('teamsSubColor', JSON.stringify(data.teamsSubColor));
-            // }
-            // if (data.teamsColor) {
-            //     localStorage.setItem('teamsColor', JSON.stringify(data.teamsColor));
-            // }
-            
-            if (data.matchData) {
-                localStorage.setItem('matchData', JSON.stringify(data.matchData));
-            }
-            // if (data.previousStandings) {
-            //     localStorage.setItem('previousStandings', JSON.stringify(data.previousStandings));
-            // }
-            if (data.currentStandings) {
-                localStorage.setItem('currentStandings', JSON.stringify(data.currentStandings));
-            }
-            if (data.teamsData) {
-                localStorage.setItem('teamsData', JSON.stringify(data.teamsData));
-            }
-            console.log('JSONデータがローカルストレージに保存されました');
+            // matchData, teamsData などをローカルストレージに保存
+            Object.entries(data).forEach(([key, value]) => {
+                if (value) localStorage.setItem(key, JSON.stringify(value));
+            });
 
-            // ページのデータを更新
-            getTeams();
-            displaySchedule();  // 日程を表示
-            //showRound(0);       // ページロード時に最初のラウンドを表示
-            updateStandingsTable();  // 順位表を表示
-            updateRankChangeArrows() // 矢印も表示
-            displayIndividualRecords();
-            updateIndividualRecords();  // 必要な場合に個人戦績を更新
-
+            // データを画面に反映
+            updateAllDisplayData();
         })
         .catch(error => {
-            console.error('エラーが発生しました:', error);
+            console.error('データ取得エラー:', error);
         });
 }
+
+// ページ内の各種データ更新をまとめる関数
+function updateAllDisplayData() {
+    displaySchedule();  // 日程を表示
+    updateStandingsTable();  // 順位表を表示
+    updateRankChangeArrows(); // 順位変動の矢印を表示
+    displayIndividualRecords(); // 個人戦績を表示
+    updateIndividualRecords();  // 個人戦績を更新
+}
+
 
 // ローカルストレージをリセットしてからJSONデータを読み込む関数
 function resetLocalStorageAndLoadJson() {
@@ -104,21 +102,6 @@ function resetLocalStorageAndLoadJson() {
     
     // JSONデータをGitHubから再取得
     fetchAndSaveJsonFromGitHub();
-}
-
-// 保存したチーム名を取得する関数
-function getTeams() {
-    // teamsDataをローカルストレージから取得
-    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
-
-    // データが存在しない場合はデフォルトの値を設定
-    for (let i = 1; i <= totalTeamNum; i++) {
-        let teamData = teamsData[i - 1] || { teamId: i, teamName: `Team${i}`, teamSub: `Sub${i}` };
-
-        // フォームにチーム名と略称を設定
-        document.getElementById(`team${i}`).value = teamData.teams;
-        document.getElementById(`teamSub${i}`).value = teamData.teamsSub;
-    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -164,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ページ読み込み時にJSONデータを取得し、ローカルストレージに保存
     fetchAndSaveJsonFromGitHub();
     // 保存されたチーム名を取得
-    getTeams();  
+    // getTeams();  
 
     // 初期化処理
     displaySchedule();  // 日程を表示
@@ -390,11 +373,13 @@ function nextMonth() {
 
 
 // チームスタッツを閉じる関数
+// チームスタッツを閉じる関数
 function closeTeamPerformanceTab() {
-    // タブの表示を切り替え
     document.getElementById('teamPerformanceTab').style.display = 'none';
-    document.getElementById('home').style.display = 'block';
+    openTab(null, "home"); // ホームタブをアクティブにする
 }
+
+
 // チームごとのプレイヤーランキングを表示する関数
 function displayTeamPlayerRanking(tableId, players) {
     let sortedPlayers = Object.entries(players).sort((a, b) => b[1] - a[1]); // 得点順にソート
@@ -1232,7 +1217,7 @@ function displaySchedule(schedule = null) {
         let numRounds = Object.keys(matchData[currentSeason]).length / (matchData[currentSeason].teamsNum / 2);
         for (let round = 0; round < numRounds; round++) {
             let roundMatches = [];
-            for (let match = 0; match < teamsData.length / 2; match++) {
+            for (let match = 0; match < matchData[currentSeason].teamsNum / 2; match++) {
                 let matchKey = `round${round}-match${match}`;
                 let matchDataEntry = matchData[currentSeason][matchKey];
 
