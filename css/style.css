@@ -338,7 +338,42 @@ nav ul li a.active {
     font-weight: bold; /* ボールドに設定 */
 }
 
+/* シーズン選択プルダウンのスタイル */
+nav ul li select {
+    display: block;
+    padding: 7px 10px;
+    font-size: var(--header-font-size);
+    border: 0px solid var(--white-color-1);
+    background-color: var(--main-color-2);
+    color: var(--white-color-1);
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    /* transition: background-color 0.3s ease, color 0.3s ease; */
+}
 
+/* シーズンプルダウンのホバー時 */
+nav ul li select:hover {
+    background-color: var(--sub-color-1);
+    color: var(--main-color-2);
+}
+
+/* シーズンプルダウンの選択時 */
+nav ul li select:focus {
+    background-color: var(--main-color-2);
+    color: var(--white-color-1);
+}
+
+/* プルダウンの矢印カスタマイズ（必要なら） */
+/* nav ul li select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 20px;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23FFFFFF" height="12" viewBox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+} */
 /*-------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
 mainのスタイル

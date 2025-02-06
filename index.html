@@ -16,10 +16,17 @@
     <nav>
         <ul>
             <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'home')">ホーム</a></li>
-            <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'schedule')">日程</a></li>
+            <!-- <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'schedule')">日程</a></li>
             <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'standings')">順位表</a></li>
-            <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'records')">選手戦績</a></li>
+            <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'records')">選手戦績</a></li> -->
+            <li>
+                <!-- シーズン選択プルダウン -->
+                <select id="seasonSelect" onchange="changeSeason()">
+                    <!-- JavaScriptで動的にシーズン名を追加 -->
+                </select>
+            </li>
         </ul>
+
     </nav>
     <main>
         <!-- ホームタブ：チーム名入力フォーム -->
@@ -334,7 +341,7 @@
     <footer>
         <!-- ナビゲーション用のリンク -->
         <ul class="footer-nav">
-            <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'home')">ホーム</a></li>
+            <!-- <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'home')">ホーム</a></li> -->
             <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'schedule')">日程</a></li>
             <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'standings')">順位表</a></li>
             <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'records')">選手戦績</a></li>
