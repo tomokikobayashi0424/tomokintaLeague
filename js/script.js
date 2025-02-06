@@ -8,7 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 // タブを切り替える関数
 function openTab(evt, tabName) {
     let tabcontent = document.getElementsByClassName("tabcontent");
@@ -34,7 +34,6 @@ function openTab(evt, tabName) {
     }
 }
 
-
 // ページロード時に最初のタブを開く
 document.addEventListener("DOMContentLoaded", function() {
     let defaultTab = document.querySelector('.tablinks.active') || document.querySelector('.tablinks[onclick*="home"]');
@@ -45,8 +44,6 @@ document.addEventListener("DOMContentLoaded", function() {
         openTab(null, "home"); // 明示的に 'home' を開く
     }
 });
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -78,7 +75,7 @@ function fetchAndSaveJsonFromGitHub() {
             });
 
             // データを画面に反映
-            updateAllDisplayData();
+            // updateAllDisplayData();
         })
         .catch(error => {
             console.error('データ取得エラー:', error);
@@ -94,27 +91,23 @@ function updateAllDisplayData() {
     updateIndividualRecords();  // 個人戦績を更新
 }
 
-
-// ローカルストレージをリセットしてからJSONデータを読み込む関数
-function resetLocalStorageAndLoadJson() {
-    // ローカルストレージのすべてのデータを削除
-    localStorage.clear();
-    
-    // JSONデータをGitHubから再取得
-    fetchAndSaveJsonFromGitHub();
-}
-
-document.addEventListener('DOMContentLoaded', () => {
+// ホームタブの初期化処理
+document.addEventListener('DOMContentLoaded', async () => {
     const teamContainer = document.querySelector('.team-list');
+
+    // JSONデータを先に取得し、ローカルストレージに保存
+    await fetchAndSaveJsonFromGitHub();
+
     let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
-    
+
     // teamsDataの要素数からtotalTeamNumを設定
     let totalTeamNum = teamsData.length;
 
-    // 最大teamIdを取得
-    let maxTeamId = teamsData.length > 0 ? Math.max(...teamsData.map(t => t.teamId)) : 11;
+    // 最大teamIdを取得（デフォルト値を 11 に設定）
+    let maxTeamId = teamsData.length > 0 ? Math.max(...teamsData.map(t => t.teamId), 11) : 11;
 
     // チームロゴを動的に生成
+    teamContainer.innerHTML = ""; // 既存の内容をクリアしてから追加
     for (let i = 0; i < totalTeamNum; i++) {
         let team = teamsData[i] || {
             teamId: maxTeamId + i,
@@ -132,35 +125,31 @@ document.addEventListener('DOMContentLoaded', () => {
                     <ul>
                         <li>
                             <a href="javascript:void(0)" class="tablinks" onclick="openTabWithTeam(event, 'teamPerformanceTab', ${team.teamId})">
-                                <img src="Pictures/Team${team.teamId}.jpg" alt="${team.teamId}" class="team-logo">
+                                <img src="Pictures/Team${team.teamId}.jpg" alt="${team.teams}" class="team-logo">
                             </a>
                         </li>
                     </ul>
                 </button>
                 <input type="text" id="team${i + 1}" name="team${i + 1}" value="${team.teams}" class="team-name-input" readonly>
-                <input type="text" id="teamSub${i + 1}" name="teamSub${i + 1}" value="${team.teamsSub}" class="team-subname-input" readonly><br> <!-- 三文字チーム名入力欄 -->
+                <input type="text" id="teamSub${i + 1}" name="teamSub${i + 1}" value="${team.teamsSub}" class="team-subname-input" readonly><br>
             </div>
         `;
         teamContainer.insertAdjacentHTML('beforeend', teamItem);
     }
 
-    // ページ読み込み時にJSONデータを取得し、ローカルストレージに保存
-    fetchAndSaveJsonFromGitHub();
-    // 保存されたチーム名を取得
-    // getTeams();  
-
-    // 初期化処理
-    displaySchedule();  // 日程を表示
-    updateStandingsTable();  // 順位表を表示
-    updateRankChangeArrows(); // 矢印も
-    displayIndividualRecords();
-    updateIndividualRecords();  // 必要な場合に個人戦績を更新
+    // 画面のデータを更新
+    updateAllDisplayData();
 });
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // チームスタッツ
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // チームスタッツを開く関数
@@ -1174,11 +1163,14 @@ function drawStackedGoalGraph(goalTimes, concededTimes, interval) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 // 日程タブ
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// const currentSeason = "24-s1";  // シーズン識別キー
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 // 画面幅に応じてチーム名を選択する関数
 function getTeamNameByScreenSize(team) {
     // 画面幅を取得
@@ -1206,7 +1198,6 @@ function calculateCurrentRound(startDate, scheduleLength) {
 function displaySchedule(schedule = null) {
     let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
     let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
-    // let currentSeason = "24-s1"; // 現在のシーズンを指定（動的に変更可能）
 
     // シーズンデータが存在しない場合は何もしない
     if (!matchData[currentSeason]) return;
@@ -1857,7 +1848,7 @@ function updateRankChangeArrows() {
                 <td>${team.currentRank} <span class="${rankClass}">${rankChange}</span></td>
                 <td style="
                     background-color:#${teamColor}; 
-                    background: linear-gradient(to bottom, #${teamSubColor} 0%, #${teamSubColor} 10%, #${teamColor} 20%, #${teamColor} 80%, #${teamSubColor} 90%);
+                    background: linear-gradient(to bottom, #${teamSubColor} 0%, #${teamSubColor} 10%, #${teamColor} 30%, #${teamColor} 70%, #${teamSubColor} 90%);
                     color:${textColor}; font-weight:bold; 
                     text-align:center;">${teamName}</td>
                 <td>${team.points}</td>
@@ -1880,7 +1871,7 @@ function getTextColor(bgColor) {
     let b = parseInt(bgColor.substring(4, 6), 16); // 青成分
     let brightness = (r * 299 + g * 587 + b * 114) / 1000; // 輝度計算
 
-    return brightness > 128 ? "#606060" : "#FFFFFF"; // 明るい色なら黒、暗い色なら白
+    return brightness > 200 ? "#606060" : "#FFFFFF"; // 明るい色なら黒、暗い色なら白
 }
 
 
