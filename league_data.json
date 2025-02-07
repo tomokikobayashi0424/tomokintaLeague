@@ -138,7 +138,8 @@
   ],
   "matchData": {
     "24-s1": {
-      "teamsNum": 12,
+	"teamsNum": 12,
+	"date": "2024-10-15",
       "currentStandings": [
         {
           "Rank": 1,
