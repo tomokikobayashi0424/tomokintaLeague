@@ -1189,16 +1189,105 @@ function getTeamNameByScreenSize(team) {
 }
 
 // 現在の日付に基づいて表示すべきラウンドを計算する関数
-function calculateCurrentRound(startDate, scheduleLength) {
-    const today = new Date();
-    const dayDifference = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
-    const weekDifference = Math.floor(dayDifference / 7);
+// function calculateCurrentRound(startDate, scheduleLength) {
+//     const today = new Date();
+//     const dayDifference = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+//     const weekDifference = Math.floor(dayDifference / 7);
 
-    // 0 以上 scheduleLength - 1 以下の範囲に制限
-    return Math.max(0, Math.min(weekDifference, scheduleLength - 1));
-}
+//     // 0 以上 scheduleLength - 1 以下の範囲に制限
+//     return Math.max(0, Math.min(weekDifference, scheduleLength - 1));
+// }
 
-// 日程表を表示する関数
+// // 日程表を表示する関数
+// function displaySchedule(schedule = null) {
+//     let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
+//     let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
+
+//     // シーズンデータが存在しない場合は何もしない
+//     if (!matchData[currentSeason]) return;
+
+//     // 保存されたスケジュールを取得
+//     if (!schedule) {
+//         schedule = [];
+//         let numRounds = Object.keys(matchData[currentSeason]).length / (matchData[currentSeason].teamsNum / 2);
+//         for (let round = 0; round < numRounds; round++) {
+//             let roundMatches = [];
+//             for (let match = 0; match < matchData[currentSeason].teamsNum / 2; match++) {
+//                 let matchKey = `round${round}-match${match}`;
+//                 let matchDataEntry = matchData[currentSeason][matchKey];
+
+//                 if (!matchDataEntry) continue; // データが存在しない場合はスキップ
+//                 let homeTeam = teamsData.find(team => team.teamId === matchDataEntry.home.teamId); 
+//                 let awayTeam = teamsData.find(team => team.teamId === matchDataEntry.away.teamId);
+//                 // 日付を取得（既に保存されている場合のみ）
+//                 let matchDate = matchDataEntry?.date;  // 日付を取得
+//                 roundMatches.push({ 
+//                     home: getTeamNameByScreenSize(homeTeam), 
+//                     away: getTeamNameByScreenSize(awayTeam),
+//                     date: matchDate  // 日付を追加
+//                     //,date: getTeamNameByScreenSize(matchDate)
+//                 });
+//             }
+//             schedule.push(roundMatches);
+//         }
+//     }
+
+//     let scheduleHTML = '';
+//     const startDate = new Date(2024, 10, 13); // スタート日付
+
+//     for (let i = 0; i < schedule.length; i++) {
+//         let weekDate = new Date(startDate);
+//         weekDate.setDate(startDate.getDate() + i * 7);
+//         let weekInfo = `第${i + 1}節 ${weekDate.getFullYear()}年${weekDate.getMonth() + 1}月第${Math.ceil(weekDate.getDate() / 7)}週`;
+
+//         scheduleHTML += `<div class="round" id="round${i}" style="display: none;">`;
+//         scheduleHTML +=  `
+//             <div class="schedule-header sticky-header">
+//                 <h2 class="week-info">${weekInfo}</h2>
+//                 <div class="button-container">
+//                     <button class="button-common button3" onclick="previousRound()">前節</button>
+//                     <button class="button-common button3" onclick="nextRound()">次節</button>
+//                 </div>
+//             </div>`;
+//         schedule[i].forEach((matchEntry, index) => {
+//             scheduleHTML += `
+//                 <div class="match-container">
+//                     <table id="goalDetailsTable${i}-${index}" class="match-table">
+//                         <thead>
+//                             <tr>
+//                                 <td colspan="5"><input type="date" id="matchDate${i}-${index}" value="${matchEntry.date || ''}"readonly></td>
+//                             </tr>
+//                             <tr>
+//                                 <th id="homeTeam${i}-${index}">${matchEntry.home}</th>
+//                                 <th> <input type="number" id="homeScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'home')"readonly></th>
+//                                 <th> - </th>
+//                                 <th id="awayTeam${i}-${index}"><input type="number" id="awayScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'away')"readonly></th>
+//                                 <th> ${matchEntry.away}</th>
+//                             </tr>
+//                         </thead>
+//                         <tbody id="goalDetailsBody${i}-${index}"></tbody>
+//                     </table>`;
+
+//             const statsTableElement = generateStatsTable(i, index);
+//             scheduleHTML += statsTableElement.outerHTML;
+//             scheduleHTML += `</div>`;
+//         });
+//         scheduleHTML += `</div>`;
+//     }
+
+//     document.getElementById('scheduleContent').innerHTML = scheduleHTML;
+
+//     for (let roundIndex = 0; roundIndex < schedule.length; roundIndex++) {
+//         for (let matchIndex = 0; matchIndex < schedule[roundIndex].length; matchIndex++) {
+//             loadMatchData(roundIndex, matchIndex);
+//         }
+//     }
+
+//     // 日付に基づいて現在のラウンドを設定
+//     currentRound = calculateCurrentRound(startDate, schedule.length);
+//     showRound(currentRound);
+// }
+
 function displaySchedule(schedule = null) {
     let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
     let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
@@ -1206,26 +1295,35 @@ function displaySchedule(schedule = null) {
     // シーズンデータが存在しない場合は何もしない
     if (!matchData[currentSeason]) return;
 
+    // リーグ開始日を取得
+    let startDateStr = matchData[currentSeason].newDate || "2024-10-13"; // デフォルト値を設定
+    let startDate = new Date(startDateStr);
+    
     // 保存されたスケジュールを取得
     if (!schedule) {
         schedule = [];
         let numRounds = Object.keys(matchData[currentSeason]).length / (matchData[currentSeason].teamsNum / 2);
         for (let round = 0; round < numRounds; round++) {
             let roundMatches = [];
+            let roundStartDate = new Date(startDate);
+            roundStartDate.setDate(startDate.getDate() + round * 7); // 各節の開始日を計算
+            
             for (let match = 0; match < matchData[currentSeason].teamsNum / 2; match++) {
                 let matchKey = `round${round}-match${match}`;
                 let matchDataEntry = matchData[currentSeason][matchKey];
 
                 if (!matchDataEntry) continue; // データが存在しない場合はスキップ
+
                 let homeTeam = teamsData.find(team => team.teamId === matchDataEntry.home.teamId); 
                 let awayTeam = teamsData.find(team => team.teamId === matchDataEntry.away.teamId);
-                // 日付を取得（既に保存されている場合のみ）
-                let matchDate = matchDataEntry?.date;  // 日付を取得
+                
+                // 試合日を取得 (未設定なら節の開始日を設定)
+                let matchDate = matchDataEntry?.date || roundStartDate.toISOString().split('T')[0];
+
                 roundMatches.push({ 
                     home: getTeamNameByScreenSize(homeTeam), 
                     away: getTeamNameByScreenSize(awayTeam),
                     date: matchDate  // 日付を追加
-                    //,date: getTeamNameByScreenSize(matchDate)
                 });
             }
             schedule.push(roundMatches);
@@ -1233,12 +1331,11 @@ function displaySchedule(schedule = null) {
     }
 
     let scheduleHTML = '';
-    const startDate = new Date(2024, 10, 13); // スタート日付
 
     for (let i = 0; i < schedule.length; i++) {
-        let weekDate = new Date(startDate);
-        weekDate.setDate(startDate.getDate() + i * 7);
-        let weekInfo = `第${i + 1}節 ${weekDate.getFullYear()}年${weekDate.getMonth() + 1}月第${Math.ceil(weekDate.getDate() / 7)}週`;
+        let roundStartDate = new Date(startDate);
+        roundStartDate.setDate(startDate.getDate() + i * 7);
+        let weekInfo = `第${i + 1}節 ${roundStartDate.getFullYear()}年${roundStartDate.getMonth() + 1}月第${Math.ceil(roundStartDate.getDate() / 7)}週`;
 
         scheduleHTML += `<div class="round" id="round${i}" style="display: none;">`;
         scheduleHTML +=  `
@@ -1255,7 +1352,7 @@ function displaySchedule(schedule = null) {
                     <table id="goalDetailsTable${i}-${index}" class="match-table">
                         <thead>
                             <tr>
-                                <td colspan="5"><input type="date" id="matchDate${i}-${index}" value="${matchEntry.date || ''}"readonly></td>
+                                <td colspan="5"><input type="date" id="matchDate${i}-${index}" value="${matchEntry.date}" readonly></td>
                             </tr>
                             <tr>
                                 <th id="homeTeam${i}-${index}">${matchEntry.home}</th>
@@ -1283,10 +1380,26 @@ function displaySchedule(schedule = null) {
         }
     }
 
-    // 日付に基づいて現在のラウンドを設定
+    // **現在のラウンドを計算**
     currentRound = calculateCurrentRound(startDate, schedule.length);
     showRound(currentRound);
 }
+
+// **現在のラウンドを計算する関数**
+function calculateCurrentRound(startDate, numRounds) {
+    const today = new Date();
+    
+    // リーグ開始前なら第1節
+    if (today < startDate) return 0;
+
+    // 経過日数を計算
+    const dayDifference = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+    const weekDifference = Math.floor(dayDifference / 7);
+
+    // 節の範囲を制限（最終節を超えないように）
+    return Math.min(weekDifference, numRounds - 1);
+}
+
 
 
 // 試合詳細のスタッツ表を生成する関数
