@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -292,7 +293,7 @@ function displayTeamMonthlySchedule(teamId) {
     // 表示月と年に基づいて日程をフィルタリング
     for (const matchKey in matchData[currentSeason]) {
         // `teamsNum` や `currentStandings` をスキップ
-        if (matchKey === "teamsNum" || matchKey === "currentStandings") continue;
+        if (matchKey === "teamsNum" || matchKey === "currentStandings"|| matchKey === "newDate") continue;
         
         let match = matchData[currentSeason][matchKey];
 
@@ -441,7 +442,7 @@ function calculateOverallTeamStats() {
     // 全試合のデータを集計
     for (const matchKey in matchData[currentSeason]) {
         // `teamsNum` や `currentStandings` をスキップ
-        if (matchKey === "teamsNum" || matchKey === "currentStandings") continue;
+        if (matchKey === "teamsNum" || matchKey === "currentStandings"|| matchKey === "newDate") continue;
 
         const match = matchData[currentSeason][matchKey];
 
@@ -701,7 +702,7 @@ function calculateTeamAndOpponentStats(teamId) {
 
     for (const matchKey in matchData[currentSeason]) {
         // `teamsNum` や `currentStandings` をスキップ
-        if (matchKey === "teamsNum" || matchKey === "currentStandings") continue;
+        if (matchKey === "teamsNum" || matchKey === "currentStandings"|| matchKey === "newDate") continue;
         
         const match = matchData[currentSeason][matchKey];
         // `match` が `undefined` の場合はスキップ
@@ -803,6 +804,7 @@ function calculateTeamAndOpponentStats(teamId) {
     document.getElementById('shotsonFrame-team-total').textContent = stats.team.shotsonFrame;
     document.getElementById('shotsonFrame-team-avg').textContent = (stats.team.shotsonFrame / stats.team.matches).toFixed(2);
     document.getElementById('shotsonFrame-team-per').textContent = (stats.team.shotsonFrame*100 / stats.team.shots).toFixed(2) + '%';
+    document.getElementById('goals-team-per').textContent = (stats.team.goals*100 / stats.team.shots).toFixed(2) + '%';
     
     document.getElementById('fouls-team-total').textContent = stats.team.fouls;
     document.getElementById('fouls-team-avg').textContent = (stats.team.fouls / stats.team.matches).toFixed(2);
@@ -849,6 +851,7 @@ function calculateTeamAndOpponentStats(teamId) {
     document.getElementById('shotsonFrame-opp-total').textContent = stats.opponent.shotsonFrame;
     document.getElementById('shotsonFrame-opp-avg').textContent = (stats.opponent.shotsonFrame / stats.opponent.matches).toFixed(2);
     document.getElementById('shotsonFrame-opp-per').textContent = (stats.opponent.shotsonFrame*100 / stats.opponent.shots).toFixed(2) + '%';
+    document.getElementById('goals-opp-per').textContent = (stats.opponent.goals*100 / stats.opponent.shots).toFixed(2) + '%';
     
     document.getElementById('fouls-opp-total').textContent = stats.opponent.fouls;
     document.getElementById('fouls-opp-avg').textContent = (stats.opponent.fouls / stats.opponent.matches).toFixed(2);
@@ -895,6 +898,7 @@ function calculateTeamAndOpponentStats(teamId) {
     document.getElementById('shotsonFrame-tl-total').textContent = overallStats.shotsonFrame;
     document.getElementById('shotsonFrame-tl-avg').textContent = (overallStats.shotsonFrame / overallStats.matches).toFixed(2);
     document.getElementById('shotsonFrame-tl-per').textContent = (overallStats.shotsonFrame*100 / overallStats.shots).toFixed(2) + '%';
+    document.getElementById('goals-tl-per').textContent = (overallStats.goals*100 / overallStats.shots).toFixed(2) + '%';
     
     document.getElementById('fouls-tl-total').textContent = overallStats.fouls;
     document.getElementById('fouls-tl-avg').textContent = (overallStats.fouls / overallStats.matches).toFixed(2);
@@ -953,7 +957,7 @@ function drawGoalGraph(teamId) {
 
     for (const matchKey in matchData[currentSeason]) {
         // `teamsNum` や `currentStandings` をスキップ
-        if (matchKey === "teamsNum" || matchKey === "currentStandings") continue;
+        if (matchKey === "teamsNum" || matchKey === "currentStandings"|| matchKey === "newDate") continue;
 
         const match = matchData[currentSeason][matchKey];
 
@@ -1229,7 +1233,7 @@ function displaySchedule(schedule = null) {
     }
 
     let scheduleHTML = '';
-    const startDate = new Date(2024, 9, 15); // スタート日付
+    const startDate = new Date(2024, 10, 13); // スタート日付
 
     for (let i = 0; i < schedule.length; i++) {
         let weekDate = new Date(startDate);
@@ -1614,7 +1618,7 @@ function calculateStandings() {
 
     // 出場したチームの teamId をセットに追加
     for (const matchKey in matchData[currentSeason]) {
-        if (matchKey === "teamsNum" || matchKey === "currentStandings") continue; // 試合データ以外はスキップ
+        if (matchKey === "teamsNum" || matchKey === "currentStandings"|| matchKey === "newDate") continue; // 試合データ以外はスキップ
 
         let match = matchData[currentSeason][matchKey];
         participatingTeams.add(match.home.teamId);
@@ -1638,7 +1642,7 @@ function calculateStandings() {
 
     // スコアが入力されている試合の結果を元に順位計算
     for (const matchKey in matchData[currentSeason]) {
-        if (matchKey === "teamsNum" || matchKey === "currentStandings") continue;
+        if (matchKey === "teamsNum" || matchKey === "currentStandings"|| matchKey === "newDate") continue;
         
         let match = matchData[currentSeason][matchKey];
         let homeScore = match.home.score;
@@ -1923,13 +1927,13 @@ function displayIndividualRecords() {
 }
 
 // ページロード時に個人戦績を表示
-document.addEventListener('DOMContentLoaded', () => {
-    updateStandingsTable();  // 順位表を表示
-            updateRankChangeArrows() // 矢印も
-    displayIndividualRecords();
-    updateIndividualRecords();  // 必要な場合に個人戦績を更新
+// document.addEventListener('DOMContentLoaded', () => {
+//     updateStandingsTable();  // 順位表を表示
+//             updateRankChangeArrows() // 矢印も
+//     displayIndividualRecords();
+//     updateIndividualRecords();  // 必要な場合に個人戦績を更新
 
-});
+// });
 
 function updateIndividualRecords() {
     let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
@@ -1942,7 +1946,7 @@ function updateIndividualRecords() {
 
     // 各試合のデータを集計
     Object.keys(matchData[currentSeason]).forEach(matchKey => {
-        if (matchKey === "teamsNum" || matchKey === "currentStandings") return; // 試合データ以外をスキップ
+        if (matchKey === "teamsNum" || matchKey === "currentStandings"|| matchKey === "newDate") return; // 試合データ以外をスキップ
         
         let match = matchData[currentSeason][matchKey];
 
