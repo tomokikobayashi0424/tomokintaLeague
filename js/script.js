@@ -9,6 +9,76 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
+let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
+// ページロード時の挙動
+document.addEventListener("DOMContentLoaded", async function () {
+    // 最初のタブを開く
+    let defaultTab = document.querySelector('.tablinks.active') || document.querySelector('.tablinks[onclick*="home"]');
+    if (defaultTab) {
+        openTab(null, defaultTab.getAttribute('onclick').match(/'([^']+)'/)[1]);
+    } else {
+        openTab(null, "home"); // 明示的に 'home' を開く
+    }
+
+    // **JSONデータを取得してローカルストレージに保存**
+    await fetchAndSaveJsonFromGitHub();
+
+    // **チームデータの読み込み**
+    const teamContainer = document.querySelector('.team-list');
+
+    // **teamsData の要素数から totalTeamNum を設定**
+    let totalTeamNum = teamsData.length;
+
+    // **最大 teamId を取得（デフォルト値 11）**
+    let maxTeamId = teamsData.length > 0 ? Math.max(...teamsData.map(t => t.teamId), 11) : 0;
+
+    // **チームロゴを動的に生成**
+    teamContainer.innerHTML = ""; // 既存の内容をクリア
+    for (let i = 0; i < totalTeamNum; i++) {
+        let team = teamsData[i] || {
+            teamId: maxTeamId + i,
+            teams: `Team${i + 1}`,
+            teamsSub: `Sub${i + 1}`,
+            teamsColor: '000000',
+            teamsSubColor: '000000',
+            teamsTextColor: 'FFFFFF',
+            teamsBgColor: 'FFFFFF'
+        };
+
+        const teamItem = `
+            <div class="team-item">
+                <button class="team-logo-button" data-team="${team.teams}">
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" class="tablinks" onclick="openTabWithTeam(event, 'teamPerformanceTab', ${team.teamId})">
+                                <img src="Pictures/Team${team.teamId}.jpg" alt="${team.teams}" class="team-logo">
+                            </a>
+                        </li>
+                    </ul>
+                </button>
+                <input type="text" id="team${i + 1}" name="team${i + 1}" value="${team.teams}" class="team-name-input" readonly>
+                <input type="text" id="teamSub${i + 1}" name="teamSub${i + 1}" value="${team.teamsSub}" class="team-subname-input" readonly><br>
+            </div>
+        `;
+        teamContainer.insertAdjacentHTML('beforeend', teamItem);
+    }
+
+    // シーズンリストを作成
+    populateSeasonDropdown();
+    // 画面のデータを更新
+    updateAllDisplayData();
+});
+
+// ページ内の各種データ更新をまとめる関数
+function updateAllDisplayData() {
+    displaySchedule();  // 日程を表示
+    updateStandingsTable();  // 順位表を表示
+    updateRankChangeArrows(); // 順位変動の矢印を表示
+    displayIndividualRecords(); // 個人戦績を表示
+    updateIndividualRecords();  // 個人戦績を更新
+}
+
 // タブを切り替える関数
 function openTab(evt, tabName) {
     let tabcontent = document.getElementsByClassName("tabcontent");
@@ -34,16 +104,47 @@ function openTab(evt, tabName) {
     }
 }
 
-// ページロード時に最初のタブを開く
-document.addEventListener("DOMContentLoaded", function() {
-    let defaultTab = document.querySelector('.tablinks.active') || document.querySelector('.tablinks[onclick*="home"]');
-    
-    if (defaultTab) {
-        openTab(null, defaultTab.getAttribute('onclick').match(/'([^']+)'/)[1]);
-    } else {
-        openTab(null, "home"); // 明示的に 'home' を開く
+// ローカルストレージからシーズン一覧を取得してプルダウンを作成
+function populateSeasonDropdown() {
+    let seasonSelect = document.getElementById('seasonSelect');
+
+    // 既存の <option> をクリア
+    seasonSelect.innerHTML = '';
+
+    // シーズン名のリストを取得
+    let seasons = Object.keys(matchData);
+    let currentSeason = seasons.length > 0 ? seasons[0] : "24-s1"; // あるなら最初のシーズン、なければ "24-s1"
+
+    // シーズンが1つもない場合はデフォルトを追加
+    if (seasons.length === 0) {
+        seasons = ["24-s1"]; // 仮のデフォルト
+        matchData["24-s1"] = {}; // 空データをセット
+        localStorage.setItem('matchData', JSON.stringify(matchData));
     }
-});
+
+    // シーズンのプルダウンリストを作成
+    seasons.forEach(season => {
+        let option = document.createElement('option');
+        option.value = season;
+        option.textContent = season;
+        if (season === currentSeason) {
+            option.selected = true; // `currentSeason` の場合は選択状態にする
+        }
+        seasonSelect.appendChild(option);
+    });
+
+    // `currentSeason` をグローバル変数に設定
+    window.currentSeason = currentSeason;
+}
+
+// シーズン変更時の処理
+function changeSeason() {
+    let seasonSelect = document.getElementById('seasonSelect');
+    window.currentSeason = seasonSelect.value; // グローバル変数を更新
+
+    // シーズン変更後に画面を更新する（必要に応じて関数を呼び出す）
+    updateAllDisplayData();
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -74,73 +175,10 @@ function fetchAndSaveJsonFromGitHub() {
             Object.entries(data).forEach(([key, value]) => {
                 if (value) localStorage.setItem(key, JSON.stringify(value));
             });
-
-            // データを画面に反映
-            // updateAllDisplayData();
         })
-        .catch(error => {
-            console.error('データ取得エラー:', error);
-        });
+        .catch(error => console.error('データ取得エラー:', error));
 }
 
-// ページ内の各種データ更新をまとめる関数
-function updateAllDisplayData() {
-    displaySchedule();  // 日程を表示
-    updateStandingsTable();  // 順位表を表示
-    updateRankChangeArrows(); // 順位変動の矢印を表示
-    displayIndividualRecords(); // 個人戦績を表示
-    updateIndividualRecords();  // 個人戦績を更新
-}
-
-// ホームタブの初期化処理
-document.addEventListener('DOMContentLoaded', async () => {
-    const teamContainer = document.querySelector('.team-list');
-
-    // JSONデータを先に取得し、ローカルストレージに保存
-    await fetchAndSaveJsonFromGitHub();
-
-    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
-
-    // teamsDataの要素数からtotalTeamNumを設定
-    let totalTeamNum = teamsData.length;
-
-    // 最大teamIdを取得（デフォルト値を 11 に設定）
-    let maxTeamId = teamsData.length > 0 ? Math.max(...teamsData.map(t => t.teamId), 11) : 11;
-
-    // チームロゴを動的に生成
-    teamContainer.innerHTML = ""; // 既存の内容をクリアしてから追加
-    for (let i = 0; i < totalTeamNum; i++) {
-        let team = teamsData[i] || {
-            teamId: maxTeamId + i,
-            teams: `Team${i + 1}`,
-            teamsSub: `Sub${i + 1}`,
-            teamsColor: '000000',
-            teamsSubColor: '000000',
-            teamsTextColor: 'FFFFFF',
-            teamsBgColor: 'FFFFFF'
-        };
-
-        const teamItem = `
-            <div class="team-item">
-                <button class="team-logo-button" data-team="${team.teams}">
-                    <ul>
-                        <li>
-                            <a href="javascript:void(0)" class="tablinks" onclick="openTabWithTeam(event, 'teamPerformanceTab', ${team.teamId})">
-                                <img src="Pictures/Team${team.teamId}.jpg" alt="${team.teams}" class="team-logo">
-                            </a>
-                        </li>
-                    </ul>
-                </button>
-                <input type="text" id="team${i + 1}" name="team${i + 1}" value="${team.teams}" class="team-name-input" readonly>
-                <input type="text" id="teamSub${i + 1}" name="teamSub${i + 1}" value="${team.teamsSub}" class="team-subname-input" readonly><br>
-            </div>
-        `;
-        teamContainer.insertAdjacentHTML('beforeend', teamItem);
-    }
-
-    // 画面のデータを更新
-    updateAllDisplayData();
-});
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -158,26 +196,8 @@ function openTabWithTeam(evt, tabName, teamIndex) {
     // タブの切り替え
     openTab(evt, tabName);
 
-    // ローカルストレージからチーム名を取得
-    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
-
     // クリックしたロゴに対応するチーム名を取得
     const team = teamsData.find(t => t.teamId === teamIndex);
-    // const teamName = team ? team.teams : `Team ${teamIndex + 1}`;
-
-    // チーム名を戦績タブに表示
-    // document.getElementById('teamNameHeader').textContent = teamName;
-    // document.getElementById('teamNameHeader').setAttribute('data-team-id', teamIndex);
-    // // チームIDを表示して確認（デバッグ用）
-    // console.log("Displaying stats for teamId:", teamIndex);
-    // チーム戦績を計算して表示
-    //calculateTeamStats(teamIndex); // ここでチーム戦績を計算する
-    // 初回に現在の月のスケジュールを表示
-    currentMonthOffset = 0;
-    // displayTeamMonthlySchedule(teamIndex);
-    // calculateTeamStats(teamIndex); // チーム戦績を表示
-    // calculateTeamAndOpponentStats(teamIndex);
-    // チーム情報が存在する場合に背景色と文字色を適用
     if (team) {
         const teamName = team.teams || `Team ${teamIndex + 1}`;
         const teamColor = team.teamsColor || 'FFFFFF'; // デフォルト背景色：白
@@ -186,9 +206,6 @@ function openTabWithTeam(evt, tabName, teamIndex) {
         const teamBgColor = team.teamsBgColor || 'FFFFFF'; // デフォルト文字色：黒
         // let teamColor2 = teamInfo ? `#${teamInfo.teamsColor}` : "#FFFFFF"; // デフォルト白
         let textColor = getTextColor(teamColor);
-// // CSS変数を更新（body用）
-// document.documentElement.style.setProperty('--main-color-1', `#${teamColor}`);
-// document.documentElement.style.setProperty('--sub-color-1', `#${teamSubColor}`);
 
         // CSS変数を更新
         document.documentElement.style.setProperty('--team-color-1', `#${teamColor}`);
@@ -197,74 +214,20 @@ function openTabWithTeam(evt, tabName, teamIndex) {
         document.documentElement.style.setProperty('--teambg-color-1', `#${teamBgColor}`);
         document.documentElement.style.setProperty('--teamhead-color-1', `${textColor}`);
 
-
         // タブのタイトルにチーム名を設定
         const teamHeader = document.getElementById('teamNameHeader');
         teamHeader.textContent = teamName;
         teamHeader.setAttribute('data-team-id', teamIndex);
 
         // 初回に現在の月のスケジュールを表示
-        currentMonthOffset = 0;
+        // currentMonthOffset = 0;
+        // チーム日程を表示
         displayTeamMonthlySchedule(teamIndex);
-        calculateTeamAndOpponentStats(teamIndex); // チーム戦績を表示
+        // チーム戦績を表示
+        calculateTeamAndOpponentStats(teamIndex); 
     }
 }
 
-
-
-
-let currentSeason = "24-s1"; // デフォルトシーズン
-
-// ローカルストレージからシーズン一覧を取得してプルダウンを作成
-function populateSeasonDropdown() {
-    let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
-    let seasonSelect = document.getElementById('seasonSelect');
-
-    // 既存の <option> をクリア
-    seasonSelect.innerHTML = '';
-
-    // シーズン名のリストを取得
-    let seasons = Object.keys(matchData);
-
-    // シーズンが1つもない場合はデフォルトを追加
-    if (seasons.length === 0) {
-        seasons = ["24-s1"]; // 仮のデフォルト
-        matchData["24-s1"] = {}; // 空データをセット
-        localStorage.setItem('matchData', JSON.stringify(matchData));
-    }
-
-    // シーズンのプルダウンリストを作成
-    seasons.forEach(season => {
-        let option = document.createElement('option');
-        option.value = season;
-        option.textContent = season;
-        if (season === currentSeason) {
-            option.selected = true;
-        }
-        seasonSelect.appendChild(option);
-    });
-}
-
-// シーズン変更時の処理
-function changeSeason() {
-    let seasonSelect = document.getElementById('seasonSelect');
-    currentSeason = seasonSelect.value;
-
-    // シーズン変更後に画面を更新する（必要に応じて関数を呼び出す）
-    updateAllViews();
-}
-
-// 画面のデータを更新する関数（必要に応じて追加）
-function updateAllViews() {
-    displaySchedule(); // 日程を更新
-    updateStandingsTable(); // 順位表を更新
-    updateRankChangeArrows(); // 順位変動を更新
-    displayIndividualRecords(); // 個人戦績を更新
-    // 他の必要な更新処理を追加
-}
-
-// ページロード時にシーズンリストを作成
-document.addEventListener('DOMContentLoaded', populateSeasonDropdown);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // チーム戦績タブに日程表を追加
@@ -272,15 +235,14 @@ document.addEventListener('DOMContentLoaded', populateSeasonDropdown);
 let currentMonthOffset = 0; // 現在の月を基準としたオフセット
 
 // チームごとの月ごとの試合を表示する関数
-// チームごとの月ごとの試合を表示する関数
 function displayTeamMonthlySchedule(teamId) {
-    let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
+    
     
 
     // シーズンデータが存在しない場合は何もしない
     if (!matchData[currentSeason]) return;
     
-    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
+    // let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
     let scheduleHTML = '';
 
     // 現在の月を基準にして表示月を計算
@@ -484,168 +446,6 @@ function calculateOverallTeamStats() {
     console.log("総合スタッツ:", overallStats);
     return overallStats;
 }
-
-
-// 特定のチームの統計データを集計する関数
-// function calculateTeamStats(teamId) {
-//     const matchData = JSON.parse(localStorage.getItem('matchData')) || [];
-//     let teamStats = {
-//         matches: 0,
-//         wins: 0,
-//         goals: 0,
-//         draws: 0,
-//         losses: 0,
-//         possession: 0,
-//         shots: 0,
-//         shotsonFrame: 0,
-//         shotsonFrameRate: 0,
-//         fouls: 0,
-//         offsides: 0,
-//         cornerKicks: 0,
-//         freeKicks: 0,
-//         passes: 0,
-//         successfulPasses: 0,
-//         passSuccessRate: 0,
-//         crosses: 0,
-//         PassCuts: 0,
-//         successfulTackles: 0,
-//         save: 0
-//     };
-
-//     let goalPlayers = {};
-//     let assistPlayers = {};
-
-//     for (const matchKey in matchData) {
-//         const match = matchData[matchKey];
-//         const isHome = match.home.teamId === teamId;
-//         const isAway = match.away.teamId === teamId;
-
-//         // スコアが未入力の試合を無視
-//         const homeScore = match.home.score;
-//         const awayScore = match.away.score;
-//         if (homeScore === null || awayScore === null) continue;
-
-//         if (isHome || isAway) {
-//             teamStats.matches++;
-//             teamStats.goals += isHome ? (homeScore || 0) : (awayScore || 0);
-//             teamStats.possession += isHome ? (match.home.fullTime.possession || 0) : (match.away.fullTime.possession || 0);
-//             teamStats.shots += isHome ? (match.home.fullTime.shots || 0) : (match.away.fullTime.shots || 0);
-//             teamStats.shotsonFrame += isHome ? (match.home.fullTime.shotsonFrame || 0) : (match.away.fullTime.shotsonFrame || 0);
-//             teamStats.fouls += isHome ? (match.home.fullTime.fouls || 0) : (match.away.fullTime.fouls || 0);
-//             teamStats.offsides += isHome ? (match.home.fullTime.offsides || 0) : (match.away.fullTime.offsides || 0);
-//             teamStats.cornerKicks += isHome ? (match.home.fullTime.cornerKicks || 0) : (match.away.fullTime.cornerKicks || 0);
-//             teamStats.freeKicks += isHome ? (match.home.fullTime.freeKicks || 0) : (match.away.fullTime.freeKicks || 0);
-//             teamStats.passes += isHome ? (match.home.fullTime.passes || 0) : (match.away.fullTime.passes || 0);
-//             teamStats.successfulPasses += isHome ? (match.home.fullTime.successfulPasses || 0) : (match.away.fullTime.successfulPasses || 0);
-//             teamStats.crosses += isHome ? (match.home.fullTime.crosses || 0) : (match.away.fullTime.crosses || 0);
-//             teamStats.PassCuts += isHome ? (match.home.fullTime.PassCuts || 0) : (match.away.fullTime.PassCuts || 0);
-//             teamStats.successfulTackles += isHome ? (match.home.fullTime.successfulTackles || 0) : (match.away.fullTime.successfulTackles || 0);
-//             teamStats.save += isHome ? (match.home.fullTime.save || 0) : (match.away.fullTime.save || 0);
-
-//             // goalPlayersArrayとassistPlayersArrayを適切に定義
-//             const goalPlayersArray = isHome ? match.home.goalPlayers : match.away.goalPlayers;
-//             const assistPlayersArray = isHome ? match.home.assistPlayers : match.away.assistPlayers;
-
-
-//             if (Array.isArray(goalPlayersArray)) {
-//                 goalPlayersArray.forEach(player => {
-//                     if (player) {
-//                         goalPlayers[player] = (goalPlayers[player] || 0) + 1;
-//                     }
-//                 });
-//             }
-
-//             if (Array.isArray(assistPlayersArray)) {
-//                 assistPlayersArray.forEach(player => {
-//                     if (player) {
-//                         assistPlayers[player] = (assistPlayers[player] || 0) + 1;
-//                     }
-//                 });
-//             }
-
-//             if (isHome && homeScore > awayScore || isAway && awayScore > homeScore) {
-//                 teamStats.wins++;
-//             } else if (homeScore === awayScore) {
-//                 teamStats.draws++;
-//             } else {
-//                 teamStats.losses++;
-//             }
-//         }
-//     }
-
-//     // 戦績データを表示
-//     document.getElementById('matches-total').textContent = teamStats.matches;
-//     document.getElementById('wins-total').textContent = teamStats.wins;
-//     document.getElementById('goals-total').textContent = teamStats.goals;
-//     document.getElementById('draws-total').textContent = teamStats.draws;
-//     document.getElementById('losses-total').textContent = teamStats.losses;
-//     document.getElementById('possession-total').textContent = "-";
-//     document.getElementById('shots-total').textContent = teamStats.shots;
-//     document.getElementById('shotsonFrame-total').textContent = teamStats.shotsonFrame;
-//     document.getElementById('shotsonFrameRate-total').textContent = "-";
-//     document.getElementById('fouls-total').textContent = teamStats.fouls;
-//     document.getElementById('offsides-total').textContent = teamStats.offsides;
-//     document.getElementById('cornerKicks-total').textContent = teamStats.cornerKicks;
-//     document.getElementById('freeKicks-total').textContent = teamStats.freeKicks;
-//     document.getElementById('passes-total').textContent = teamStats.passes;
-//     document.getElementById('successfulPasses-total').textContent = teamStats.successfulPasses;
-//     document.getElementById('passSuccessRate-total').textContent = "-";
-//     document.getElementById('crosses-total').textContent = teamStats.crosses;
-//     document.getElementById('PassCuts-total').textContent = teamStats.PassCuts;
-//     document.getElementById('successfulTackles-total').textContent = teamStats.successfulTackles;
-//     document.getElementById('saves-total').textContent = teamStats.save;
-
-//     // 各種平均の計算と表示
-//     document.getElementById('matches-avg').textContent = "-";
-//     document.getElementById('wins-avg').textContent = (teamStats.wins*100 / teamStats.matches).toFixed(2) + '%';
-//     document.getElementById('goals-avg').textContent = (teamStats.goals / teamStats.matches).toFixed(2);
-//     document.getElementById('draws-avg').textContent = (teamStats.draws*100 / teamStats.matches).toFixed(2) + '%';
-//     document.getElementById('losses-avg').textContent = (teamStats.losses*100 / teamStats.matches).toFixed(2) + '%';
-//     document.getElementById('possession-avg').textContent = (teamStats.possession / teamStats.matches).toFixed(2) + '%';
-//     document.getElementById('shots-avg').textContent = (teamStats.shots / teamStats.matches).toFixed(2);
-//     document.getElementById('shotsonFrame-avg').textContent = (teamStats.shotsonFrame / teamStats.matches).toFixed(2);
-//     document.getElementById('shotsonFrameRate-avg').textContent = (teamStats.shotsonFrame*100 / teamStats.shots).toFixed(2) + '%';
-//     document.getElementById('fouls-avg').textContent = (teamStats.fouls / teamStats.matches).toFixed(2);
-//     document.getElementById('offsides-avg').textContent = (teamStats.offsides / teamStats.matches).toFixed(2);
-//     document.getElementById('cornerKicks-avg').textContent = (teamStats.cornerKicks / teamStats.matches).toFixed(2);
-//     document.getElementById('freeKicks-avg').textContent = (teamStats.freeKicks / teamStats.matches).toFixed(2);
-//     document.getElementById('passes-avg').textContent = (teamStats.passes / teamStats.matches).toFixed(2);
-//     document.getElementById('successfulPasses-avg').textContent = (teamStats.successfulPasses / teamStats.matches).toFixed(2);
-//     document.getElementById('passSuccessRate-avg').textContent = (teamStats.successfulPasses*100 / teamStats.passes).toFixed(2) + '%';
-//     document.getElementById('crosses-avg').textContent = (teamStats.crosses / teamStats.matches).toFixed(2);
-//     document.getElementById('PassCuts-avg').textContent = (teamStats.PassCuts / teamStats.matches).toFixed(2);
-//     document.getElementById('successfulTackles-avg').textContent = (teamStats.successfulTackles / teamStats.matches).toFixed(2);
-//     document.getElementById('saves-avg').textContent = (teamStats.save / teamStats.matches).toFixed(2);
-//     // 全体平均（TL平均）の計算
-//     const overallStats = calculateOverallTeamStats();
-//     document.getElementById('matches-tl-avg').textContent = overallStats.matches;
-//     document.getElementById('wins-tl-avg').textContent = (overallStats.wins*100 / overallStats.matches).toFixed(2) + '%';
-//     document.getElementById('goals-tl-avg').textContent = (overallStats.goals / overallStats.matches).toFixed(2);
-//     document.getElementById('draws-tl-avg').textContent = (overallStats.draws*100 / overallStats.matches).toFixed(2) + '%';
-//     document.getElementById('losses-tl-avg').textContent = (overallStats.losses*100 / overallStats.matches).toFixed(2) + '%';
-//     document.getElementById('possession-tl-avg').textContent = (overallStats.possession / overallStats.matches).toFixed(2) + '%';
-//     document.getElementById('shots-tl-avg').textContent = (overallStats.shots / overallStats.matches).toFixed(2);
-//     document.getElementById('shotsonFrame-tl-avg').textContent = (overallStats.shotsonFrame / overallStats.matches).toFixed(2);
-//     document.getElementById('shotsonFrameRate-tl-avg').textContent = (overallStats.shotsonFrame*100 / overallStats.shots).toFixed(2) + '%';
-//     document.getElementById('fouls-tl-avg').textContent = (overallStats.fouls / overallStats.matches).toFixed(2);
-//     document.getElementById('offsides-tl-avg').textContent = (overallStats.offsides / overallStats.matches).toFixed(2);
-//     document.getElementById('cornerKicks-tl-avg').textContent = (overallStats.cornerKicks / overallStats.matches).toFixed(2);
-//     document.getElementById('freeKicks-tl-avg').textContent = (overallStats.freeKicks / overallStats.matches).toFixed(2);
-//     document.getElementById('passes-tl-avg').textContent = (overallStats.passes / overallStats.matches).toFixed(2);
-//     document.getElementById('successfulPasses-tl-avg').textContent = (overallStats.successfulPasses / overallStats.matches).toFixed(2);
-//     document.getElementById('passSuccessRate-tl-avg').textContent = (overallStats.successfulPasses*100 / overallStats.passes).toFixed(2) + '%';
-//     document.getElementById('crosses-tl-avg').textContent = (overallStats.crosses / overallStats.matches).toFixed(2);
-//     document.getElementById('PassCuts-tl-avg').textContent = (overallStats.PassCuts / overallStats.matches).toFixed(2);
-//     document.getElementById('successfulTackles-tl-avg').textContent = (overallStats.successfulTackles / overallStats.matches).toFixed(2);
-//     document.getElementById('saves-tl-avg').textContent = (overallStats.save / overallStats.matches).toFixed(2);
-
-//     // ゴールとアシストランキングの表示（新しく作った関数を使用）
-//     displayTeamPlayerRanking('teamGoalPlayersTable', goalPlayers);  // チームゴールランキング
-//     displayTeamPlayerRanking('teamAssistPlayersTable', assistPlayers);  // チームアシストランキング
-//     // チームのゴール・失点グラフを描画
-//     drawGoalGraph(teamId);
-
-// }
 
 // 特定のチームの統計データを集計する関数
 function calculateTeamAndOpponentStats(teamId) {
@@ -1288,9 +1088,9 @@ function getTeamNameByScreenSize(team) {
 //     showRound(currentRound);
 // }
 
+// 日程表を表示する関数
 function displaySchedule(schedule = null) {
-    let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
-    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
+    // let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
 
     // シーズンデータが存在しない場合は何もしない
     if (!matchData[currentSeason]) return;
@@ -1302,7 +1102,8 @@ function displaySchedule(schedule = null) {
     // 保存されたスケジュールを取得
     if (!schedule) {
         schedule = [];
-        let numRounds = Object.keys(matchData[currentSeason]).length / (matchData[currentSeason].teamsNum / 2);
+        let totalMatches = Object.keys(matchData[currentSeason]).length - 3; // 試合数のみをカウント
+        let numRounds = totalMatches / (matchData[currentSeason].teamsNum / 2);
         for (let round = 0; round < numRounds; round++) {
             let roundMatches = [];
             let roundStartDate = new Date(startDate);
@@ -1312,7 +1113,10 @@ function displaySchedule(schedule = null) {
                 let matchKey = `round${round}-match${match}`;
                 let matchDataEntry = matchData[currentSeason][matchKey];
 
-                if (!matchDataEntry) continue; // データが存在しない場合はスキップ
+                if (!matchDataEntry) {
+                    console.warn(`試合データが見つかりません: ${matchKey}`);
+                    continue;
+                }  
 
                 let homeTeam = teamsData.find(team => team.teamId === matchDataEntry.home.teamId); 
                 let awayTeam = teamsData.find(team => team.teamId === matchDataEntry.away.teamId);
@@ -1385,7 +1189,7 @@ function displaySchedule(schedule = null) {
     showRound(currentRound);
 }
 
-// **現在のラウンドを計算する関数**
+// 現在のラウンドを計算する関数
 function calculateCurrentRound(startDate, numRounds) {
     const today = new Date();
     
@@ -1400,8 +1204,6 @@ function calculateCurrentRound(startDate, numRounds) {
     return Math.min(weekDifference, numRounds - 1);
 }
 
-
-
 // 試合詳細のスタッツ表を生成する関数
 function generateStatsTable(roundIndex, matchIndex) {
     const statCategories = ["支配率 (%)", "シュート", "枠内シュート", "ファウル", "オフサイド", 
@@ -1414,7 +1216,7 @@ function generateStatsTable(roundIndex, matchIndex) {
     return statsTable;
 }
 
-// スタッツ表を作成する関数
+// 得点詳細のスタッツ表を作成する関数
 function createStatsTable(statCategories, roundIndex, matchIndex) {
     const table = document.createElement('table');
     table.classList.add('stats-table'); // スタイルクラスを追加
@@ -1613,7 +1415,6 @@ function sortGoalDetails(roundIndex, matchIndex) {
 
 // 日程表データの自動読み込みをする関数
 function loadMatchData(roundIndex, matchIndex) {
-    let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
     // let currentSeason = "24-s1"; // 現在のシーズンを指定（必要に応じて変更）
 
     // シーズンデータが存在しない場合は何もしない
@@ -1721,8 +1522,7 @@ function loadMatchData(roundIndex, matchIndex) {
 //     return standings;
 // }
 function calculateStandings() {
-    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
-    let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
+    // let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
 
     // シーズンデータが存在しない場合は空の配列を返す
     if (!matchData[currentSeason]) return [];
@@ -1809,9 +1609,8 @@ function calculateStandings() {
 // 順位表を更新する関数
 function updateStandingsTable() {
     let standings = calculateStandings();
-    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
+    // let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
 
-    let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
     // let currentSeason = "24-s1";
     
     if (!matchData[currentSeason] || !matchData[currentSeason].currentStandings) return;
@@ -1920,11 +1719,10 @@ function saveStandingsData(standings) {
 
 // }
 function updateRankChangeArrows() {
-    let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
     // let currentSeason = "24-s1"; // 現在のシーズンを指定
     let currentStandings = matchData[currentSeason]?.currentStandings || [];
     let standings = calculateStandings(); // 現在の順位を再計算
-    let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
+    // let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
 
     let tbody = document.querySelector('#standingsTable tbody');
     tbody.innerHTML = ''; // 順位表を初期化
@@ -2039,17 +1837,7 @@ function displayIndividualRecords() {
     });
 }
 
-// ページロード時に個人戦績を表示
-// document.addEventListener('DOMContentLoaded', () => {
-//     updateStandingsTable();  // 順位表を表示
-//             updateRankChangeArrows() // 矢印も
-//     displayIndividualRecords();
-//     updateIndividualRecords();  // 必要な場合に個人戦績を更新
-
-// });
-
 function updateIndividualRecords() {
-    let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
     // let currentSeason = "24-s1";
 
     if (!matchData[currentSeason]) return;
