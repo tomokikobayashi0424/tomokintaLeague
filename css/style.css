@@ -313,6 +313,10 @@ nav ul {
     margin: 0;
     padding: 0;
 } */
+nav ul li {
+    display: flex;  /* リストアイテム内の要素を中央揃え */
+    align-items: center;  /* 縦方向中央揃え */
+}
 
 nav ul li a {
     display: block;
@@ -348,14 +352,9 @@ nav ul li select {
     /* transition: background-color 0.3s ease, color 0.3s ease; */
 }
 
-/* シーズンプルダウンのホバー時 */
-nav ul li select:hover {
-    background-color: var(--sub-color-1);
-    color: var(--main-color-2);
-}
-
 /* シーズンプルダウンの選択時 */
-nav ul li select:focus {
+nav ul li select:focus,
+nav ul li select:hover {
     background-color: var(--main-color-2);
     color: var(--white-color-1);
 }
