@@ -84,7 +84,8 @@ function updateAllDisplayData() {
     updateStandingsTable();  // 順位表を表示
     updateRankChangeArrows(); // 順位変動の矢印を表示
     displayIndividualRecords(); // 個人戦績を表示
-    displayTeamMonthlySchedule();
+    // displayTeamMonthlySchedule(); //チーム日程表の表示
+    toggleSeasonView();
     updateIndividualRecords();  // 個人戦績を更新
 }
 
@@ -253,6 +254,7 @@ function toggleSeasonView() {
     displayTeamMonthlySchedule(parseInt(teamIndex));
 }
 
+// チーム日程表の表示
 function displayTeamMonthlySchedule(teamId) {
     let scheduleHTML = '';
 
@@ -358,14 +360,11 @@ function nextMonth() {
     displayTeamMonthlySchedule(teamId);
 }
 
-
-// チームスタッツを閉じる関数
 // チームスタッツを閉じる関数
 function closeTeamPerformanceTab() {
     document.getElementById('teamPerformanceTab').style.display = 'none';
     openTab(null, "home"); // ホームタブをアクティブにする
 }
-
 
 // チームごとのプレイヤーランキングを表示する関数
 function displayTeamPlayerRanking(tableId, players) {
@@ -402,8 +401,6 @@ function displayTeamPlayerRanking(tableId, players) {
         tbody.insertAdjacentHTML('beforeend', row);
     });
 }
-
-
 
 // 全チームの統計データを集計する関数
 function calculateOverallTeamStats() {
