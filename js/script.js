@@ -235,18 +235,28 @@ function openTabWithTeam(evt, tabName, teamIndex) {
 // シーズン切り替え用関数
 function toggleSeasonView() {
     displaySeason = (displaySeason === "current") ? "all" : "current";
-    let toggleButton = document.querySelector(".button2");
+    let seasonText = document.getElementById("seasonDisplayText");
 
     if (displaySeason === "all") {
-        toggleButton.textContent = "現在のシーズンのみ表示";
+        seasonText.textContent = "All";
     } else {
-        toggleButton.textContent = "全シーズン表示";
+        seasonText.textContent = `${currentSeason}`;
     }
 
     // 表示データを更新
     let teamIndex = document.getElementById('teamNameHeader').getAttribute('data-team-id');
     displayTeamMonthlySchedule(parseInt(teamIndex));
 }
+
+// 初回ロード時にボタンのテキストをセット
+document.addEventListener("DOMContentLoaded", function() {
+    let seasonText = document.getElementById("seasonDisplayText");
+    if (seasonText) {
+        seasonText.textContent = `${currentSeason}`;
+    }
+});
+
+
 
 // チームごとの月ごとの試合を表示する関数
 // function displayTeamMonthlySchedule(teamId) {
