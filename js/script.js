@@ -84,7 +84,7 @@ function updateAllDisplayData() {
     updateStandingsTable();  // 順位表を表示
     updateRankChangeArrows(); // 順位変動の矢印を表示
     displayIndividualRecords(); // 個人戦績を表示
-    // displayTeamMonthlySchedule(); //チーム日程表の表示
+    displayTeamMonthlySchedule(); //チーム日程表の表示
     toggleSeasonView();
     updateIndividualRecords();  // 個人戦績を更新
 }
@@ -252,6 +252,8 @@ function toggleSeasonView() {
     // 表示データを更新
     let teamIndex = document.getElementById('teamNameHeader').getAttribute('data-team-id');
     displayTeamMonthlySchedule(parseInt(teamIndex));
+    // チーム戦績を表示
+    calculateTeamAndOpponentStats(parseInt(teamIndex));
 }
 
 // チーム日程表の表示
@@ -343,8 +345,6 @@ function displayTeamMonthlySchedule(teamId) {
     document.getElementById('teamScheduleTableBody').innerHTML = scheduleHTML;
     document.getElementById('currentMonthLabel').textContent = `${displayYear}年${displayMonthIndex + 1}月`;
 }
-
-
 
 // 前の月を表示
 function previousMonth() {
@@ -768,10 +768,6 @@ function calculateTeamAndOpponentStats(teamId) {
     return stats;
 }
 
-
-
-
-
 let lineChart = null;  // 折れ線グラフ用の変数
 let barChart5Min = null;   // 5分間隔の棒グラフ用の変数
 let barChart15Min = null;   // 15分間隔の棒グラフ用の変数
@@ -815,7 +811,6 @@ function drawGoalGraph(teamId) {
     drawStackedGoalGraph(goalTimes, concededTimes, 5);  // 5分刻みの棒グラフ
     drawStackedGoalGraph(goalTimes, concededTimes, 15); // 15分刻みの棒グラフ
 }
-
 
 // 折れ線グラフ（プロットのみ）を作成する関数
 function createGoalScatterPlot(goalTimes, concededTimes) {
@@ -987,14 +982,6 @@ function drawStackedGoalGraph(goalTimes, concededTimes, interval) {
         barChart15Min = chart;
     }
 }
-
-
-
-
-
-
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
