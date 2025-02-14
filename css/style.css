@@ -119,19 +119,14 @@ body {
     cursor: pointer; 
 
 }
-.button1 {
+.button1,
+.button2 {
     margin: 5%;
     padding: 5px;
     width: 20%;
     /* 角を丸くする */
     background-color: var(--teambg-color-1);
     color: var(--teamtext-color-1);
-    border-radius: 5px;
-}
-
-.button2 {
-    padding: 10px;
-    width: 30%;
     border-radius: 5px;
 }
 
@@ -148,7 +143,8 @@ body {
     background-color: var(--accent-color-1);
     color: var(--gray-color-1);
 }
-.button1:hover {
+.button1:hover,
+.button2:hover {
     background-color: var(--teambg-color-1);
     color: var(--gray-color-1);
 }
