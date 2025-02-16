@@ -1022,106 +1022,6 @@ function getTeamNameByScreenSize(team) {
     }
 }
 
-// 現在の日付に基づいて表示すべきラウンドを計算する関数
-// function calculateCurrentRound(startDate, scheduleLength) {
-//     const today = new Date();
-//     const dayDifference = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
-//     const weekDifference = Math.floor(dayDifference / 7);
-
-//     // 0 以上 scheduleLength - 1 以下の範囲に制限
-//     return Math.max(0, Math.min(weekDifference, scheduleLength - 1));
-// }
-
-// // 日程表を表示する関数
-// function displaySchedule(schedule = null) {
-//     let matchData = JSON.parse(localStorage.getItem('matchData')) || {};
-//     let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
-
-//     // シーズンデータが存在しない場合は何もしない
-//     if (!matchData[currentSeason]) return;
-
-//     // 保存されたスケジュールを取得
-//     if (!schedule) {
-//         schedule = [];
-//         let numRounds = Object.keys(matchData[currentSeason]).length / (matchData[currentSeason].teamsNum / 2);
-//         for (let round = 0; round < numRounds; round++) {
-//             let roundMatches = [];
-//             for (let match = 0; match < matchData[currentSeason].teamsNum / 2; match++) {
-//                 let matchKey = `round${round}-match${match}`;
-//                 let matchDataEntry = matchData[currentSeason][matchKey];
-
-//                 if (!matchDataEntry) continue; // データが存在しない場合はスキップ
-//                 let homeTeam = teamsData.find(team => team.teamId === matchDataEntry.home.teamId); 
-//                 let awayTeam = teamsData.find(team => team.teamId === matchDataEntry.away.teamId);
-//                 // 日付を取得（既に保存されている場合のみ）
-//                 let matchDate = matchDataEntry?.date;  // 日付を取得
-//                 roundMatches.push({ 
-//                     home: getTeamNameByScreenSize(homeTeam), 
-//                     away: getTeamNameByScreenSize(awayTeam),
-//                     date: matchDate  // 日付を追加
-//                     //,date: getTeamNameByScreenSize(matchDate)
-//                 });
-//             }
-//             schedule.push(roundMatches);
-//         }
-//     }
-
-//     let scheduleHTML = '';
-//     const startDate = new Date(2024, 10, 13); // スタート日付
-
-//     for (let i = 0; i < schedule.length; i++) {
-//         let weekDate = new Date(startDate);
-//         weekDate.setDate(startDate.getDate() + i * 7);
-//         let weekInfo = `第${i + 1}節 ${weekDate.getFullYear()}年${weekDate.getMonth() + 1}月第${Math.ceil(weekDate.getDate() / 7)}週`;
-
-//         scheduleHTML += `<div class="round" id="round${i}" style="display: none;">`;
-//         scheduleHTML +=  `
-//             <div class="schedule-header sticky-header">
-//                 <h2 class="week-info">${weekInfo}</h2>
-//                 <div class="button-container">
-//                     <button class="button-common button3" onclick="previousRound()">前節</button>
-//                     <button class="button-common button3" onclick="nextRound()">次節</button>
-//                 </div>
-//             </div>`;
-//         schedule[i].forEach((matchEntry, index) => {
-//             scheduleHTML += `
-//                 <div class="match-container">
-//                     <table id="goalDetailsTable${i}-${index}" class="match-table">
-//                         <thead>
-//                             <tr>
-//                                 <td colspan="5"><input type="date" id="matchDate${i}-${index}" value="${matchEntry.date || ''}"readonly></td>
-//                             </tr>
-//                             <tr>
-//                                 <th id="homeTeam${i}-${index}">${matchEntry.home}</th>
-//                                 <th> <input type="number" id="homeScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'home')"readonly></th>
-//                                 <th> - </th>
-//                                 <th id="awayTeam${i}-${index}"><input type="number" id="awayScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'away')"readonly></th>
-//                                 <th> ${matchEntry.away}</th>
-//                             </tr>
-//                         </thead>
-//                         <tbody id="goalDetailsBody${i}-${index}"></tbody>
-//                     </table>`;
-
-//             const statsTableElement = generateStatsTable(i, index);
-//             scheduleHTML += statsTableElement.outerHTML;
-//             scheduleHTML += `</div>`;
-//         });
-//         scheduleHTML += `</div>`;
-//     }
-
-//     document.getElementById('scheduleContent').innerHTML = scheduleHTML;
-
-//     for (let roundIndex = 0; roundIndex < schedule.length; roundIndex++) {
-//         for (let matchIndex = 0; matchIndex < schedule[roundIndex].length; matchIndex++) {
-//             loadMatchData(roundIndex, matchIndex);
-//         }
-//     }
-
-//     // 日付に基づいて現在のラウンドを設定
-//     currentRound = calculateCurrentRound(startDate, schedule.length);
-//     showRound(currentRound);
-// }
-
 // 日程表を表示する関数
 function displaySchedule(schedule = null) {
     // let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
@@ -1554,9 +1454,8 @@ function loadMatchData(roundIndex, matchIndex) {
 
 //     return standings;
 // }
-function calculateStandings() {
-    // let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
 
+function calculateStandings() {
     // シーズンデータが存在しない場合は空の配列を返す
     if (!matchData[currentSeason]) return [];
 
@@ -1673,102 +1572,23 @@ function updateStandingsTable() {
     });
 }
 
-// 順位変動の保存
-// function saveStandingsData(standings) {
-//     let currentStandings = standings.map(team => ({
-//         Rank: team.currentRank,
-//         teamId: team.teamId // TeamIdを保存
-//     }));
-
-//     // // 現在の順位を previousStandings に移動
-//     // let previousStandings = JSON.parse(localStorage.getItem('currentStandings')) || [];
-//     // localStorage.setItem('previousStandings', JSON.stringify(previousStandings));
-
-//     // 現在の順位のみを保存
-//     localStorage.setItem('currentStandings', JSON.stringify(currentStandings));
-// }
-
-// 順位変動の矢印を表示する関数
-// function updateRankChangeArrows() {
-//     let currentStandings = JSON.parse(localStorage.getItem('currentStandings')) || [];
-//     let standings = calculateStandings(); // 現在の順位を再計算
-//     let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
-
-//     let tbody = document.querySelector('#standingsTable tbody');
-//     tbody.innerHTML = ''; // 順位表を初期化
-
-//     standings.forEach(team => {
-//         let currentTeam = currentStandings.find(t => t.teamId === team.teamId);
-//         let previousRank = currentTeam ? currentTeam.Rank : null;
-//         let currentRank = team.currentRank;
-
-//         let rankChange = '';
-//         let rankClass = '';
-
-//         // previousRank と currentRank を比較して順位の変動をチェック
-//         if (previousRank !== null) {
-//             if (currentRank < previousRank) {
-//                 rankChange = '▲'; // 順位上昇
-//                 rankClass = 'rank-up';
-//             } else if (currentRank > previousRank) {
-//                 rankChange = '▼'; // 順位下降
-//                 rankClass = 'rank-down';
-//             } else {
-//                 rankChange = '---'; // 順位変動なし
-//                 rankClass = 'rank-no-change';
-//             }
-//         } else {
-//             rankChange = '-';
-//             rankClass = 'rank-no-change';
-//         }
-
-//         let teamInfo = teamsData.find(t => t.teamId === team.teamId);
-//         let teamName = getTeamNameByScreenSize(teamInfo); // 画面幅に応じたチーム名
-//         let teamColor = teamInfo ? `${teamInfo.teamsColor}` : "FFFFFF"; // デフォルト白
-//         let teamSubColor = teamInfo ? `${teamInfo.teamsSubColor}` : "FFFFFF"; // デフォルト白
-//         let textColor = getTextColor(teamColor);
-
-
-//         let row = `
-//             <tr>
-//                 <td>${team.currentRank} <span class="${rankClass}">${rankChange}</span></td>
-//                 <td style="
-//                     background-color:#${teamColor}; 
-//                     background: linear-gradient(to bottom, #${teamSubColor} 0%, #${teamSubColor} 10%, #${teamColor} 20%, #${teamColor} 80%, #${teamSubColor} 90%);
-//                     color:${textColor}; font-weight:bold; 
-//                     text-align:center;">${teamName}</td>
-//                 <td>${team.points}</td>
-//                 <td>${team.matchesPlayed}</td>
-//                 <td>${team.wins}</td>
-//                 <td>${team.draws}</td>
-//                 <td>${team.losses}</td>
-//                 <td>${team.goalDifference}</td>
-//                 <td>${team.totalGoals}</td>
-//             </tr>`;
-//         tbody.insertAdjacentHTML('beforeend', row);
-//     });
-//     // localStorage.setItem('currentStandings', JSON.stringify(currentStandings));
-
-// }
 function updateRankChangeArrows() {
-    // let currentSeason = "24-s1"; // 現在のシーズンを指定
     let currentStandings = matchData[currentSeason]?.currentStandings || [];
     let standings = calculateStandings(); // 現在の順位を再計算
-    // let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
 
     let tbody = document.querySelector('#standingsTable tbody');
     tbody.innerHTML = ''; // 順位表を初期化
 
     standings.forEach(team => {
-        let currentTeam = currentStandings.find(t => t.teamId === team.teamId);
-        let previousRank = currentTeam ? currentTeam.Rank : null;
+        // `teamId` に対応する `previousRank` を取得
+        let previousRank = currentStandings.findIndex(t => t.teamId === team.teamId) + 1;
         let currentRank = team.currentRank;
 
         let rankChange = '';
         let rankClass = '';
 
         // previousRank と currentRank を比較して順位の変動をチェック
-        if (previousRank !== null) {
+        if (previousRank > 0) { // `findIndex` は見つからないと `-1` を返すので、順位がある場合のみ処理
             if (currentRank < previousRank) {
                 rankChange = '▲'; // 順位上昇
                 rankClass = 'rank-up';
@@ -1780,7 +1600,7 @@ function updateRankChangeArrows() {
                 rankClass = 'rank-no-change';
             }
         } else {
-            rankChange = '-';
+            rankChange = '-'; // 初回のデータがない場合
             rankClass = 'rank-no-change';
         }
 
@@ -1809,6 +1629,7 @@ function updateRankChangeArrows() {
         tbody.insertAdjacentHTML('beforeend', row);
     });
 }
+
 
 
 // チームの文字色を白か黒か選択する関数
