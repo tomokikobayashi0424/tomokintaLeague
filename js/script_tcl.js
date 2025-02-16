@@ -1032,39 +1032,32 @@ function displaySchedule(schedule = null) {
 
             let numMatches = Math.pow(2, numRounds - round - 1);
             if (round === numRounds - 1 && matchDataTCL[currentSeason].teamsNum >= 4) {
-                numMatches = 2; 
+                numMatches = 2;
             }
 
             for (let match = 0; match < numMatches; match++) {
                 let matchKey = `round${round}-match${match}`;
                 let matchDataTCLEntry = matchDataTCL[currentSeason][matchKey];
 
-                if (!matchDataTCLEntry || !matchDataTCLEntry.home || !matchDataTCLEntry.away) {
-                    console.warn(`試合データが不完全のためスキップ: ${matchKey}`);
-                    continue;
-                }
+                let homeTeam = matchDataTCLEntry?.home?.teamId ? 
+                    teamsData.find(team => team.teamId === matchDataTCLEntry.home.teamId) : null;
+                let awayTeam = matchDataTCLEntry?.away?.teamId ? 
+                    teamsData.find(team => team.teamId === matchDataTCLEntry.away.teamId) : null;
 
-                let homeTeam = teamsData.find(team => team.teamId === matchDataTCLEntry.home.teamId);
-                let awayTeam = teamsData.find(team => team.teamId === matchDataTCLEntry.away.teamId);
-
-                // teamIdがnullの試合はスキップ
-                if (!homeTeam || !awayTeam || homeTeam.teamId === null || awayTeam.teamId === null) {
-                    console.warn(`試合データにteamIdが不足: ${matchKey}`);
-                    continue;
-                }
-
+                // **非表示にせずプレースホルダーを設定**
                 let matchDate = matchDataTCLEntry?.date || roundStartDate.toISOString().split('T')[0];
 
                 roundMatches.push({
-                    home: getTeamNameByScreenSize(homeTeam),
-                    away: getTeamNameByScreenSize(awayTeam),
-                    date: matchDate
+                    home: homeTeam ? getTeamNameByScreenSize(homeTeam) : "未定",
+                    away: awayTeam ? getTeamNameByScreenSize(awayTeam) : "未定",
+                    homeTeamId: homeTeam ? homeTeam.teamId : null,
+                    awayTeamId: awayTeam ? awayTeam.teamId : null,
+                    date: matchDate,
+                    matchKey: matchKey
                 });
             }
 
-            if (roundMatches.length > 0) {
-                schedule.push(roundMatches);
-            }
+            schedule.push(roundMatches);
         }
     }
 
