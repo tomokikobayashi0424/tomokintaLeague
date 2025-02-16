@@ -30156,5 +30156,1310 @@
         }
       }
     }
+  },
+  "matchDataTCL": {
+    "24-c1": {
+      "teamsNum": 12,
+      "newDate": "2024-12-30",
+      "round0-match0": {
+        "home": {
+          "teamId": 4,
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamId": null,
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        }
+      },
+      "round0-match1": {
+        "home": {
+          "teamId": 5,
+          "score": 0,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamId": 10,
+          "score": 1,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "date": "2024-12-30"
+      },
+      "round0-match2": {
+        "home": {
+          "teamId": 8,
+          "score": 3,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamId": 3,
+          "score": 4,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "date": "2024-12-30"
+      },
+      "round0-match3": {
+        "home": {
+          "teamId": null,
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamId": 9,
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        }
+      },
+      "round0-match4": {
+        "home": {
+          "teamId": 1,
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamId": null,
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        }
+      },
+      "round0-match5": {
+        "home": {
+          "teamId": 6,
+          "score": 2,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamId": 2,
+          "score": 1,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "date": "2024-12-30"
+      },
+      "round0-match6": {
+        "home": {
+          "teamId": 0,
+          "score": 1,
+          "pk": null,
+          "assistPlayers": [
+            ""
+          ],
+          "goalPlayers": [
+            ""
+          ],
+          "times": [
+            null
+          ],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamId": 7,
+          "score": 2,
+          "pk": null,
+          "assistPlayers": [
+            "",
+            ""
+          ],
+          "goalPlayers": [
+            "",
+            ""
+          ],
+          "times": [
+            null,
+            null
+          ],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "date": "2024-12-30"
+      },
+      "round0-match7": {
+        "home": {
+          "teamId": null,
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamId": 11,
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        }
+      },
+      "round1-match0": {
+        "home": {
+          "teamId": 4,
+          "score": 1,
+          "pk": null,
+          "assistPlayers": [
+            ""
+          ],
+          "goalPlayers": [
+            ""
+          ],
+          "times": [
+            null
+          ],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamId": 10,
+          "score": 3,
+          "pk": null,
+          "assistPlayers": [
+            "",
+            "",
+            ""
+          ],
+          "goalPlayers": [
+            "",
+            "",
+            ""
+          ],
+          "times": [
+            null,
+            null,
+            null
+          ],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "date": "2025-01-30"
+      },
+      "round1-match1": {
+        "home": {
+          "teamId": 3,
+          "score": 0,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamId": 9,
+          "score": 1,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "date": "2025-01-30"
+      },
+      "round1-match2": {
+        "home": {
+          "teamId": 1,
+          "score": 1,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamId": 6,
+          "score": 0,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "date": "2024-12-30"
+      },
+      "round1-match3": {
+        "home": {
+          "teamId": 7,
+          "score": 0,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamId": 11,
+          "score": 1,
+          "pk": null,
+          "assistPlayers": [
+            ""
+          ],
+          "goalPlayers": [
+            ""
+          ],
+          "times": [
+            null
+          ],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "date": "2024-12-30"
+      },
+      "round2-match0": {
+        "home": {
+          "teamId": 10,
+          "score": 0,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamId": 9,
+          "score": 1,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "date": "2025-01-30"
+      },
+      "round2-match1": {
+        "home": {
+          "teamId": 1,
+          "score": 0,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamId": 11,
+          "score": 1,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "date": "2024-12-30"
+      },
+      "round3-match0": {
+        "home": {
+          "teamId": 9,
+          "score": 3,
+          "pk": 5,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamId": 11,
+          "score": 3,
+          "pk": 4,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "date": "2025-01-03"
+      },
+      "round3-match1": {
+        "home": {
+          "teamId": 10,
+          "score": 0,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamId": 1,
+          "score": 1,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "date": "2025-01-04"
+      }
+    }
   }
 }
