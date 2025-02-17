@@ -1396,15 +1396,15 @@ function generateTournamentBracket() {
     container.innerHTML = "";
 
     // 設定可能な変数
-    let cellHeight = 40; // セルの高さ
-    let spacingUnit = 20; // セル間の間隔
+    let cellHeight = 30; // セルの高さ
+    let spacingUnit = 5; // セル間の間隔
     let lineWidth = 10; // 横棒の長さ
     let lineHeight = 2; // 棒の太さ
 
     let cssStyles = ""; // すべてのCSSを格納する
 
     let numRounds = Math.ceil(Math.log2(matchDataTCL[currentSeason].teamsNum));
-    let maxContainerWidth = Math.min(window.innerWidth, (numRounds+1) * 140); // 最大幅を制限
+    let maxContainerWidth = Math.min(window.innerWidth, (numRounds+1) * 90); // 最大幅を制限
     container.style.maxWidth = `${maxContainerWidth}px`;
     container.style.overflowX = "auto"; // スクロールバーを有効にする
     for (let round = 0; round < numRounds; round++) {
@@ -1425,13 +1425,23 @@ function generateTournamentBracket() {
         for (let match = 0; match < numMatches; match++) {
             let matchKey = `round${round}-match${match}`;
             let matchDataTCLKey = matchDataTCL[currentSeason][matchKey] || {};
-            
-
-            let homeTeam = teamsData.find(team => team.teamId === matchDataTCLKey?.home?.teamId)?.teams || "未定";
-            let awayTeam = teamsData.find(team => team.teamId === matchDataTCLKey?.away?.teamId)?.teams || "未定";
-
+        
+            let homeTeamData = teamsData.find(team => team.teamId === matchDataTCLKey?.home?.teamId);
+            let awayTeamData = teamsData.find(team => team.teamId === matchDataTCLKey?.away?.teamId);
+        
+            let homeTeam = homeTeamData?.teamsSub || "未定";
+            let awayTeam = awayTeamData?.teamsSub || "未定";
+        
+            let homeColor = homeTeamData?.teamsColor || "CCCCCC";
+            let homeSubColor = homeTeamData?.teamsSubColor || "999999";
+            let awayColor = awayTeamData?.teamsColor || "CCCCCC";
+            let awaySubColor = awayTeamData?.teamsSubColor || "999999";
+        
+            let homeTextColor = getTextColor(homeColor);
+            let awayTextColor = getTextColor(awayColor);
+        
             let isSeedMatch = round === 0 && (matchDataTCLKey?.home?.teamId === null || matchDataTCLKey?.away?.teamId === null);
-
+        
             let homeScore = matchDataTCLKey?.home?.score ?? "-";
             let awayScore = matchDataTCLKey?.away?.score ?? "-";
             let homePK = matchDataTCLKey?.home?.pk !== null ? `(${matchDataTCLKey?.home?.pk})` : "";
@@ -1441,34 +1451,44 @@ function generateTournamentBracket() {
                 homeScore += homePK;
                 awayScore += awayPK;
             }
-
+        
             let homeRow = document.createElement("tr");
             let awayRow = document.createElement("tr");
-
+        
             let winner = null;
             if (homeScore !== "-" && awayScore !== "-") {
                 winner = homeScore > awayScore ? "home" : (homeScore < awayScore ? "away" : (matchDataTCLKey?.home?.pk > matchDataTCLKey?.away?.pk ? "home" : "away"));
             }
-
-            let lineColor = winner ? "rgb(251, 0, 111); " : "white";
-
+        
+            let lineColor = winner ? "rgb(251, 0, 111)" : "white";
             let visibilityStyle = isSeedMatch ? "visibility: hidden;" : "";
-
+        
             let line1Class = `line1-round${round}-match${match}`;
             let line2HomeClass = `line2home-round${round}-match${match}`;
             let line3HomeClass = `line3home-round${round}-match${match}`;
             let line2AwayClass = `line2away-round${round}-match${match}`;
             let line3AwayClass = `line3away-round${round}-match${match}`;
-
+        
             homeRow.innerHTML = `
-                <td class="tournament-cell" style="${visibilityStyle}">${homeTeam}</td>
-                <td class="tournament-score" style="${visibilityStyle}">${homeScore}</td>
+                <td class="tournament-cell" style="background: linear-gradient(to right, #${homeColor} 70%, #${homeSubColor} 90%);
+                color: ${homeTextColor}; font-weight:bold; border: 1px solid ${winner === "home" ? lineColor : "white"}; ${visibilityStyle}">
+                    ${homeTeam}
+                </td>
+                <td class="tournament-score" style="color: rgb(0, 0, 132); border: 1px solid ${winner === "home" ? lineColor : "white"}; background-color: ${winner === "home" ? lineColor : "white"}; ${visibilityStyle}">
+                    ${homeScore}
+                </td>
                 <td class="${line1Class}" style="${visibilityStyle};background-color: ${winner === "home" ? lineColor : "white"};"></td>
                 <td class="${line2HomeClass}" style="${visibilityStyle};background-color: ${winner === "home" ? lineColor : "white"};"></td>
-                <td class="${line3HomeClass}" style= "${visibilityStyle};background-color: ${winner === "home" ? lineColor : "white"}"></td>`;
+                <td class="${line3HomeClass}" style="${visibilityStyle};background-color: ${winner === "home" ? lineColor : "white"}"></td>`;
+
             awayRow.innerHTML = `
-                <td class="tournament-cell" style="${visibilityStyle}">${awayTeam}</td>
-                <td class="tournament-score" style="${visibilityStyle}">${awayScore}</td>
+                <td class="tournament-cell" style="background: linear-gradient(to right, #${awayColor} 70%, #${awaySubColor} 90%);
+                color: ${awayTextColor}; font-weight:bold; border: 1px solid ${winner === "away" ? lineColor : "white"}; ${visibilityStyle}">
+                    ${awayTeam}
+                </td>
+                <td class="tournament-score" style="color: rgb(0, 0, 132); border: 1px solid ${winner === "away" ? lineColor : "white"}; background-color: ${winner === "away" ? lineColor : "white"}; ${visibilityStyle}">
+                    ${awayScore}
+                </td>
                 <td class="${line1Class}" style="${visibilityStyle};background-color: ${winner === "away" ? lineColor : "white"};"></td>
                 <td class="${line2AwayClass}" style="${visibilityStyle};background-color: ${winner === "away" ? lineColor : "white"};"></td>
                 <td class="${line3AwayClass}" style="${visibilityStyle};background-color: ${winner === "away" ? lineColor : "white"};"></td>`;
@@ -1506,7 +1526,6 @@ function generateTournamentBracket() {
                 .${line3AwayClass} {
                     margin-top: ${-verticalLineHeight-lineHeight+lineHeight/2}px;
                 }`;
-
             tbody.appendChild(homeRow);
             tbody.appendChild(awayRow);
         }
