@@ -10934,79 +10934,97 @@
       "round19-match5": {
         "home": {
           "teamId": 3,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 3,
+          "assistPlayers": [
+            "ギャレス ベイル",
+            "パヴェル ネドヴェド",
+            "ネイマール"
+          ],
+          "goalPlayers": [
+            "リオネル メッシ",
+            "リオネル メッシ",
+            "アレッサンドロ デル ピエーロ"
+          ],
+          "times": [
+            57,
+            71,
+            74
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 55,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 62,
+            "successfulPasses": 53,
+            "crosses": 1,
+            "PassCuts": 7,
+            "successfulTackles": 4,
+            "save": 1
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 56,
+            "shots": 9,
+            "shotsonFrame": 7,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 111,
+            "successfulPasses": 91,
+            "crosses": 1,
+            "PassCuts": 24,
+            "successfulTackles": 5,
+            "save": 3
           }
         },
         "away": {
           "teamId": 2,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            ""
+          ],
+          "goalPlayers": [
+            "カール ハインツ ルンメニゲ"
+          ],
+          "times": [
+            34
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 45,
+            "shots": 5,
+            "shotsonFrame": 5,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 45,
+            "successfulPasses": 38,
+            "crosses": 0,
+            "PassCuts": 7,
+            "successfulTackles": 3,
+            "save": 2
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 44,
+            "shots": 9,
+            "shotsonFrame": 8,
+            "fouls": 1,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 111,
+            "successfulPasses": 82,
+            "crosses": 0,
+            "PassCuts": 15,
+            "successfulTackles": 6,
+            "save": 3
           }
         },
-        "date": "2025-02-23"
+        "date": "2025-02-25"
       },
       "round20-match0": {
         "home": {
