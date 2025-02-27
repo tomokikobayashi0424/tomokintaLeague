@@ -124,7 +124,7 @@ function changeLeague() {
     let selectedLeague = leagueSelect.value;
 
     if (selectedLeague === "l") {
-        window.location.href = "index_l.html"; // Tomokinta League へ移動
+        window.location.href = "index.html"; // Tomokinta League へ移動
     } else if (selectedLeague === "t") {
         window.location.href = "index_t.html"; // t へ移動
     } else if (selectedLeague === "lcoop") {
