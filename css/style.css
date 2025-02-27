@@ -1052,6 +1052,45 @@ footer {
 
 
 
+/* tcl */
+#tournament-container {
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    overflow-x: auto;
+    padding: 0px;
+    position: relative;
+    
+}
+.tournament-table {
+    table-layout: fixed;  /* 列幅を固定 */
+    width: 100%; /* 全体のテーブル幅を固定（必要に応じて調整） */
+    border-collapse: separate;
+    margin-right: 20px;
+    position: relative;
+}
+.tournament-cell {
+    /* border: 1px solid white; */
+    padding: 0px;
+    text-align: center;
+    width: 40px;
+    /* background: black; */
+    height: 28px;
+}
+.tournament-score {
+    /* border: 0px solid white; */
+    padding: 0px;
+    text-align: center;
+    width: 40px;
+    /* background: black; */
+    height: 28px;
+}
+
+
+
+
+
+
 /* 
 ---------------------------------------------------------------------------------------------------
 ポイントテーブルのスタイル 
@@ -1111,47 +1150,4 @@ footer {
     font-weight: bold!important;  /* 太字にする */
     color: var(--sub-color-1) !important; /* 入力欄の文字色 */
     /* text-align: center!important; */
-}
-
-
-
-
-
-
-
-
-
-
-/* tcl */
-#tournament-container {
-    display: flex;
-    justify-content: start;
-    align-items: flex-start;
-    overflow-x: auto;
-    padding: 0px;
-    position: relative;
-    
-}
-.tournament-table {
-    table-layout: fixed;  /* 列幅を固定 */
-    width: 100%; /* 全体のテーブル幅を固定（必要に応じて調整） */
-    border-collapse: separate;
-    margin-right: 20px;
-    position: relative;
-}
-.tournament-cell {
-    border: 1px solid white;
-    padding: 0px;
-    text-align: center;
-    width: 120px;
-    background: black;
-    height: 38px;
-}
-.tournament-score {
-    border: 0px solid white;
-    padding: 0px;
-    text-align: center;
-    width: 40px;
-    background: black;
-    height: 40px;
 }
