@@ -145,7 +145,7 @@
       "teamsBgColor": "ffffff"
     }
   ],
-  "matchData": {
+  "matchDataL": {
     "24-s1": {
       "teamsNum": 12,
       "newDate": "2024-10-13",
@@ -30262,7 +30262,7 @@
       }
     }
   },
-  "matchDataTCL": {
+  "matchDataT": {
     "24-c1": {
       "teamsNum": 12,
       "newDate": "2024-12-30",
@@ -31567,7 +31567,7 @@
       }
     }
   },
-  "matchDataTlCoop": {
+  "matchDataLCoop": {
     "25-s1": {
       "teamsNum": 4,
       "teamSize": 3,
@@ -33254,5 +33254,6 @@
         }
       }
     }
-  }
+  },
+  "matchDataTCoop": {}
 }
