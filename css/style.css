@@ -1052,6 +1052,76 @@ footer {
 
 
 
+/* 
+---------------------------------------------------------------------------------------------------
+ポイントテーブルのスタイル 
+---------------------------------------------------------------------------------------------------
+*/
+/* ポイントテーブルのスタイル */
+.points-table {
+    border-collapse: collapse; /* テーブルの境界線を統一 */
+    width: 100%; /* テーブルを横幅100%に広げる */
+    background-color: var(--black-color-1); /* スタッツ表のセルの背景色 */
+    color: var(--sub-color-1); /* スタッツ表の文字色 */
+}
+
+/* スタッツテーブルのセル内のスタイル */
+.points-table th, .points-table td {
+    padding: 5px 0px;
+    text-align: center;
+    border: 1px solid var(--gray-color-1);
+    border-left: none;
+    border-right: none;
+    font-size: var(--body2-font-size);
+    color: var(--white-color-1); /* 入力欄の文字色 */
+}
+
+/* 1列目（カテゴリ名）の幅を20%に固定 */
+.points-table td:first-child, .points-table th:first-child {
+    min-width: 130px; /* 最小幅を指定して崩れないようにする */
+    text-align: left; /* 左揃え（中央揃えにする場合は削除） */
+}
+
+/* それ以外の列の幅を均等に */
+/* .points-table td:not(:first-child), .points-table th:not(:first-child) {
+    width: calc(80% / 6);
+} */
+
+/* スタッツ表の入力欄のスタイル */
+.points-table input[type="number"] {
+    text-align: center; /* 入力欄のテキストを中央揃えに */
+    width: 100%; /* 入力欄の幅をセル内で調整 */
+    /* padding: 4px; 入力欄にパディングを追加 */
+    box-sizing: border-box; /* パディングを幅に含むようにする */
+    background-color: var(--black-color-1); /* スタッツ表のセルの背景色 */
+    color: var(--sub-color-1); /* 入力欄の文字色 */
+    border: none;
+    /* font-size: var(--body-font-size); */
+}
+
+/* 数字入力のカーソルを消す */
+.points-table input[type="number"]::-webkit-outer-spin-button,
+.points-table input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.total-score {
+    font-size: var(--body-font-size)!important; /* フォントサイズを大きく設定 */
+    font-weight: bold!important;  /* 太字にする */
+    color: var(--sub-color-1) !important; /* 入力欄の文字色 */
+    /* text-align: center!important; */
+}
+
+
+
+
+
+
+
+
+
+
 /* tcl */
 #tournament-container {
     display: flex;
@@ -1070,18 +1140,18 @@ footer {
     position: relative;
 }
 .tournament-cell {
-    /* border: 1px solid white; */
+    border: 1px solid white;
     padding: 0px;
     text-align: center;
-    width: 40px;
-    /* background: black; */
-    height: 28px;
+    width: 120px;
+    background: black;
+    height: 38px;
 }
 .tournament-score {
-    /* border: 0px solid white; */
+    border: 0px solid white;
     padding: 0px;
     text-align: center;
     width: 40px;
-    /* background: black; */
-    height: 28px;
+    background: black;
+    height: 40px;
 }

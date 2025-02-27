@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Tomokinta League</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+        <!-- タブメニュー -->
+        <header>
+            <!-- ヘッダーにリーグタイトルを表示 -->
+            <h1>Tomokinta League</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'home')">ホーム</a></li>
+                <!-- <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'schedule')">日程</a></li>
+                <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'standings')">順位表</a></li>
+                <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'records')">選手戦績</a></li> -->
+                <!-- リーグ選択プルダウン -->
+                <li>
+                    <select id="leagueSelect" onchange="changeLeague()">
+                        <option value="l">リーグ</option>
+                        <option value="t">トーナメント</option>
+                        <option value="lcoop">リーグ Co-op</option>
+                        <option value="tcoop" selected>トーナメント Co-op</option>
+                    </select>
+                </li>
+                <li>
+                    <!-- シーズン選択プルダウン -->
+                    <select id="seasonSelect" onchange="changeSeason()">
+                        <!-- JavaScriptで動的にシーズン名を追加 -->
+                    </select>
+                </li>
+            </ul>
+
+        </nav>
+        <main>
+            <!-- ホームタブ：チーム名入力フォーム -->
+            <section id="home" class="tabcontent">
+                <!-- <div class="link-container">
+                    <a href="champions.html" class="button-common button2">Tomokinta Champions Leagueへ</a>
+                </div> -->
+                <h2>参加チーム一覧</h2>
+                <div class="team-list">
+                    <form id="teamForm">
+                        <!-- JavaScriptで動的にチームのリストが生成されます -->
+                    </form>
+                </div>
+                <!-- ルール説明セクション -->
+                <!-- <section id="rules" class="rules-content">
+                    <h3>試合ルール</h3>
+                    <ul>
+                        <li>使用チーム: ドリーム</li>
+                        <li>試合設定:
+                            <ul>
+                                <li>マッチルール：ノーマル</li>
+                                <li>試合時間：8分</li>
+                                <li>ケガ：あり</li>
+                                <li>延長：なし</li>
+                                <li>PK：なし</li>
+                                <li>選手交代人数：5人</li>
+                                <li>選手交代回数：3回</li>
+                                <li>コンディション：
+                                    <ul>
+                                        <li>HOME：ランダム</li>
+                                        <li>AWAY：ランダム</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>HOMEチームのタスク:
+                            <ul>
+                                <li>ハーフタイムとフルタイム時にスタッツのスクショを撮影</li>
+                                <li>ゴール時にアシスト選手、ゴール選手、時間を記録</li>
+                                <li>試合終了時にハイライト動画の画面録画を実施</li>
+                            </ul>
+                        
+                    </ul>
+                </section> -->
+            </section>
+
+
+            <!-- チーム戦績タブ -->
+            <section id="teamPerformanceTab" class="tabcontent">
+                <div class="header-container">
+                    <button class="button-common button1" onclick="closeTeamPerformanceTab()">戻る</button>
+                    <h2 id="teamNameHeader"></h2>
+                    <button class="button-common button2" onclick="toggleSeasonView()"><span id="seasonDisplayText"></span></button>
+                </div>
+                
+                <div class="team-container">
+                    <!-- チーム日程表 -->
+                    <h3 class="teamsticky-title">チーム日程</h3>
+                    <div id="teamSchedule">
+                        <div class="button-container2">
+                            <button class="button-common button1" onclick="previousMonth()">前の月</button>
+                            <span id="currentMonthLabel" class="team-schedule"></span>
+                            <button class="button-common button1" onclick="nextMonth()">次の月</button>
+                        </div>
+                        <table id="teamScheduleTable" class="table-common table-team-Schedule">
+                            <thead>
+                                <tr>
+                                    <th>日付</th>
+                                    <th>シーズン</th>
+                                    <th>場所</th>
+                                    <th>対戦相手</th>
+                                    <th>スコア</th>
+                                </tr>
+                            </thead>
+                            <tbody id="teamScheduleTableBody">
+                                <!-- 試合の行がここに挿入されます -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="teamsticky-title">チームスタッツ</h3>
+                    <table id="teamStatsTable" class="table-common table2 sticky-table">
+                        <thead>
+                            <tr>
+                                <th></th> <!-- 空白のセル -->
+                                <th>自チーム</th>
+                                <th>相手チーム</th>
+                                <th>リーグ全体</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>試合数</td><td id="matches-team"></td><td id="matches-opp"></td><td id="matches-tl"></td>
+                            </tr>
+                            <tr><td>勝ち数<br>(率)</td>
+                                <td><span id="wins-team-total"></span><br>(<span id="wins-team-per"></span>)</td>
+                                <td><span id="wins-opp-total"></span><br>(<span id="wins-opp-per"></span>)</td>
+                                <td><span id="wins-tl-total"></span><br>(<span id="wins-tl-per"></span>)</td>
+                            </tr>
+                            <tr><td>引き分け数<br>(率)</td>
+                                <td><span id="draws-team-total"></span><br>(<span id="draws-team-per"></span>)</td>
+                                <td><span id="draws-opp-total"></span><br>(<span id="draws-opp-per"></span>)</td>
+                                <td><span id="draws-tl-total"></span><br>(<span id="draws-tl-per"></span>)</td>
+                            </tr>
+                            <tr><td>負け数<br>(率)</td>
+                                <td><span id="losses-team-total"></span><br>(<span id="losses-team-per"></span>)</td>
+                                <td><span id="losses-opp-total"></span><br>(<span id="losses-opp-per"></span>)</td>
+                                <td><span id="losses-tl-total"></span><br>(<span id="losses-tl-per"></span>)</td>
+                            </tr>
+                            <tr><td>ゴール数<br>(平均)</td>
+                                <td><span id="goals-team-total"></span><br>(<span id="goals-team-avg"></span>)</td>
+                                <td><span id="goals-opp-total"></span><br>(<span id="goals-opp-avg"></span>)</td>
+                                <td><span id="goals-tl-total"></span><br>(<span id="goals-tl-avg"></span>)</td>
+                            </tr>
+                            <tr><td>支配率</td>
+                                <td id="possession-team"></td><td id="possession-opp"></td><td id="possession-tl"></td>
+                            </tr>
+                            <tr><td>シュート数<br>(平均)</td>
+                                <td><span id="shots-team-total"></span><br>(<span id="shots-team-avg"></span>)</td>
+                                <td><span id="shots-opp-total"></span><br>(<span id="shots-opp-avg"></span>)</td>
+                                <td><span id="shots-tl-total"></span><br>(<span id="shots-tl-avg"></span>)</td>
+                            </tr>
+                            <tr><td>枠内シュート数<br>(平均)</td>
+                                <td><span id="shotsonFrame-team-total"></span><br>(<span id="shotsonFrame-team-avg"></span>)</td>
+                                <td><span id="shotsonFrame-opp-total"></span><br>(<span id="shotsonFrame-opp-avg"></span>)</td>
+                                <td><span id="shotsonFrame-tl-total"></span><br>(<span id="shotsonFrame-tl-avg"></span>)</td>
+                            </tr>
+                            <tr><td>枠内シュート率</td>
+                                <td id="shotsonFrame-team-per"></td><td id="shotsonFrame-opp-per"></td><td id="shotsonFrame-tl-per"></td>
+                            </tr>
+                            <tr><td>決定率</td>
+                                <td id="goals-team-per"></td><td id="goals-opp-per"></td><td id="goals-tl-per"></td>
+                            </tr>
+                            <tr><td>ファウル数<br>(平均)</td>
+                                <td><span id="fouls-team-total"></span><br>(<span id="fouls-team-avg"></span>)</td>
+                                <td><span id="fouls-opp-total"></span><br>(<span id="fouls-opp-avg"></span>)</td>
+                                <td><span id="fouls-tl-total"></span><br>(<span id="fouls-tl-avg"></span>)</td>
+                            </tr>
+                            <tr><td>オフサイド数<br>(平均)</td>
+                                <td><span id="offsides-team-total"></span><br>(<span id="offsides-team-avg"></span>)</td>
+                                <td><span id="offsides-opp-total"></span><br>(<span id="offsides-opp-avg"></span>)</td>
+                                <td><span id="offsides-tl-total"></span><br>(<span id="offsides-tl-avg"></span>)</td>
+                            </tr>
+                            <tr><td>コーナーキック数<br>(平均)</td>
+                                <td><span id="cornerKicks-team-total"></span><br>(<span id="cornerKicks-team-avg"></span>)</td>
+                                <td><span id="cornerKicks-opp-total"></span><br>(<span id="cornerKicks-opp-avg"></span>)</td>
+                                <td><span id="cornerKicks-tl-total"></span><br>(<span id="cornerKicks-tl-avg"></span>)</td>
+                            </tr>
+                            <tr><td>フリーキック数<br>(平均)</td>
+                                <td><span id="freeKicks-team-total"></span><br>(<span id="freeKicks-team-avg"></span>)</td>
+                                <td><span id="freeKicks-opp-total"></span><br>(<span id="freeKicks-opp-avg"></span>)</td>
+                                <td><span id="freeKicks-tl-total"></span><br>(<span id="freeKicks-tl-avg"></span>)</td>
+                            </tr>
+                            <tr><td>パス数<br>(平均)</td>
+                                <td><span id="passes-team-total"></span><br>(<span id="passes-team-avg"></span>)</td>
+                                <td><span id="passes-opp-total"></span><br>(<span id="passes-opp-avg"></span>)</td>
+                                <td><span id="passes-tl-total"></span><br>(<span id="passes-tl-avg"></span>)</td>
+                            </tr>
+                            <tr><td>パス成功数<br>(平均)</td>
+                                <td><span id="successfulPasses-team-total"></span><br>(<span id="successfulPasses-team-avg"></span>)</td>
+                                <td><span id="successfulPasses-opp-total"></span><br>(<span id="successfulPasses-opp-avg"></span>)</td>
+                                <td><span id="successfulPasses-tl-total"></span><br>(<span id="successfulPasses-tl-avg"></span>)</td>
+                            </tr>
+                            <tr><td>パス成功率</td>
+                                <td id="successfulPasses-team-per"></td><td id="successfulPasses-opp-per"></td><td id="successfulPasses-tl-per"></td>
+                            </tr>
+                            <tr><td>クロス数<br>(平均)</td>
+                                <td><span id="crosses-team-total"></span><br>(<span id="crosses-team-avg"></span>)</td>
+                                <td><span id="crosses-opp-total"></span><br>(<span id="crosses-opp-avg"></span>)</td>
+                                <td><span id="crosses-tl-total"></span><br>(<span id="crosses-tl-avg"></span>)</td>
+                            </tr>
+                            <tr><td>パスカット数<br>(平均)</td>
+                                <td><span id="PassCuts-team-total"></span><br>(<span id="PassCuts-team-avg"></span>)</td>
+                                <td><span id="PassCuts-opp-total"></span><br>(<span id="PassCuts-opp-avg"></span>)</td>
+                                <td><span id="PassCuts-tl-total"></span><br>(<span id="PassCuts-tl-avg"></span>)</td>
+                            </tr>
+                            <tr><td>タックル成功数<br>(平均)</td>
+                                <td><span id="successfulTackles-team-total"></span><br>(<span id="successfulTackles-team-avg"></span>)</td>
+                                <td><span id="successfulTackles-opp-total"></span><br>(<span id="successfulTackles-opp-avg"></span>)</td>
+                                <td><span id="successfulTackles-tl-total"></span><br>(<span id="successfulTackles-tl-avg"></span>)</td>
+                            </tr>
+                            <tr><td>セーブ数<br>(平均)</td>
+                                <td><span id="saves-team-total"></span><br>(<span id="saves-team-avg"></span>)</td>
+                                <td><span id="saves-opp-total"></span><br>(<span id="saves-opp-avg"></span>)</td>
+                                <td><span id="saves-tl-total"></span><br>(<span id="saves-tl-avg"></span>)</td>
+                            </tr>
+                            <tr><td>キーパーセーブ率<sup id="footnote1">※1</sup></td>
+                                <td id="saves-team-per"></td><td id="saves-opp-per"></td><td id="saves-tl-per"></td>
+                            </tr>
+                            <tr><td>シュートブロック率<sup id="footnote2">※2</sup></td>
+                                <td id="saves2-team-per"></td><td id="saves2-opp-per"></td><td id="saves2-tl-per"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- 注釈 -->
+                    <p class="table-notes">
+                        <sup>※1</sup> キーパーセーブ率 = セーブ数 / 被枠内シュート数 × 100%
+                    </p>
+                    <p class="table-notes">
+                        <sup>※2</sup> シュートブロック率 = (被枠内シュート数 - 被ゴール数) / 被枠内シュート数 × 100%
+                    </p>
+
+                    <h3 class="teamsticky-title">チームゴールランキング</h3>
+                    <table id="teamGoalPlayersTable" class="table-common table1  sticky-table">
+                        <thead>
+                            <tr>
+                                <th>順位</th>
+                                <th>選手名</th>
+                                <th>ゴール数</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- ゴールプレイヤーのデータがここに挿入されます -->
+                        </tbody>
+                    </table>
+
+                    <h3 class="teamsticky-title">チームアシストランキング</h3>
+                    <table id="teamAssistPlayersTable" class="table-common table1 sticky-table">
+                        <thead>
+                            <tr>
+                                <th>順位</th>
+                                <th>選手名</th>
+                                <th>アシスト数</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- アシストプレイヤーのデータがここに挿入されます -->
+                        </tbody>
+                    </table>
+                    
+
+                    <!-- グラフを描画するためのキャンバス -->
+                    <h3 class="teamsticky-title">得点時間のグラフ</h3>
+                    <div class="chart-container">
+                        <canvas id="goalChart" width="400" height="400"></canvas>
+                        <canvas id="stackedGoalChart5Min" width="400" height="400"></canvas>
+                        <canvas id="stackedGoalChart15Min" width="400" height="400"></canvas>
+                    </div>
+                </div>
+            </section>
+
+        
+            <!-- 日程タブ：試合の日程を表示 -->
+            <section id="schedule" class="tabcontent">
+                <h2>日程</h2>
+                <div id="scheduleContent">
+                    <!-- JavaScriptでスケジュールがここに挿入されます -->
+                </div>
+            </section>
+            
+            
+            <!-- 順位表タブ -->
+            <section id="tournament" class="tabcontent">
+                <h2>トーナメント表</h2>
+                <div id="tournament-container"></div>
+            </section>
+            
+            
+            <!-- 選手戦績タブ -->
+            <section id="records" class="tabcontent">
+                <h2>選手戦績</h2>
+
+                <!-- ゴールランキング -->
+                <h3 class="sticky-title2">ゴールランキング</h3>
+                <table id="goalPlayersTable" class="table-common table1 sticky-table2">
+                    <thead>
+                        <tr>
+                            <th>順位</th>
+                            <th>選手名</th>
+                            <th>ゴール数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ゴールランキングがここに挿入されます -->
+                    </tbody>
+                </table>
+
+                <!-- アシストランキング -->
+                <h3 class="sticky-title2">アシストランキング</h3>
+                <table id="assistPlayersTable" class="table-common table1 sticky-table2">
+                    <thead>
+                        <tr>
+                            <th>順位</th>
+                            <th>選手名</th>
+                            <th>アシスト数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- アシストランキングがここに挿入されます -->
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+        <footer>
+            <!-- ナビゲーション用のリンク -->
+            <ul class="footer-nav">
+                <!-- <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'home')">ホーム</a></li> -->
+                <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'schedule')">日程</a></li>
+                <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'tournament')">トーナメント表</a></li>
+                <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'records')">選手戦績</a></li>
+            </ul>
+        
+            <!-- SNSリンクボタン -->
+            <ul class="footer-social">
+                <li><a href="https://www.instagram.com/" target="_blank"><img src="Pictures/instagram.svg" alt="Instagram"></a></li>
+                <li><a href="https://twitter.com/" target="_blank"><img src="Pictures/x.svg" alt="X"></a></li>
+                <li><a href="https://www.youtube.com/" target="_blank"><img src="Pictures/youtube.png" alt="YouTube"></a></li>
+                <li><a href="https://www.tiktok.com/" target="_blank"><img src="Pictures/tiktok.svg" alt="TikTok"></a></li>
+            </ul>
+        </footer>
+     
