@@ -137,12 +137,12 @@
     },
     {
       "teamId": 15,
-      "teams": "Team16",
-      "teamsSub": "Sub16",
-      "teamsColor": "000000",
-      "teamsSubColor": "000000",
+      "teams": "HSG",
+      "teamsSub": "Hata Saint-Germain",
+      "teamsColor": "1d2a42",
+      "teamsSubColor": "f51620",
       "teamsTextColor": "ffffff",
-      "teamsBgColor": "ffffff"
+      "teamsBgColor": "c8c8c8"
     }
   ],
   "matchDataL": {
