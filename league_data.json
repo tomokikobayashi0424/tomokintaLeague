@@ -52,7 +52,7 @@
       "teamsColor": "e43f4c",
       "teamsSubColor": "ffffff",
       "teamsTextColor": "000000",
-      "teamsBgColor": "dadada"
+      "teamsBgColor": "c8c8c8"
     },
     {
       "teamId": 6,
@@ -79,7 +79,7 @@
       "teamsColor": "6d1e69",
       "teamsSubColor": "ffffff",
       "teamsTextColor": "000000",
-      "teamsBgColor": "dadada"
+      "teamsBgColor": "c8c8c8"
     },
     {
       "teamId": 9,
@@ -115,7 +115,7 @@
       "teamsColor": "000000",
       "teamsSubColor": "000000",
       "teamsTextColor": "ffffff",
-      "teamsBgColor": "ffffff"
+      "teamsBgColor": "c8c8c8"
     },
     {
       "teamId": 13,
@@ -137,10 +137,19 @@
     },
     {
       "teamId": 15,
-      "teams": "HSG",
-      "teamsSub": "Hata Saint-Germain",
+      "teams": "Hata Saint-Germain",
+      "teamsSub": "HSG",
       "teamsColor": "1d2a42",
       "teamsSubColor": "f51620",
+      "teamsTextColor": "ffffff",
+      "teamsBgColor": "c8c8c8"
+    },
+    {
+      "teamId": 16,
+      "teams": "Large-medium-gradiators",
+      "teamsSub": "LMG",
+      "teamsColor": "000000",
+      "teamsSubColor": "000000",
       "teamsTextColor": "ffffff",
       "teamsBgColor": "c8c8c8"
     }
