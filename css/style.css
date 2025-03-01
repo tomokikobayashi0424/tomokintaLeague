@@ -1179,6 +1179,11 @@ footer {
     background-color: var(--main-color-1); /* ヘッダーの背景色を変更 */
     padding: 0;
     height: 40px;
+    /* iOS での楕円を防ぐ */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0; /* 完全に四角にする */
 }
 
 
