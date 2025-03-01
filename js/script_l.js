@@ -11,47 +11,49 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // ページ内の各種データ更新をまとめる関数
 function updateAllDisplayData() {
+    displayTeamMonthlySchedule(); //チーム日程表の表示
+    toggleSeasonView(); // チーム戦績のシーズン切り替えall or current関数
     displaySchedule();  // 日程を表示
     updateStandingsTable();  // 順位表を表示
     updateRankChangeArrows(); // 順位変動の矢印を表示
     displayIndividualRecords(); // 個人戦績を表示
-    displayTeamMonthlySchedule(); //チーム日程表の表示
-    toggleSeasonView(); // チーム戦績のシーズン切り替えall or current関数
     updateIndividualRecords();  // 個人戦績を更新
+    updateTeamRecords(); // チームごとのランキングも更新
+    updateTotalPlayerRecords(); // ゴール + アシストのランキングも更新
 }
 
-// ローカルストレージからシーズン一覧を取得してプルダウンを作成
-function populateSeasonDropdown() {
-    let seasonSelect = document.getElementById('seasonSelect');
+// // ローカルストレージからシーズン一覧を取得してプルダウンを作成
+// function populateSeasonDropdown() {
+//     let seasonSelect = document.getElementById('seasonSelect');
 
-    // 既存の <option> をクリア
-    seasonSelect.innerHTML = '';
+//     // 既存の <option> をクリア
+//     seasonSelect.innerHTML = '';
 
-    // シーズン名のリストを取得
-    let seasons = Object.keys(matchDataL);
-    let currentSeason = seasons.length > 0 ? seasons[0] : "24-s1"; // あるなら最初のシーズン、なければ "24-s1"
+//     // シーズン名のリストを取得
+//     let seasons = Object.keys(matchDataL);
+//     let currentSeason = seasons.length > 0 ? seasons[0] : "24-s1"; // あるなら最初のシーズン、なければ "24-s1"
 
-    // シーズンが1つもない場合はデフォルトを追加
-    if (seasons.length === 0) {
-        seasons = ["24-s1"]; // 仮のデフォルト
-        matchDataL["24-s1"] = {}; // 空データをセット
-        localStorage.setItem('matchDataL', JSON.stringify(matchDataL));
-    }
+//     // シーズンが1つもない場合はデフォルトを追加
+//     if (seasons.length === 0) {
+//         seasons = ["24-s1"]; // 仮のデフォルト
+//         matchDataL["24-s1"] = {}; // 空データをセット
+//         localStorage.setItem('matchDataL', JSON.stringify(matchDataL));
+//     }
 
-    // シーズンのプルダウンリストを作成
-    seasons.forEach(season => {
-        let option = document.createElement('option');
-        option.value = season;
-        option.textContent = season;
-        if (season === currentSeason) {
-            option.selected = true; // `currentSeason` の場合は選択状態にする
-        }
-        seasonSelect.appendChild(option);
-    });
+//     // シーズンのプルダウンリストを作成
+//     seasons.forEach(season => {
+//         let option = document.createElement('option');
+//         option.value = season;
+//         option.textContent = season;
+//         if (season === currentSeason) {
+//             option.selected = true; // `currentSeason` の場合は選択状態にする
+//         }
+//         seasonSelect.appendChild(option);
+//     });
 
-    // `currentSeason` をグローバル変数に設定
-    window.currentSeason = currentSeason;
-}
+//     // `currentSeason` をグローバル変数に設定
+//     window.currentSeason = currentSeason;
+// }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -65,7 +67,6 @@ function populateSeasonDropdown() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-
 // 日程表を表示する関数
 function displaySchedule(schedule = null) {
     // let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
@@ -727,7 +728,6 @@ function displayIndividualRecords() {
 }
 
 function updateIndividualRecords() {
-    // let currentSeason = "24-s1";
 
     if (!matchDataL[currentSeason]) return;
 
@@ -812,3 +812,202 @@ function displayPlayerRanking(tableId, players) {
         tbody.insertAdjacentHTML('beforeend', row);
     });
 }
+
+function updateTeamRecords() {
+    if (!matchDataL[currentSeason]) return;
+
+    let goalRecords = {};
+    let assistRecords = {};
+
+    Object.keys(matchDataL[currentSeason]).forEach(matchKey => {
+        if (["teamsNum", "currentStandings", "newDate"].includes(matchKey)) return;
+
+        let match = matchDataL[currentSeason][matchKey];
+
+        if (match.home) {
+            match.home.goalPlayers.forEach(player => {
+                if (player && player.trim() !== "") { // 空白データを無視
+                    let key = `${player}#${match.home.teamId}`;
+                    goalRecords[key] = (goalRecords[key] || 0) + 1;
+                }
+            });
+
+            match.home.assistPlayers.forEach(player => {
+                if (player && player.trim() !== "") { // 空白データを無視
+                    let key = `${player}#${match.home.teamId}`;
+                    assistRecords[key] = (assistRecords[key] || 0) + 1;
+                }
+            });
+        }
+
+        if (match.away) {
+            match.away.goalPlayers.forEach(player => {
+                if (player && player.trim() !== "") { // 空白データを無視
+                    let key = `${player}#${match.away.teamId}`;
+                    goalRecords[key] = (goalRecords[key] || 0) + 1;
+                }
+            });
+
+            match.away.assistPlayers.forEach(player => {
+                if (player && player.trim() !== "") { // 空白データを無視
+                    let key = `${player}#${match.away.teamId}`;
+                    assistRecords[key] = (assistRecords[key] || 0) + 1;
+                }
+            });
+        }
+    });
+
+    displayPlayerRankingWithTeamInfo('goalTeamsTable', goalRecords);
+    displayPlayerRankingWithTeamInfo('assistTeamsTable', assistRecords);
+}
+
+function displayPlayerRankingWithTeamInfo(tableId, records) {
+    let table = document.getElementById(tableId);
+    if (!table) return;
+
+    let sortedRecords = Object.entries(records).sort((a, b) => b[1] - a[1]);
+    let tbody = table.querySelector('tbody');
+    tbody.innerHTML = '';
+
+    let rank = 1;
+    let prevScore = null;
+    let displayRank = rank;
+
+    sortedRecords.forEach(([key, count], index) => {
+        let [player, teamId] = key.split("#"); // `player#teamId` から分割
+        let teamInfo = teamsData.find(t => t.teamId == teamId);
+        let teamName = teamInfo ? teamInfo.teams : "不明";
+
+        // 順位の更新
+        if (prevScore !== count) {
+            displayRank = rank;
+        }
+        prevScore = count;
+        rank++;
+
+        let row = `
+            <tr>
+                <td>${displayRank}</td>  <!-- 順位 -->
+                <td>${player}</td>  <!-- 選手名 -->
+                <td>${teamName}</td>  <!-- チーム名 -->
+                <td>${count}</td>  <!-- アシスト or ゴール数 -->
+            </tr>
+        `;
+        tbody.insertAdjacentHTML('beforeend', row);
+    });
+}
+
+function updateTotalPlayerRecords() {
+    if (!matchDataL[currentSeason]) return;
+
+    let totalRecords = {};
+
+    Object.keys(matchDataL[currentSeason]).forEach(matchKey => {
+        if (["teamsNum", "currentStandings", "newDate"].includes(matchKey)) return;
+
+        let match = matchDataL[currentSeason][matchKey];
+
+        if (match.home) {
+            match.home.goalPlayers.forEach(player => {
+                if (player && player.trim() !== "") {
+                    let key = `${player}#${match.home.teamId}`;
+                    totalRecords[key] = (totalRecords[key] || 0) + 1;
+                }
+            });
+            match.home.assistPlayers.forEach(player => {
+                if (player && player.trim() !== "") {
+                    let key = `${player}#${match.home.teamId}`;
+                    totalRecords[key] = (totalRecords[key] || 0) + 1;
+                }
+            });
+        }
+
+        if (match.away) {
+            match.away.goalPlayers.forEach(player => {
+                if (player && player.trim() !== "") {
+                    let key = `${player}#${match.away.teamId}`;
+                    totalRecords[key] = (totalRecords[key] || 0) + 1;
+                }
+            });
+            match.away.assistPlayers.forEach(player => {
+                if (player && player.trim() !== "") {
+                    let key = `${player}#${match.away.teamId}`;
+                    totalRecords[key] = (totalRecords[key] || 0) + 1;
+                }
+            });
+        }
+    });
+
+    displayPlayerRankingWithTeamInfo('totalPlayersTable', totalRecords);
+}
+
+// function toggleRecordTable() {
+//     let selectedTableId = document.getElementById("recordSelect").value;
+    
+//     // すべてのランキングテーブルを非表示にする
+//     document.querySelectorAll(".recordTable").forEach(table => {
+//         table.classList.remove("active");
+//     });
+
+//     // 選択されたランキングのみ表示
+//     document.getElementById(selectedTableId).classList.add("active");
+// }
+
+// function toggleRecordTable() {
+//     let recordSelect = document.getElementById("recordSelect");
+//     if (!recordSelect) {
+//         console.error("recordSelect が見つかりません。処理を中止します。");
+//         return;
+//     }
+
+//     let selectedTableId = recordSelect.value;
+
+//     document.querySelectorAll(".recordTable").forEach(table => {
+//         table.classList.remove("active");
+//     });
+
+//     let selectedTable = document.getElementById(selectedTableId);
+//     if (selectedTable) {
+//         selectedTable.classList.add("active");
+//     } else {
+//         console.warn(`選択されたテーブル ${selectedTableId} が見つかりません。`);
+//     }
+// }
+
+
+// // **ページ読み込み時にデフォルトのランキングを表示**
+// document.addEventListener("DOMContentLoaded", function () {
+//     toggleRecordTable(); // デフォルトで選択されたテーブルを表示
+// });
+
+function toggleRecordTable() {
+    let recordSelect = document.getElementById("recordSelect");
+    if (!recordSelect) {
+        console.warn("recordSelect が見つかりません。ページに存在しない可能性があります。");
+        return;
+    }
+
+    let selectedTableId = recordSelect.value;
+
+    document.querySelectorAll(".recordTable").forEach(table => {
+        table.classList.remove("active");
+    });
+
+    let selectedTable = document.getElementById(selectedTableId);
+    if (selectedTable) {
+        selectedTable.classList.add("active");
+    } else {
+        console.warn(`選択されたテーブル ${selectedTableId} が見つかりません。`);
+    }
+}
+
+// **ページ読み込み後に `recordSelect` をチェックして実行**
+document.addEventListener("DOMContentLoaded", function () {
+    let checkInterval = setInterval(() => {
+        let recordSelect = document.getElementById("recordSelect");
+        if (recordSelect) {
+            clearInterval(checkInterval);
+            toggleRecordTable();
+        }
+    }, 100); // 100ms ごとにチェック
+});

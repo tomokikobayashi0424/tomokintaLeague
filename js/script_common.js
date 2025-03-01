@@ -20,6 +20,12 @@ let lineChart = null;  // 折れ線グラフ用の変数
 let barChart5Min = null;   // 5分間隔の棒グラフ用の変数
 let barChart15Min = null;   // 15分間隔の棒グラフ用の変数
 
+// **現在のリーグのタイプを取得**
+let leagueType = document.getElementById("leagueSelect")?.value || "l"; // デフォルトは "l"（リーグ）
+
+// **currentMatchData の初期化（`DOMContentLoaded` より前に設定）**
+let currentMatchData = null;
+
 // **ページロード時の処理**
 document.addEventListener("DOMContentLoaded", async function () {
     // **JSONデータを取得してローカルストレージに保存**
@@ -31,6 +37,23 @@ document.addEventListener("DOMContentLoaded", async function () {
     matchDataT = JSON.parse(localStorage.getItem('matchDataT')) || {};
     matchDataLCoop = JSON.parse(localStorage.getItem('matchDataLCoop')) || {};
     matchDataTCoop = JSON.parse(localStorage.getItem('matchDataTCoop')) || {};
+    switch (leagueType) {
+        case "l":
+            currentMatchData = matchDataL;
+            break;
+        case "t":
+            currentMatchData = matchDataT;
+            break;
+        case "lcoop":
+            currentMatchData = matchDataLCoop;
+            break;
+        case "tcoop":
+            currentMatchData = matchDataTCoop;
+            break;
+        default:
+            console.warn("リーグタイプが不明です。デフォルトで matchDataL を設定します。");
+            currentMatchData = matchDataL;
+    }
 
     // **最初のタブを開く**
     let defaultTab = document.querySelector('.tablinks.active') || document.querySelector('.tablinks[onclick*="home"]');
@@ -81,7 +104,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     // **シーズンリストを作成**
-    populateSeasonDropdown();
+    // populateSeasonDropdown();
+    updateSeasonDropdown(); // プルダウン更新
 
     // **現在のシーズンを画面に表示**
     let seasonText = document.getElementById("seasonDisplayText");
@@ -134,6 +158,43 @@ function changeLeague() {
     }
 }
 
+// シーズン選択プルダウンを更新する関数（削除・追加の両方に対応）
+function updateSeasonDropdown() {
+    let seasonSelect = document.getElementById("seasonSelect");
+    
+
+    // 既存の <option> をクリア
+    seasonSelect.innerHTML = '';
+
+    // シーズンのリストを取得
+    let seasons = Object.keys(currentMatchData);
+
+    // シーズンが1つもない場合、デフォルトのシーズン "24-s1" を作成
+    if (seasons.length === 0) {
+        seasons = ["24-s1"]; // デフォルトのシーズン
+        currentMatchData["24-s1"] = {}; // 空データをセット
+        localStorage.setItem('currentMatchData', JSON.stringify(currentMatchData));
+    }
+
+    // `currentSeason` が削除された場合、新しいシーズンを設定
+    if (!seasons.includes(window.currentSeason)) {
+        window.currentSeason = seasons.length > 0 ? seasons[0] : "24-s1";
+    }
+
+    // シーズンプルダウンリストを作成
+    seasons.forEach(season => {
+        let option = document.createElement("option");
+        option.value = season;
+        option.textContent = season;
+
+        if (season === window.currentSeason) {
+            option.selected = true; // `currentSeason` の場合は選択状態にする
+        }
+
+        seasonSelect.appendChild(option);
+    });
+}
+
 // シーズン変更時の処理
 function changeSeason() {
     let seasonSelect = document.getElementById('seasonSelect');
@@ -144,17 +205,17 @@ function changeSeason() {
 }
 
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////////////////////////////////////////////
-// // ホームタブ
-// ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// ホームタブ
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 // GitHubリポジトリからJSONデータを取得し、ローカルストレージに保存する関数
 function fetchAndSaveJsonFromGitHub() {
     // const url = './league_data.json'; // JSONファイルの相対パス

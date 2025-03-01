@@ -19,38 +19,38 @@ function updateAllDisplayData() {
     generateTournamentBracket(); // トーナメント表を表示
 }
 
-// ローカルストレージからシーズン一覧を取得してプルダウンを作成
-function populateSeasonDropdown() {
-    let seasonSelect = document.getElementById('seasonSelect');
+// // ローカルストレージからシーズン一覧を取得してプルダウンを作成
+// function populateSeasonDropdown() {
+//     let seasonSelect = document.getElementById('seasonSelect');
 
-    // 既存の <option> をクリア
-    seasonSelect.innerHTML = '';
+//     // 既存の <option> をクリア
+//     seasonSelect.innerHTML = '';
 
-    // シーズン名のリストを取得
-    let seasons = Object.keys(matchDataT);
-    let currentSeason = seasons.length > 0 ? seasons[0] : "24-s1"; // あるなら最初のシーズン、なければ "24-s1"
+//     // シーズン名のリストを取得
+//     let seasons = Object.keys(matchDataT);
+//     let currentSeason = seasons.length > 0 ? seasons[0] : "24-s1"; // あるなら最初のシーズン、なければ "24-s1"
 
-    // シーズンが1つもない場合はデフォルトを追加
-    if (seasons.length === 0) {
-        seasons = ["24-s1"]; // 仮のデフォルト
-        matchDataT["24-s1"] = {}; // 空データをセット
-        localStorage.setItem('matchDataT', JSON.stringify(matchDataT));
-    }
+//     // シーズンが1つもない場合はデフォルトを追加
+//     if (seasons.length === 0) {
+//         seasons = ["24-s1"]; // 仮のデフォルト
+//         matchDataT["24-s1"] = {}; // 空データをセット
+//         localStorage.setItem('matchDataT', JSON.stringify(matchDataT));
+//     }
 
-    // シーズンのプルダウンリストを作成
-    seasons.forEach(season => {
-        let option = document.createElement('option');
-        option.value = season;
-        option.textContent = season;
-        if (season === currentSeason) {
-            option.selected = true; // `currentSeason` の場合は選択状態にする
-        }
-        seasonSelect.appendChild(option);
-    });
+//     // シーズンのプルダウンリストを作成
+//     seasons.forEach(season => {
+//         let option = document.createElement('option');
+//         option.value = season;
+//         option.textContent = season;
+//         if (season === currentSeason) {
+//             option.selected = true; // `currentSeason` の場合は選択状態にする
+//         }
+//         seasonSelect.appendChild(option);
+//     });
 
-    // `currentSeason` をグローバル変数に設定
-    window.currentSeason = currentSeason;
-}
+//     // `currentSeason` をグローバル変数に設定
+//     window.currentSeason = currentSeason;
+// }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

@@ -529,7 +529,7 @@ main{
     height: 60px;
     background-color: var(--team-color-1);
     background: linear-gradient(to right, var(--team-color-1)70% , var(--teamsub-color-1)90%); /* 横方向のグラデーション */
-   
+    justify-content: space-between;
     margin: 0;
     padding: 0px;
     position: sticky;
@@ -1151,3 +1151,63 @@ footer {
     color: var(--sub-color-1) !important; /* 入力欄の文字色 */
     /* text-align: center!important; */
 }
+
+
+
+
+
+
+
+
+/* ランキングプルダウンをタイトル風にする */
+#recordSelect {
+    width: 100%;  /* 横幅を表に合わせる */
+    color: var(--sub-color-1); /* 文字色を白 */
+    font-size: var(--h3-font-size); /* タイトルと同じフォントサイズ */
+    font-weight: bold; /* 太字 */
+    text-align: center;
+    border: none;
+    /* border-radius: 5px; 角を丸く */
+    cursor: pointer;
+    display: block;
+    margin: 0; /* 余白を調整 */
+    top: 82.5px; /* ヘッダーの高さを考慮 */
+    align-items: center; /* 縦方向の中央揃え */
+    position: sticky;
+    top: 82.5px; /* ヘッダーの高さを考慮 */
+    z-index: 900;
+    background-color: var(--main-color-1); /* ヘッダーの背景色を変更 */
+    padding: 0;
+    height: 40px;
+}
+
+
+/* プルダウンの選択肢のスタイル */
+#recordSelect option {
+    /* background-color: white; */
+    color: var(--main-color-1);
+    font-weight: bold;
+}
+
+/* プルダウンホバー時のスタイル */
+#recordSelect:hover {
+    background-color: var(--main-color-1);
+}
+
+/* 選択中の状態を明示 */
+#recordSelect:focus {
+    outline: none;
+    /* box-shadow: 0 0 5px var(--main-color-1); */
+}
+
+/* スクロール時にランキングテーブルの位置を調整 */
+.recordTable {
+    display: none; /* すべてのランキングを非表示 */
+    margin-top: 60px; /* プルダウン固定のための余白を確保 */
+}
+
+/* 選択されたランキングのみ表示 */
+.recordTable.active {
+    display: block;
+}
+
