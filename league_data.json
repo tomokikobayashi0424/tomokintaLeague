@@ -11038,79 +11038,91 @@
       "round20-match0": {
         "home": {
           "teamId": 11,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "アーリング ハーランド"
+          ],
+          "goalPlayers": [
+            "カール ハインツ ルンメニゲ"
+          ],
+          "times": [
+            90
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 39,
+            "shots": 0,
+            "shotsonFrame": 0,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 36,
+            "successfulPasses": 26,
+            "crosses": 0,
+            "PassCuts": 4,
+            "successfulTackles": 3,
+            "save": 2
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 40,
+            "shots": 2,
+            "shotsonFrame": 2,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 80,
+            "successfulPasses": 58,
+            "crosses": 1,
+            "PassCuts": 13,
+            "successfulTackles": 4,
+            "save": 5
           }
         },
         "away": {
           "teamId": 9,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "アレッサンドロ デル ピエーロ"
+          ],
+          "goalPlayers": [
+            "ジョルジョ キエッリーニ"
+          ],
+          "times": [
+            70
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 61,
+            "shots": 4,
+            "shotsonFrame": 2,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 79,
+            "successfulPasses": 68,
+            "crosses": 1,
+            "PassCuts": 8,
+            "successfulTackles": 3,
+            "save": 0
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 60,
+            "shots": 9,
+            "shotsonFrame": 6,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 4,
+            "freeKicks": 0,
+            "passes": 168,
+            "successfulPasses": 145,
+            "crosses": 3,
+            "PassCuts": 15,
+            "successfulTackles": 5,
+            "save": 1
           }
         },
-        "date": "2025-03-02"
+        "date": "2025-03-04"
       },
       "round20-match1": {
         "home": {
