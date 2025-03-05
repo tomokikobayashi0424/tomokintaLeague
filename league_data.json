@@ -16240,82 +16240,124 @@
     }
   },
   "matchDataTCoop": {
-    "1": {
-      "teamsNum": 5,
+    "3": {
+      "teamsNum": 4,
       "newDate": "2025-03-06",
       "round0-match0": {
         "home": {
-          "teamIds": [
+          "teamId": [
+            0
+          ],
+          "score": 1,
+          "pk": 1,
+          "assistPlayers": [
+            "a"
+          ],
+          "goalPlayers": [
+            "b"
+          ],
+          "times": [
             null
           ],
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 1,
+            "shots": 2,
+            "shotsonFrame": 2,
+            "fouls": 3,
+            "offsides": 4,
+            "cornerKicks": 5,
+            "freeKicks": 6,
+            "passes": 7,
+            "successfulPasses": 8,
+            "crosses": 9,
+            "PassCuts": 0,
+            "successfulTackles": 1,
+            "save": 2
           },
           "points": {
-            "totalPoint": [],
-            "OffensePositioning": [],
-            "shot": [],
-            "duel": [],
-            "defensePositioning": [],
-            "pass": [],
-            "dribble": []
+            "totalPoint": [
+              1
+            ],
+            "OffensePositioning": [
+              2
+            ],
+            "shot": [
+              3
+            ],
+            "duel": [
+              4
+            ],
+            "defensePositioning": [
+              5
+            ],
+            "pass": [
+              6
+            ],
+            "dribble": [
+              7
+            ]
           }
         },
         "away": {
-          "teamIds": [],
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "teamId": [
+            7
+          ],
+          "score": 1,
+          "pk": 2,
+          "assistPlayers": [
+            "c"
+          ],
+          "goalPlayers": [
+            "d"
+          ],
+          "times": [
+            null
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 9,
+            "shots": 8,
+            "shotsonFrame": 7,
+            "fouls": 6,
+            "offsides": 5,
+            "cornerKicks": 43,
+            "freeKicks": 3,
+            "passes": 2,
+            "successfulPasses": 1,
+            "crosses": 13,
+            "PassCuts": 4,
+            "successfulTackles": 5,
+            "save": 6
           },
           "points": {
-            "totalPoint": [],
-            "OffensePositioning": [],
-            "shot": [],
-            "duel": [],
-            "defensePositioning": [],
-            "pass": [],
-            "dribble": []
+            "totalPoint": [
+              7
+            ],
+            "OffensePositioning": [
+              6
+            ],
+            "shot": [
+              5
+            ],
+            "duel": [
+              4
+            ],
+            "defensePositioning": [
+              3
+            ],
+            "pass": [
+              2
+            ],
+            "dribble": [
+              1
+            ]
           }
-        }
+        },
+        "date": "2025-03-06"
       },
       "round0-match1": {
         "home": {
-          "teamIds": [
-            null,
-            null
+          "teamId": [
+            6
           ],
           "score": null,
           "pk": null,
@@ -16348,144 +16390,8 @@
           }
         },
         "away": {
-          "teamIds": [
-            null
-          ],
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          },
-          "points": {
-            "totalPoint": [],
-            "OffensePositioning": [],
-            "shot": [],
-            "duel": [],
-            "defensePositioning": [],
-            "pass": [],
-            "dribble": []
-          }
-        }
-      },
-      "round0-match2": {
-        "home": {
-          "teamIds": [
-            null
-          ],
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          },
-          "points": {
-            "totalPoint": [],
-            "OffensePositioning": [],
-            "shot": [],
-            "duel": [],
-            "defensePositioning": [],
-            "pass": [],
-            "dribble": []
-          }
-        },
-        "away": {
-          "teamIds": [],
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          },
-          "points": {
-            "totalPoint": [],
-            "OffensePositioning": [],
-            "shot": [],
-            "duel": [],
-            "defensePositioning": [],
-            "pass": [],
-            "dribble": []
-          }
-        }
-      },
-      "round0-match3": {
-        "home": {
-          "teamIds": [],
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          },
-          "points": {
-            "totalPoint": [],
-            "OffensePositioning": [],
-            "shot": [],
-            "duel": [],
-            "defensePositioning": [],
-            "pass": [],
-            "dribble": []
-          }
-        },
-        "away": {
-          "teamIds": [
-            null
+          "teamId": [
+            2
           ],
           "score": null,
           "pk": null,
@@ -16520,12 +16426,41 @@
       },
       "round1-match0": {
         "home": {
-          "teamIds": [
-            null
-          ]
+          "teamId": [
+            7
+          ],
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "points": {
+            "totalPoint": [],
+            "OffensePositioning": [],
+            "shot": [],
+            "duel": [],
+            "defensePositioning": [],
+            "pass": [],
+            "dribble": []
+          }
         },
         "away": {
-          "teamIds": [],
+          "teamId": [],
           "score": null,
           "pk": null,
           "assistPlayers": [],
@@ -16559,19 +16494,9 @@
       },
       "round1-match1": {
         "home": {
-          "teamIds": [
-            null
-          ]
-        },
-        "away": {
-          "teamIds": [
-            null
-          ]
-        }
-      },
-      "round2-match0": {
-        "home": {
-          "teamIds": [],
+          "teamId": [
+            0
+          ],
           "score": null,
           "pk": null,
           "assistPlayers": [],
@@ -16603,73 +16528,7 @@
           }
         },
         "away": {
-          "teamIds": [],
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          },
-          "points": {
-            "totalPoint": [],
-            "OffensePositioning": [],
-            "shot": [],
-            "duel": [],
-            "defensePositioning": [],
-            "pass": [],
-            "dribble": []
-          }
-        }
-      },
-      "round2-match1": {
-        "home": {
-          "teamIds": [],
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          },
-          "points": {
-            "totalPoint": [],
-            "OffensePositioning": [],
-            "shot": [],
-            "duel": [],
-            "defensePositioning": [],
-            "pass": [],
-            "dribble": []
-          }
-        },
-        "away": {
-          "teamIds": [],
+          "teamId": [],
           "score": null,
           "pk": null,
           "assistPlayers": [],
@@ -16702,15 +16561,17 @@
         }
       }
     },
-    "3": {
-      "teamsNum": 3,
-      "newDate": "2025-03-05",
+    "tc24-1": {
+      "teamsNum": 4,
+      "newDate": "2024-12-30",
       "round0-match0": {
         "home": {
           "teamId": [
-            0
+            4,
+            0,
+            7
           ],
-          "score": null,
+          "score": 0,
           "pk": null,
           "assistPlayers": [],
           "goalPlayers": [],
@@ -16731,22 +16592,60 @@
             "save": null
           },
           "points": {
-            "totalPoint": [],
-            "OffensePositioning": [],
-            "shot": [],
-            "duel": [],
-            "defensePositioning": [],
-            "pass": [],
-            "dribble": []
+            "totalPoint": [
+              null,
+              null,
+              null
+            ],
+            "OffensePositioning": [
+              null,
+              null,
+              null
+            ],
+            "shot": [
+              null,
+              null,
+              null
+            ],
+            "duel": [
+              null,
+              null,
+              null
+            ],
+            "defensePositioning": [
+              null,
+              null,
+              null
+            ],
+            "pass": [
+              null,
+              null,
+              null
+            ],
+            "dribble": [
+              null,
+              null,
+              null
+            ]
           }
         },
         "away": {
-          "teamId": null,
-          "score": null,
+          "teamId": [
+            11,
+            3,
+            8
+          ],
+          "score": 1,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            ""
+          ],
+          "goalPlayers": [
+            ""
+          ],
+          "times": [
+            null
+          ],
           "fullTime": {
             "possession": null,
             "shots": null,
@@ -16763,23 +16662,53 @@
             "save": null
           },
           "points": {
-            "totalPoint": [],
-            "OffensePositioning": [],
-            "shot": [],
-            "duel": [],
-            "defensePositioning": [],
-            "pass": [],
-            "dribble": []
+            "totalPoint": [
+              null,
+              null,
+              null
+            ],
+            "OffensePositioning": [
+              null,
+              null,
+              null
+            ],
+            "shot": [
+              null,
+              null,
+              null
+            ],
+            "duel": [
+              null,
+              null,
+              null
+            ],
+            "defensePositioning": [
+              null,
+              null,
+              null
+            ],
+            "pass": [
+              null,
+              null,
+              null
+            ],
+            "dribble": [
+              null,
+              null,
+              null
+            ]
           }
-        }
+        },
+        "date": "2024-12-30"
       },
       "round0-match1": {
         "home": {
           "teamId": [
-            2,
-            4
+            9,
+            5,
+            6
           ],
-          "score": null,
+          "score": 0,
           "pk": null,
           "assistPlayers": [],
           "goalPlayers": [],
@@ -16800,24 +16729,60 @@
             "save": null
           },
           "points": {
-            "totalPoint": [],
-            "OffensePositioning": [],
-            "shot": [],
-            "duel": [],
-            "defensePositioning": [],
-            "pass": [],
-            "dribble": []
+            "totalPoint": [
+              null,
+              null,
+              null
+            ],
+            "OffensePositioning": [
+              null,
+              null,
+              null
+            ],
+            "shot": [
+              null,
+              null,
+              null
+            ],
+            "duel": [
+              null,
+              null,
+              null
+            ],
+            "defensePositioning": [
+              null,
+              null,
+              null
+            ],
+            "pass": [
+              null,
+              null,
+              null
+            ],
+            "dribble": [
+              null,
+              null,
+              null
+            ]
           }
         },
         "away": {
           "teamId": [
-            1
+            1,
+            2,
+            10
           ],
-          "score": null,
+          "score": 1,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            ""
+          ],
+          "goalPlayers": [
+            ""
+          ],
+          "times": [
+            null
+          ],
           "fullTime": {
             "possession": null,
             "shots": null,
@@ -16834,26 +16799,63 @@
             "save": null
           },
           "points": {
-            "totalPoint": [],
-            "OffensePositioning": [],
-            "shot": [],
-            "duel": [],
-            "defensePositioning": [],
-            "pass": [],
-            "dribble": []
+            "totalPoint": [
+              null,
+              null,
+              null
+            ],
+            "OffensePositioning": [
+              null,
+              null,
+              null
+            ],
+            "shot": [
+              null,
+              null,
+              null
+            ],
+            "duel": [
+              null,
+              null,
+              null
+            ],
+            "defensePositioning": [
+              null,
+              null,
+              null
+            ],
+            "pass": [
+              null,
+              null,
+              null
+            ],
+            "dribble": [
+              null,
+              null,
+              null
+            ]
           }
-        }
+        },
+        "date": "2024-12-30"
       },
       "round1-match0": {
         "home": {
           "teamId": [
-            0
+            11,
+            3,
+            8
           ],
-          "score": null,
+          "score": 1,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            ""
+          ],
+          "goalPlayers": [
+            ""
+          ],
+          "times": [
+            null
+          ],
           "fullTime": {
             "possession": null,
             "shots": null,
@@ -16870,18 +16872,50 @@
             "save": null
           },
           "points": {
-            "totalPoint": [],
-            "OffensePositioning": [],
-            "shot": [],
-            "duel": [],
-            "defensePositioning": [],
-            "pass": [],
-            "dribble": []
+            "totalPoint": [
+              null,
+              null,
+              null
+            ],
+            "OffensePositioning": [
+              null,
+              null,
+              null
+            ],
+            "shot": [
+              null,
+              null,
+              null
+            ],
+            "duel": [
+              null,
+              null,
+              null
+            ],
+            "defensePositioning": [
+              null,
+              null,
+              null
+            ],
+            "pass": [
+              null,
+              null,
+              null
+            ],
+            "dribble": [
+              null,
+              null,
+              null
+            ]
           }
         },
         "away": {
-          "teamId": null,
-          "score": null,
+          "teamId": [
+            1,
+            2,
+            10
+          ],
+          "score": 0,
           "pk": null,
           "assistPlayers": [],
           "goalPlayers": [],
@@ -16902,15 +16936,181 @@
             "save": null
           },
           "points": {
-            "totalPoint": [],
-            "OffensePositioning": [],
-            "shot": [],
-            "duel": [],
-            "defensePositioning": [],
-            "pass": [],
-            "dribble": []
+            "totalPoint": [
+              null,
+              null,
+              null
+            ],
+            "OffensePositioning": [
+              null,
+              null,
+              null
+            ],
+            "shot": [
+              null,
+              null,
+              null
+            ],
+            "duel": [
+              null,
+              null,
+              null
+            ],
+            "defensePositioning": [
+              null,
+              null,
+              null
+            ],
+            "pass": [
+              null,
+              null,
+              null
+            ],
+            "dribble": [
+              null,
+              null,
+              null
+            ]
           }
-        }
+        },
+        "date": "2024-12-30"
+      },
+      "round1-match1": {
+        "home": {
+          "teamId": [
+            4,
+            0,
+            7
+          ],
+          "score": 1,
+          "pk": null,
+          "assistPlayers": [
+            ""
+          ],
+          "goalPlayers": [
+            ""
+          ],
+          "times": [
+            null
+          ],
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "points": {
+            "totalPoint": [
+              null,
+              null,
+              null
+            ],
+            "OffensePositioning": [
+              null,
+              null,
+              null
+            ],
+            "shot": [
+              null,
+              null,
+              null
+            ],
+            "duel": [
+              null,
+              null,
+              null
+            ],
+            "defensePositioning": [
+              null,
+              null,
+              null
+            ],
+            "pass": [
+              null,
+              null,
+              null
+            ],
+            "dribble": [
+              null,
+              null,
+              null
+            ]
+          }
+        },
+        "away": {
+          "teamId": [
+            9,
+            5,
+            6
+          ],
+          "score": 0,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "points": {
+            "totalPoint": [
+              null,
+              null,
+              null
+            ],
+            "OffensePositioning": [
+              null,
+              null,
+              null
+            ],
+            "shot": [
+              null,
+              null,
+              null
+            ],
+            "duel": [
+              null,
+              null,
+              null
+            ],
+            "defensePositioning": [
+              null,
+              null,
+              null
+            ],
+            "pass": [
+              null,
+              null,
+              null
+            ],
+            "dribble": [
+              null,
+              null,
+              null
+            ]
+          }
+        },
+        "date": "2025-01-30"
       }
     }
   }
