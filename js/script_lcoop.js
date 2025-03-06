@@ -9,15 +9,18 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ページ内の各種データ更新をまとめる関数
+// 各種データ表示の更新をまとめる関数
 function updateAllDisplayData() {
-    displaySchedule();  // 日程を表示
-    updateStandingsTable();  // 順位表を表示
-    updateRankChangeArrows(); // 順位変動の矢印を表示
-    displayIndividualRecords(); // 個人戦績を表示
-    displayTeamMonthlySchedule(); //チーム日程表の表示
-    toggleSeasonView(); // チーム戦績のシーズン切り替えall or current関数
-    updateIndividualRecords();  // 個人戦績を更新
+    // 日程タブ
+    displaySchedule();
+    // 順位タブ
+    updateStandingsTable();
+    updateRankChangeArrows();
+    // 選手戦績タブ
+    updatePlayerRecords('goalPlayersTable', 'goalPlayers');
+    updatePlayerRecords('assistPlayersTable', 'assistPlayers');
+    updatePlayerRecords('goalAssistPlayersTable', ['goalPlayers', 'assistPlayers']);
+    toggleRecordTable();
 }
 
 // // ローカルストレージからシーズン一覧を取得してプルダウンを作成
@@ -635,21 +638,18 @@ function loadMatchData(roundIndex, matchIndex) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // 順位表タブ
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// **総ポイントを保存するグローバル変数**
-// **グローバル変数として `totalPointsMap` を定義**
-// 
+// 順位を決める関数
 function calculateStandings() {
     if (!matchDataLCoop[currentSeason]) return [];
 
     let participatingTeams = new Set();
-    let teamGroups = new Map(); // 複合チームごとのデータを保存
+    let teamGroups = new Map();
 
-    // 出場した複合チームの `teamIds` セットをキーとして保持
     for (const matchKey in matchDataLCoop[currentSeason]) {
         if (["teamsNum", "currentStandings", "newDate", "teamSize"].includes(matchKey)) continue;
 
         let match = matchDataLCoop[currentSeason][matchKey];
-        let homeTeamKey = match.home.teamIds.sort().join("-"); // 例: "0-1-2"
+        let homeTeamKey = match.home.teamIds.sort().join("-");
         let awayTeamKey = match.away.teamIds.sort().join("-");
 
         participatingTeams.add(homeTeamKey);
@@ -659,10 +659,9 @@ function calculateStandings() {
         if (!teamGroups.has(awayTeamKey)) teamGroups.set(awayTeamKey, match.away.teamIds);
     }
 
-    // standings 配列を作成（複合チーム単位）
     let standings = Array.from(participatingTeams).map(teamKey => ({
-        teamKey: teamKey, // "0-1-2" のようなキー
-        teamIds: teamGroups.get(teamKey), // チームIDの配列
+        teamKey: teamKey, 
+        teamIds: teamGroups.get(teamKey), 
         points: 0,
         matchesPlayed: 0,
         wins: 0,
@@ -670,6 +669,7 @@ function calculateStandings() {
         losses: 0,
         goalDifference: 0,
         totalGoals: 0,
+        totalPoints: {},  // 各チームの総合ポイント
         currentRank: null
     }));
 
@@ -709,10 +709,20 @@ function calculateStandings() {
             awayTeam.totalGoals += awayScore;
             homeTeam.goalDifference += (homeScore - awayScore);
             awayTeam.goalDifference += (awayScore - homeScore);
+
+            // **試合ごとの `totalPoint` を正しく合計**
+            match.home.teamIds.forEach((teamId, index) => {
+                if (!homeTeam.totalPoints[teamId]) homeTeam.totalPoints[teamId] = 0;
+                homeTeam.totalPoints[teamId] += match.home.points?.totalPoint?.[index] ?? 0;
+            });
+
+            match.away.teamIds.forEach((teamId, index) => {
+                if (!awayTeam.totalPoints[teamId]) awayTeam.totalPoints[teamId] = 0;
+                awayTeam.totalPoints[teamId] += match.away.points?.totalPoint?.[index] ?? 0;
+            });
         }
     }
 
-    // 順位計算（勝ち点 → 得失点差 → 総得点順）
     standings.sort((a, b) => {
         if (b.points !== a.points) return b.points - a.points;
         if (b.goalDifference !== a.goalDifference) return b.goalDifference - a.goalDifference;
@@ -725,13 +735,6 @@ function calculateStandings() {
 
     return standings;
 }
-
-
-
-
-
-
-
 
 // 順位表を更新する関数
 function updateStandingsTable() {
@@ -746,10 +749,18 @@ function updateStandingsTable() {
         let teamNames = team.teamIds.map(teamId => {
             let teamInfo = teamsData.find(t => t.teamId === teamId);
             return teamInfo ? getTeamNameByScreenSize(teamInfo) : "不明";
-        }).join("<br>"); // チーム名を改行して表示
+        }).join("<br>"); 
 
-        let teamInfo = teamsData.find(t => t.teamId === team.teamIds[0]); // 最初のチームの色を適用
+        let teamInfo = teamsData.find(t => t.teamId === team.teamIds[0]); 
         let teamColor = teamInfo ? `#${teamInfo.teamsColor}` : "#FFFFFF";
+
+        // **各チームの `totalPoint` を改行付きで表示**
+        let totalPointsText = team.teamIds.map(teamId => {
+            let totalPoint = team.totalPoints[teamId] !== undefined ? team.totalPoints[teamId] : 0;
+            return totalPoint;
+        }).join("<br>");
+
+        // console.log(`総ポイントのデータ (${team.teamKey}):`, totalPointsText); // デバッグ用
 
         let row = `
             <tr>
@@ -762,34 +773,30 @@ function updateStandingsTable() {
                 <td>${team.losses}</td>
                 <td>${team.goalDifference}</td>
                 <td>${team.totalGoals}</td>
+                <td>${totalPointsText}</td> <!-- 総合ポイントの列を追加 -->
             </tr>`;
         tbody.insertAdjacentHTML('beforeend', row);
     });
 }
 
-
-
-
-
-
-
-
 function updateRankChangeArrows() {
-    let currentStandings = matchDataLCoop[currentSeason]?.currentStandings || [];
-    let standings = calculateStandings(); // 現在の順位を再計算
+    if (!matchDataLCoop[currentSeason] || !matchDataLCoop[currentSeason].currentStandings) return;
+
+    let previousStandings = matchDataLCoop[currentSeason].currentStandings || []; // 保存されている前回の順位
+    let currentStandings = calculateStandings(); // 最新の順位
 
     let tbody = document.querySelector('#standingsTable tbody');
-    tbody.innerHTML = ''; // 順位表を初期化
+    tbody.innerHTML = ''; // 順位表をリセット
 
-    standings.forEach(team => {
-        // `teamId` に対応する `previousRank` を取得
-        let previousRank = currentStandings.findIndex(t => t.teamKey === team.teamKey) + 1;
-        let currentRank = team.currentRank;
+    currentStandings.forEach((team, index) => {
+        let previousIndex = previousStandings.findIndex(t => t.teamIds.sort().join("-") === team.teamIds.sort().join("-"));
+        let previousRank = previousIndex >= 0 ? previousIndex + 1 : null;
+        let currentRank = index + 1;
 
         let rankChange = '';
         let rankClass = '';
 
-        if (previousRank > 0) { // `findIndex` は見つからないと `-1` を返すので、順位がある場合のみ処理
+        if (previousRank !== null) {
             if (currentRank < previousRank) {
                 rankChange = '▲'; // 順位上昇
                 rankClass = 'rank-up';
@@ -801,28 +808,26 @@ function updateRankChangeArrows() {
                 rankClass = 'rank-no-change';
             }
         } else {
-            rankChange = '-';
+            rankChange = '-'; // 初回のデータなし
             rankClass = 'rank-no-change';
         }
 
-        // **チーム名を取得（複数チームを改行で表示）**
         let teamNames = team.teamIds.map(teamId => {
             let teamInfo = teamsData.find(t => t.teamId === teamId);
-            return teamInfo ? getTeamNameByScreenSize(teamInfo) : "不明"; // `undefined` なら "不明"
+            return teamInfo ? getTeamNameByScreenSize(teamInfo) : "不明";
         }).join("<br>");
 
-        // **エラーハンドリングを追加**
-        if (!teamNames) {
-            console.warn(`チーム名が取得できません: teamKey = ${team.teamKey}, teamIds = ${team.teamIds}`);
-            teamNames = "不明";
-        }
+        let teamInfo = teamsData.find(t => t.teamId === team.teamIds[0]);
+        let teamColor = teamInfo ? `#${teamInfo.teamsColor}` : "#FFFFFF";
 
-        
+        let totalPointsText = team.teamIds.map(teamId => {
+            return team.totalPoints[teamId] !== undefined ? team.totalPoints[teamId] : 0;
+        }).join("<br>");
 
         let row = `
             <tr>
-                <td>${team.currentRank} <span class="${rankClass}">${rankChange}</span></td>
-                <td>${teamNames}</td>
+                <td>${currentRank} <span class="${rankClass}">${rankChange}</span></td>
+                <td style="background-color:${teamColor}; color:white; font-weight:bold; text-align:center;">${teamNames}</td>
                 <td>${team.points}</td>
                 <td>${team.matchesPlayed}</td>
                 <td>${team.wins}</td>
@@ -830,17 +835,23 @@ function updateRankChangeArrows() {
                 <td>${team.losses}</td>
                 <td>${team.goalDifference}</td>
                 <td>${team.totalGoals}</td>
+                <td>${totalPointsText}</td>
             </tr>`;
         tbody.insertAdjacentHTML('beforeend', row);
     });
 }
 
-
-// ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////////////////////////////////////////////
-// // 個人戦績タブ
-// ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// 個人戦績タブ
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 function displayIndividualRecords() {
     let individualRecords = JSON.parse(localStorage.getItem('individualRecords')) || { assists: {}, goals: {} };
 

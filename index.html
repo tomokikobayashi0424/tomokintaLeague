@@ -320,86 +320,58 @@
             <!-- 選手戦績タブ -->
             <section id="records" class="tabcontent">
                 <h2>選手戦績</h2>
-
-                <!-- プルダウンメニュー (タイトル風) -->
-                <!-- <label for="recordSelect" class="hidden-label">ランキングを選択:</label>  -->
+            
+                <!-- ランキング選択プルダウン -->
                 <select id="recordSelect" onchange="toggleRecordTable()">
                     <option value="goalPlayersTable">ゴールランキング</option>
                     <option value="assistPlayersTable">アシストランキング</option>
+                    <option value="goalAssistPlayersTable">ゴール + アシストランキング</option>
                     <option value="goalTeamsTable">チーム別ゴールランキング</option>
                     <option value="assistTeamsTable">チーム別アシストランキング</option>
                     <option value="totalPlayersTable">チーム別ゴール + アシストランキング</option>
                 </select>
-
-                <!-- 各ランキングテーブルの <h3> を削除し、プルダウンをタイトル風に -->
+            
                 <div class="recordTable" id="goalPlayersTable">
-                    <table  class="table-common table1 sticky-table2">
-                        <thead>
-                            <tr>
-                                <th>順位</th>
-                                <th>選手名</th>
-                                <th>ゴール数</th>
-                            </tr>
-                        </thead>
+                    <table class="table-common table1 sticky-table2">
+                        <thead><tr><th>順位</th><th>選手名</th><th>ゴール数</th></tr></thead>
                         <tbody></tbody>
                     </table>
                 </div>
-
+            
                 <div class="recordTable" id="assistPlayersTable">
-                    <table  class="table-common table1 sticky-table2">
-                        <thead>
-                            <tr>
-                                <th>順位</th>
-                                <th>選手名</th>
-                                <th>アシスト数</th>
-                            </tr>
-                        </thead>
+                    <table class="table-common table1 sticky-table2">
+                        <thead><tr><th>順位</th><th>選手名</th><th>アシスト数</th></tr></thead>
                         <tbody></tbody>
                     </table>
                 </div>
-
+                
+                <div class="recordTable" id="goalAssistPlayersTable">
+                    <table class="table-common table1 sticky-table2">
+                        <thead><tr><th>順位</th><th>選手名</th><th>GA</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            
                 <div class="recordTable" id="goalTeamsTable">
-                    <table  class="table-common table1 sticky-table2">
-                        <thead>
-                            <tr>
-                                <th>順位</th>
-                                <th>選手名</th>
-                                <th>チーム</th>
-                                <th>ゴール数</th>
-                            </tr>
-                        </thead>
+                    <table class="table-common table1 sticky-table2">
+                        <thead><tr><th>順位</th><th>選手名</th><th>チーム</th><th>ゴール数</th></tr></thead>
                         <tbody></tbody>
                     </table>
                 </div>
-
+            
                 <div class="recordTable" id="assistTeamsTable">
-                    <table  class="table-common table1 sticky-table2">
-                        <thead>
-                            <tr>
-                                <th>順位</th>
-                                <th>選手名</th>
-                                <th>チーム</th>
-                                <th>アシスト数</th>
-                            </tr>
-                        </thead>
+                    <table class="table-common table1 sticky-table2">
+                        <thead><tr><th>順位</th><th>選手名</th><th>チーム</th><th>アシスト数</th></tr></thead>
                         <tbody></tbody>
                     </table>
                 </div>
-
+            
                 <div class="recordTable" id="totalPlayersTable">
-                    <table  class="table-common table1 sticky-table2">
-                        <thead>
-                            <tr>
-                                <th>順位</th>
-                                <th>選手名</th>
-                                <th>チーム</th>
-                                <th>GA</th>
-                            </tr>
-                        </thead>
+                    <table class="table-common table1 sticky-table2">
+                        <thead><tr><th>順位</th><th>選手名</th><th>チーム</th><th>GA</th></tr></thead>
                         <tbody></tbody>
                     </table>
                 </div>
-
             </section>
 
         </main>
