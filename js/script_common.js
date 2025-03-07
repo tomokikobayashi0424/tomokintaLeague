@@ -1271,3 +1271,9 @@ function toggleRecordTable() {
     document.querySelectorAll(".recordTable").forEach(table => table.classList.remove("active"));
     document.getElementById(document.getElementById("recordSelect").value).classList.add("active");
 }
+
+
+
+
+
+// console.log("Team Colors:", teamColors);

@@ -672,6 +672,7 @@ main{
     font-weight: bold;
     margin: 0;
     padding: 0;
+    height: 30px;
 }
 
 /*=================================================================================================
@@ -1265,3 +1266,103 @@ Coopトーナメント表のスタイル
     display: block;
 }
 
+
+
+
+
+
+/* 日程もくじ */
+.round-overview {
+    margin-bottom: 10px;
+    padding: 0px;
+    background-color: var(--main-color-1);
+}
+
+.round-overview h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.round-overview-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 20px; /* セルの間隔を上下10px確保 */
+    table-layout: fixed; /* セルの幅を固定 */
+}
+
+.round-overview-table th,
+.round-overview-table td {
+    padding: 0px;
+    text-align: center;
+    border: none; /* 縦線を削除 */
+    position: relative; /* はみ出し調整用 */
+    height: 15px; /* 各節（行）の高さを12pxに設定 */
+    background-color: var(--main-color-2);
+    color: white; /* 文字色を白に */
+}
+
+/* 各列の幅を指定 */
+.round-overview-table td:nth-child(1) { 
+    width: 34%;
+    text-align: right; /* ホームチーム名を右詰め */
+    padding-right: 10px;
+} 
+.round-overview-table td:nth-child(2) { width: 10%; } /* ホームロゴ */
+.round-overview-table td:nth-child(3) { width: 4%; }  /* ホームスコア */
+.round-overview-table td:nth-child(4) { width: 4%; }  /* ハイフン */
+.round-overview-table td:nth-child(5) { width: 4%; }  /* アウェイスコア */
+.round-overview-table td:nth-child(6) { width: 10%; } /* アウェイロゴ */
+.round-overview-table td:nth-child(7) { 
+    width: 34%;
+    text-align: left; /* アウェイチーム名を左詰め */
+    padding-left: 10px;
+} 
+
+/* チーム名のフォントサイズを小さく */
+.round-overview-table td:first-child,
+.round-overview-table td:last-child {
+    font-size: 10px;
+    font-weight: normal;
+}
+
+/* スコアの数字を大きくし、背景ごとではなく文字だけ上に浮かせる */
+.round-overview-table td:nth-child(3),
+.round-overview-table td:nth-child(5) {
+    font-size: 30px;
+    font-weight: bold;
+    position: relative;
+}
+
+.round-overview-table td:nth-child(3) span,
+.round-overview-table td:nth-child(5) span {
+    position: absolute;
+    top: -10px; /* 文字だけを上へ */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* チームロゴを背景ごとではなくアイコンだけ上に浮かせる */
+.schedule-team-logo {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    position: absolute;
+    top: -10px; /* ロゴだけ上へ */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ロゴの親tdにrelativeを追加して制御 */
+.round-overview-table td:nth-child(2),
+.round-overview-table td:nth-child(6) {
+    position: relative;
+}
+
+/* 行のホバー時に背景色変更 */
+.match-row {
+    cursor: pointer;
+}
+
+.match-row:hover {
+    background-color: var(--main-color-1);
+}
