@@ -1297,8 +1297,7 @@ Coopトーナメント表のスタイル
     border: none; /* 縦線を削除 */
     position: relative; /* はみ出し調整用 */
     height: 15px; /* 各節（行）の高さを12pxに設定 */
-    background: linear-gradient(90deg, var(--main-color-1), var(--main-color-2), var(--main-color-1));
-
+    
     color: white; /* 文字色を白に */
 }
 
@@ -1307,6 +1306,7 @@ Coopトーナメント表のスタイル
     width: 34%;
     text-align: right; /* ホームチーム名を右詰め */
     padding-right: 10px;
+   
 } 
 .round-overview-table td:nth-child(2) { width: 10%; } /* ホームロゴ */
 .round-overview-table td:nth-child(3) { width: 4%; }  /* ホームスコア */
@@ -1317,6 +1317,7 @@ Coopトーナメント表のスタイル
     width: 34%;
     text-align: left; /* アウェイチーム名を左詰め */
     padding-left: 10px;
+    
 } 
 
 /* チーム名のフォントサイズを小さく */
@@ -1364,6 +1365,28 @@ Coopトーナメント表のスタイル
     cursor: pointer;
 }
 
-.match-row:hover {
-    background-color: var(--main-color-1);
+/* .match-row:hover {
+    background-color: var(--main-color-2);
+} */
+/* 行全体にグラデーションを適用 */
+.match-row {
+    position: relative; /* 疑似要素を配置するため */
+    cursor: pointer;
+}
+
+/* 疑似要素を使って行全体にグラデーション */
+.match-row::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        var(--main-color-1) 0%, 
+        var(--main-color-2) 40%, 
+        var(--main-color-2) 60%, 
+        var(--main-color-1) 100%
+    );
+    /* z-index: 0; 背景として配置 */
 }
