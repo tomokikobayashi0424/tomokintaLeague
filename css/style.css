@@ -1388,5 +1388,5 @@ Coopトーナメント表のスタイル
         var(--main-color-2) 60%, 
         var(--main-color-1) 100%
     );
-    /* z-index: 0; 背景として配置 */
+    z-index: 0;
 }
