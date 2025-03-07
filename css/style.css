@@ -1297,7 +1297,8 @@ Coopトーナメント表のスタイル
     border: none; /* 縦線を削除 */
     position: relative; /* はみ出し調整用 */
     height: 15px; /* 各節（行）の高さを12pxに設定 */
-    background-color: var(--main-color-2);
+    background: linear-gradient(90deg, var(--main-color-1), var(--main-color-2), var(--main-color-1));
+
     color: white; /* 文字色を白に */
 }
 
