@@ -110,6 +110,7 @@ body {
     /* padding: 10px; */
     /* line-height: 0px; */
     background-color: var(--accent-color-1);
+    
     color: var(--white-color-1);
     text-align: center;
     /* テキストサイズ 10/3の高さ*/
@@ -131,9 +132,28 @@ body {
 }
 
 .button3 {
-    padding: 10px;
-    width: 49%;
+    padding:5px;
+    width: 40%;
+    text-align: left;
     border-radius: 5px;
+    background: linear-gradient(90deg, 
+    #00c8ef 30%, 
+    #007aff 70%
+        /* var(--main-color-1) 100% */
+    );
+}
+.button4 {
+    padding:5px;
+    width: 40%;
+    /* 100px; */
+    /* 49%; */
+    text-align: right;
+    border-radius: 5px;
+    background: linear-gradient(90deg, 
+    #007aff 30%, 
+    #00c8ef 70%
+        /* var(--main-color-1) 100% */
+    );
 }
 
 /* ホバー時のスタイル */
