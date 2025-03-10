@@ -961,6 +961,21 @@ main{
     font-weight: bold;
 }
 
+.rank-team-logo {
+    width: 100%; /* セルの幅いっぱいに調整 */
+    height: 100%; /* セルの高さいっぱいに調整 */
+    object-fit: cover; /* 画像をセル全体に拡大し、はみ出た部分をカット */
+    display: block; /* 余白を排除 */
+    margin: 0; /* 余白を完全に削除 */
+    padding: 0; /* パディングを完全に削除 */
+    border: none; /* 不要な枠を削除 */
+}
+
+.standings-table td:nth-child(3) {
+    padding: 0; /* パディングをゼロに */
+    width: 30px; /* 固定幅を指定 */
+    height: 30px; /* 固定高さを指定 */
+}
 
 /* 
 .ranking-rules {
@@ -1381,6 +1396,7 @@ Coopトーナメント表のスタイル
     left: 50%;
     transform: translateX(-50%);
 }
+
 
 /* ロゴの親tdにrelativeを追加して制御 */
 .round-overview-table td:nth-child(2),
