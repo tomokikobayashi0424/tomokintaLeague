@@ -160,7 +160,7 @@ body {
 .button-common:hover,
 .button-common2:hover,
 .button-common3:hover {
-    background-color: var(--accent-color-1);
+    /* background: var(--accent-color-1); */
     color: var(--gray-color-1);
 }
 .button1:hover,
