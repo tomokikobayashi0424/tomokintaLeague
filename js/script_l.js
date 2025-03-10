@@ -193,8 +193,8 @@ function displaySchedule(schedule = null) {
         scheduleHTML += `
             <div class="schedule-header sticky-header">
                 <div class="button-container">
-                    <button class="button-common button3" onclick="previousRound()">前節</button>
-                    <button class="button-common button3" onclick="nextRound()">次節</button>
+                    <button class="button-common button3" onclick="previousRound()">＜　前節</button>
+                    <button class="button-common button4" onclick="nextRound()">次節　＞</button>
                 </div>
                 <h2 class="week-info">${weekInfo}</h2>
             </div>`;
@@ -284,6 +284,8 @@ function displaySchedule(schedule = null) {
     // });
     
 }
+
+// 日程表の自動スクロールする関数
 function scrollToMatch(targetId) {
     let targetElement = document.getElementById(targetId);
     if (targetElement) {
@@ -300,31 +302,31 @@ function scrollToMatch(targetId) {
 
 
 // 現在のラウンドを計算する関数
-function calculateCurrentRound(startDate, numRounds) {
-    const today = new Date();
+// function calculateCurrentRound(startDate, numRounds) {
+//     const today = new Date();
     
-    // リーグ開始前なら第1節
-    if (today < startDate) return 0;
+//     // リーグ開始前なら第1節
+//     if (today < startDate) return 0;
 
-    // 経過日数を計算
-    const dayDifference = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
-    const weekDifference = Math.floor(dayDifference / 7);
+//     // 経過日数を計算
+//     const dayDifference = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+//     const weekDifference = Math.floor(dayDifference / 7);
 
-    // 節の範囲を制限（最終節を超えないように）
-    return Math.min(weekDifference, numRounds - 1);
-}
+//     // 節の範囲を制限（最終節を超えないように）
+//     return Math.min(weekDifference, numRounds - 1);
+// }
 
 // 試合詳細のスタッツ表を生成する関数
-function generateStatsTable(roundIndex, matchIndex) {
-    const statCategories = ["支配率 (%)", "シュート", "枠内シュート", "ファウル", "オフサイド", 
-                            "コーナーキック", "フリーキック回数", "パス", "パス成功", 
-                            "クロス", "パスカット", "タックル成功", "セーブ"];
+// function generateStatsTable(roundIndex, matchIndex) {
+//     const statCategories = ["支配率 (%)", "シュート", "枠内シュート", "ファウル", "オフサイド", 
+//                             "コーナーキック", "フリーキック回数", "パス", "パス成功", 
+//                             "クロス", "パスカット", "タックル成功", "セーブ"];
 
-    // スタッツテーブルを生成
-    const statsTable = createStatsTable(statCategories, roundIndex, matchIndex);
+//     // スタッツテーブルを生成
+//     const statsTable = createStatsTable(statCategories, roundIndex, matchIndex);
     
-    return statsTable;
-}
+//     return statsTable;
+// }
 
 // 得点詳細のスタッツ表を作成する関数
 function createStatsTable(statCategories, roundIndex, matchIndex) {
@@ -427,101 +429,101 @@ function createStatsTable(statCategories, roundIndex, matchIndex) {
 }
 
 // ラウンドを表示する関数
-function showRound(round) {
-    let allRounds = document.querySelectorAll('.round');
-    allRounds.forEach((roundDiv, index) => {
-        roundDiv.style.display = index === round ? 'block' : 'none';
-    });
-}
+// function showRound(round) {
+//     let allRounds = document.querySelectorAll('.round');
+//     allRounds.forEach((roundDiv, index) => {
+//         roundDiv.style.display = index === round ? 'block' : 'none';
+//     });
+// }
 
 // 前節ボタンをクリックした時の処理
-function previousRound() {
-    if (currentRound > 0) {
-        currentRound--;
-        showRound(currentRound);
-    }
-}
+// function previousRound() {
+//     if (currentRound > 0) {
+//         currentRound--;
+//         showRound(currentRound);
+//     }
+// }
 
 // 次節ボタンをクリックした時の処理
-function nextRound() {
-    let allRounds = document.querySelectorAll('.round');
-    if (currentRound < allRounds.length - 1) {
-        currentRound++;
-        showRound(currentRound);
-    }
-}
+// function nextRound() {
+//     let allRounds = document.querySelectorAll('.round');
+//     if (currentRound < allRounds.length - 1) {
+//         currentRound++;
+//         showRound(currentRound);
+//     }
+// }
 
 // 得点の詳細タブ追加に関する関数
-function updateGoalDetails(roundIndex, matchIndex, teamType, data = null) {
-    let goalDetailsBody = document.getElementById(`goalDetailsBody${roundIndex}-${matchIndex}`);
+// function updateGoalDetails(roundIndex, matchIndex, teamType, data = null) {
+//     let goalDetailsBody = document.getElementById(`goalDetailsBody${roundIndex}-${matchIndex}`);
 
-    // スコアに基づいて得点詳細行を生成
-    let score = data ? data.score : parseInt(document.getElementById(`${teamType}Score${roundIndex}-${matchIndex}`).value) || 0;
-    let assistPlayers = data ? data.assistPlayers : [];
-    let goalPlayers = data ? data.goalPlayers : [];
-    let times = data ? data.times : [];
+//     // スコアに基づいて得点詳細行を生成
+//     let score = data ? data.score : parseInt(document.getElementById(`${teamType}Score${roundIndex}-${matchIndex}`).value) || 0;
+//     let assistPlayers = data ? data.assistPlayers : [];
+//     let goalPlayers = data ? data.goalPlayers : [];
+//     let times = data ? data.times : [];
 
-    // 既存のゴール詳細行を削除（ホーム・アウェイそれぞれ個別に行を管理）
-    let existingRows = Array.from(goalDetailsBody.querySelectorAll('tr'));
-    let currentRows = existingRows.filter(row => row.querySelector(`.goal-time.${teamType}`));
+//     // 既存のゴール詳細行を削除（ホーム・アウェイそれぞれ個別に行を管理）
+//     let existingRows = Array.from(goalDetailsBody.querySelectorAll('tr'));
+//     let currentRows = existingRows.filter(row => row.querySelector(`.goal-time.${teamType}`));
 
-    // 既存行数と新しい得点に基づいて、行の増減を行う
-    if (currentRows.length > score) {
-        // 行を削除（得点が減った場合）
-        for (let i = currentRows.length - 1; i >= score; i--) {
-            goalDetailsBody.removeChild(currentRows[i]);
-        }
-    } else if (currentRows.length < score) {
-        // 行を追加（得点が増えた場合）
-        for (let i = currentRows.length; i < score; i++) {
-            let assist = assistPlayers[i] || '';
-            let goal = goalPlayers[i] || '';
-            let time = times[i] || '';
+//     // 既存行数と新しい得点に基づいて、行の増減を行う
+//     if (currentRows.length > score) {
+//         // 行を削除（得点が減った場合）
+//         for (let i = currentRows.length - 1; i >= score; i--) {
+//             goalDetailsBody.removeChild(currentRows[i]);
+//         }
+//     } else if (currentRows.length < score) {
+//         // 行を追加（得点が増えた場合）
+//         for (let i = currentRows.length; i < score; i++) {
+//             let assist = assistPlayers[i] || '';
+//             let goal = goalPlayers[i] || '';
+//             let time = times[i] || '';
 
-            let rowHTML = `
-                <tr>
-                    <td colspan="2">
-                        ${teamType === 'home' ? `
-                            アシスト：<input type="text" class="assist-player home" value="${assist}" readonly>
-                            ゴール　：<input type="text" class="goal-player home" value="${goal}" readonly>
-                        ` : `<span></span>`}
-                    </td>
-                    <td>
-                        <input type="number" class="goal-time ${teamType}" value="${time}" min="0" step="1" onchange="sortGoalDetails(${roundIndex}, ${matchIndex})" readonly> 分
-                    </td>
+//             let rowHTML = `
+//                 <tr>
+//                     <td colspan="2">
+//                         ${teamType === 'home' ? `
+//                             アシスト：<input type="text" class="assist-player home" value="${assist}" readonly>
+//                             ゴール　：<input type="text" class="goal-player home" value="${goal}" readonly>
+//                         ` : `<span></span>`}
+//                     </td>
+//                     <td>
+//                         <input type="number" class="goal-time ${teamType}" value="${time}" min="0" step="1" onchange="sortGoalDetails(${roundIndex}, ${matchIndex})" readonly> 分
+//                     </td>
 
-                    <td colspan="2">
-                        ${teamType === 'away' ? `
-                            アシスト：<input type="text" class="assist-player away" value="${assist}" readonly>
-                            ゴール　：<input type="text" class="goal-player away" value="${goal}" readonly>
-                        ` : `<span></span>`}
-                    </td>
-                </tr>
-            `;
-            goalDetailsBody.insertAdjacentHTML('beforeend', rowHTML);
-        }
-    }
+//                     <td colspan="2">
+//                         ${teamType === 'away' ? `
+//                             アシスト：<input type="text" class="assist-player away" value="${assist}" readonly>
+//                             ゴール　：<input type="text" class="goal-player away" value="${goal}" readonly>
+//                         ` : `<span></span>`}
+//                     </td>
+//                 </tr>
+//             `;
+//             goalDetailsBody.insertAdjacentHTML('beforeend', rowHTML);
+//         }
+//     }
 
-    // 行の並び替えを適用
-    sortGoalDetails(roundIndex, matchIndex);
-}
+//     // 行の並び替えを適用
+//     sortGoalDetails(roundIndex, matchIndex);
+// }
 
 // 時間に合わせて得点情報を並べ替える関数
-function sortGoalDetails(roundIndex, matchIndex) {
-    let goalDetailsBody = document.getElementById(`goalDetailsBody${roundIndex}-${matchIndex}`);
-    let rows = Array.from(goalDetailsBody.querySelectorAll('tr'));
+// function sortGoalDetails(roundIndex, matchIndex) {
+//     let goalDetailsBody = document.getElementById(`goalDetailsBody${roundIndex}-${matchIndex}`);
+//     let rows = Array.from(goalDetailsBody.querySelectorAll('tr'));
 
-    // 時間を取得して並び替え
-    rows.sort((rowA, rowB) => {
-        let timeA = rowA.querySelector('.goal-time').value.replace('分', '') || '9999';
-        let timeB = rowB.querySelector('.goal-time').value.replace('分', '') || '9999';
+//     // 時間を取得して並び替え
+//     rows.sort((rowA, rowB) => {
+//         let timeA = rowA.querySelector('.goal-time').value.replace('分', '') || '9999';
+//         let timeB = rowB.querySelector('.goal-time').value.replace('分', '') || '9999';
 
-        return parseInt(timeA) - parseInt(timeB);
-    });
+//         return parseInt(timeA) - parseInt(timeB);
+//     });
 
-    // 並び替え後の行を再配置
-    rows.forEach(row => goalDetailsBody.appendChild(row));
-}
+//     // 並び替え後の行を再配置
+//     rows.forEach(row => goalDetailsBody.appendChild(row));
+// }
 
 // 日程表データの自動読み込みをする関数
 function loadmatchDataL(roundIndex, matchIndex) {

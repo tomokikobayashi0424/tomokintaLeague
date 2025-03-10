@@ -103,8 +103,8 @@ function displaySchedule(schedule = null) {
             <div class="schedule-header sticky-header">
                 <h2 class="week-info">${weekInfo}</h2>
                 <div class="button-container">
-                    <button class="button-common button3" onclick="previousRound()">前ラウンド</button>
-                    <button class="button-common button3" onclick="nextRound()">次ラウンド</button>
+                    <button class="button-common button3" onclick="previousRound()">＜　前ラウンド</button>
+                    <button class="button-common button4" onclick="nextRound()">次ラウンド　＞</button>
                 </div>
             </div>`;
 
