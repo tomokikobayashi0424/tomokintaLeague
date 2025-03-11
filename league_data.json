@@ -29967,79 +29967,85 @@
       "round21-match1": {
         "home": {
           "teamId": 9,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "アレッサンドロ デル ピエーロ"
+          ],
+          "goalPlayers": [
+            "ダビド ビジャ"
+          ],
+          "times": [
+            57
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 72,
+            "shots": 1,
+            "shotsonFrame": 1,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 93,
+            "successfulPasses": 81,
+            "crosses": 1,
+            "PassCuts": 8,
+            "successfulTackles": 1,
+            "save": 0
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 69,
+            "shots": 8,
+            "shotsonFrame": 7,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 168,
+            "successfulPasses": 150,
+            "crosses": 3,
+            "PassCuts": 16,
+            "successfulTackles": 1,
+            "save": 1
           }
         },
         "away": {
           "teamId": 0,
-          "score": null,
+          "score": 0,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 28,
+            "shots": 0,
+            "shotsonFrame": 0,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 1,
+            "passes": 18,
+            "successfulPasses": 7,
+            "crosses": 0,
+            "PassCuts": 8,
+            "successfulTackles": 0,
+            "save": 0
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 31,
+            "shots": 2,
+            "shotsonFrame": 1,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 1,
+            "passes": 45,
+            "successfulPasses": 26,
+            "crosses": 0,
+            "PassCuts": 13,
+            "successfulTackles": 0,
+            "save": 5
           }
         },
-        "date": "2025-03-09"
+        "date": "2025-03-11"
       },
       "round21-match2": {
         "home": {
