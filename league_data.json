@@ -12145,52 +12145,68 @@
       "newDate": "2025-03-23",
       "currentStandings": [
         {
-          "teamId": 16
-        },
-        {
-          "teamId": 15
-        },
-        {
-          "teamId": 14
-        },
-        {
-          "teamId": 13
-        },
-        {
-          "teamId": 12
-        },
-        {
-          "teamId": 5
-        },
-        {
-          "teamId": 7
-        },
-        {
-          "teamId": 10
-        },
-        {
-          "teamId": 2
-        },
-        {
-          "teamId": 8
-        },
-        {
+          "Rank": 1,
           "teamId": 0
         },
         {
-          "teamId": 3
-        },
-        {
+          "Rank": 2,
           "teamId": 1
         },
         {
+          "Rank": 3,
+          "teamId": 2
+        },
+        {
+          "Rank": 4,
+          "teamId": 3
+        },
+        {
+          "Rank": 5,
+          "teamId": 4
+        },
+        {
+          "Rank": 6,
+          "teamId": 5
+        },
+        {
+          "Rank": 7,
+          "teamId": 7
+        },
+        {
+          "Rank": 8,
+          "teamId": 8
+        },
+        {
+          "Rank": 9,
           "teamId": 9
         },
         {
+          "Rank": 10,
+          "teamId": 10
+        },
+        {
+          "Rank": 11,
           "teamId": 11
         },
         {
-          "teamId": 4
+          "Rank": 12,
+          "teamId": 12
+        },
+        {
+          "Rank": 13,
+          "teamId": 13
+        },
+        {
+          "Rank": 14,
+          "teamId": 14
+        },
+        {
+          "Rank": 15,
+          "teamId": 15
+        },
+        {
+          "Rank": 16,
+          "teamId": 16
         }
       ],
       "round0-match0": {
@@ -33269,6 +33285,12 @@
         },
         {
           "teamIds": [
+            12,
+            16
+          ]
+        },
+        {
+          "teamIds": [
             5,
             9
           ]
@@ -33277,12 +33299,6 @@
           "teamIds": [
             2,
             8
-          ]
-        },
-        {
-          "teamIds": [
-            12,
-            16
           ]
         }
       ],
@@ -34151,6 +34167,12 @@
         },
         {
           "teamIds": [
+            0,
+            10
+          ]
+        },
+        {
+          "teamIds": [
             1,
             13
           ]
@@ -34159,12 +34181,6 @@
           "teamIds": [
             3,
             7
-          ]
-        },
-        {
-          "teamIds": [
-            0,
-            10
           ]
         }
       ],
