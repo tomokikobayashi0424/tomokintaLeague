@@ -420,8 +420,10 @@ function displayTeamMonthlySchedule(teamId) {
                         opponentTeamNames = (isHome ? match.away.teamIds : match.home.teamIds)
                             .map(opponentId => {
                                 let team = teamsData.find(team => team.teamId === opponentId);
-                                return team ? team.teams : "不明";
-                            }).join("<br>");
+                                return team ? team.teams : null; // **不明なら null にする**
+                            })
+                            .filter(name => name !== null) // **不明を削除**
+                            .join("<br>");
                     }
                 } else {
                     isHome = match.home.teamId === teamId;
@@ -429,11 +431,12 @@ function displayTeamMonthlySchedule(teamId) {
 
                     if (isHome || isAway) {
                         let opponentTeam = teamsData.find(team => team.teamId === (isHome ? match.away.teamId : match.home.teamId));
-                        opponentTeamNames = opponentTeam ? opponentTeam.teams : "不明";
+                        opponentTeamNames = opponentTeam ? opponentTeam.teams : null; // **不明なら null にする**
                     }
                 }
 
                 if (!isHome && !isAway) continue; // 該当チームの試合でなければスキップ
+                if (!opponentTeamNames) continue; // **対戦相手が不明ならスキップ**
 
                 let scoreClass = '';
                 if (match.home.score !== null && match.away.score !== null) {
@@ -480,6 +483,7 @@ function displayTeamMonthlySchedule(teamId) {
     document.getElementById('teamScheduleTableBody').innerHTML = scheduleHTML;
     document.getElementById('currentMonthLabel').textContent = `${displayYear}年${displayMonthIndex + 1}月`;
 }
+
 
 
 
