@@ -110,10 +110,10 @@
     },
     {
       "teamId": 12,
-      "teams": "Takimura",
+      "teams": "Takiern Munchen",
       "teamsSub": "FCT",
-      "teamsColor": "000000",
-      "teamsSubColor": "000000",
+      "teamsColor": "cb343b",
+      "teamsSubColor": "3268b0",
       "teamsTextColor": "ffffff",
       "teamsBgColor": "c8c8c8"
     },
@@ -32823,50 +32823,72 @@
       "round1-match6": {
         "home": {
           "teamId": 8,
-          "score": null,
+          "score": 1,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            "平戸 太貴"
+          ],
+          "goalPlayers": [
+            "福岡 慎平"
+          ],
+          "times": [
+            67
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 59,
+            "shots": 3,
+            "shotsonFrame": 2,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 2,
+            "passes": 107,
+            "successfulPasses": 83,
+            "crosses": 2,
+            "PassCuts": 17,
+            "successfulTackles": 2,
+            "save": 1
           }
         },
         "away": {
           "teamId": 7,
-          "score": null,
+          "score": 4,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            "ロベルト レヴァンドフスキ",
+            "ガビ",
+            "ガビ",
+            ""
+          ],
+          "goalPlayers": [
+            "フレンキー デヨング",
+            "ロベルト レヴァンドフスキ",
+            "ロベルト レヴァンドフスキ",
+            "フレンキー デヨング"
+          ],
+          "times": [
+            6,
+            16,
+            30,
+            72
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 41,
+            "shots": 5,
+            "shotsonFrame": 5,
+            "fouls": 2,
+            "offsides": 1,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 67,
+            "successfulPasses": 42,
+            "crosses": 0,
+            "PassCuts": 20,
+            "successfulTackles": 5,
+            "save": 1
           }
-        }
+        },
+        "date": "2025-03-16"
       },
       "round1-match7": {
         "home": {
@@ -33075,7 +33097,7 @@
       },
       "round2-match3": {
         "home": {
-          "teamId": null,
+          "teamId": 7,
           "score": null,
           "pk": null,
           "assistPlayers": [],
