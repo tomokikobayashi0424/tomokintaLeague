@@ -555,5 +555,3 @@ function displayPlayerRankingWithTeamInfo(tableId, records) {
         `);
     });
 }
-
-

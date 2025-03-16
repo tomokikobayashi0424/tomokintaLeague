@@ -490,14 +490,6 @@ function displayTeamMonthlySchedule(teamId) {
     document.getElementById('currentMonthLabel').textContent = `${displayYear}年${displayMonthIndex + 1}月`;
 }
 
-
-
-
-
-
-
-
-
 // チームごとのプレイヤーランキングを表示する関数
 function displayTeamPlayerRanking(tableId, players) {
     let sortedPlayers = Object.entries(players).sort((a, b) => b[1] - a[1]); // 得点順にソート

@@ -1410,6 +1410,16 @@ Coopトーナメント表のスタイル
     left: 50%;
     transform: translateX(-50%);
 }
+/* チームロゴの修正 */
+.schedule-coop-logo {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    display: block;  /* 画像を縦に並べる */
+    margin: 2px auto;  /* 余白を設定して中央寄せ */
+    position: static;  /* 絶対配置を解除 */
+}
+
 
 
 /* ロゴの親tdにrelativeを追加して制御 */

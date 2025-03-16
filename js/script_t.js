@@ -39,11 +39,9 @@ function updateAllDisplayData() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // 日程表を表示する関数
 function displaySchedule(schedule = null) {
-    // シーズンデータが存在しない場合は何もしない
     if (!matchDataT[currentSeason]) return;
 
-    // リーグ開始日を取得
-    let startDateStr = matchDataT[currentSeason].newDate; // デフォルト値を設定
+    let startDateStr = matchDataT[currentSeason].newDate;
     let startDate = new Date(startDateStr);
     
     // 保存されたスケジュールを取得
@@ -65,17 +63,24 @@ function displaySchedule(schedule = null) {
                 let matchKey = `round${round}-match${match}`;
                 let matchDataTEntry = matchDataT[currentSeason][matchKey];
 
-                let homeTeam = matchDataTEntry?.home?.teamId ? 
-                    teamsData.find(team => team.teamId === matchDataTEntry.home.teamId) : null;
-                let awayTeam = matchDataTEntry?.away?.teamId ? 
-                    teamsData.find(team => team.teamId === matchDataTEntry.away.teamId) : null;
+                let homeTeam = matchDataTEntry?.home?.teamId !== null ? 
+                    teamsData.find(team => team.teamId === matchDataTEntry?.home?.teamId) : null;
+                let awayTeam = matchDataTEntry?.away?.teamId !== null ? 
+                    teamsData.find(team => team.teamId === matchDataTEntry?.away?.teamId) : null;
 
-                // **非表示にせずプレースホルダーを設定**
+                // **対戦相手が不明な場合はスキップ**
+                if (!homeTeam || !awayTeam) continue;
+
+                // **試合日を設定**
                 let matchDate = matchDataTEntry?.date || roundStartDate.toISOString().split('T')[0];
 
                 roundMatches.push({
                     home: homeTeam ? getTeamNameByScreenSize(homeTeam) : "未定",
                     away: awayTeam ? getTeamNameByScreenSize(awayTeam) : "未定",
+                    homeTeam,
+                    awayTeam,
+                    homeScore: matchDataTEntry?.home?.score != null ? matchDataTEntry.home.score : '',
+                    awayScore: matchDataTEntry?.away?.score != null ? matchDataTEntry.away.score : '',
                     homeTeamId: homeTeam ? homeTeam.teamId : null,
                     awayTeamId: awayTeam ? awayTeam.teamId : null,
                     date: matchDate,
@@ -88,22 +93,54 @@ function displaySchedule(schedule = null) {
     }
 
     let scheduleHTML = '';
-
     for (let i = 0; i < schedule.length; i++) {
         let roundStartDate = new Date(startDate);
         roundStartDate.setDate(startDate.getDate() + i * 7);
-        let weekInfo = `第${i + 1}ラウンド ${roundStartDate.getFullYear()}年${roundStartDate.getMonth() + 1}月第${Math.ceil(roundStartDate.getDate() / 7)}週`;
+        let weekInfo = `ラウンド${i + 1} ${roundStartDate.getFullYear()}年${roundStartDate.getMonth() + 1}月第${Math.ceil(roundStartDate.getDate() / 7)}週`;
 
         scheduleHTML += `<div class="round" id="round${i}" style="display: none;">`;
         scheduleHTML +=  `
             <div class="schedule-header sticky-header">
-                <h2 class="week-info">${weekInfo}</h2>
                 <div class="button-container">
                     <button class="button-common button3" onclick="previousRound()">＜　前ラウンド</button>
                     <button class="button-common button4" onclick="nextRound()">次ラウンド　＞</button>
                 </div>
+                <h2 class="week-info">${weekInfo}</h2>
             </div>`;
+
+        // **目次エリアを作成**
+        let hasValidMatches = schedule[i].some(match => match.homeTeam && match.awayTeam);
+        if (hasValidMatches) {
+            scheduleHTML += `
+            <div class="round-overview">
+                <table class="round-overview-table">
+                    <tbody>`;
+
+            schedule[i].forEach((match, index) => {
+                if (!match.homeTeam || !match.awayTeam) return; // **対戦相手が不明な試合は目次に表示しない**
+
+                scheduleHTML += `
+                        <tr onclick="scrollToMatch('goalDetailsTable${i}-${index}')" class="match-row">
+                            <td>${match.homeTeam.teams}</td>
+                            <td><img src="Pictures/Team${match.homeTeam.teamId}.jpg" alt="${match.home}" class="schedule-team-logo"></td>
+                            <td><span>${match.homeScore}</span></td>
+                            <td>-</td>
+                            <td><span>${match.awayScore}</span></td>
+                            <td><img src="Pictures/Team${match.awayTeam.teamId}.jpg" alt="${match.away}" class="schedule-team-logo"></td>
+                            <td>${match.awayTeam.teams}</td>
+                        </tr>`;
+            });
+
+            scheduleHTML += `
+                    </tbody>
+                </table>
+            </div>`;
+        }
+
+        // **試合詳細を作成**
         schedule[i].forEach((matchEntry, index) => {
+            if (!matchEntry.homeTeam || !matchEntry.awayTeam) return; // **対戦相手が不明な試合は詳細も表示しない**
+
             scheduleHTML += `
                 <div class="match-container">
                     <table id="goalDetailsTable${i}-${index}" class="match-table">
@@ -113,10 +150,10 @@ function displaySchedule(schedule = null) {
                             </tr>
                             <tr>
                                 <th id="homeTeam${i}-${index}">${matchEntry.home}</th>
-                                <th> <input type="number" id="homeScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'home')"readonly></th>
+                                <th> <input type="number" id="homeScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'home')" readonly></th>
                                 <th> - </th>
-                                <th id="awayTeam${i}-${index}"><input type="number" id="awayScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'away')"readonly></th>
-                                <th> ${matchEntry.away}</th>
+                                <th> <input type="number" id="awayScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'away')" readonly></th>
+                                <th id="awayTeam${i}-${index}">${matchEntry.away}</th>
                             </tr>
                             <tr>
                                 <td colspan="2"><label>PK</label> <input type="number" id="homePK${i}-${index}" min="0" placeholder="0" readonly></td>
@@ -131,6 +168,7 @@ function displaySchedule(schedule = null) {
             scheduleHTML += statsTableElement.outerHTML;
             scheduleHTML += `</div>`;
         });
+
         scheduleHTML += `</div>`;
     }
 
@@ -145,6 +183,21 @@ function displaySchedule(schedule = null) {
     // **現在のラウンドを計算**
     currentRound = calculateCurrentRound(startDate, schedule.length);
     showRound(currentRound);
+}
+
+// 日程表の自動スクロールする関数
+function scrollToMatch(targetId) {
+    let targetElement = document.getElementById(targetId);
+    if (targetElement) {
+        let offset = 200; // 固定ヘッダー分のオフセット
+        let elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+        let offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
+    }
 }
 
 // 現在のラウンドを計算する関数
