@@ -32871,50 +32871,63 @@
       "round1-match7": {
         "home": {
           "teamId": 14,
-          "score": null,
+          "score": 0,
           "pk": null,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 45,
+            "shots": 0,
+            "shotsonFrame": 0,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 92,
+            "successfulPasses": 69,
+            "crosses": 0,
+            "PassCuts": 14,
+            "successfulTackles": 4,
+            "save": 0
           }
         },
         "away": {
           "teamId": 11,
-          "score": null,
+          "score": 3,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            "ディエゴ ビテュカ",
+            "ロムロ オテロ",
+            "ロムロ オテロ"
+          ],
+          "goalPlayers": [
+            "ジョアン シミッチ",
+            "ジュリアーノ",
+            "パトリック"
+          ],
+          "times": [
+            63,
+            81,
+            89
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 55,
+            "shots": 4,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 97,
+            "successfulPasses": 78,
+            "crosses": 2,
+            "PassCuts": 18,
+            "successfulTackles": 2,
+            "save": 0
           }
-        }
+        },
+        "date": "2025-03-16"
       },
       "round2-match0": {
         "home": {
@@ -33085,7 +33098,7 @@
           }
         },
         "away": {
-          "teamId": null,
+          "teamId": 11,
           "score": null,
           "pk": null,
           "assistPlayers": [],
