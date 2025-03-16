@@ -146,9 +146,9 @@
     },
     {
       "teamId": 16,
-      "teams": "Large-medium-gradiators",
+      "teams": "L M gradiators",
       "teamsSub": "LMG",
-      "teamsColor": "000000",
+      "teamsColor": "f87a1c",
       "teamsSubColor": "000000",
       "teamsTextColor": "ffffff",
       "teamsBgColor": "c8c8c8"
