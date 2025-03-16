@@ -31785,7 +31785,39 @@
       "round0-match1": {
         "home": {
           "teamId": 16,
-          "score": null,
+          "score": 2,
+          "pk": null,
+          "assistPlayers": [
+            "",
+            "ポン シンリ"
+          ],
+          "goalPlayers": [
+            "ヘー シャオクァ",
+            "クリザン"
+          ],
+          "times": [
+            60,
+            65
+          ],
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamId": 15,
+          "score": 0,
           "pk": null,
           "assistPlayers": [],
           "goalPlayers": [],
@@ -31806,29 +31838,7 @@
             "save": null
           }
         },
-        "away": {
-          "teamId": 15,
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        }
+        "date": "2025-03-16"
       },
       "round0-match2": {
         "home": {
@@ -32527,7 +32537,7 @@
           }
         },
         "away": {
-          "teamId": null,
+          "teamId": 16,
           "score": null,
           "pk": null,
           "assistPlayers": [],
