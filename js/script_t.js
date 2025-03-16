@@ -39,12 +39,11 @@ function updateAllDisplayData() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // 日程表を表示する関数
 function displaySchedule(schedule = null) {
-
     // シーズンデータが存在しない場合は何もしない
     if (!matchDataT[currentSeason]) return;
 
     // リーグ開始日を取得
-    let startDateStr = matchDataT[currentSeason].newDate || "2024-10-13"; // デフォルト値を設定
+    let startDateStr = matchDataT[currentSeason].newDate; // デフォルト値を設定
     let startDate = new Date(startDateStr);
     
     // 保存されたスケジュールを取得
@@ -417,150 +416,164 @@ function loadMatchData(roundIndex, matchIndex) {
 function generateTournamentBracket() {
     if (!matchDataT[currentSeason]) return;
 
-    let container = document.getElementById("tournament-container");
-    container.innerHTML = "";
+   let container = document.getElementById("tournament-container");
+   container.innerHTML = "";
 
-    // 設定可能な変数
-    let cellHeight = 30; // セルの高さ
-    let spacingUnit = 5; // セル間の間隔
-    let lineWidth = 10; // 横棒の長さ
-    let lineHeight = 2; // 棒の太さ
+   // 設定可能な変数
+   let cellHeight = 30; // セルの高さ
+   let spacingUnit = 5; // セル間の間隔
+   let lineWidth = 10; // 横棒の長さ
+   let lineHeight = 2; // 棒の太さ
 
-    let cssStyles = ""; // すべてのCSSを格納する
+   let cssStyles = ""; // すべてのCSSを格納する
 
-    let numRounds = Math.ceil(Math.log2(matchDataT[currentSeason].teamsNum));
-    let maxContainerWidth = Math.min(window.innerWidth, (numRounds+1) * 90); // 最大幅を制限
-    container.style.maxWidth = `${maxContainerWidth}px`;
-    container.style.overflowX = "auto"; // スクロールバーを有効にする
-    for (let round = 0; round < numRounds; round++) {
-        let numMatches = Math.pow(2, numRounds - round - 1);
-        let table = document.createElement("table");
-        table.classList.add("tournament-table");
-        let tbody = document.createElement("tbody");
-        table.appendChild(tbody);
+   let numRounds = Math.ceil(Math.log2(matchDataT[currentSeason].teamsNum));
+   let maxContainerWidth = Math.min(window.innerWidth, (numRounds+1) * 120); // 最大幅を制限container.style.maxWidth = `${maxContainerWidth}px`;
+   container.style.maxWidth = `${maxContainerWidth}px`;
+   container.style.overflowX = "auto"; // スクロールバーを有効にする
+   for (let round = 0; round < numRounds; round++) {
+       let numMatches = Math.pow(2, numRounds - round - 1);
+       let table = document.createElement("table");
+       table.classList.add("tournament-table");
+       let tbody = document.createElement("tbody");
+       table.appendChild(tbody);
 
-        let offset = (cellHeight + spacingUnit) * (Math.pow(2, round - 1) - 0.5);
-        table.style.marginTop = offset > 0 ? `${-offset}px` : "0px";
+       let offset = (cellHeight + spacingUnit) * (Math.pow(2, round - 1) - 0.5);
+       table.style.marginTop = offset > 0 ? `${-offset}px` : "0px";
 
-        // **セルの間隔を可変にする**
-        let spacing = cellHeight * (Math.pow(2, round) - 1) + spacingUnit * Math.pow(2, round);
-        let verticalLineHeight = (cellHeight + spacing) / 2; // 縦棒の長さ
-        table.style.borderSpacing = `0 ${spacing}px`;  // **ここでセルの間隔を調整**
+       // **セルの間隔を可変にする**
+       let spacing = cellHeight * (Math.pow(2, round) - 1) + spacingUnit * Math.pow(2, round);
+       let verticalLineHeight = (cellHeight + spacing) / 2; // 縦棒の長さ
+       table.style.borderSpacing = `0 ${spacing}px`;  // **ここでセルの間隔を調整**
 
-        for (let match = 0; match < numMatches; match++) {
-            let matchKey = `round${round}-match${match}`;
-            let matchDataTKey = matchDataT[currentSeason][matchKey] || {};
-        
-            let homeTeamData = teamsData.find(team => team.teamId === matchDataTKey?.home?.teamId);
-            let awayTeamData = teamsData.find(team => team.teamId === matchDataTKey?.away?.teamId);
-        
-            let homeTeam = homeTeamData?.teamsSub || "未定";
-            let awayTeam = awayTeamData?.teamsSub || "未定";
-        
-            let homeColor = homeTeamData?.teamsColor || "CCCCCC";
-            let homeSubColor = homeTeamData?.teamsSubColor || "999999";
-            let awayColor = awayTeamData?.teamsColor || "CCCCCC";
-            let awaySubColor = awayTeamData?.teamsSubColor || "999999";
-        
-            let homeTextColor = getTextColor(homeColor);
-            let awayTextColor = getTextColor(awayColor);
-        
-            let isSeedMatch = round === 0 && (matchDataTKey?.home?.teamId === null || matchDataTKey?.away?.teamId === null);
-        
-            let homeScore = matchDataTKey?.home?.score ?? "-";
-            let awayScore = matchDataTKey?.away?.score ?? "-";
-            let homePK = matchDataTKey?.home?.pk !== null ? `(${matchDataTKey?.home?.pk})` : "";
-            let awayPK = matchDataTKey?.away?.pk !== null ? `(${matchDataTKey?.away?.pk})` : "";
-            
-            if (homeScore === awayScore && homeScore !== "-") {
-                homeScore += homePK;
-                awayScore += awayPK;
-            }
-        
-            let homeRow = document.createElement("tr");
-            let awayRow = document.createElement("tr");
-        
-            let winner = null;
-            if (homeScore !== "-" && awayScore !== "-") {
-                winner = homeScore > awayScore ? "home" : (homeScore < awayScore ? "away" : (matchDataTKey?.home?.pk > matchDataTKey?.away?.pk ? "home" : "away"));
-            }
-        
-            let lineColor = winner ? "rgb(251, 0, 111)" : "white";
-            let visibilityStyle = isSeedMatch ? "visibility: hidden;" : "";
-        
-            let line1Class = `line1-round${round}-match${match}`;
-            let line2HomeClass = `line2home-round${round}-match${match}`;
-            let line3HomeClass = `line3home-round${round}-match${match}`;
-            let line2AwayClass = `line2away-round${round}-match${match}`;
-            let line3AwayClass = `line3away-round${round}-match${match}`;
-        
-            homeRow.innerHTML = `
-                <td class="tournament-cell" style="background: linear-gradient(to right, #${homeColor} 70%, #${homeSubColor} 90%);
-                color: #${homeTextColor}; font-weight:bold; border: 1px solid ${winner === "home" ? lineColor : "white"}; ${visibilityStyle}">
-                    ${homeTeam}
-                </td>
-                <td class="tournament-score" style="color: rgb(0, 0, 132); border: 1px solid ${winner === "home" ? lineColor : "white"}; background-color: ${winner === "home" ? lineColor : "white"}; ${visibilityStyle}">
-                    ${homeScore}
-                </td>
-                <td class="${line1Class}" style="${visibilityStyle};background-color: ${winner === "home" ? lineColor : "white"};"></td>
-                <td class="${line2HomeClass}" style="${visibilityStyle};background-color: ${winner === "home" ? lineColor : "white"};"></td>
-                <td class="${line3HomeClass}" style="${visibilityStyle};background-color: ${winner === "home" ? lineColor : "white"}"></td>`;
+       for (let match = 0; match < numMatches; match++) {
+           let matchKey = `round${round}-match${match}`;
+           let matchDataTKey = matchDataT[currentSeason][matchKey] || {};
 
-            awayRow.innerHTML = `
-                <td class="tournament-cell" style="background: linear-gradient(to right, #${awayColor} 70%, #${awaySubColor} 90%);
-                color: #${awayTextColor}; font-weight:bold; border: 1px solid ${winner === "away" ? lineColor : "white"}; ${visibilityStyle}">
-                    ${awayTeam}
-                </td>
-                <td class="tournament-score" style="color: rgb(0, 0, 132); border: 1px solid ${winner === "away" ? lineColor : "white"}; background-color: ${winner === "away" ? lineColor : "white"}; ${visibilityStyle}">
-                    ${awayScore}
-                </td>
-                <td class="${line1Class}" style="${visibilityStyle};background-color: ${winner === "away" ? lineColor : "white"};"></td>
-                <td class="${line2AwayClass}" style="${visibilityStyle};background-color: ${winner === "away" ? lineColor : "white"};"></td>
-                <td class="${line3AwayClass}" style="${visibilityStyle};background-color: ${winner === "away" ? lineColor : "white"};"></td>`;
+           let homeTeamData = teamsData.find(team => team.teamId === matchDataTKey?.home?.teamId);
+           let awayTeamData = teamsData.find(team => team.teamId === matchDataTKey?.away?.teamId);
+       
+           let homeTeam = homeTeamData?.teamsSub || "未定";
+           let awayTeam = awayTeamData?.teamsSub || "未定";
+       
+           let homeColor = homeTeamData?.teamsColor || "CCCCCC";
+           let homeSubColor = homeTeamData?.teamsSubColor || "999999";
+           let awayColor = awayTeamData?.teamsColor || "CCCCCC";
+           let awaySubColor = awayTeamData?.teamsSubColor || "999999";
+       
+           let homeTextColor = getTextColor(homeColor);
+           let awayTextColor = getTextColor(awayColor);
+       
+           let isSeedMatch = round === 0 && (matchDataTKey?.home?.teamId === null || matchDataTKey?.away?.teamId === null);
+       
 
-            cssStyles += `
-                .${line1Class} {
-                    width: ${lineWidth}px;
-                    height: ${lineHeight}px;
-                    background-color: white;
-                    display: inline-block;
-                    margin-top: ${(cellHeight - lineHeight) / 2}px;
-                }
-                .${line2HomeClass}, .${line2AwayClass} {
-                    width: ${lineHeight}px;
-                    height: ${verticalLineHeight}px;
-                    background-color: white;
-                    margin-top: ${-lineHeight}px;
-                    margin-left: ${lineWidth}px;
-                    position: absolute;
-                }
-                .${line3HomeClass}, .${line3AwayClass} {
-                    width: ${lineWidth*2}px;
-                    height: ${lineHeight/2}px;
-                    background-color: white;
-                    display: inline-block;
-                    margin-left: ${lineWidth}px;
-                    position: absolute;
-                }
-                .${line2AwayClass} {
-                    margin-top: ${-verticalLineHeight-lineHeight}px;
-                }
-                .${line3HomeClass} {
-                    margin-top: ${verticalLineHeight-lineHeight-lineHeight/2}px;
-                }
-                .${line3AwayClass} {
-                    margin-top: ${-verticalLineHeight-lineHeight+lineHeight/2}px;
-                }`;
-            tbody.appendChild(homeRow);
-            tbody.appendChild(awayRow);
-        }
-        container.appendChild(table);
-    }
+           // let homeTeam = teamsData.find(team => team.teamId === matchData?.home?.teamId)?.teams || "未定";
+           // let awayTeam = teamsData.find(team => team.teamId === matchData?.away?.teamId)?.teams || "未定";
 
-    // CSS を一括適用
-    const style = document.createElement("style");
-    style.innerHTML = cssStyles;
-    document.head.appendChild(style);
+           // let isSeedMatch = round === 0 && (matchData?.home?.teamId === null || matchData?.away?.teamId === null);
+
+           let homeScore = matchDataTKey?.home?.score ?? "-";
+           let awayScore = matchDataTKey?.away?.score ?? "-";
+           let homePK = matchDataTKey?.home?.pk !== null ? `(${matchDataTKey?.home?.pk})` : "";
+           let awayPK = matchDataTKey?.away?.pk !== null ? `(${matchDataTKey?.away?.pk})` : "";
+           
+           if (homeScore === awayScore && homeScore !== "-") {
+               homeScore += homePK;
+               awayScore += awayPK;
+           }
+
+           let homeRow = document.createElement("tr");
+           let awayRow = document.createElement("tr");
+
+           let winner = null;
+           if (homeScore !== "-" && awayScore !== "-") {
+               winner = homeScore > awayScore ? "home" : (homeScore < awayScore ? "away" : (matchDataTKey?.home?.pk > matchDataTKey?.away?.pk ? "home" : "away"));
+           }
+
+           let lineColor = winner ? "rgb(251, 0, 111); " : "white";
+
+           let visibilityStyle = isSeedMatch ? "visibility: hidden;" : "";
+
+           let line1Class = `line1-round${round}-match${match}`;
+           let line2HomeClass = `line2home-round${round}-match${match}`;
+           let line3HomeClass = `line3home-round${round}-match${match}`;
+           let line2AwayClass = `line2away-round${round}-match${match}`;
+           let line3AwayClass = `line3away-round${round}-match${match}`;
+
+           homeRow.innerHTML = `
+               <td class="tournament-cell" style="background: linear-gradient(to right, #${homeColor} 70%, #${homeSubColor} 90%);
+               color: #${homeTextColor}; font-weight:bold; border: 1px solid ${winner === "home" ? lineColor : "white"}; ${visibilityStyle}">
+                   ${homeTeam}
+               </td>
+               <td class="tournament-logo-cell" style="${visibilityStyle}">
+                   <img src="Pictures/Team${homeTeamData?.teamId}.jpg" class="tournament-team-logo">
+               </td>
+               <td class="tournament-score" style="color: rgb(0, 0, 132); border: 1px solid ${winner === "home" ? lineColor : "white"}; background-color: ${winner === "home" ? lineColor : "white"}; ${visibilityStyle}">
+                   ${homeScore}
+               </td>
+               <td class="${line1Class}" style="${visibilityStyle};background-color: ${winner === "home" ? lineColor : "white"};"></td>
+               <td class="${line2HomeClass}" style="${visibilityStyle};background-color: ${winner === "home" ? lineColor : "white"};"></td>
+               <td class="${line3HomeClass}" style="${visibilityStyle};background-color: ${winner === "home" ? lineColor : "white"}; z-index: ${winner === "home" ? 2 : 1};"></td>`;
+
+           awayRow.innerHTML = `
+               <td class="tournament-cell" style="background: linear-gradient(to right, #${awayColor} 70%, #${awaySubColor} 90%);
+               color: #${awayTextColor}; font-weight:bold; border: 1px solid ${winner === "away" ? lineColor : "white"}; ${visibilityStyle}">
+                   ${awayTeam}
+               </td>
+               <td class="tournament-logo-cell" style="${visibilityStyle}">
+                   <img src="Pictures/Team${awayTeamData?.teamId}.jpg" class="tournament-team-logo">
+               </td>
+               <td class="tournament-score" style="color: rgb(0, 0, 132); border: 1px solid ${winner === "away" ? lineColor : "white"}; background-color: ${winner === "away" ? lineColor : "white"}; ${visibilityStyle}">
+                   ${awayScore}
+               </td>
+               <td class="${line1Class}" style="${visibilityStyle};background-color: ${winner === "away" ? lineColor : "white"};"></td>
+               <td class="${line2AwayClass}" style="${visibilityStyle};background-color: ${winner === "away" ? lineColor : "white"};"></td>
+               <td class="${line3AwayClass}" style="${visibilityStyle};background-color: ${winner === "away" ? lineColor : "white"}; z-index: ${winner === "away" ? 2 : 1};"></td>`;
+
+           cssStyles += `
+               .${line1Class} {
+                   width: ${lineWidth}px;
+                   height: ${lineHeight}px;
+                   background-color: white;
+                   display: inline-block;
+                   margin-top: ${cellHeight / 2 - lineHeight*2}px;
+               }
+               .${line2HomeClass}, .${line2AwayClass} {
+                   width: ${lineHeight}px;
+                   height: ${verticalLineHeight}px;
+                   background-color: white;
+                   margin-top: ${-2.3*lineHeight}px;
+                   margin-left: ${lineWidth}px;
+                   position: absolute;
+               }
+               .${line3HomeClass}, .${line3AwayClass} {
+                   width: ${lineWidth*2}px;
+                   height: ${lineHeight}px;
+                   background-color: white;
+                   display: inline-block;
+                   margin-left: ${lineWidth}px;
+                   position: absolute;
+                   
+               }
+               .${line2AwayClass} {
+                   margin-top: ${-verticalLineHeight-lineHeight*1.5}px;
+               }
+               .${line3HomeClass} {
+                   margin-top: ${verticalLineHeight-lineHeight*2}px;
+               }
+               .${line3AwayClass} {
+                   margin-top: ${-verticalLineHeight-lineHeight*2}px;
+               }`;
+           tbody.appendChild(homeRow);
+           tbody.appendChild(awayRow);
+       }
+       container.appendChild(table);
+   }
+
+   // CSS を一括適用
+   const style = document.createElement("style");
+   style.innerHTML = cssStyles;
+   document.head.appendChild(style);
 }
 
 

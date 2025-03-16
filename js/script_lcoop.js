@@ -14,7 +14,7 @@ function updateAllDisplayData() {
     // 日程タブ
     displaySchedule();
     // 順位タブ
-    updateStandingsTable();
+    // updateStandingsTable();
     updateRankChangeArrows();
     // 選手戦績タブ
     updatePlayerRecords('goalPlayersTable', 'goalPlayers');
@@ -37,9 +37,6 @@ function updateAllDisplayData() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // 日程表を表示する関数
 function displaySchedule(schedule = null) {
-    // let matchDataLCoop = JSON.parse(localStorage.getItem('matchDataLCoop')) || {};
-    // let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
-
     if (!matchDataLCoop[currentSeason]) return;
 
     let startDateStr = matchDataLCoop[currentSeason].newDate;
@@ -536,111 +533,8 @@ function calculateStandings() {
     return standings;
 }
 
-// 順位表を更新する関数
-// function updateStandingsTable() {
-//     if (!matchDataLCoop[currentSeason] || !matchDataLCoop[currentSeason].currentStandings) return;
-//     let standings = calculateStandings();
-    
-//     let tbody = document.querySelector('#standingsTable tbody');
-//     tbody.innerHTML = ''; 
-
-//     standings.forEach(team => {
-//         let teamNames = team.teamIds.map(teamId => {
-//             let teamInfo = teamsData.find(t => t.teamId === teamId);
-//             return teamInfo ? getTeamNameByScreenSize(teamInfo) : "不明";
-//         }).join("<br>"); 
-
-//         let teamInfo = teamsData.find(t => t.teamId === team.teamIds[0]); 
-//         let teamColor = teamInfo ? `#${teamInfo.teamsColor}` : "#FFFFFF";
-
-//         // **各チームの `totalPoint` を改行付きで表示**
-//         let totalPointsText = team.teamIds.map(teamId => {
-//             let totalPoint = team.totalPoints[teamId] !== undefined ? team.totalPoints[teamId] : 0;
-//             return totalPoint;
-//         }).join("<br>");
-
-//         // console.log(`総ポイントのデータ (${team.teamKey}):`, totalPointsText); // デバッグ用
-
-//         let row = `
-//             <tr>
-//                 <td>${team.currentRank}</td>
-//                 <td style="background-color:${teamColor}; color:white; font-weight:bold; text-align:center;">${teamNames}</td>
-//                 <td>${team.points}</td>
-//                 <td>${team.matchesPlayed}</td>
-//                 <td>${team.wins}</td>
-//                 <td>${team.draws}</td>
-//                 <td>${team.losses}</td>
-//                 <td>${team.goalDifference}</td>
-//                 <td>${team.totalGoals}</td>
-//                 <td>${totalPointsText}</td> <!-- 総合ポイントの列を追加 -->
-//             </tr>`;
-//         tbody.insertAdjacentHTML('beforeend', row);
-//     });
-// }
-
-function updateStandingsTable() {
-    let standings = calculateStandings();
-    
-    if (!matchDataLCoop[currentSeason] || !matchDataLCoop[currentSeason].currentStandings) return;
-    
-    let tbody = document.querySelector('#standingsTable tbody');
-    tbody.innerHTML = ''; 
-
-    standings.forEach(team => {
-        let teamNames = team.teamIds.map(teamId => {
-            let teamInfo = teamsData.find(t => t.teamId === teamId);
-            return teamInfo ? getTeamNameByScreenSize(teamInfo) : "不明";
-        });
-
-        let teamColors = team.teamIds.map(teamId => {
-            let teamInfo = teamsData.find(t => t.teamId === teamId);
-            return teamInfo ? `${teamInfo.teamsColor}` : "FFFFFF";
-        });
-        console.log("Team Colors:", teamColors);
-
-        let textColors = teamColors.map(color => getTextColor(color));
-        console.log("Text Colors:", textColors);
-
-        // **背景色のグラデーション**
-        let backgroundGradient = `linear-gradient(to bottom, ${teamColors.map((color, index) => 
-            `#${color} ${(index / teamColors.length) * 100}%, #${color} ${((index + 1) / teamColors.length) * 100}%`
-        ).join(', ')})`;
-
-        // **チーム名のリストを個別の色付きで表示**
-        let teamNamesFormatted = teamNames.map((name, index) => 
-            `<span style="color: #${textColors[index]}; display: block;">${name}</span>`
-        ).join('');
-
-        // **各チームの `totalPoint` を改行付きで表示**
-        let totalPointsText = team.teamIds.map(teamId => {
-            let totalPoint = team.totalPoints[teamId] !== undefined ? team.totalPoints[teamId] : 0;
-            return `<span>${totalPoint}</span>`;
-        }).join("<br>");
-
-        let row = `
-            <tr>
-                <td>${team.currentRank}</td>
-                <td style="background: ${backgroundGradient}; font-weight:bold; text-align:center;">
-                    ${teamNamesFormatted}
-                </td>
-                <td>${team.points}</td>
-                <td>${team.matchesPlayed}</td>
-                <td>${team.wins}</td>
-                <td>${team.draws}</td>
-                <td>${team.losses}</td>
-                <td>${team.goalDifference}</td>
-                <td>${team.totalGoals}</td>
-                <td>${totalPointsText}</td> 
-            </tr>`;
-        tbody.insertAdjacentHTML('beforeend', row);
-    });
-}
-
-
-
-// 順位変動矢印を更新する関数
 function updateRankChangeArrows() {
-    if (!matchDataLCoop[currentSeason] || !matchDataLCoop[currentSeason].currentStandings) return;
+    if (!matchDataLCoop[currentSeason].currentStandings) return;
 
     let previousStandings = matchDataLCoop[currentSeason].currentStandings || []; // 保存されている前回の順位
     let currentStandings = calculateStandings(); // 最新の順位
@@ -658,27 +552,55 @@ function updateRankChangeArrows() {
 
         if (previousRank !== null) {
             if (currentRank < previousRank) {
-                rankChange = '▲'; // 順位上昇
+                rankChange = '▲';
                 rankClass = 'rank-up';
             } else if (currentRank > previousRank) {
-                rankChange = '▼'; // 順位下降
+                rankChange = '▼';
                 rankClass = 'rank-down';
             } else {
-                rankChange = '---'; // 順位変動なし
+                rankChange = '---';
                 rankClass = 'rank-no-change';
             }
         } else {
-            rankChange = '-'; // 初回のデータなし
+            rankChange = '-';
             rankClass = 'rank-no-change';
         }
 
+        // チーム名を改行して表示
         let teamNames = team.teamIds.map(teamId => {
             let teamInfo = teamsData.find(t => t.teamId === teamId);
             return teamInfo ? getTeamNameByScreenSize(teamInfo) : "不明";
+        });
+
+        // チームロゴも改行して表示
+        let teamLogos = team.teamIds.map(teamId => {
+            return `<img src="Pictures/Team${teamId}.jpg" class="rank-team-logo">`;
         }).join("<br>");
 
-        let teamInfo = teamsData.find(t => t.teamId === team.teamIds[0]);
-        let teamColor = teamInfo ? `#${teamInfo.teamsColor}` : "#FFFFFF";
+        // チームのカラーを配列で取得
+        let teamColors = team.teamIds.map(teamId => {
+            let teamInfo = teamsData.find(t => t.teamId === teamId);
+            return teamInfo ? `${teamInfo.teamsColor}` : "000000";
+        });
+
+        let teamSubColors = team.teamIds.map(teamId => {
+            let teamInfo = teamsData.find(t => t.teamId === teamId);
+            return teamInfo ? `${teamInfo.teamsSubColor}` : "FFFFFF";
+        });
+
+        // テキストカラーを配列で取得
+        let textColors = teamColors.map(color => getTextColor(color));
+        console.log("Team Color:", teamColors);
+        console.log("Text Color:", textColors);
+        // 背景を複数のチームカラーでグラデーションに設定（CSSのbackgroundプロパティ用）
+        let backgroundGradient = `linear-gradient(to bottom, ${teamColors.map((color, index) => 
+            `#${color} ${(index / teamColors.length) * 100}%, #${color} ${((index + 1) / teamColors.length) * 100}%`
+        ).join(', ')})`;
+
+        // チーム名をそれぞれの色で表示
+        let formattedTeamNames = teamNames.map((name, index) => 
+            `<span style="color: #${textColors[index]}; font-weight: bold;">${name}</span>`
+        ).join("<br>");
 
         let totalPointsText = team.teamIds.map(teamId => {
             return team.totalPoints[teamId] !== undefined ? team.totalPoints[teamId] : 0;
@@ -687,7 +609,13 @@ function updateRankChangeArrows() {
         let row = `
             <tr>
                 <td>${currentRank} <span class="${rankClass}">${rankChange}</span></td>
-                <td style="background-color:${teamColor}; color:white; font-weight:bold; text-align:center;">${teamNames}</td>
+                <td style="
+                    background: ${backgroundGradient}; /* 修正: background-color ではなく background */
+                    font-weight:bold; 
+                    text-align:center;">
+                    ${formattedTeamNames}
+                </td>
+                <td>${teamLogos}</td>
                 <td>${team.points}</td>
                 <td>${team.matchesPlayed}</td>
                 <td>${team.wins}</td>
@@ -700,6 +628,9 @@ function updateRankChangeArrows() {
         tbody.insertAdjacentHTML('beforeend', row);
     });
 }
+
+
+
 
 
 

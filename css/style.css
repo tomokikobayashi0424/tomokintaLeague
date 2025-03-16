@@ -906,36 +906,39 @@ main{
 順位表タブのスタイル 
 ===================================================================================================
 =================================================================================================*/
-
 /* 順位表全体のスタイル */
 .standings-table {
     border-collapse: collapse;
     width: 100%; /* 入力欄をセルの横幅いっぱいに */
+    /* margin: 0; */
+    /* padding: 0; */
 }
 
 /* ヘッダー部分のスタイル */
 .standings-table th {
-    background-color: var(--accent-color-1); /* ヘッダーの背景色をピンクに設定 */
+    background-color: var(--accent-color-1);
     color: var(--white-color-1);
     font-size: var(--body2-font-size);
-    font-weight: bold; /* ヘッダーの文字をボールドに設定 */
-    border: 1px solid var(--main-color-1); /* ヘッダーの枠線の色を濃い青に設定 */
-    padding: 5px 7px; /* セルのパディング */
-    text-align: center; /* テキストを中央揃え */
+    font-weight: bold;
+    border: 1px solid var(--main-color-1);
+    /* margin: 0; */
+    padding: 5px 5px;
+    text-align: center;
 }
 
 /* ヘッダー以外のセルのスタイル */
 .standings-table td {
-    background-color: var(--white-color-1); /* セルの背景色を白に */
-    color: var(--main-color-1); /* セルの文字色を濃い青に */
-    border: 1px solid var(--main-color-1); /* 枠線の色を濃い青に設定 */
-    padding: 5px; /* セルのパディング */
-    text-align: center; /* テキストを中央揃え */
+    background-color: var(--white-color-1);
+    color: var(--main-color-1);
+    border: 1px solid var(--main-color-1);
+    /* padding: 0; */
+    /* margin: 0; */
+    text-align: center;
 }
 
-/* 3列目をボールドに設定 */
-.standings-table td:nth-child(3) {
-    font-weight: bold; /* 3列目の文字をボールドに */
+/* 勝ち点の文字をボールドに */
+.standings-table td:nth-child(4) {
+    font-weight: bold;
 }
 
 /* 1列目のヘッダー以外のセルを右寄せに設定 */
@@ -962,38 +965,35 @@ main{
 }
 
 .rank-team-logo {
-    width: 100%; /* セルの幅いっぱいに調整 */
+    /* width: 100%; セルの幅いっぱいに調整 */
     height: 100%; /* セルの高さいっぱいに調整 */
     object-fit: cover; /* 画像をセル全体に拡大し、はみ出た部分をカット */
     display: block; /* 余白を排除 */
-    margin: 0; /* 余白を完全に削除 */
-    padding: 0; /* パディングを完全に削除 */
-    border: none; /* 不要な枠を削除 */
+    /* margin: 0; */
+    /* padding: 0;s */
+    /* border: none; */
 }
 
 .standings-table td:nth-child(3) {
-    padding: 0; /* パディングをゼロに */
+    /* margin: 0; */
+    /* padding: 0; */
     width: 30px; /* 固定幅を指定 */
-    height: 30px; /* 固定高さを指定 */
+    height: 30px; /* 固定高さを指定 auto*/
+    /* text-align: center; 画像を中央揃え */
+    line-height: 0; /* テキストの高さをロゴと一致させる */
 }
 
-/* 
-.ranking-rules {
-    margin-top: 20px;
-    font-size: var(--body-font-size);
-    line-height: 1.6;
-    background-color: #f9f9f9;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+/* テキストのセルのスタイル */
+.standings-table td {
+    /* height: 30px; 行の高さを固定 */
+    line-height: 30px;
+    /* padding:  0; テキストの余白を調整 */
 }
 
-.ranking-rules h3 {
-    font-size: var(--body-font-size);
-    margin-bottom: 10px;
-    font-weight: bold;
+/* 改行時に隙間をなくす */
+/* .rank-team-logo + .rank-team-logo {
+    margin-top: 0; 画像間の余白をマイナス指定でなくす
 } */
-
 
 /*=================================================================================================
 ===================================================================================================
@@ -1092,7 +1092,6 @@ footer {
 トーナメント表のスタイル
 ---------------------------------------------------------------------------------------------------
 */
-/* tcl */
 #tournament-container {
     display: flex;
     justify-content: start;
@@ -1106,7 +1105,7 @@ footer {
     table-layout: fixed;  /* 列幅を固定 */
     width: 100%; /* 全体のテーブル幅を固定（必要に応じて調整） */
     border-collapse: separate;
-    margin-right: 20px;
+    margin-right: 25px;
     position: relative;
 }
 .tournament-cell {
@@ -1124,6 +1123,21 @@ footer {
     width: 40px;
     /* background: black; */
     height: 28px;
+}
+.tournament-logo-cell {
+    text-align: center;
+    padding: 0;
+    width: 30px; /* ロゴの適切なサイズ */
+}
+
+.tournament-team-logo {
+    width: 100%;
+    height: auto;
+    max-width: 30px;
+    max-height: 30px;
+    object-fit: contain; /* ロゴの比率を維持しつつ、セル内に収める */
+    display: block;
+    margin: auto;
 }
 
 
