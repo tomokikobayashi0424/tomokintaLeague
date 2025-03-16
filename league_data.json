@@ -32563,50 +32563,57 @@
       "round1-match1": {
         "home": {
           "teamId": 10,
-          "score": null,
+          "score": 0,
           "pk": null,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 52,
+            "shots": 2,
+            "shotsonFrame": 1,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 83,
+            "successfulPasses": 61,
+            "crosses": 0,
+            "PassCuts": 10,
+            "successfulTackles": 5,
+            "save": 2
           }
         },
         "away": {
           "teamId": 2,
-          "score": null,
+          "score": 1,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            "キリアン エムバペ"
+          ],
+          "goalPlayers": [
+            "ホドリゴ"
+          ],
+          "times": [
+            58
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 48,
+            "shots": 4,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 75,
+            "successfulPasses": 61,
+            "crosses": 1,
+            "PassCuts": 18,
+            "successfulTackles": 2,
+            "save": 0
           }
-        }
+        },
+        "date": "2025-03-16"
       },
       "round1-match2": {
         "home": {
@@ -32659,50 +32666,63 @@
       "round1-match3": {
         "home": {
           "teamId": 12,
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "pk": 4,
+          "assistPlayers": [
+            "リロイ サネ"
+          ],
+          "goalPlayers": [
+            "レオン ゴレツカ"
+          ],
+          "times": [
+            63
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 57,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 2,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 1,
+            "passes": 118,
+            "successfulPasses": 98,
+            "crosses": 3,
+            "PassCuts": 16,
+            "successfulTackles": 2,
+            "save": 2
           }
         },
         "away": {
           "teamId": 1,
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "pk": 3,
+          "assistPlayers": [
+            "イッサム ジェバリ"
+          ],
+          "goalPlayers": [
+            "唐山 翔自"
+          ],
+          "times": [
+            87
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 43,
+            "shots": 8,
+            "shotsonFrame": 3,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 1,
+            "freeKicks": 1,
+            "passes": 90,
+            "successfulPasses": 72,
+            "crosses": 4,
+            "PassCuts": 17,
+            "successfulTackles": 4,
+            "save": 2
           }
-        }
+        },
+        "date": "2025-03-16"
       },
       "round1-match4": {
         "home": {
@@ -32921,7 +32941,7 @@
           }
         },
         "away": {
-          "teamId": null,
+          "teamId": 2,
           "score": null,
           "pk": null,
           "assistPlayers": [],
@@ -32969,7 +32989,7 @@
           }
         },
         "away": {
-          "teamId": null,
+          "teamId": 12,
           "score": null,
           "pk": null,
           "assistPlayers": [],
