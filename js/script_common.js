@@ -439,13 +439,19 @@ function displayTeamMonthlySchedule(teamId) {
                 if (!opponentTeamNames) continue; // **対戦相手が不明ならスキップ**
 
                 let scoreClass = '';
-                if (match.home.score !== null && match.away.score !== null) {
-                    if (isHome) {
-                        scoreClass = match.home.score > match.away.score ? 'highlight-green' : 'highlight-red';
-                    } else {
-                        scoreClass = match.away.score > match.home.score ? 'highlight-green' : 'highlight-red';
+                    if (isHome && match.home.score !== null && match.away.score !== null) {
+                        if (match.home.score > match.away.score) {
+                            scoreClass = 'highlight-green';
+                        } else if (match.home.score < match.away.score) {
+                            scoreClass = 'highlight-red';
+                        }
+                    } else if (isAway && match.home.score !== null && match.away.score !== null) {
+                        if (match.away.score > match.home.score) {
+                            scoreClass = 'highlight-green';
+                        } else if (match.away.score < match.home.score) {
+                            scoreClass = 'highlight-red';
+                        }
                     }
-                }
 
                 allMatches.push({
                     matchDate,
