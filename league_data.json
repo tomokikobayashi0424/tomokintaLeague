@@ -32618,50 +32618,63 @@
       "round1-match2": {
         "home": {
           "teamId": 3,
-          "score": null,
+          "score": 3,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            "カゼミーロ",
+            "",
+            "コビー メイヌー"
+          ],
+          "goalPlayers": [
+            "ラスムス ホイロン",
+            "アレハンドロ ガルナチョ",
+            "ジョシュア ジルクゼー"
+          ],
+          "times": [
+            3,
+            86,
+            90
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 62,
+            "shots": 10,
+            "shotsonFrame": 8,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 1,
+            "passes": 113,
+            "successfulPasses": 94,
+            "crosses": 2,
+            "PassCuts": 13,
+            "successfulTackles": 4,
+            "save": 0
           }
         },
         "away": {
           "teamId": 6,
-          "score": null,
+          "score": 0,
           "pk": null,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 38,
+            "shots": 2,
+            "shotsonFrame": 0,
+            "fouls": 1,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 64,
+            "successfulPasses": 46,
+            "crosses": 0,
+            "PassCuts": 13,
+            "successfulTackles": 2,
+            "save": 5
           }
-        }
+        },
+        "date": "2025-03-17"
       },
       "round1-match3": {
         "home": {
@@ -33011,7 +33024,7 @@
       },
       "round2-match1": {
         "home": {
-          "teamId": null,
+          "teamId": 3,
           "score": null,
           "pk": null,
           "assistPlayers": [],
