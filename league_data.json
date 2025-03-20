@@ -152,6 +152,24 @@
       "teamsSubColor": "000000",
       "teamsTextColor": "ffffff",
       "teamsBgColor": "c8c8c8"
+    },
+    {
+      "teamId": 17,
+      "teams": "Kobatake",
+      "teamsSub": "FCK",
+      "teamsColor": "000000",
+      "teamsSubColor": "000000",
+      "teamsTextColor": "ffffff",
+      "teamsBgColor": "ffffff"
+    },
+    {
+      "teamId": 18,
+      "teams": "Kaneko",
+      "teamsSub": "FCY",
+      "teamsColor": "000000",
+      "teamsSubColor": "000000",
+      "teamsTextColor": "ffffff",
+      "teamsBgColor": "ffffff"
     }
   ],
   "matchDataL": {
