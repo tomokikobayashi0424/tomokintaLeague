@@ -475,7 +475,7 @@ function generateTournamentBracket() {
    // 設定可能な変数
    let cellHeight = 30; // セルの高さ
    let spacingUnit = 5; // セル間の間隔
-   let lineWidth = 10; // 横棒の長さ
+   let lineWidth = 8; // 横棒の長さ
    let lineHeight = 2; // 棒の太さ
 
    let cssStyles = ""; // すべてのCSSを格納する
