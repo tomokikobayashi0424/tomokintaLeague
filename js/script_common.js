@@ -159,41 +159,78 @@ function changeLeague() {
 }
 
 // シーズン選択プルダウンを更新する関数（削除・追加の両方に対応）
-function updateSeasonDropdown() {
-    let seasonSelect = document.getElementById("seasonSelect");
+// function updateSeasonDropdown() {
+//     let seasonSelect = document.getElementById("seasonSelect");
     
 
-    // 既存の <option> をクリア
+//     // 既存の <option> をクリア
+//     seasonSelect.innerHTML = '';
+
+//     // シーズンのリストを取得
+//     let seasons = Object.keys(currentMatchData);
+
+//     // シーズンが1つもない場合、デフォルトのシーズン "24-s1" を作成
+//     if (seasons.length === 0) {
+//         seasons = ["24-s1"]; // デフォルトのシーズン
+//         currentMatchData["24-s1"] = {}; // 空データをセット
+//         localStorage.setItem('currentMatchData', JSON.stringify(currentMatchData));
+//     }
+
+//     // `currentSeason` が削除された場合、新しいシーズンを設定
+//     // if (!seasons.includes(window.currentSeason)) {
+//     //     window.currentSeason = seasons.length > 0 ? seasons[0] : "24-s1";
+//     // }
+
+//     // シーズンプルダウンリストを作成
+//     seasons.forEach(season => {
+//         let option = document.createElement("option");
+//         option.value = season;
+//         option.textContent = season;
+
+//         if (season === window.currentSeason) {
+//             option.selected = true; // `currentSeason` の場合は選択状態にする
+//         }
+
+//         seasonSelect.appendChild(option);
+//     });
+// }
+function updateSeasonDropdown() {
+    let seasonSelect = document.getElementById("seasonSelect");
     seasonSelect.innerHTML = '';
 
-    // シーズンのリストを取得
     let seasons = Object.keys(currentMatchData);
 
-    // シーズンが1つもない場合、デフォルトのシーズン "24-s1" を作成
+    // デフォルトの処理
     if (seasons.length === 0) {
-        seasons = ["24-s1"]; // デフォルトのシーズン
-        currentMatchData["24-s1"] = {}; // 空データをセット
+        seasons = ["24-s1"];
+        currentMatchData["24-s1"] = {};
         localStorage.setItem('currentMatchData', JSON.stringify(currentMatchData));
     }
 
-    // `currentSeason` が削除された場合、新しいシーズンを設定
-    if (!seasons.includes(window.currentSeason)) {
-        window.currentSeason = seasons.length > 0 ? seasons[0] : "24-s1";
-    }
+    // `-s` の数字部分で降順ソート（大きいものが先）
+    seasons.sort((a, b) => {
+        const getSeasonNumber = (key) => {
+            const match = key.match(/-s(\d+)$/);
+            return match ? parseInt(match[1], 10) : 0;
+        };
+        return getSeasonNumber(b) - getSeasonNumber(a);
+    });
 
-    // シーズンプルダウンリストを作成
+    // 最新シーズンを先頭に
+    window.currentSeason = seasons[0];
+
+    // プルダウン生成
     seasons.forEach(season => {
         let option = document.createElement("option");
         option.value = season;
         option.textContent = season;
-
         if (season === window.currentSeason) {
-            option.selected = true; // `currentSeason` の場合は選択状態にする
+            option.selected = true;
         }
-
         seasonSelect.appendChild(option);
     });
 }
+
 
 // シーズン変更時の処理
 function changeSeason() {
