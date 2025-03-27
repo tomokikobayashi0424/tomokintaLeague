@@ -38173,57 +38173,50 @@
       "round2-match2": {
         "home": {
           "teamId": 9,
-          "score": 1,
-          "pk": null,
-          "assistPlayers": [
-            "デクラン ライス"
-          ],
-          "goalPlayers": [
-            "カイ ハヴァーツ"
-          ],
-          "times": [
-            66
-          ],
-          "fullTime": {
-            "possession": 64,
-            "shots": 4,
-            "shotsonFrame": 4,
-            "fouls": 0,
-            "offsides": 0,
-            "cornerKicks": 1,
-            "freeKicks": 0,
-            "passes": 115,
-            "successfulPasses": 97,
-            "crosses": 1,
-            "PassCuts": 10,
-            "successfulTackles": 2,
-            "save": 0
-          }
-        },
-        "away": {
-          "teamId": 5,
-          "score": 0,
+          "score": null,
           "pk": null,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
           "fullTime": {
-            "possession": 36,
-            "shots": 0,
-            "shotsonFrame": 0,
-            "fouls": 0,
-            "offsides": 0,
-            "cornerKicks": 0,
-            "freeKicks": 0,
-            "passes": 55,
-            "successfulPasses": 43,
-            "crosses": 0,
-            "PassCuts": 12,
-            "successfulTackles": 2,
-            "save": 2
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
           }
         },
-        "date": "2025-03-24"
+        "away": {
+          "teamId": 5,
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        }
       },
       "round2-match3": {
         "home": {
@@ -38323,7 +38316,7 @@
       },
       "round3-match1": {
         "home": {
-          "teamId": 9,
+          "teamId": null,
           "score": null,
           "pk": null,
           "assistPlayers": [],
