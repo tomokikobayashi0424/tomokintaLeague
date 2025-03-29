@@ -38153,50 +38153,57 @@
       "round2-match0": {
         "home": {
           "teamId": 16,
-          "score": null,
+          "score": 1,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            "リウ ヤン"
+          ],
+          "goalPlayers": [
+            "ポン シンリ"
+          ],
+          "times": [
+            4
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 59,
+            "shots": 4,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 84,
+            "successfulPasses": 66,
+            "crosses": 0,
+            "PassCuts": 20,
+            "successfulTackles": 3,
+            "save": 0
           }
         },
         "away": {
           "teamId": 2,
-          "score": null,
+          "score": 0,
           "pk": null,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 46,
+            "shots": 1,
+            "shotsonFrame": 0,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 68,
+            "successfulPasses": 45,
+            "crosses": 1,
+            "PassCuts": 12,
+            "successfulTackles": 2,
+            "save": 3
           }
-        }
+        },
+        "date": "2025-03-29"
       },
       "round2-match1": {
         "home": {
@@ -38392,7 +38399,7 @@
       },
       "round3-match0": {
         "home": {
-          "teamId": null,
+          "teamId": 16,
           "score": null,
           "pk": null,
           "assistPlayers": [],
