@@ -38400,28 +38400,130 @@
       "round3-match0": {
         "home": {
           "teamId": 16,
-          "score": null,
+          "score": 0,
           "pk": null,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 49,
+            "shots": 1,
+            "shotsonFrame": 0,
+            "fouls": 2,
+            "offsides": 2,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 87,
+            "successfulPasses": 66,
+            "crosses": 0,
+            "PassCuts": 16,
+            "successfulTackles": 5,
+            "save": 1
           }
         },
         "away": {
+          "teamId": 12,
+          "score": 1,
+          "pk": null,
+          "assistPlayers": [
+            ""
+          ],
+          "goalPlayers": [
+            "ハリー ケイン"
+          ],
+          "times": [
+            61
+          ],
+          "fullTime": {
+            "possession": 51,
+            "shots": 4,
+            "shotsonFrame": 2,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 2,
+            "passes": 73,
+            "successfulPasses": 53,
+            "crosses": 0,
+            "PassCuts": 17,
+            "successfulTackles": 3,
+            "save": 0
+          }
+        },
+        "date": "2025-03-29"
+      },
+      "round3-match1": {
+        "home": {
+          "teamId": 9,
+          "score": 3,
+          "pk": null,
+          "assistPlayers": [
+            "ブカヨ サカ",
+            "ガブリエウ マルティネッリ",
+            "ミケル メリノ"
+          ],
+          "goalPlayers": [
+            "カイ ハヴァーツ",
+            "ガブリエウ ジェズス",
+            "ラヒーム スターリング"
+          ],
+          "times": [
+            64,
+            69,
+            120
+          ],
+          "fullTime": {
+            "possession": 57,
+            "shots": 5,
+            "shotsonFrame": 4,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 3,
+            "freeKicks": 1,
+            "passes": 158,
+            "successfulPasses": 130,
+            "crosses": 1,
+            "PassCuts": 19,
+            "successfulTackles": 4,
+            "save": 0
+          }
+        },
+        "away": {
+          "teamId": 11,
+          "score": 2,
+          "pk": null,
+          "assistPlayers": [
+            "",
+            "ベンハミン ロレイセル"
+          ],
+          "goalPlayers": [
+            "チキーニョ ソアレス",
+            "チキーニョ ソアレス"
+          ],
+          "times": [
+            20,
+            25
+          ],
+          "fullTime": {
+            "possession": 43,
+            "shots": 3,
+            "shotsonFrame": 2,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 108,
+            "successfulPasses": 82,
+            "crosses": 2,
+            "PassCuts": 22,
+            "successfulTackles": 2,
+            "save": 0
+          }
+        },
+        "date": "2025-03-30"
+      },
+      "round4-match0": {
+        "home": {
           "teamId": 12,
           "score": null,
           "pk": null,
@@ -38443,82 +38545,9 @@
             "successfulTackles": null,
             "save": null
           }
-        }
-      },
-      "round3-match1": {
-        "home": {
+        },
+        "away": {
           "teamId": 9,
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        },
-        "away": {
-          "teamId": 11,
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        }
-      },
-      "round4-match0": {
-        "home": {
-          "teamId": null,
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        },
-        "away": {
-          "teamId": null,
           "score": null,
           "pk": null,
           "assistPlayers": [],
@@ -38543,7 +38572,7 @@
       },
       "round4-match1": {
         "home": {
-          "teamId": null,
+          "teamId": 16,
           "score": null,
           "pk": null,
           "assistPlayers": [],
@@ -38566,7 +38595,7 @@
           }
         },
         "away": {
-          "teamId": null,
+          "teamId": 11,
           "score": null,
           "pk": null,
           "assistPlayers": [],
