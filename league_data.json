@@ -13442,7 +13442,7 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
+            "possession": 50,
             "shots": null,
             "shotsonFrame": null,
             "fouls": null,
@@ -13485,7 +13485,7 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
+            "possession": 50,
             "shots": null,
             "shotsonFrame": null,
             "fouls": null,
