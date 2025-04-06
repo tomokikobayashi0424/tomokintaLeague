@@ -38757,98 +38757,118 @@
       "round4-match0": {
         "home": {
           "teamId": 12,
-          "score": null,
+          "score": 0,
           "pk": null,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 47,
+            "shots": 2,
+            "shotsonFrame": 1,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 77,
+            "successfulPasses": 64,
+            "crosses": 0,
+            "PassCuts": 11,
+            "successfulTackles": 3,
+            "save": 1
           }
         },
         "away": {
           "teamId": 9,
-          "score": null,
+          "score": 2,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            "ガブリエウ マルティネッリ",
+            "ガブリエウ マルティネッリ"
+          ],
+          "goalPlayers": [
+            "ガブリエウ ジェズス",
+            "マルティン ウーデゴーア"
+          ],
+          "times": [
+            10,
+            54
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 53,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 104,
+            "successfulPasses": 90,
+            "crosses": 2,
+            "PassCuts": 11,
+            "successfulTackles": 2,
+            "save": 1
           }
-        }
+        },
+        "date": "2025-04-06"
       },
       "round4-match1": {
         "home": {
           "teamId": 16,
-          "score": null,
+          "score": 0,
           "pk": null,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 39,
+            "shots": 0,
+            "shotsonFrame": 0,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 76,
+            "successfulPasses": 47,
+            "crosses": 1,
+            "PassCuts": 21,
+            "successfulTackles": 5,
+            "save": 1
           }
         },
         "away": {
           "teamId": 11,
-          "score": null,
+          "score": 2,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            "ペンハミン ロレイセル",
+            ""
+          ],
+          "goalPlayers": [
+            "チキーニョ ソアレス",
+            "ベンハミン ロレイセル"
+          ],
+          "times": [
+            50,
+            67
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 61,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 81,
+            "successfulPasses": 57,
+            "crosses": 0,
+            "PassCuts": 22,
+            "successfulTackles": 2,
+            "save": 0
           }
-        }
+        },
+        "date": "2025-04-06"
       }
     }
   },
