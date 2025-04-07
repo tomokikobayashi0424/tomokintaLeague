@@ -38893,6 +38893,48 @@
       "teamsNum": 6,
       "newDate": "2025-04-06",
       "currentStandings": [
+        {
+          "teamIds": [
+            18,
+            4,
+            8
+          ]
+        },
+        {
+          "teamIds": [
+            10,
+            11,
+            13
+          ]
+        },
+        {
+          "teamIds": [
+            15,
+            7,
+            9
+          ]
+        },
+        {
+          "teamIds": [
+            0,
+            1,
+            5
+          ]
+        },
+        {
+          "teamIds": [
+            14,
+            2,
+            3
+          ]
+        },
+        {
+          "teamIds": [
+            12,
+            16,
+            17
+          ]
+        }
       ],
       "round0-match0": {
         "home": {
