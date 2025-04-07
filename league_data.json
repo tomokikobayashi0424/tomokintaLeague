@@ -38893,48 +38893,6 @@
       "teamsNum": 6,
       "newDate": "2025-04-06",
       "currentStandings": [
-        {
-          "teamIds": [
-            18,
-            4,
-            8
-          ]
-        },
-        {
-          "teamIds": [
-            10,
-            11,
-            13
-          ]
-        },
-        {
-          "teamIds": [
-            15,
-            7,
-            9
-          ]
-        },
-        {
-          "teamIds": [
-            0,
-            1,
-            5
-          ]
-        },
-        {
-          "teamIds": [
-            14,
-            2,
-            3
-          ]
-        },
-        {
-          "teamIds": [
-            12,
-            16,
-            17
-          ]
-        }
       ],
       "round0-match0": {
         "home": {
@@ -39409,6 +39367,547 @@
             ]
           }
         }
+      },"CL25-s1": {
+      "teamsNum": 6,
+      "newDate": "2025-04-06",
+      "currentStandings": [
+        {
+          "teamIds": [
+            18,
+            4,
+            8
+          ]
+        },
+        {
+          "teamIds": [
+            10,
+            11,
+            13
+          ]
+        },
+        {
+          "teamIds": [
+            15,
+            7,
+            9
+          ]
+        },
+        {
+          "teamIds": [
+            0,
+            1,
+            5
+          ]
+        },
+        {
+          "teamIds": [
+            14,
+            2,
+            3
+          ]
+        },
+        {
+          "teamIds": [
+            12,
+            16,
+            17
+          ]
+        }
+      ],
+      "round0-match0": {
+        "home": {
+          "teamIds": [
+            18,
+            4,
+            8
+          ],
+          "score": 0,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": 45,
+            "shots": 6,
+            "shotsonFrame": 5,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 69,
+            "successfulPasses": 44,
+            "crosses": 3,
+            "PassCuts": 15,
+            "successfulTackles": 8,
+            "save": 0
+          },
+          "points": {
+            "totalPoint": [
+              954,
+              1214,
+              887
+            ],
+            "OffensePositioning": [
+              210,
+              188,
+              184
+            ],
+            "shot": [
+              2,
+              33,
+              76
+            ],
+            "duel": [
+              557,
+              600,
+              357
+            ],
+            "defensePositioning": [
+              130,
+              176,
+              210
+            ],
+            "pass": [
+              -37,
+              23,
+              26
+            ],
+            "dribble": [
+              92,
+              194,
+              34
+            ]
+          }
+        },
+        "away": {
+          "teamIds": [
+            12,
+            16,
+            17
+          ],
+          "score": 1,
+          "assistPlayers": [
+            "ギャレス ベイル"
+          ],
+          "goalPlayers": [
+            "カール ハインツ ルンメニゲ"
+          ],
+          "times": [
+            40
+          ],
+          "halfTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": 55,
+            "shots": 1,
+            "shotsonFrame": 1,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 81,
+            "successfulPasses": 62,
+            "crosses": 0,
+            "PassCuts": 22,
+            "successfulTackles": 5,
+            "save": 4
+          },
+          "points": {
+            "totalPoint": [
+              966,
+              765,
+              841
+            ],
+            "OffensePositioning": [
+              131,
+              213,
+              228
+            ],
+            "shot": [
+              0,
+              0,
+              100
+            ],
+            "duel": [
+              509,
+              330,
+              352
+            ],
+            "defensePositioning": [
+              227,
+              179,
+              176
+            ],
+            "pass": [
+              73,
+              62,
+              -43
+            ],
+            "dribble": [
+              26,
+              -19,
+              28
+            ]
+          }
+        },
+        "date": "2025-04-06"
+      },
+      "round0-match1": {
+        "home": {
+          "teamIds": [
+            10,
+            11,
+            13
+          ],
+          "score": 1,
+          "assistPlayers": [
+            ""
+          ],
+          "goalPlayers": [
+            "サミュエル エトー"
+          ],
+          "times": [
+            45
+          ],
+          "halfTime": {
+            "possession": 41,
+            "shots": 2,
+            "shotsonFrame": 1,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 31,
+            "successfulPasses": 22,
+            "crosses": 0,
+            "PassCuts": 8,
+            "successfulTackles": 1,
+            "save": 1
+          },
+          "fullTime": {
+            "possession": 50,
+            "shots": 5,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 2,
+            "passes": 81,
+            "successfulPasses": 56,
+            "crosses": 1,
+            "PassCuts": 21,
+            "successfulTackles": 2,
+            "save": 1
+          },
+          "points": {
+            "totalPoint": [
+              992,
+              615,
+              967
+            ],
+            "OffensePositioning": [
+              182,
+              34,
+              245
+            ],
+            "shot": [
+              148,
+              0,
+              11
+            ],
+            "duel": [
+              577,
+              381,
+              204
+            ],
+            "defensePositioning": [
+              204,
+              227,
+              259
+            ],
+            "pass": [
+              21,
+              34,
+              79
+            ],
+            "dribble": [
+              -91,
+              20,
+              39
+            ]
+          }
+        },
+        "away": {
+          "teamIds": [
+            14,
+            2,
+            3
+          ],
+          "score": 1,
+          "assistPlayers": [
+            ""
+          ],
+          "goalPlayers": [
+            "リオネル メッシ"
+          ],
+          "times": [
+            60
+          ],
+          "halfTime": {
+            "possession": 59,
+            "shots": 5,
+            "shotsonFrame": 2,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 43,
+            "successfulPasses": 32,
+            "crosses": 2,
+            "PassCuts": 5,
+            "successfulTackles": 6,
+            "save": 1
+          },
+          "fullTime": {
+            "possession": 50,
+            "shots": 7,
+            "shotsonFrame": 3,
+            "fouls": 2,
+            "offsides": 1,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 78,
+            "successfulPasses": 52,
+            "crosses": 2,
+            "PassCuts": 14,
+            "successfulTackles": 10,
+            "save": 4
+          },
+          "points": {
+            "totalPoint": [
+              889,
+              640,
+              1308
+            ],
+            "OffensePositioning": [
+              128,
+              102,
+              191
+            ],
+            "shot": [
+              47,
+              43,
+              98
+            ],
+            "duel": [
+              null,
+              null,
+              null
+            ],
+            "defensePositioning": [
+              null,
+              null,
+              null
+            ],
+            "pass": [
+              null,
+              null,
+              null
+            ],
+            "dribble": [
+              null,
+              null,
+              null
+            ]
+          }
+        },
+        "date": "2025-04-06"
+      },
+      "round0-match2": {
+        "home": {
+          "teamIds": [
+            15,
+            7,
+            9
+          ],
+          "score": 0,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": 59,
+            "shots": 5,
+            "shotsonFrame": 4,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 50,
+            "successfulPasses": 37,
+            "crosses": 0,
+            "PassCuts": 8,
+            "successfulTackles": 1,
+            "save": 1
+          },
+          "fullTime": {
+            "possession": 54,
+            "shots": 6,
+            "shotsonFrame": 4,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 93,
+            "successfulPasses": 63,
+            "crosses": 0,
+            "PassCuts": 13,
+            "successfulTackles": 3,
+            "save": 1
+          },
+          "points": {
+            "totalPoint": [
+              725,
+              1099,
+              837
+            ],
+            "OffensePositioning": [
+              122,
+              163,
+              142
+            ],
+            "shot": [
+              0,
+              90,
+              9
+            ],
+            "duel": [
+              275,
+              504,
+              396
+            ],
+            "defensePositioning": [
+              246,
+              254,
+              212
+            ],
+            "pass": [
+              32,
+              -46,
+              6
+            ],
+            "dribble": [
+              50,
+              134,
+              72
+            ]
+          }
+        },
+        "away": {
+          "teamIds": [
+            0,
+            1,
+            5
+          ],
+          "score": 0,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "halfTime": {
+            "possession": 41,
+            "shots": 2,
+            "shotsonFrame": 1,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 24,
+            "successfulPasses": 12,
+            "crosses": 0,
+            "PassCuts": 10,
+            "successfulTackles": 1,
+            "save": 2
+          },
+          "fullTime": {
+            "possession": 46,
+            "shots": 3,
+            "shotsonFrame": 1,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 2,
+            "freeKicks": 1,
+            "passes": 63,
+            "successfulPasses": 36,
+            "crosses": 2,
+            "PassCuts": 21,
+            "successfulTackles": 2,
+            "save": 2
+          },
+          "points": {
+            "totalPoint": [
+              626,
+              703,
+              924
+            ],
+            "OffensePositioning": [
+              119,
+              132,
+              151
+            ],
+            "shot": [
+              12,
+              0,
+              12
+            ],
+            "duel": [
+              291,
+              369,
+              560
+            ],
+            "defensePositioning": [
+              239,
+              234,
+              202
+            ],
+            "pass": [
+              -8,
+              -30,
+              -27
+            ],
+            "dribble": [
+              -27,
+              -2,
+              26
+            ]
+          }
+        },
+        "date": "2025-04-06"
       },
       "round1-match0": {
         "home": {
