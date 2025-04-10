@@ -14303,10 +14303,16 @@
       "round2-match5": {
         "home": {
           "teamId": 5,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            ""
+          ],
+          "goalPlayers": [
+            "カール ハインツ ルンメニゲ"
+          ],
+          "times": [
+            11
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -14323,27 +14329,36 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 45,
+            "shots": 9,
+            "shotsonFrame": 6,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 90,
+            "successfulPasses": 64,
+            "crosses": 0,
+            "PassCuts": 21,
+            "successfulTackles": 3,
+            "save": 1
           }
         },
         "away": {
           "teamId": 1,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "ネイマール",
+            ""
+          ],
+          "goalPlayers": [
+            "サミュエル エトー",
+            "ネイマール"
+          ],
+          "times": [
+            79,
+            90
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -14360,21 +14375,22 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 55,
+            "shots": 5,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 126,
+            "successfulPasses": 94,
+            "crosses": 1,
+            "PassCuts": 21,
+            "successfulTackles": 2,
+            "save": 4
           }
-        }
+        },
+        "date": "2025-04-07"
       },
       "round2-match6": {
         "home": {
@@ -14477,78 +14493,91 @@
       "round2-match7": {
         "home": {
           "teamId": 10,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "ジュード ベリンガム"
+          ],
+          "goalPlayers": [
+            "ハビエル サビオラ"
+          ],
+          "times": [
+            20
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 58,
+            "shots": 3,
+            "shotsonFrame": 2,
+            "fouls": 2,
+            "offsides": 1,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 65,
+            "successfulPasses": 47,
+            "crosses": 3,
+            "PassCuts": 9,
+            "successfulTackles": 4,
+            "save": 0
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 57,
+            "shots": 3,
+            "shotsonFrame": 2,
+            "fouls": 3,
+            "offsides": 2,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 117,
+            "successfulPasses": 80,
+            "crosses": 4,
+            "PassCuts": 23,
+            "successfulTackles": 4,
+            "save": 0
           }
         },
         "away": {
           "teamId": 0,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "ルイス フィーゴ"
+          ],
+          "goalPlayers": [
+            "ヤン コレル"
+          ],
+          "times": [
+            74
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 42,
+            "shots": 0,
+            "shotsonFrame": 0,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 2,
+            "passes": 33,
+            "successfulPasses": 19,
+            "crosses": 2,
+            "PassCuts": 10,
+            "successfulTackles": 0,
+            "save": 2
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 43,
+            "shots": 1,
+            "shotsonFrame": 1,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 2,
+            "freeKicks": 3,
+            "passes": 76,
+            "successfulPasses": 41,
+            "crosses": 6,
+            "PassCuts": 24,
+            "successfulTackles": 2,
+            "save": 2
           }
-        }
+        },
+        "date": "2025-04-10"
       },
       "round2-match8": {
         "home": {
@@ -38876,8 +38905,7 @@
     "CL25-s1": {
       "teamsNum": 6,
       "newDate": "2025-04-06",
-      "currentStandings": [
-      ],
+      "currentStandings": [],
       "round0-match0": {
         "home": {
           "teamIds": [
