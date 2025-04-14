@@ -14747,7 +14747,7 @@
       "round3-match1": {
         "home": {
           "teamId": 14,
-          "score": null,
+          "score": 0,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
@@ -14767,27 +14767,36 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 50,
+            "shots": 8,
+            "shotsonFrame": 6,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 2,
+            "freeKicks": 1,
+            "passes": 104,
+            "successfulPasses": 69,
+            "crosses": 3,
+            "PassCuts": 28,
+            "successfulTackles": 4,
+            "save": 1
           }
         },
         "away": {
           "teamId": 16,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "リヴァウド",
+            "カール ハインツ ルンメニゲ"
+          ],
+          "goalPlayers": [
+            "カール ハインツ ルンメニゲ",
+            "リヴァウド"
+          ],
+          "times": [
+            15,
+            66
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -14804,21 +14813,22 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 50,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 1,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 123,
+            "successfulPasses": 90,
+            "crosses": 0,
+            "PassCuts": 25,
+            "successfulTackles": 2,
+            "save": 6
           }
-        }
+        },
+        "date": "2025-04-14"
       },
       "round3-match2": {
         "home": {
