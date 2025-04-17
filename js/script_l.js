@@ -101,6 +101,9 @@ function displaySchedule(schedule = null) {
 
         // **目次エリアを各ラウンドに埋め込む**
         scheduleHTML += `
+        <div style="text-align: center; margin: 10px 0;">
+            <img src="Pictures/logo.png" alt="Tomokinta League ロゴ" style="height: 40px;">
+        </div>
         <div class="round-overview">
             <table class="round-overview-table">
                 <tbody>`;
