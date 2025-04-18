@@ -97,33 +97,29 @@ function displaySchedule(schedule = null) {
                     <button class="button-common button4" onclick="nextRound()">次節　＞</button>
                 </div>
                 <h2 class="week-info">${weekInfo}</h2>
-            </div>`;
-
-        // **目次エリアを各ラウンドに埋め込む**
-        scheduleHTML += `
+            </div>
         <div style="text-align: center; margin: 10px 0;">
             <img src="Pictures/logo.png" alt="Tomokinta League ロゴ" style="height: 40px;">
         </div>
-        <div class="round-overview">
-            <table class="round-overview-table">
-                <tbody>`;
-
-        matches.forEach((match, index) => {
+        <div class="round-overview">`;
+            matches.forEach((match, index) => {
+                scheduleHTML += `
+                    <div class="match-date-row">
+                        ${match.date}
+                    </div>
+                    <table class="round-overview-table">
+                        <tr class="match-row" onclick="scrollToMatch('goalDetailsTable${i}-${index}')">
+                            <td>${match.homeTeam.teams}</td>
+                            <td><img src="Pictures/Team${match.homeTeam.teamId}.jpg" alt="${match.home}" class="schedule-team-logo"></td>
+                            <td><span>${match.homeScore}</span></td>
+                            <td>-</td>
+                            <td><span>${match.awayScore}</span></td>
+                            <td><img src="Pictures/Team${match.awayTeam.teamId}.jpg" alt="${match.away}" class="schedule-team-logo"></td>
+                            <td>${match.awayTeam.teams}</td>
+                        </tr>
+                    </table>`;
+            });
         scheduleHTML += `
-                    <tr onclick="scrollToMatch('goalDetailsTable${i}-${index}')" class="match-row">
-                        <td>${match.homeTeam.teams}</td>
-                        <td><img src="Pictures/Team${match.homeTeam.teamId}.jpg" alt="${match.home}" class="schedule-team-logo"></td>
-                        <td><span>${match.homeScore}</span></td>
-                        <td>-</td>
-                        <td><span>${match.awayScore}</span></td>
-                        <td><img src="Pictures/Team${match.awayTeam.teamId}.jpg" alt="${match.away}" class="schedule-team-logo"></td>
-                        <td>${match.awayTeam.teams}</td>
-                    </tr>`;
-        });
-
-        scheduleHTML += `
-                </tbody>
-            </table>
         </div>`;
 
 
