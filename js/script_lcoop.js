@@ -36,7 +36,6 @@ function updateAllDisplayData() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // 日程表を表示する関数
-// 日程表を表示する関数
 function displaySchedule(schedule = null) {
     if (!matchDataLCoop[currentSeason]) return;
 
@@ -126,9 +125,7 @@ function displaySchedule(schedule = null) {
 
         // **目次エリアを各ラウンドに埋め込む**
         scheduleHTML += `
-        <div class="round-overview">
-            <table class="round-overview-table">
-                <tbody>`;
+        <div class="round-overview">`;
 
         matches.forEach((matchEntry, index) => {
             let matchKey = matchEntry.matchKey;
@@ -149,21 +146,20 @@ function displaySchedule(schedule = null) {
                 .join(""); // <br> は不要
 
             scheduleHTML += `
-                <tr onclick="scrollToMatch('goalDetailsTable${i}-${index}')" class="match-row">
-                    <td>${matchEntry.homeTeamNames}</td>
-                    <td>${homeLogos}</td>
-                    <td><span>${matchDataLCoopEntry.home.score ?? ''}</span></td>
-                    <td>-</td>
-                    <td><span>${matchDataLCoopEntry.away.score ?? ''}</span></td>
-                    <td>${awayLogos}</td>
-                    <td>${matchEntry.awayTeamNames}</td>
-                </tr>`;
-
+                <table class="round-overview-table">
+                    <tr onclick="scrollToMatch('goalDetailsTable${i}-${index}')" class="match-row">
+                        <td>${matchEntry.homeTeamNames}</td>
+                        <td>${homeLogos}</td>
+                        <td><span>${matchDataLCoopEntry.home.score ?? ''}</span></td>
+                        <td>-</td>
+                        <td><span>${matchDataLCoopEntry.away.score ?? ''}</span></td>
+                        <td>${awayLogos}</td>
+                        <td>${matchEntry.awayTeamNames}</td>
+                    </tr>
+                </table>`;
         });
 
         scheduleHTML += `
-                </tbody>
-            </table>
         </div>`;
 
         // **試合詳細**
