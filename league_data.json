@@ -12172,67 +12172,67 @@
         },
         {
           "Rank": 3,
-          "teamId": 9
-        },
-        {
-          "Rank": 4,
-          "teamId": 10
-        },
-        {
-          "Rank": 5,
           "teamId": 4
         },
         {
-          "Rank": 6,
-          "teamId": 11
-        },
-        {
-          "Rank": 7,
+          "Rank": 4,
           "teamId": 8
         },
         {
-          "Rank": 8,
-          "teamId": 13
+          "Rank": 5,
+          "teamId": 9
         },
         {
-          "Rank": 9,
-          "teamId": 0
-        },
-        {
-          "Rank": 10,
+          "Rank": 6,
           "teamId": 1
         },
         {
-          "Rank": 11,
-          "teamId": 17
+          "Rank": 7,
+          "teamId": 13
         },
         {
-          "Rank": 12,
+          "Rank": 8,
+          "teamId": 10
+        },
+        {
+          "Rank": 9,
+          "teamId": 11
+        },
+        {
+          "Rank": 10,
           "teamId": 7
         },
         {
-          "Rank": 13,
-          "teamId": 14
-        },
-        {
-          "Rank": 14,
+          "Rank": 11,
           "teamId": 5
         },
         {
+          "Rank": 12,
+          "teamId": 0
+        },
+        {
+          "Rank": 13,
+          "teamId": 17
+        },
+        {
+          "Rank": 14,
+          "teamId": 14
+        },
+        {
           "Rank": 15,
-          "teamId": 2
+          "teamId": 18
         },
         {
           "Rank": 16,
-          "teamId": 15
+          "teamId": 2
         },
         {
           "Rank": 17,
-          "teamId": 12
+          "teamId": 15
         },
         {
           "Rank": 18,
-          "teamId": 18
+          "teamId": 12
         }
       ],
       "round0-match0": {
