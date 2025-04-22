@@ -16040,10 +16040,25 @@
       "round4-match7": {
         "home": {
           "teamId": 8,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 4,
+          "assistPlayers": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "goalPlayers": [
+            "マルコ ファン バステン",
+            "",
+            "",
+            ""
+          ],
+          "times": [
+            90,
+            null,
+            null,
+            null
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -16060,27 +16075,57 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 49,
+            "shots": 10,
+            "shotsonFrame": 7,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 101,
+            "successfulPasses": 77,
+            "crosses": 3,
+            "PassCuts": 13,
+            "successfulTackles": 6,
+            "save": 1
           }
         },
         "away": {
           "teamId": 1,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 9,
+          "assistPlayers": [
+            "フェデリコ バルベルデ",
+            "ヨハン クライフ",
+            "パトリック ヴィエラ",
+            "ルイス スアレス",
+            "エリック カントナ",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "goalPlayers": [
+            "エリック カントナ",
+            "ルート ファン ニステルローイ",
+            "エリック カントナ",
+            "鈴木 優磨",
+            "ルイス スアレス",
+            "ルート ファン ニステルローイ",
+            "ルート ファン ニステルローイ",
+            "",
+            ""
+          ],
+          "times": [
+            14,
+            61,
+            66,
+            73,
+            77,
+            null,
+            null,
+            null,
+            null
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -16097,21 +16142,22 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 51,
+            "shots": 15,
+            "shotsonFrame": 13,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 3,
+            "freeKicks": 0,
+            "passes": 122,
+            "successfulPasses": 102,
+            "crosses": 2,
+            "PassCuts": 19,
+            "successfulTackles": 3,
+            "save": 3
           }
-        }
+        },
+        "date": "2025-04-22"
       },
       "round4-match8": {
         "home": {
