@@ -15964,78 +15964,106 @@
       "round4-match6": {
         "home": {
           "teamId": 2,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "カカ"
+          ],
+          "goalPlayers": [
+            "カール ハインツ ルンメニゲ"
+          ],
+          "times": [
+            69
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 34,
+            "shots": 4,
+            "shotsonFrame": 1,
+            "fouls": 1,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 45,
+            "successfulPasses": 38,
+            "crosses": 1,
+            "PassCuts": 7,
+            "successfulTackles": 0,
+            "save": 0
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 35,
+            "shots": 6,
+            "shotsonFrame": 2,
+            "fouls": 1,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 95,
+            "successfulPasses": 74,
+            "crosses": 1,
+            "PassCuts": 17,
+            "successfulTackles": 1,
+            "save": 2
           }
         },
         "away": {
           "teamId": 9,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 6,
+          "assistPlayers": [
+            "セルジュ ニャブリ",
+            "",
+            "アレッサンドロ デル ピエーロ",
+            "ビセンテ リザラズ",
+            "",
+            "デイヴィッド ベッカム"
+          ],
+          "goalPlayers": [
+            "フェルナンド トーレス",
+            "フェルナンド トーレス",
+            "フェルナンド トーレス",
+            "ダビド ビジャ",
+            "アレッサンドロ デル ピエーロ",
+            "ビセンテ リザラズ"
+          ],
+          "times": [
+            32,
+            41,
+            59,
+            90,
+            90,
+            null
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 66,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 1,
+            "passes": 80,
+            "successfulPasses": 72,
+            "crosses": 3,
+            "PassCuts": 5,
+            "successfulTackles": 2,
+            "save": 1
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 65,
+            "shots": 10,
+            "shotsonFrame": 9,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 1,
+            "passes": 160,
+            "successfulPasses": 141,
+            "crosses": 5,
+            "PassCuts": 18,
+            "successfulTackles": 3,
+            "save": 1
           }
-        }
+        },
+        "date": "2025-04-27"
       },
       "round4-match7": {
         "home": {
