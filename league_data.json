@@ -41020,19 +41020,10 @@
             4,
             8
           ],
-          "score": 2,
-          "assistPlayers": [
-            "パヴェル ネドヴェド",
-            ""
-          ],
-          "goalPlayers": [
-            "ギャレス ベイル",
-            "キリアン エムバペ"
-          ],
-          "times": [
-            55,
-            71
-          ],
+          "score": 0,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
           "halfTime": {
             "possession": 45,
             "shots": 1,
@@ -41107,10 +41098,19 @@
             11,
             13
           ],
-          "score": 0,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "パヴェル ネドヴェド",
+            ""
+          ],
+          "goalPlayers": [
+            "ギャレス ベイル",
+            "キリアン エムバペ"
+          ],
+          "times": [
+            55,
+            71
+          ],
           "halfTime": {
             "possession": 55,
             "shots": 3,
