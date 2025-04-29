@@ -40,10 +40,8 @@ function updateAllDisplayData() {
 // 日程表を表示する関数
 function displaySchedule(schedule = null) {
     if (!matchDataL[currentSeason]) return;
-
     let startDateStr = matchDataL[currentSeason].newDate;
     let startDate = new Date(startDateStr);
-
     if (!schedule) {
         schedule = [];
         let totalMatches = Object.keys(matchDataL[currentSeason]).length - 3;
@@ -52,11 +50,9 @@ function displaySchedule(schedule = null) {
             let roundMatches = [];
             let roundStartDate = new Date(startDate);
             roundStartDate.setDate(startDate.getDate() + round * 7);
-            
             for (let match = 0; match < matchDataL[currentSeason].teamsNum / 2; match++) {
                 let matchKey = `round${round}-match${match}`;
                 let matchDataLEntry = matchDataL[currentSeason][matchKey];
-
                 // if (!matchDataLEntry) {
                 //     console.warn(`試合データが見つかりません: ${matchKey}`);
                 //     continue;
@@ -99,7 +95,7 @@ function displaySchedule(schedule = null) {
                 <h2 class="week-info">${weekInfo}</h2>
             </div>
         <div style="text-align: center; margin: 10px 0;">
-            <img src="Pictures/logo.png" alt="Tomokinta League ロゴ" style="height: 40px;">
+            <img src="Pictures/logoMain.png" alt="Tomokinta League ロゴ" style="height: 40px;">
         </div>
         <div class="round-overview">`;
             matches.forEach((match, index) => {

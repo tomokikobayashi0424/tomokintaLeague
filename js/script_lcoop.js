@@ -38,24 +38,19 @@ function updateAllDisplayData() {
 // 日程表を表示する関数
 function displaySchedule(schedule = null) {
     if (!matchDataLCoop[currentSeason]) return;
-
     let startDateStr = matchDataLCoop[currentSeason].newDate;
     let startDate = new Date(startDateStr);
-
     if (!schedule) {
         schedule = [];
         let totalMatches = Object.keys(matchDataLCoop[currentSeason]).length - 4; 
         let numRounds = totalMatches / (matchDataLCoop[currentSeason].teamsNum / 2);
-
         for (let round = 0; round < numRounds; round++) {
             let roundMatches = [];
             let roundStartDate = new Date(startDate);
             roundStartDate.setDate(startDate.getDate() + round * 7);
-
             for (let match = 0; match < matchDataLCoop[currentSeason].teamsNum / 2; match++) {
                 let matchKey = `round${round}-match${match}`;
                 let matchDataLCoopEntry = matchDataLCoop[currentSeason][matchKey];
-
                 if (!matchDataLCoopEntry) {
                     console.warn(`試合データが見つかりません: ${matchKey}`);
                     continue;
@@ -121,10 +116,10 @@ function displaySchedule(schedule = null) {
                     <button class="button-common button4" onclick="nextRound()">次節　＞</button>
                 </div>
                 <h2 class="week-info">${weekInfo}</h2>
-            </div>`;
-
-        // **目次エリアを各ラウンドに埋め込む**
-        scheduleHTML += `
+            </div>
+        <div style="text-align: center; margin: 10px 0;">
+            <img src="Pictures/logoMain.png" alt="Tomokinta League ロゴ" style="height: 40px;">
+        </div>
         <div class="round-overview">`;
 
         matches.forEach((matchEntry, index) => {
