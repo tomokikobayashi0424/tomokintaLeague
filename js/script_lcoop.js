@@ -107,9 +107,7 @@ function displaySchedule(schedule = null) {
         roundStartDate.setDate(startDate.getDate() + i * 7);
         let weekInfo = `第${i + 1}節 ${roundStartDate.getFullYear()}年${roundStartDate.getMonth() + 1}月第${Math.ceil(roundStartDate.getDate() / 7)}週`;
 
-        scheduleHTML += `<div class="round" id="round${i}" style="display: none;">`;
-
-        scheduleHTML += `
+        scheduleHTML += `<div class="round" id="round${i}" style="display: none;">
             <div class="schedule-header sticky-header">
                 <div class="button-container">
                     <button class="button-common button3" onclick="previousRound()">＜　前節</button>
@@ -117,43 +115,53 @@ function displaySchedule(schedule = null) {
                 </div>
                 <h2 class="week-info">${weekInfo}</h2>
             </div>
-        <div style="text-align: center; margin: 10px 0;">
-            <img src="Pictures/logoMain.png" alt="Tomokinta League ロゴ" style="height: 40px;">
-        </div>
-        <div class="round-overview">`;
+            <div style="text-align: center; margin: 10px 0;">
+                <img src="Pictures/logoMain.png" alt="Tomokinta League ロゴ" style="height: 40px;">
+            </div>
+            <div class="round-overview">`;
+            matches.forEach((matchEntry, index) => {
+                let matchKey = matchEntry.matchKey;
+                let matchDataLCoopEntry = matchDataLCoop[currentSeason][matchKey];
 
-        matches.forEach((matchEntry, index) => {
-            let matchKey = matchEntry.matchKey;
-            let matchDataLCoopEntry = matchDataLCoop[currentSeason][matchKey];
+                if (!matchDataLCoopEntry) {
+                    console.warn(`試合データが見つかりません: ${matchKey}`);
+                    return;
+                }
 
-            if (!matchDataLCoopEntry) {
-                console.warn(`試合データが見つかりません: ${matchKey}`);
-                return;
-            }
+                // **チームロゴも改行してすべて表示**
+                let homeLogos = matchEntry.homeTeamIds
+                    .map(teamId => `<img src="Pictures/Team${teamId}.jpg" class="schedule-coop-logo">`)
+                    .join(""); // <br> は不要
 
-            // **チームロゴも改行してすべて表示**
-            let homeLogos = matchEntry.homeTeamIds
-                .map(teamId => `<img src="Pictures/Team${teamId}.jpg" class="schedule-coop-logo">`)
-                .join(""); // <br> は不要
+                let awayLogos = matchEntry.awayTeamIds
+                    .map(teamId => `<img src="Pictures/Team${teamId}.jpg" class="schedule-coop-logo">`)
+                    .join(""); // <br> は不要
 
-            let awayLogos = matchEntry.awayTeamIds
-                .map(teamId => `<img src="Pictures/Team${teamId}.jpg" class="schedule-coop-logo">`)
-                .join(""); // <br> は不要
+                    // **時刻を追加する処理**
+    let baseHour = 22;
+    let baseMinute = 30;
+    let totalMinutes = baseHour * 60 + baseMinute + index * 15;
+    let matchHour = Math.floor(totalMinutes / 60);
+    let matchMinute = totalMinutes % 60;
+    let matchTimeStr = `${String(matchHour).padStart(2, '0')}:${String(matchMinute).padStart(2, '0')}`;
 
-            scheduleHTML += `
-                <table class="round-overview-table">
-                    <tr onclick="scrollToMatch('goalDetailsTable${i}-${index}')" class="match-row">
-                        <td>${matchEntry.homeTeamNames}</td>
-                        <td>${homeLogos}</td>
-                        <td><span>${matchDataLCoopEntry.home.score ?? ''}</span></td>
-                        <td>-</td>
-                        <td><span>${matchDataLCoopEntry.away.score ?? ''}</span></td>
-                        <td>${awayLogos}</td>
-                        <td>${matchEntry.awayTeamNames}</td>
-                    </tr>
-                </table>`;
-        });
 
+                scheduleHTML += `
+                    <div class="match-date-row">
+                        ${matchEntry.date} ${matchTimeStr}キックオフ
+                    </div>
+                    <table class="round-overview-table">
+                        <tr onclick="scrollToMatch('goalDetailsTable${i}-${index}')" class="match-row">
+                            <td>${matchEntry.homeTeamNames}</td>
+                            <td>${homeLogos}</td>
+                            <td><span>${matchDataLCoopEntry.home.score ?? ''}</span></td>
+                            <td>-</td>
+                            <td><span>${matchDataLCoopEntry.away.score ?? ''}</span></td>
+                            <td>${awayLogos}</td>
+                            <td>${matchEntry.awayTeamNames}</td>
+                        </tr>
+                    </table>`;
+            });
         scheduleHTML += `
         </div>`;
 
@@ -186,7 +194,6 @@ function displaySchedule(schedule = null) {
             const statsTableElement = generateStatsTable(i, index);
             scheduleHTML += statsTableElement.outerHTML;
             scheduleHTML += generatePointTable(i, index, matchDataLCoopEntry).outerHTML;
-
             scheduleHTML += `</div>`;
         });
 
@@ -205,21 +212,20 @@ function displaySchedule(schedule = null) {
     showRound(currentRound);
 }
 
+// // 日程表の自動スクロールする関数
+// function scrollToMatch(targetId) {
+//     let targetElement = document.getElementById(targetId);
+//     if (targetElement) {
+//         let offset = 200; // 固定ヘッダー分のオフセット
+//         let elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+//         let offsetPosition = elementPosition - offset;
 
-// 日程表の自動スクロールする関数
-function scrollToMatch(targetId) {
-    let targetElement = document.getElementById(targetId);
-    if (targetElement) {
-        let offset = 200; // 固定ヘッダー分のオフセット
-        let elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-        let offsetPosition = elementPosition - offset;
-
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-        });
-    }
-}
+//         window.scrollTo({
+//             top: offsetPosition,
+//             behavior: "smooth"
+//         });
+//     }
+// }
 // 試合詳細のスタッツ表を生成する関数
 function createStatsTable(statCategories, roundIndex, matchIndex) {
     const table = document.createElement('table');

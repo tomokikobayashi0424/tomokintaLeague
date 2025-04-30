@@ -84,9 +84,7 @@ function displaySchedule(schedule = null) {
         roundStartDate.setDate(startDate.getDate() + i * 7);
         let weekInfo = `第${i + 1}節 ${roundStartDate.getFullYear()}年${roundStartDate.getMonth() + 1}月第${Math.ceil(roundStartDate.getDate() / 7)}週`;
 
-        scheduleHTML += `<div class="round" id="round${i}" style="display: none;">`;
-
-        scheduleHTML += `
+        scheduleHTML += `<div class="round" id="round${i}" style="display: none;">
             <div class="schedule-header sticky-header">
                 <div class="button-container">
                     <button class="button-common button3" onclick="previousRound()">＜　前節</button>
@@ -94,10 +92,10 @@ function displaySchedule(schedule = null) {
                 </div>
                 <h2 class="week-info">${weekInfo}</h2>
             </div>
-        <div style="text-align: center; margin: 10px 0;">
-            <img src="Pictures/logoMain.png" alt="Tomokinta League ロゴ" style="height: 40px;">
-        </div>
-        <div class="round-overview">`;
+            <div style="text-align: center; margin: 10px 0;">
+                <img src="Pictures/logoMain.png" alt="Tomokinta League ロゴ" style="height: 40px;">
+            </div>
+            <div class="round-overview">`;
             matches.forEach((match, index) => {
                 scheduleHTML += `
                     <div class="match-date-row">
@@ -158,42 +156,22 @@ function displaySchedule(schedule = null) {
 
     currentRound = calculateCurrentRound(startDate, schedule.length);
     showRound(currentRound);
-
-    // **リンククリック時のスクロール動作を追加**
-    // document.querySelectorAll(".match-link").forEach(link => {
-    //     link.addEventListener("click", function (event) {
-    //         event.preventDefault();
-    //         let targetId = this.getAttribute("href").substring(1); // ID取得
-    //         let targetElement = document.getElementById(targetId);
-    //         if (targetElement) {
-    //             let offset = 200; // 上部の固定部分の高さ
-    //             let elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-    //             let offsetPosition = elementPosition - offset;
-    
-    //             window.scrollTo({
-    //                 top: offsetPosition,
-    //                 behavior: "smooth"
-    //             });
-    //         }
-    //     });
-    // });
-    
 }
 
 // 日程表の自動スクロールする関数
-function scrollToMatch(targetId) {
-    let targetElement = document.getElementById(targetId);
-    if (targetElement) {
-        let offset = 200; // 固定ヘッダー分のオフセット
-        let elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-        let offsetPosition = elementPosition - offset;
+// function scrollToMatch(targetId) {
+//     let targetElement = document.getElementById(targetId);
+//     if (targetElement) {
+//         let offset = 200; // 固定ヘッダー分のオフセット
+//         let elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+//         let offsetPosition = elementPosition - offset;
 
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-        });
-    }
-}
+//         window.scrollTo({
+//             top: offsetPosition,
+//             behavior: "smooth"
+//         });
+//     }
+// }
 
 // 得点詳細のスタッツ表を作成する関数
 function createStatsTable(statCategories, roundIndex, matchIndex) {

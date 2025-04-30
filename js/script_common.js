@@ -96,8 +96,8 @@ document.addEventListener("DOMContentLoaded", async function () {
                         </li>
                     </ul>
                 </button>
-                <input type="text" id="team${i + 1}" name="team${i + 1}" value="${team.teams}" class="team-name-input" readonly>
-                <input type="text" id="teamSub${i + 1}" name="teamSub${i + 1}" value="${team.teamsSub}" class="team-subname-input" readonly><br>
+                <span class="team-name">${team.teams}</span>
+                <span class="team-subname">${team.teamsSub}</span><br>
             </div>
         `;
         teamContainer.insertAdjacentHTML('beforeend', teamItem);
@@ -141,6 +141,12 @@ function openTab(evt, tabName) {
         }
     }
 }
+
+// function toggleLeagueSelect() {
+//     const select = document.getElementById('leagueSelect');
+//     select.style.display = (select.style.display === 'none' || select.style.display === '') ? 'block' : 'none';
+// }
+
 
 // リーグ変更プルダウンに関する関数
 function changeLeague() {
@@ -1296,6 +1302,21 @@ function sortGoalDetails(roundIndex, matchIndex) {
     rows.forEach(row => goalDetailsBody.appendChild(row));
 }
 
+
+// 日程表の自動スクロールする関数
+function scrollToMatch(targetId) {
+    let targetElement = document.getElementById(targetId);
+    if (targetElement) {
+        let offset = 200; // 固定ヘッダー分のオフセット
+        let elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+        let offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
+    }
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////

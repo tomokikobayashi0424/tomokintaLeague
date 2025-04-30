@@ -1436,3 +1436,42 @@ Coopトーナメント表のスタイル
 .match-row:hover {
     background-color: var(--main-color-1);
 } */
+
+
+
+
+
+/* 
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+日程もくじ */
+.match-date-row{
+    margin-bottom: 0px;
+    padding: 0px;
+    text-align: center; 
+    margin-top: 0px; 
+    font-size: 10px; 
+    color: gray;
+}
+.match-row {
+    margin-bottom: 0px;
+    padding: 0px;
+    background-color: var(--main-color-1);
+}
+
+/* .round-overview h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+} */
+
