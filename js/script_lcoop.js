@@ -116,7 +116,7 @@ function displaySchedule(schedule = null) {
                 <h2 class="week-info">${weekInfo}</h2>
             </div>
             <div style="text-align: center; margin: 10px 0;">
-                <img src="Pictures/logoMain.png" alt="Tomokinta League ロゴ" style="height: 40px;">
+                <img src="Pictures/logoCoop.png" alt="Tomokinta League ロゴ" style="height: 40px;">
             </div>
             <div class="round-overview">`;
             matches.forEach((matchEntry, index) => {
