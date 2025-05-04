@@ -16831,12 +16831,21 @@
       "round5-match6": {
         "home": {
           "teamId": 8,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "",
+            "リオネル メッシ"
+          ],
+          "goalPlayers": [
+            "エデン アザール",
+            "ルイス スアレス"
+          ],
+          "times": [
+            4,
+            14
+          ],
           "halfTime": {
-            "possession": null,
+            "possession": 44,
             "shots": null,
             "shotsonFrame": null,
             "fouls": null,
@@ -16851,27 +16860,33 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 44,
+            "shots": 8,
+            "shotsonFrame": 7,
+            "fouls": 1,
+            "offsides": 0,
+            "cornerKicks": 3,
+            "freeKicks": 0,
+            "passes": 81,
+            "successfulPasses": 59,
+            "crosses": 3,
+            "PassCuts": 16,
+            "successfulTackles": 6,
+            "save": 5
           }
         },
         "away": {
           "teamId": 11,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "フィリップ ラーム"
+          ],
+          "goalPlayers": [
+            "リオネル メッシ"
+          ],
+          "times": [
+            64
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -16888,21 +16903,22 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 56,
+            "shots": 8,
+            "shotsonFrame": 7,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 1,
+            "passes": 104,
+            "successfulPasses": 83,
+            "crosses": 4,
+            "PassCuts": 17,
+            "successfulTackles": 3,
+            "save": 3
           }
-        }
+        },
+        "date": "2025-05-01"
       },
       "round5-match7": {
         "home": {
