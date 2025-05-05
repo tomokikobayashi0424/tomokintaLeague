@@ -17629,76 +17629,88 @@
       "round6-match6": {
         "home": {
           "teamId": 0,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "ルイス フィーゴ"
+          ],
+          "goalPlayers": [
+            "ヤン コレル"
+          ],
+          "times": [
+            60
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 51,
+            "shots": 1,
+            "shotsonFrame": 1,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 2,
+            "freeKicks": 1,
+            "passes": 39,
+            "successfulPasses": 24,
+            "crosses": 3,
+            "PassCuts": 7,
+            "successfulTackles": 1,
+            "save": 1
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 47,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 2,
+            "freeKicks": 1,
+            "passes": 77,
+            "successfulPasses": 48,
+            "crosses": 7,
+            "PassCuts": 15,
+            "successfulTackles": 5,
+            "save": 1
           }
         },
         "away": {
           "teamId": 18,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "フィルジル ファンダイク"
+          ],
+          "goalPlayers": [
+            "キリアン エムバペ"
+          ],
+          "times": [
+            88
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 49,
+            "shots": 1,
+            "shotsonFrame": 1,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 39,
+            "successfulPasses": 27,
+            "crosses": 3,
+            "PassCuts": 7,
+            "successfulTackles": 2,
+            "save": 0
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 53,
+            "shots": 2,
+            "shotsonFrame": 2,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 89,
+            "successfulPasses": 65,
+            "crosses": 3,
+            "PassCuts": 15,
+            "successfulTackles": 3,
+            "save": 1
           }
         },
         "date": "2025-05-05"
