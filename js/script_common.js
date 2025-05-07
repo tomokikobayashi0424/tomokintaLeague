@@ -383,9 +383,158 @@ function toggleSeasonView() {
 }
 
 // チーム日程表の表示
+// function displayTeamMonthlySchedule(teamId) {
+//     let scheduleHTML = '';
+//     let allMatches = []; // すべての試合データを格納する配列
+
+//     let displayMonth = new Date();
+//     displayMonth.setDate(1);
+//     displayMonth.setMonth(displayMonth.getMonth() + currentMonthOffset);
+//     const displayYear = displayMonth.getFullYear();
+//     const displayMonthIndex = displayMonth.getMonth();
+
+//     // **全てのシーズンの試合データを対象にする**
+//     let targetSeasons = [...new Set([...Object.keys(matchDataL), ...Object.keys(matchDataT), ...Object.keys(matchDataLCoop)])];
+
+//     targetSeasons.forEach(season => {
+//         let startDate = new Date(matchDataL[season]?.newDate || matchDataT[season]?.newDate || matchDataLCoop[season]?.newDate || new Date());
+//         let roundDates = {};
+//         let rounds = 0;
+
+//         // **リーグ戦のラウンド数を計算**
+//         if (matchDataL[season]) {
+//             for (const matchKey in matchDataL[season]) {
+//                 if (matchKey.startsWith("round")) {
+//                     let roundNumber = parseInt(matchKey.match(/round(\d+)/)?.[1], 10);
+//                     if (!isNaN(roundNumber)) {
+//                         rounds = Math.max(rounds, roundNumber);
+//                     }
+//                 }
+//             }
+
+//             // 各ラウンドの日付を設定（1週間ごと）
+//             for (let i = 0; i <= rounds; i++) {
+//                 roundDates[`round${i}`] = new Date(startDate);
+//                 roundDates[`round${i}`].setDate(startDate.getDate() + i * 7);
+//             }
+//         }
+
+//         // **リーグ戦・トーナメント・チーム戦の試合データを統一的に処理**
+//         ["L", "T", "C"].forEach(type => {
+//             let matchData = type === "L" ? matchDataL[season] 
+//                           : type === "T" ? matchDataT[season] 
+//                           : matchDataLCoop[season];
+
+//             let matchType = type === "L" ? "リーグ戦" 
+//                           : type === "T" ? "トーナメント" 
+//                           : "チーム戦";
+
+//             if (!matchData) return;
+
+//             for (const matchKey in matchData) {
+//                 if (matchKey === "teamsNum" || matchKey === "currentStandings" || matchKey === "newDate") continue;
+
+//                 let match = matchData[matchKey];
+//                 if (!match) continue; // 試合データがない場合スキップ
+
+//                 let roundNumber = type === "L" ? matchKey.split('-')[0] : matchKey.match(/round(\d+)/)?.[1];
+//                 let matchDate = match.date ? new Date(match.date) : new Date(startDate);
+
+//                 if (type === "T" || type === "C") {
+//                     if (roundNumber) {
+//                         matchDate.setDate(startDate.getDate() + parseInt(roundNumber, 10) * 7); // ラウンドごとに1週間ずつ進める
+//                     }
+//                 } else if (type === "L") {
+//                     matchDate = roundDates[roundNumber] || matchDate; // リーグ戦は計算済みのラウンド日付を適用
+//                 }
+
+//                 if (matchDate.getFullYear() !== displayYear || matchDate.getMonth() !== displayMonthIndex) continue;
+
+//                 // **チーム戦の処理**
+//                 let isHome = false;
+//                 let isAway = false;
+//                 let opponentTeamNames = "";
+
+//                 if (type === "C") {
+//                     isHome = match.home.teamIds.includes(teamId);
+//                     isAway = match.away.teamIds.includes(teamId);
+
+//                     if (isHome || isAway) {
+//                         opponentTeamNames = (isHome ? match.away.teamIds : match.home.teamIds)
+//                             .map(opponentId => {
+//                                 let team = teamsData.find(team => team.teamId === opponentId);
+//                                 return team ? team.teams : null; // **不明なら null にする**
+//                             })
+//                             .filter(name => name !== null) // **不明を削除**
+//                             .join("<br>");
+//                     }
+//                 } else {
+//                     isHome = match.home.teamId === teamId;
+//                     isAway = match.away.teamId === teamId;
+
+//                     if (isHome || isAway) {
+//                         let opponentTeam = teamsData.find(team => team.teamId === (isHome ? match.away.teamId : match.home.teamId));
+//                         opponentTeamNames = opponentTeam ? opponentTeam.teams : null; // **不明なら null にする**
+//                     }
+//                 }
+
+//                 if (!isHome && !isAway) continue; // 該当チームの試合でなければスキップ
+//                 if (!opponentTeamNames) continue; // **対戦相手が不明ならスキップ**
+
+//                 let scoreClass = '';
+//                     if (isHome && match.home.score !== null && match.away.score !== null) {
+//                         if (match.home.score > match.away.score) {
+//                             scoreClass = 'highlight-green';
+//                         } else if (match.home.score < match.away.score) {
+//                             scoreClass = 'highlight-red';
+//                         }
+//                     } else if (isAway && match.home.score !== null && match.away.score !== null) {
+//                         if (match.away.score > match.home.score) {
+//                             scoreClass = 'highlight-green';
+//                         } else if (match.away.score < match.home.score) {
+//                             scoreClass = 'highlight-red';
+//                         }
+//                     }
+
+//                 allMatches.push({
+//                     matchDate,
+//                     season,
+//                     matchType,
+//                     location: isHome ? 'home' : 'away',
+//                     opponent: opponentTeamNames, // **対戦相手を改行表示**
+//                     score: `${match.home.score ?? '-'} - ${match.away.score ?? '-'}`,
+//                     scoreClass
+//                 });
+//             }
+//         });
+//     });
+
+//     // **試合データを日付順にソート**
+//     allMatches.sort((a, b) => a.matchDate - b.matchDate);
+
+//     // **HTMLを生成**
+//     allMatches.forEach(match => {
+//         scheduleHTML += `
+//             <tr>
+//                 <td>${match.matchDate.getDate()}日</td>
+//                 <td>${match.season}</td>
+//                 <td>${match.location}</td>
+//                 <td>${match.opponent}</td>
+//                 <td class="${match.scoreClass}">${match.score}</td>
+//             </tr>
+//         `;
+//     });
+
+//     if (scheduleHTML === '') {
+//         scheduleHTML = `<tr><td colspan="6">この月の試合はありません</td></tr>`;
+//     }
+
+//     document.getElementById('teamScheduleTableBody').innerHTML = scheduleHTML;
+//     document.getElementById('currentMonthLabel').textContent = `${displayYear}年${displayMonthIndex + 1}月`;
+// }
 function displayTeamMonthlySchedule(teamId) {
     let scheduleHTML = '';
-    let allMatches = []; // すべての試合データを格納する配列
+    let allMatches = [];
 
     let displayMonth = new Date();
     displayMonth.setDate(1);
@@ -393,7 +542,6 @@ function displayTeamMonthlySchedule(teamId) {
     const displayYear = displayMonth.getFullYear();
     const displayMonthIndex = displayMonth.getMonth();
 
-    // **全てのシーズンの試合データを対象にする**
     let targetSeasons = [...new Set([...Object.keys(matchDataL), ...Object.keys(matchDataT), ...Object.keys(matchDataLCoop)])];
 
     targetSeasons.forEach(season => {
@@ -401,7 +549,6 @@ function displayTeamMonthlySchedule(teamId) {
         let roundDates = {};
         let rounds = 0;
 
-        // **リーグ戦のラウンド数を計算**
         if (matchDataL[season]) {
             for (const matchKey in matchDataL[season]) {
                 if (matchKey.startsWith("round")) {
@@ -412,45 +559,47 @@ function displayTeamMonthlySchedule(teamId) {
                 }
             }
 
-            // 各ラウンドの日付を設定（1週間ごと）
             for (let i = 0; i <= rounds; i++) {
                 roundDates[`round${i}`] = new Date(startDate);
                 roundDates[`round${i}`].setDate(startDate.getDate() + i * 7);
             }
         }
 
-        // **リーグ戦・トーナメント・チーム戦の試合データを統一的に処理**
         ["L", "T", "C"].forEach(type => {
-            let matchData = type === "L" ? matchDataL[season] 
-                          : type === "T" ? matchDataT[season] 
+            let matchData = type === "L" ? matchDataL[season]
+                          : type === "T" ? matchDataT[season]
                           : matchDataLCoop[season];
 
-            let matchType = type === "L" ? "リーグ戦" 
-                          : type === "T" ? "トーナメント" 
+            let matchType = type === "L" ? "リーグ戦"
+                          : type === "T" ? "トーナメント"
                           : "チーム戦";
 
             if (!matchData) return;
 
             for (const matchKey in matchData) {
-                if (matchKey === "teamsNum" || matchKey === "currentStandings" || matchKey === "newDate") continue;
+                if (["teamsNum", "currentStandings", "newDate"].includes(matchKey)) continue;
 
                 let match = matchData[matchKey];
-                if (!match) continue; // 試合データがない場合スキップ
+                if (!match) continue;
 
                 let roundNumber = type === "L" ? matchKey.split('-')[0] : matchKey.match(/round(\d+)/)?.[1];
-                let matchDate = match.date ? new Date(match.date) : new Date(startDate);
 
-                if (type === "T" || type === "C") {
-                    if (roundNumber) {
-                        matchDate.setDate(startDate.getDate() + parseInt(roundNumber, 10) * 7); // ラウンドごとに1週間ずつ進める
+                let matchDate;
+                if (match.date) {
+                    matchDate = new Date(match.date); // ← 優先的に使う
+                } else {
+                    matchDate = new Date(startDate);
+                    if (type === "T" || type === "C") {
+                        if (roundNumber) {
+                            matchDate.setDate(startDate.getDate() + parseInt(roundNumber, 10) * 7);
+                        }
+                    } else if (type === "L") {
+                        matchDate = roundDates[roundNumber] || matchDate;
                     }
-                } else if (type === "L") {
-                    matchDate = roundDates[roundNumber] || matchDate; // リーグ戦は計算済みのラウンド日付を適用
                 }
 
                 if (matchDate.getFullYear() !== displayYear || matchDate.getMonth() !== displayMonthIndex) continue;
 
-                // **チーム戦の処理**
                 let isHome = false;
                 let isAway = false;
                 let opponentTeamNames = "";
@@ -463,9 +612,9 @@ function displayTeamMonthlySchedule(teamId) {
                         opponentTeamNames = (isHome ? match.away.teamIds : match.home.teamIds)
                             .map(opponentId => {
                                 let team = teamsData.find(team => team.teamId === opponentId);
-                                return team ? team.teams : null; // **不明なら null にする**
+                                return team ? team.teams : null;
                             })
-                            .filter(name => name !== null) // **不明を削除**
+                            .filter(name => name !== null)
                             .join("<br>");
                     }
                 } else {
@@ -474,34 +623,28 @@ function displayTeamMonthlySchedule(teamId) {
 
                     if (isHome || isAway) {
                         let opponentTeam = teamsData.find(team => team.teamId === (isHome ? match.away.teamId : match.home.teamId));
-                        opponentTeamNames = opponentTeam ? opponentTeam.teams : null; // **不明なら null にする**
+                        opponentTeamNames = opponentTeam ? opponentTeam.teams : null;
                     }
                 }
 
-                if (!isHome && !isAway) continue; // 該当チームの試合でなければスキップ
-                if (!opponentTeamNames) continue; // **対戦相手が不明ならスキップ**
+                if (!isHome && !isAway) continue;
+                if (!opponentTeamNames) continue;
 
                 let scoreClass = '';
-                    if (isHome && match.home.score !== null && match.away.score !== null) {
-                        if (match.home.score > match.away.score) {
-                            scoreClass = 'highlight-green';
-                        } else if (match.home.score < match.away.score) {
-                            scoreClass = 'highlight-red';
-                        }
-                    } else if (isAway && match.home.score !== null && match.away.score !== null) {
-                        if (match.away.score > match.home.score) {
-                            scoreClass = 'highlight-green';
-                        } else if (match.away.score < match.home.score) {
-                            scoreClass = 'highlight-red';
-                        }
-                    }
+                if (isHome && match.home.score != null && match.away.score != null) {
+                    if (match.home.score > match.away.score) scoreClass = 'highlight-green';
+                    else if (match.home.score < match.away.score) scoreClass = 'highlight-red';
+                } else if (isAway && match.home.score != null && match.away.score != null) {
+                    if (match.away.score > match.home.score) scoreClass = 'highlight-green';
+                    else if (match.away.score < match.home.score) scoreClass = 'highlight-red';
+                }
 
                 allMatches.push({
                     matchDate,
                     season,
                     matchType,
                     location: isHome ? 'home' : 'away',
-                    opponent: opponentTeamNames, // **対戦相手を改行表示**
+                    opponent: opponentTeamNames,
                     score: `${match.home.score ?? '-'} - ${match.away.score ?? '-'}`,
                     scoreClass
                 });
@@ -509,10 +652,8 @@ function displayTeamMonthlySchedule(teamId) {
         });
     });
 
-    // **試合データを日付順にソート**
     allMatches.sort((a, b) => a.matchDate - b.matchDate);
 
-    // **HTMLを生成**
     allMatches.forEach(match => {
         scheduleHTML += `
             <tr>
@@ -532,6 +673,7 @@ function displayTeamMonthlySchedule(teamId) {
     document.getElementById('teamScheduleTableBody').innerHTML = scheduleHTML;
     document.getElementById('currentMonthLabel').textContent = `${displayYear}年${displayMonthIndex + 1}月`;
 }
+
 
 // チームごとのプレイヤーランキングを表示する関数
 function displayTeamPlayerRanking(tableId, players) {
