@@ -17098,7 +17098,7 @@
       "round6-match0": {
         "home": {
           "teamId": 12,
-          "score": null,
+          "score": 0,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
@@ -17118,27 +17118,42 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 60,
+            "shots": 3,
+            "shotsonFrame": 2,
+            "fouls": 2,
+            "offsides": 2,
+            "cornerKicks": 1,
+            "freeKicks": 1,
+            "passes": 120,
+            "successfulPasses": 87,
+            "crosses": 5,
+            "PassCuts": 14,
+            "successfulTackles": 8,
+            "save": 3
           }
         },
         "away": {
           "teamId": 4,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 4,
+          "assistPlayers": [
+            "カール ハインツ ルンメニゲ",
+            "パヴェル ネドヴェド",
+            "",
+            ""
+          ],
+          "goalPlayers": [
+            "リオネル メッシ",
+            "リオネル メッシ",
+            "パヴェル ネドヴェド",
+            "ギャレス ベイル"
+          ],
+          "times": [
+            13,
+            43,
+            66,
+            80
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -17155,22 +17170,22 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 40,
+            "shots": 8,
+            "shotsonFrame": 6,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 1,
+            "freeKicks": 2,
+            "passes": 74,
+            "successfulPasses": 53,
+            "crosses": 0,
+            "PassCuts": 20,
+            "successfulTackles": 9,
+            "save": 2
           }
         },
-        "date": "2025-05-07"
+        "date": "2025-05-09"
       },
       "round6-match1": {
         "home": {
@@ -41960,7 +41975,7 @@
           }
         },
         "date": "2025-05-04"
-    },
+      },
       "round5-match0": {
         "home": {
           "teamIds": [
