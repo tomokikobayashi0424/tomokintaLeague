@@ -12168,47 +12168,47 @@
         },
         {
           "Rank": 2,
-          "teamId": 3
-        },
-        {
-          "Rank": 3,
-          "teamId": 9
-        },
-        {
-          "Rank": 4,
           "teamId": 1
         },
         {
-          "Rank": 5,
+          "Rank": 3,
           "teamId": 7
         },
         {
-          "Rank": 6,
+          "Rank": 4,
           "teamId": 8
         },
         {
-          "Rank": 7,
+          "Rank": 5,
           "teamId": 16
         },
         {
-          "Rank": 8,
-          "teamId": 13
+          "Rank": 6,
+          "teamId": 3
         },
         {
-          "Rank": 9,
+          "Rank": 7,
+          "teamId": 9
+        },
+        {
+          "Rank": 8,
           "teamId": 11
         },
         {
-          "Rank": 10,
-          "teamId": 17
+          "Rank": 9,
+          "teamId": 13
         },
         {
-          "Rank": 11,
+          "Rank": 10,
           "teamId": 10
         },
         {
-          "Rank": 12,
+          "Rank": 11,
           "teamId": 5
+        },
+        {
+          "Rank": 12,
+          "teamId": 17
         },
         {
           "Rank": 13,
@@ -12224,15 +12224,15 @@
         },
         {
           "Rank": 16,
-          "teamId": 15
+          "teamId": 18
         },
         {
           "Rank": 17,
-          "teamId": 14
+          "teamId": 15
         },
         {
           "Rank": 18,
-          "teamId": 18
+          "teamId": 14
         }
       ],
       "round0-match0": {
@@ -18000,7 +18000,8 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-05-12"
       },
       "round7-match1": {
         "home": {
@@ -18076,12 +18077,13 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-05-12"
       },
       "round7-match2": {
         "home": {
           "teamId": 10,
-          "score": null,
+          "score": 0,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
@@ -18101,27 +18103,39 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 46,
+            "shots": 6,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 4,
+            "freeKicks": 0,
+            "passes": 104,
+            "successfulPasses": 72,
+            "crosses": 2,
+            "PassCuts": 15,
+            "successfulTackles": 4,
+            "save": 2
           }
         },
         "away": {
           "teamId": 13,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 3,
+          "assistPlayers": [
+            "キリアン エムバペ",
+            "ギャレス ベイル",
+            "ギャレス ベイル"
+          ],
+          "goalPlayers": [
+            "ルイス スアレス",
+            "パヴェル ネドヴェド",
+            "ロベルト バッジョ"
+          ],
+          "times": [
+            24,
+            68,
+            90
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -18138,21 +18152,22 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 54,
+            "shots": 7,
+            "shotsonFrame": 5,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 125,
+            "successfulPasses": 107,
+            "crosses": 1,
+            "PassCuts": 21,
+            "successfulTackles": 1,
+            "save": 2
           }
-        }
+        },
+        "date": "2025-05-11"
       },
       "round7-match3": {
         "home": {
@@ -18228,7 +18243,8 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-05-12"
       },
       "round7-match4": {
         "home": {
@@ -18304,7 +18320,8 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-05-12"
       },
       "round7-match5": {
         "home": {
@@ -18380,83 +18397,103 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-05-12"
       },
       "round7-match6": {
         "home": {
           "teamId": 3,
-          "score": null,
+          "score": 0,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 37,
+            "shots": 3,
+            "shotsonFrame": 0,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 40,
+            "successfulPasses": 29,
+            "crosses": 0,
+            "PassCuts": 3,
+            "successfulTackles": 2,
+            "save": 3
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 37,
+            "shots": 3,
+            "shotsonFrame": 0,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 86,
+            "successfulPasses": 66,
+            "crosses": 0,
+            "PassCuts": 10,
+            "successfulTackles": 3,
+            "save": 2
           }
         },
         "away": {
           "teamId": 17,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 5,
+          "assistPlayers": [
+            "リオネル メッシ",
+            "ウリ へーネス",
+            "ウリ へーネス",
+            "リオネル メッシ",
+            "ウリ へーネス"
+          ],
+          "goalPlayers": [
+            "ウリ へーネス",
+            "リオネル メッシ",
+            "キリアン エムバペ",
+            "カール ハインツ ルンメニゲ",
+            "キリアン エムバペ"
+          ],
+          "times": [
+            37,
+            43,
+            70,
+            80,
+            86
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 63,
+            "shots": 5,
+            "shotsonFrame": 4,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 61,
+            "successfulPasses": 55,
+            "crosses": 1,
+            "PassCuts": 10,
+            "successfulTackles": 0,
+            "save": 0
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 63,
+            "shots": 10,
+            "shotsonFrame": 8,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 120,
+            "successfulPasses": 106,
+            "crosses": 3,
+            "PassCuts": 18,
+            "successfulTackles": 2,
+            "save": 0
           }
-        }
+        },
+        "date": "2025-05-11"
       },
       "round7-match7": {
         "home": {
@@ -18532,7 +18569,8 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-05-12"
       },
       "round7-match8": {
         "home": {
@@ -18608,7 +18646,8 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-05-12"
       },
       "round8-match0": {
         "home": {
