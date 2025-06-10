@@ -44667,39 +44667,39 @@
           },
           "points": {
             "totalPoint": [
-              null,
-              null,
-              null
+              637,
+              250,
+              776
             ],
             "OffensePositioning": [
-              null,
-              null,
-              null
+              49,
+              119,
+              160
             ],
             "shot": [
-              null,
-              null,
-              null
+              6,
+              0,
+              0
             ],
             "duel": [
-              null,
-              null,
-              null
+              377,
+              175,
+              486
             ],
             "defensePositioning": [
-              null,
-              null,
-              null
+              221,
+              122,
+              112
             ],
             "pass": [
-              null,
-              null,
-              null
+              -26,
+              -177,
+              37
             ],
             "dribble": [
-              null,
-              null,
-              null
+              46,
+              11,
+              -19
             ]
           }
         },
