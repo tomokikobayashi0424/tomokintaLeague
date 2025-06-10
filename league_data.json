@@ -21543,7 +21543,8 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-06-12"
       },
       "round11-match4": {
         "home": {
@@ -21778,15 +21779,34 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-06-11"
       },
       "round11-match7": {
         "home": {
           "teamId": 17,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 5,
+          "assistPlayers": [
+            "キリアン エムバペ",
+            "リオネル メッシ",
+            "リオネル メッシ",
+            "ルイス スアレス",
+            "リオネル メッシ"
+          ],
+          "goalPlayers": [
+            "アンドレス イニエスタ",
+            "キリアン エムバペ",
+            "ルイス スアレス",
+            "リオネル メッシ",
+            "ルイス スアレス"
+          ],
+          "times": [
+            6,
+            9,
+            12,
+            34,
+            66
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -21803,24 +21823,24 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 55,
+            "shots": 8,
+            "shotsonFrame": 5,
+            "fouls": 4,
+            "offsides": 2,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 122,
+            "successfulPasses": 97,
+            "crosses": 2,
+            "PassCuts": 25,
+            "successfulTackles": 6,
+            "save": 1
           }
         },
         "away": {
           "teamId": 14,
-          "score": null,
+          "score": 0,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
@@ -21840,21 +21860,22 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 45,
+            "shots": 8,
+            "shotsonFrame": 2,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 4,
+            "passes": 97,
+            "successfulPasses": 66,
+            "crosses": 1,
+            "PassCuts": 22,
+            "successfulTackles": 7,
+            "save": 0
           }
-        }
+        },
+        "date": "2025-06-08"
       },
       "round11-match8": {
         "home": {
