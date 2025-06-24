@@ -12172,11 +12172,11 @@
         },
         {
           "Rank": 3,
-          "teamId": 7
+          "teamId": 17
         },
         {
           "Rank": 4,
-          "teamId": 17
+          "teamId": 7
         },
         {
           "Rank": 5,
@@ -12188,23 +12188,23 @@
         },
         {
           "Rank": 7,
-          "teamId": 16
-        },
-        {
-          "Rank": 8,
-          "teamId": 11
-        },
-        {
-          "Rank": 9,
           "teamId": 3
         },
         {
+          "Rank": 8,
+          "teamId": 16
+        },
+        {
+          "Rank": 9,
+          "teamId": 5
+        },
+        {
           "Rank": 10,
-          "teamId": 8
+          "teamId": 11
         },
         {
           "Rank": 11,
-          "teamId": 5
+          "teamId": 8
         },
         {
           "Rank": 12,
@@ -12220,11 +12220,11 @@
         },
         {
           "Rank": 15,
-          "teamId": 2
+          "teamId": 14
         },
         {
           "Rank": 16,
-          "teamId": 14
+          "teamId": 2
         },
         {
           "Rank": 17,
@@ -22986,83 +22986,109 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-06-24"
       },
       "round13-match1": {
         "home": {
           "teamId": 1,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 5,
+          "assistPlayers": [
+            "ローター マテウス",
+            "ルート ファン ニステルローイ",
+            "",
+            "中田 英寿",
+            "エリック カントナ"
+          ],
+          "goalPlayers": [
+            "ヨハン クライフ",
+            "ルイス スアレス",
+            "ウリ へーネス",
+            "ルート フリット",
+            "ローター マテウス"
+          ],
+          "times": [
+            18,
+            38,
+            45,
+            84,
+            87
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 63,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 77,
+            "successfulPasses": 55,
+            "crosses": 2,
+            "PassCuts": 11,
+            "successfulTackles": 1,
+            "save": 1
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 67,
+            "shots": 13,
+            "shotsonFrame": 10,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 163,
+            "successfulPasses": 132,
+            "crosses": 3,
+            "PassCuts": 21,
+            "successfulTackles": 3,
+            "save": 1
           }
         },
         "away": {
           "teamId": 0,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "モハメド サラー"
+          ],
+          "goalPlayers": [
+            "ルイス スアレス"
+          ],
+          "times": [
+            25
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 37,
+            "shots": 3,
+            "shotsonFrame": 1,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 36,
+            "successfulPasses": 22,
+            "crosses": 0,
+            "PassCuts": 13,
+            "successfulTackles": 3,
+            "save": 0
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 33,
+            "shots": 3,
+            "shotsonFrame": 1,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 1,
+            "passes": 70,
+            "successfulPasses": 45,
+            "crosses": 0,
+            "PassCuts": 18,
+            "successfulTackles": 4,
+            "save": 2
           }
-        }
+        },
+        "date": "2025-06-24"
       },
       "round13-match2": {
         "home": {
@@ -23138,7 +23164,8 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-06-24"
       },
       "round13-match3": {
         "home": {
@@ -23214,15 +23241,31 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-06-26"
       },
       "round13-match4": {
         "home": {
           "teamId": 18,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 4,
+          "assistPlayers": [
+            "モハメド サラー",
+            "",
+            "ジュード ベリンガム",
+            ""
+          ],
+          "goalPlayers": [
+            "リオネル メッシ",
+            "ジュード ベリンガム",
+            "ウリ へーネス",
+            "中田 英寿"
+          ],
+          "times": [
+            6,
+            34,
+            41,
+            48
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -23239,27 +23282,36 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 49,
+            "shots": 9,
+            "shotsonFrame": 7,
+            "fouls": 1,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 2,
+            "passes": 100,
+            "successfulPasses": 72,
+            "crosses": 1,
+            "PassCuts": 21,
+            "successfulTackles": 1,
+            "save": 6
           }
         },
         "away": {
           "teamId": 10,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "モハメド サラー",
+            ""
+          ],
+          "goalPlayers": [
+            "ガブリエル バティストゥータ",
+            "ガブリエル バティストゥータ"
+          ],
+          "times": [
+            39,
+            61
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -23276,21 +23328,22 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 51,
+            "shots": 11,
+            "shotsonFrame": 6,
+            "fouls": 2,
+            "offsides": 2,
+            "cornerKicks": 1,
+            "freeKicks": 1,
+            "passes": 106,
+            "successfulPasses": 71,
+            "crosses": 3,
+            "PassCuts": 19,
+            "successfulTackles": 3,
+            "save": 3
           }
-        }
+        },
+        "date": "2025-06-22"
       },
       "round13-match5": {
         "home": {
@@ -23366,7 +23419,8 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-06-29"
       },
       "round13-match6": {
         "home": {
@@ -23442,7 +23496,8 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-06-25"
       },
       "round13-match7": {
         "home": {
@@ -23518,7 +23573,8 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-06-24"
       },
       "round13-match8": {
         "home": {
@@ -23594,7 +23650,8 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-06-27"
       },
       "round14-match0": {
         "home": {
