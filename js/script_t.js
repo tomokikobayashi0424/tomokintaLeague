@@ -98,28 +98,29 @@ function displaySchedule(schedule = null) {
         roundStartDate.setDate(startDate.getDate() + i * 7);
         let weekInfo = `ラウンド${i + 1} ${roundStartDate.getFullYear()}年${roundStartDate.getMonth() + 1}月第${Math.ceil(roundStartDate.getDate() / 7)}週`;
 
-        scheduleHTML += `<div class="round" id="round${i}" style="display: none;">`;
-        scheduleHTML +=  `
+        scheduleHTML += `<div class="round" id="round${i}" style="display: none;">
             <div class="schedule-header sticky-header">
                 <div class="button-container">
-                    <button class="button-common button3" onclick="previousRound()">＜　前ラウンド</button>
-                    <button class="button-common button4" onclick="nextRound()">次ラウンド　＞</button>
+                    <button class="button-common button3" onclick="previousRound()">＜ 前round</button>
+                    <img src="Pictures/logoL.png" alt="Tomokinta League ロゴ" class="schedule-logo">
+                    <button class="button-common button4" onclick="nextRound()">次round ＞</button>
                 </div>
                 <h2 class="week-info">${weekInfo}</h2>
             </div>`;
-
         // **目次エリアを作成**
         let hasValidMatches = schedule[i].some(match => match.homeTeam && match.awayTeam);
         if (hasValidMatches) {
             scheduleHTML += `
             <div class="round-overview">
-                <table class="round-overview-table">
-                    <tbody>`;
+                `;
 
             schedule[i].forEach((match, index) => {
                 if (!match.homeTeam || !match.awayTeam) return; // **対戦相手が不明な試合は目次に表示しない**
-
                 scheduleHTML += `
+                    <div class="match-date-row">
+                        ${match.date}
+                    </div>
+                    <table class="round-overview-table">
                         <tr onclick="scrollToMatch('goalDetailsTable${i}-${index}')" class="match-row">
                             <td>${match.homeTeam.teams}</td>
                             <td><img src="Pictures/Team${match.homeTeam.teamId}.jpg" alt="${match.home}" class="schedule-team-logo"></td>
@@ -128,12 +129,10 @@ function displaySchedule(schedule = null) {
                             <td><span>${match.awayScore}</span></td>
                             <td><img src="Pictures/Team${match.awayTeam.teamId}.jpg" alt="${match.away}" class="schedule-team-logo"></td>
                             <td>${match.awayTeam.teams}</td>
-                        </tr>`;
+                        </tr>
+                    </table>`;
             });
-
-            scheduleHTML += `
-                    </tbody>
-                </table>
+            scheduleHTML += `                
             </div>`;
         }
 
@@ -473,15 +472,15 @@ function generateTournamentBracket() {
    container.innerHTML = "";
 
    // 設定可能な変数
-   let cellHeight = 30; // セルの高さ
-   let spacingUnit = 5; // セル間の間隔
+   let cellHeight = 19; // セルの高さ
+   let spacingUnit = 0; // セル間の間隔
    let lineWidth = 8; // 横棒の長さ
    let lineHeight = 2; // 棒の太さ
 
    let cssStyles = ""; // すべてのCSSを格納する
 
    let numRounds = Math.ceil(Math.log2(matchDataT[currentSeason].teamsNum));
-   let maxContainerWidth = Math.min(window.innerWidth, (numRounds+1) * 120); // 最大幅を制限container.style.maxWidth = `${maxContainerWidth}px`;
+   let maxContainerWidth = Math.min(window.innerWidth, (numRounds) * 77); // 最大幅を制限container.style.maxWidth = `${maxContainerWidth}px`;
    container.style.maxWidth = `${maxContainerWidth}px`;
    container.style.overflowX = "auto"; // スクロールバーを有効にする
    for (let round = 0; round < numRounds; round++) {
@@ -555,13 +554,13 @@ function generateTournamentBracket() {
 
            homeRow.innerHTML = `
                <td class="tournament-cell" style="background: linear-gradient(to right, #${homeColor} 70%, #${homeSubColor} 90%);
-               color: #${homeTextColor}; font-weight:bold; border: 1px solid ${winner === "home" ? lineColor : "white"}; ${visibilityStyle}">
+               color: #${homeTextColor}; font-weight:bold; ${visibilityStyle}">
                    ${homeTeam}
                </td>
                <td class="tournament-logo-cell" style="${visibilityStyle}">
                    <img src="Pictures/Team${homeTeamData?.teamId}.jpg" class="tournament-team-logo">
                </td>
-               <td class="tournament-score" style="color: rgb(0, 0, 132); border: 1px solid ${winner === "home" ? lineColor : "white"}; background-color: ${winner === "home" ? lineColor : "white"}; ${visibilityStyle}">
+               <td class="tournament-score" style="color: rgb(0, 0, 132); background-color: ${winner === "home" ? lineColor : "white"}; ${visibilityStyle}">
                    ${homeScore}
                </td>
                <td class="${line1Class}" style="${visibilityStyle};background-color: ${winner === "home" ? lineColor : "white"};"></td>
@@ -570,13 +569,13 @@ function generateTournamentBracket() {
 
            awayRow.innerHTML = `
                <td class="tournament-cell" style="background: linear-gradient(to right, #${awayColor} 70%, #${awaySubColor} 90%);
-               color: #${awayTextColor}; font-weight:bold; border: 1px solid ${winner === "away" ? lineColor : "white"}; ${visibilityStyle}">
+               color: #${awayTextColor}; font-weight:bold;  ${visibilityStyle};">
                    ${awayTeam}
                </td>
                <td class="tournament-logo-cell" style="${visibilityStyle}">
                    <img src="Pictures/Team${awayTeamData?.teamId}.jpg" class="tournament-team-logo">
                </td>
-               <td class="tournament-score" style="color: rgb(0, 0, 132); border: 1px solid ${winner === "away" ? lineColor : "white"}; background-color: ${winner === "away" ? lineColor : "white"}; ${visibilityStyle}">
+               <td class="tournament-score" style="color: rgb(0, 0, 132);  background-color: ${winner === "away" ? lineColor : "white"}; ${visibilityStyle}">
                    ${awayScore}
                </td>
                <td class="${line1Class}" style="${visibilityStyle};background-color: ${winner === "away" ? lineColor : "white"};"></td>
@@ -589,18 +588,18 @@ function generateTournamentBracket() {
                    height: ${lineHeight}px;
                    background-color: white;
                    display: inline-block;
-                   margin-top: ${cellHeight / 2 - lineHeight*2}px;
+                   margin-top: ${cellHeight / 2 - lineHeight*4.5}px;
                }
                .${line2HomeClass}, .${line2AwayClass} {
                    width: ${lineHeight}px;
                    height: ${verticalLineHeight}px;
                    background-color: white;
-                   margin-top: ${-2.3*lineHeight}px;
+                   margin-top: ${-5*lineHeight}px;
                    margin-left: ${lineWidth}px;
                    position: absolute;
                }
                .${line3HomeClass}, .${line3AwayClass} {
-                   width: ${lineWidth*2}px;
+                   width: ${lineWidth}px;
                    height: ${lineHeight}px;
                    background-color: white;
                    display: inline-block;
@@ -609,13 +608,13 @@ function generateTournamentBracket() {
                    
                }
                .${line2AwayClass} {
-                   margin-top: ${-verticalLineHeight-lineHeight*1.5}px;
+                   margin-top: ${-verticalLineHeight-lineHeight*4}px;
                }
                .${line3HomeClass} {
-                   margin-top: ${verticalLineHeight-lineHeight*2}px;
+                   margin-top: ${verticalLineHeight-lineHeight*4.5-0.5}px;
                }
                .${line3AwayClass} {
-                   margin-top: ${-verticalLineHeight-lineHeight*2}px;
+                   margin-top: ${-verticalLineHeight-lineHeight*4.5}px;
                }`;
            tbody.appendChild(homeRow);
            tbody.appendChild(awayRow);

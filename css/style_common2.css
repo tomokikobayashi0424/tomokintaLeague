@@ -1,0 +1,600 @@
+/*-------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+navのスタイル
+---------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------*/
+nav {
+    z-index: 999;
+    /* box-sizing: border-box; */
+    position: fixed;
+    height: 57.5px;
+    width: 100%;
+    /* ヘッダーの下に配置 */
+    top: 50px; 
+    /* left: 0; */
+    margin-left: -8px; /*スクロールバーの分*/
+    /* border: 0; */
+    /* padding: 0 10%; */
+    /* line-height: 0px;  */
+    background-color: var(--main-color-2); /* ナビゲーションの背景色 */
+    /* color: var(); */
+    /* text-align: left; */
+    /* font-size: var(--navi-font-size); */
+    font-size: var(--header-font-size);
+}
+
+nav ul {
+    /*横並び*/
+    display: flex;
+    /*横並び要素の位置*/
+    /* margin-left: 10%;  */
+    justify-content: left;
+    /*箇条書きの・*/
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /* padding-left: 10%; 左から10%の位置にテキストを配置 */
+}
+
+/* nav ul li {
+    margin: 0;
+    padding: 0;
+} */
+nav ul li {
+    display: flex;  /* リストアイテム内の要素を中央揃え */
+    align-items: center;  /* 縦方向中央揃え */
+}
+
+nav ul li a {
+    display: block;
+    color: var(--white-color-1);
+    /* リンクの下線 */
+    text-decoration: none;
+    /* margin: 5px; */
+    padding: 5px 10px;
+    font-weight: bold;
+    /*フォントサイズの1.5倍の高さ*/
+    /* font-size: var(--header-font-size); */
+}
+
+/* ホバー時と選択中のリンクのスタイルをまとめる */
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: var(--sub-color-1); /* 背景色 */
+    color: var(--main-color-2); /* テキスト色 */
+    font-weight: bold; /* ボールドに設定 */
+}
+
+/* シーズン選択プルダウンのスタイル */
+nav ul li select {
+    display: block;
+    padding: 7px 10px;
+    /* font-size: var(--header-font-size); */
+    border: 0px solid var(--white-color-1);
+    background-color: var(--main-color-2);
+    color: var(--white-color-1);
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    /* transition: background-color 0.3s ease, color 0.3s ease; */
+}
+
+/* シーズンプルダウンの選択時 */
+nav ul li select:focus,
+nav ul li select:hover {
+    background-color: var(--main-color-2);
+    color: var(--white-color-1);
+}
+
+/* プルダウンの矢印カスタマイズ（必要なら） */
+/* nav ul li select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 20px;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23FFFFFF" height="12" viewBox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+} */
+
+
+
+
+
+/* ナビゲーションメニュー */
+.tabSelect {
+    top: 90px; 
+    height:25px;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tabSelect li a {
+    display: block;
+    margin: 0;
+    padding: 0;
+    color: var(--white-color-1);
+    text-decoration: none;
+    padding: 2px 10px;
+    font-weight: bold;
+    /* font-size: var(--header-font-size); */
+}
+/*-------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+mainのスタイル
+---------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------*/
+main{
+    margin: 110px 0 0 0;
+    padding-bottom: 90px; /* フッター高さ + 余白 */
+}
+
+
+
+
+
+
+
+
+
+/*=================================================================================================
+===================================================================================================
+日程表タブのスタイル 
+===================================================================================================
+=================================================================================================*/
+/* スケジュールヘッダーのスタイル */
+/* .schedule-header {
+    text-align: center;
+} */
+
+/* 週情報のスタイル */
+.schedule-header .week-info {
+    text-align: center;
+    /* font-size: var(--h2-font-size); */
+    font-weight: bold;
+    margin: 0px ;
+    padding: 0px;
+    height: 30px;
+}
+
+/*=================================================================================================
+試合日程パネルのスタイル 
+=================================================================================================*/
+/* 各試合ごとのコンテナ設定。中に２つの表が含まれる。*/
+.match-container {
+    /* 横並びにするための設定 */
+    display: flex;
+    /* コンテンツを左右に配置 */
+    justify-content: space-between;
+    /* コンテンツを上揃えにする（高さを揃えない） */
+    align-items: flex-start;
+    /* 次の試合のコンテナとの間に20pxの余白 */
+    margin-bottom: 20px; 
+    /* パネル内に余白を追加 */
+    padding: 1%;
+    background-color: var(--white-color-1);
+}
+
+/*-------------------------------------------------------------------------------------------------
+日付とスコア，アシストゴール選手の表
+-------------------------------------------------------------------------------------------------*/
+.match-table {
+    width: 45%; /* 横幅 */
+    margin: 0 5% 0 0; /* スタッツテーブルと日程表の間に2%の余白 */
+    border-collapse: collapse; /* テーブルの境界線をまとめてすっきり表示 */
+    background-color: var(--main-color-1); /* 日程表のセルの背景色 */
+    color: var(--sub-color-1); /* 日程表の文字色 */
+    border: 1px solid var(--main-color-1); /* テーブル全体の枠線の色 */
+    font-size: var(--body2-font-size); /* フォントサイズを大きく設定 */
+}
+
+.match-table th {
+    font-weight: bold; /* ボールドに設定 */
+    font-size: var(--subtitle-font-size); /* フォントサイズを大きく設定 */
+    text-align: center; /* テキストを中央揃えにする */
+    margin: 0px; 
+    padding: 5px; /* セルのパディングを設定 */
+    text-align: center; /* 入力内容を中央揃え */
+    background-color: var(--main-color-1); /* 日程表のヘッダーセルの背景色 */
+    color: var(--sub-color-1); /* ヘッダーセルの文字色 */
+}
+
+/* 2列目と4列目のセルの背景色を変更 */
+.match-table th:nth-child(2), .match-table th:nth-child(4) {
+    background-color: var(--sub-color-1); /* 背景色 */
+    color: var(--main-color-1); /* ヘッダーセルの文字色 */
+}
+
+/* 日付フィールドのスタイル */
+.match-table input[type="date"] {
+    background-color: var(--sub-color-1); /* 背景色 */
+    border: 0px solid var(--sub-color-1); /* 枠線の色 */
+    color: var(--main-color-1); /* 文字色 */
+    padding: 0px;
+    margin: 0px;
+    border-radius: 0px; /* 角を丸くする（オプション） */
+    font-size: var(--body-font-size); /* 文字のサイズ */
+}
+
+.match-table td {
+    border: 1px solid var(--main-color-1); /* セルの枠線の色 */
+    padding: 5px; /* セルの余白 */
+    background-color: var(--sub-color-1); /* セルの背景色 */
+    color: var(--main-color-1); /* セル内の文字色 */
+}
+
+.match-table td:nth-child(2) {
+    text-align: center;
+}
+
+/* テキストや数値入力欄のスタイル */
+.match-table input[type="text"],.match-table input[type="number"]{
+    width: 100%; /* 入力欄をセルの横幅いっぱいに */
+    box-sizing: border-box; /* 境界線やパディングを含む要素の幅と高さ */
+    background-color: var(--sub-color-1); /* 入力欄の背景色 */
+    color: var(--main-color-1);/* 入力欄の文字色 */
+    border: 0px solid var(--sub-color-1); /* 入力欄の枠線色 */
+    margin: 0px;
+    padding: 0px;
+    border-radius: 0px; /* 入力欄の角を丸く */
+    font-size: var(--body2-font-size); /* スコア入力欄のフォントサイズを調整 */
+    font-weight: bold; /* 入力欄の文字を太字に */
+}
+
+.assist-player, .goal-player {
+    font-weight: bold; /* 入力欄の文字を太字に */
+    overflow-wrap: break-word;  /* ブラウザ互換性のために overflow-wrap を追加 */
+    width: 100%;  /* ボックスの幅を最大に設定 */
+}
+/* スコア入力欄に特化したスタイルも追加 */
+.match-table input[type="number"] {
+    font-weight: bold; /* ボールドに設定 */
+    font-size: var(--subtitle-font-size); /* スコア入力欄のフォントサイズを調整 */
+    text-align: center; /* 入力内容を中央揃え */
+}
+/* 数字入力のカーソルが消える魔法 */
+.match-table input[type="number"]::-webkit-outer-spin-button,
+.match-table input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+.match-table th:nth-child(1), .match-table th:nth-child(5) {
+    width: 14.5%;
+}
+
+.match-table th:nth-child(2), .match-table th:nth-child(4) {
+    width: 5%;
+}
+
+.match-table th:nth-child(3) {
+    width: 6%;
+}
+
+/*-------------------------------------------------------------------------------------------------
+スタッツテーブルのスタイル 
+--------------------------------------------------------------------------------------------------*/
+/* スタッツテーブル全体のスタイル */
+.stats-table {
+    border-collapse: collapse; /* テーブルの境界線を統一 */
+    width: 50%;
+    background-color: var(--main-color-1); /* スタッツ表のセルの背景色 */
+    color: var(--sub-color-1); /* スタッツ表の文字色 */
+    border: 1px solid var(--sub-color-1); /* テーブル全体の枠線の色 */
+    margin-left: 0%; /* スタッツテーブルと日程表の間に2%の余白 */
+    border-left: none; /* テーブル全体の左枠線を削除 */
+    border-right: none; /* テーブル全体の右枠線を削除 */
+    /* width: 400px;  */
+    /* 横並びにするため、各テーブルの幅を40%に */
+    /* margin-bottom: 0;  */
+    /* テーブルの下の余白を削除 */
+}
+
+/* スタッツテーブルのセル内のスタイル */
+.stats-table td {
+    padding: 0px; /* セル内のコンテンツに8pxの余白 */
+    text-align: center; /* テキストを中央揃え */
+    border: 1px solid var(--sub-color-1); /* セルの枠線の色 */
+    font-weight: bold; /* ヘッダーのテキストを太字に */
+    font-size: var(--body2-font-size); /* フォントサイズを大きく設定 */
+    border-left: none; /* テーブル全体の左枠線を削除 */
+    border-right: none; /* テーブル全体の右枠線を削除 */
+}
+
+/* スタッツ表のヘッダーセルのスタイル */
+.stats-table th {
+    padding: 0px; /* セル内のコンテンツに8pxの余白 */
+    text-align: center; /* テキストを中央揃え */
+    border: 1px solid var(--sub-color-1); /* セルの枠線の色 */
+    font-weight: bold; /* ヘッダーのテキストを太字に */
+    background-color: var(--sub-color-1); /* スタッツ表のヘッダーセルの背景色 */
+    border-left: none; /* テーブル全体の左枠線を削除 */
+    border-right: none; /* テーブル全体の右枠線を削除 */
+    color: var(--main-color-1); /* ヘッダーセルの文字色 */
+    font-size: var(--body3-font-size); /* フォントサイズを大きく設定 */
+}
+
+/* スタッツ表の入力欄のスタイル */
+.stats-table input[type="number"] {
+    text-align: center; /* 入力欄のテキストを中央揃えに */
+    width: 100%; /* 入力欄の幅をセル内で調整 */
+    padding: 0px; /* 入力欄にパディングを追加 */
+    box-sizing: border-box; /* パディングを幅に含むようにする */
+    background-color: var(--main-color-1); /* 入力欄の背景色 */
+    color: var(--sub-color-1); /* 入力欄の文字色 */
+    border: 0px solid var(--main-color-1); /* 入力欄の枠線色 */
+    padding: 0px;
+    border-radius: 0px; /* 入力欄の角を丸く */
+    font-weight: bold; /* 入力欄の文字を太字に */
+    font-size: var(--body-font-size); /* フォントサイズを大きく設定 */
+}
+/* 数字入力のカーソルが消える魔法 */
+.stats-table thead input[type="number"]::-webkit-outer-spin-button,
+.stats-table thead input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* 各列の幅を10%に設定 */
+.stats-table td:nth-child(1),
+.stats-table td:nth-child(2),
+.stats-table td:nth-child(4),
+.stats-table td:nth-child(5) {
+    width: 8%; /* 各列を10%に固定 */
+    max-width: 8%;
+    box-sizing: border-box;
+}
+.stats-table td:nth-child(3) {
+    width: 18%; /* 各列を10%に固定 */
+    max-width: 18%;
+    box-sizing: border-box;
+}
+
+/* スマホ向けのメディアクエリ (画面幅が600px未満) */
+@media screen and (max-width: 850px) {
+    .match-container {
+        flex-direction: column; /* 横並びから縦並びに変更 */
+        align-items: stretch; /* 幅を親要素いっぱいに */
+    }
+
+    .match-table, .stats-table {
+        width: 100%; /* テーブルを画面幅いっぱいに */
+        margin-right: 0; /* 右側の余白を削除 */
+        /* margin-bottom: 5px; */
+    }
+}
+/*=================================================================================================
+===================================================================================================
+順位表タブのスタイル 
+===================================================================================================
+=================================================================================================*/
+/* 順位表全体のスタイル */
+.standings-table {
+    border-collapse: collapse;
+    width: 100%; /* 入力欄をセルの横幅いっぱいに */
+    /* margin: 0; */
+    /* padding: 0; */
+}
+
+/* ヘッダー部分のスタイル */
+.standings-table th {
+    background-color: var(--accent-color-1);
+    color: var(--white-color-1);
+    font-size: 10px; 
+    /* var(--body2-font-size); */
+    font-weight: bold;
+    border: 1px solid var(--main-color-1);
+    /* margin: 0; */
+    padding: 5px 5px;
+    text-align: center;
+}
+
+/* ヘッダー以外のセルのスタイル */
+.standings-table td {
+    padding: 0px;
+    background-color: var(--white-color-1);
+    color: var(--main-color-1);
+    border: 1px solid var(--main-color-1);
+    /* padding: 0; */
+    /* margin: 0; */
+    text-align: center;
+}
+
+/* 勝ち点の文字をボールドに */
+.standings-table td:nth-child(4) {
+    font-weight: bold;
+}
+
+/* 1列目のヘッダー以外のセルを右寄せに設定 */
+.standings-table td:nth-child(1) {
+    text-align: right; /* 左列のヘッダー以外のセルを右揃えに */
+    min-width: 40px; /* 2文字が収まるように最低幅を40pxに設定 */
+    /* white-space: nowrap; 折り返しを防ぐ */
+}
+
+/* 順位変動の矢印のスタイル */
+.rank-up {
+    color: #32CD32; /* 黄緑色 */
+    font-weight: bold;
+}
+
+.rank-down {
+    color: #FF0000; /* 赤色 */
+    font-weight: bold;
+}
+
+.rank-no-change {
+    color: #808080; /* グレー */
+    font-weight: bold;
+}
+
+.rank-team-logo {
+    /* width: 100%; セルの幅いっぱいに調整 */
+    height: 100%; /* セルの高さいっぱいに調整 */
+    object-fit: cover; /* 画像をセル全体に拡大し、はみ出た部分をカット */
+    display: block; /* 余白を排除 */
+    /* margin: 0; */
+    /* padding: 0;s */
+    /* border: none; */
+}
+
+.standings-table td:nth-child(3) {
+    /* margin: 0; */
+    /* padding: 0; */
+    width: 25px; /* 固定幅を指定 */
+    height: 25px; /* 固定高さを指定 auto*/
+    /* text-align: center; 画像を中央揃え */
+    line-height: 0; /* テキストの高さをロゴと一致させる */
+}
+
+/* テキストのセルのスタイル */
+.standings-table td {
+    /* height: 30px; 行の高さを固定 */
+    line-height: 25px;
+    /* padding:  0; テキストの余白を調整 */
+}
+
+/* 改行時に隙間をなくす */
+/* .rank-team-logo + .rank-team-logo {
+    margin-top: 0; 画像間の余白をマイナス指定でなくす
+} */
+
+/*=================================================================================================
+===================================================================================================
+個人戦績タブのスタイル 
+===================================================================================================
+=================================================================================================*/
+/* ランキングプルダウンをタイトル風にする */
+#recordSelect {
+    width: 100%;  /* 横幅を表に合わせる */
+    color: var(--sub-color-1); /* 文字色を白 */
+    /* font-size: var(--h3-font-size); */
+    font-weight: bold; /* 太字 */
+    text-align: center;
+    border: none;
+    /* border-radius: 5px; 角を丸く */
+    cursor: pointer;
+    display: block;
+    margin: 0; /* 余白を調整 */
+    top: 82.5px; /* ヘッダーの高さを考慮 */
+    align-items: center; /* 縦方向の中央揃え */
+    position: sticky;
+    top: 107.5px; /* ヘッダーの高さを考慮 */
+    z-index: 900;
+    background-color: var(--main-color-1); /* ヘッダーの背景色を変更 */
+    padding: 0;
+    height: 40px;
+    /* iOS での楕円を防ぐ */
+    /* appearance: none; */
+    /* -webkit-appearance: none; */
+    /* -moz-appearance: none; */
+    border-radius: 0; /* 完全に四角にする */
+}
+
+
+/* プルダウンの選択肢のスタイル */
+#recordSelect option {
+    /* background-color: white; */
+    color: var(--main-color-1);
+    font-weight: bold;
+}
+
+/* プルダウンホバー時のスタイル */
+#recordSelect:hover {
+    background-color: var(--main-color-1);
+}
+
+/* 選択中の状態を明示 */
+#recordSelect:focus {
+    outline: none;
+    /* box-shadow: 0 0 5px var(--main-color-1); */
+}
+
+/* スクロール時にランキングテーブルの位置を調整 */
+.recordTable {
+    display: none; /* すべてのランキングを非表示 */
+    /* margin-top: 60px; プルダウン固定のための余白を確保 */
+}
+
+/* 選択されたランキングのみ表示 */
+.recordTable.active {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=================================================================================================
+===================================================================================================
+ヘッダーの固定
+===================================================================================================
+=================================================================================================*/
+
+
+/* 表ヘッダーの固定 */
+.sticky-table thead th {
+    position: sticky;
+    top: 192.5px;
+    z-index: 700;
+    
+}
+
+
+/*他のタブについて*/
+/* ヘッダーの固定 */
+.sticky-header {
+    position: sticky;
+    top: 107.5px;
+    z-index: 900;
+    background-color: var(--main-color-1); /* ヘッダーの背景色を変更 */
+    color: var(--sub-color-1);; /* 文字色を白に設定 */
+    padding: 10px;
+    /* font-size: 24px; */
+    text-align: center;
+    /* border-bottom: 2px solid var(--main-color-2); 見やすくするためのボーダー */
+}
+
+.sticky-title2 {
+    display: flex;
+    /* align-items: flex-end; */
+    align-items: center; /* 縦方向の中央揃え */
+    position: sticky;
+    top: 82.5px; /* ヘッダーの高さを考慮 */
+    z-index: 900;
+    background-color: var(--main-color-1); /* ヘッダーの背景色を変更 */
+    padding: 0;
+    height: 40px;
+}
+
+.sticky-table2 thead th {
+    position: sticky;
+    top: 147px;
+    z-index: 800;
+}

@@ -55,7 +55,6 @@ function displaySchedule(schedule = null) {
                     console.warn(`試合データが見つかりません: ${matchKey}`);
                     continue;
                 }
-
                 // **複合チームのチーム名を取得**
                 let homeTeams = (matchDataLCoopEntry.home.teamIds || [])
                     .map(teamId => {
@@ -101,7 +100,6 @@ function displaySchedule(schedule = null) {
     }
 
     let scheduleHTML = '';
-
     schedule.forEach((matches, i) => {
         let roundStartDate = new Date(startDate);
         roundStartDate.setDate(startDate.getDate() + i * 7);
@@ -111,12 +109,10 @@ function displaySchedule(schedule = null) {
             <div class="schedule-header sticky-header">
                 <div class="button-container">
                     <button class="button-common button3" onclick="previousRound()">＜　前節</button>
+                    <img src="Pictures/logoCoop.png" alt="Tomokinta League ロゴ" class="schedule-logo">
                     <button class="button-common button4" onclick="nextRound()">次節　＞</button>
                 </div>
                 <h2 class="week-info">${weekInfo}</h2>
-            </div>
-            <div style="text-align: center; margin: 10px 0;">
-                <img src="Pictures/logoCoop.png" alt="Tomokinta League ロゴ" style="height: 40px;">
             </div>
             <div class="round-overview">`;
             matches.forEach((matchEntry, index) => {
@@ -137,13 +133,13 @@ function displaySchedule(schedule = null) {
                     .map(teamId => `<img src="Pictures/Team${teamId}.jpg" class="schedule-coop-logo">`)
                     .join(""); // <br> は不要
 
-                    // **時刻を追加する処理**
-    let baseHour = 22;
-    let baseMinute = 30;
-    let totalMinutes = baseHour * 60 + baseMinute + index * 15;
-    let matchHour = Math.floor(totalMinutes / 60);
-    let matchMinute = totalMinutes % 60;
-    let matchTimeStr = `${String(matchHour).padStart(2, '0')}:${String(matchMinute).padStart(2, '0')}`;
+                // **時刻を追加する処理**
+                let baseHour = 22;
+                let baseMinute = 30;
+                let totalMinutes = baseHour * 60 + baseMinute + index * 15;
+                let matchHour = Math.floor(totalMinutes / 60);
+                let matchMinute = totalMinutes % 60;
+                let matchTimeStr = `${String(matchHour).padStart(2, '0')}:${String(matchMinute).padStart(2, '0')}`;
 
 
                 scheduleHTML += `

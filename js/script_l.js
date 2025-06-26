@@ -78,7 +78,6 @@ function displaySchedule(schedule = null) {
     }
 
     let scheduleHTML = '';
-
     schedule.forEach((matches, i) => {
         let roundStartDate = new Date(startDate);
         roundStartDate.setDate(startDate.getDate() + i * 7);
@@ -88,12 +87,10 @@ function displaySchedule(schedule = null) {
             <div class="schedule-header sticky-header">
                 <div class="button-container">
                     <button class="button-common button3" onclick="previousRound()">＜　前節</button>
+                    <img src="Pictures/logoL.png" alt="Tomokinta League ロゴ" class="schedule-logo">
                     <button class="button-common button4" onclick="nextRound()">次節　＞</button>
                 </div>
                 <h2 class="week-info">${weekInfo}</h2>
-            </div>
-            <div style="text-align: center; margin: 10px 0;">
-                <img src="Pictures/logoL.png" alt="Tomokinta League ロゴ" style="height: 40px;">
             </div>
             <div class="round-overview">`;
             matches.forEach((match, index) => {

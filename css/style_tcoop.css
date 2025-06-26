@@ -4,6 +4,14 @@ bodyのスタイル
 ---------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------*/
 
+
+/*=================================================================================================
+===================================================================================================
+日程表タブのスタイル 
+===================================================================================================
+=================================================================================================*/
+
+
 /*-------------------------------------------------------------------------------------------------
 日程目次
 -------------------------------------------------------------------------------------------------*/
@@ -15,10 +23,8 @@ bodyのスタイル
     height: 30px;
 }
 /* 日程もくじ */
-.round-overview {
+.round-overview{
     margin-bottom: 20px;
-    padding: 0px;
-    /* background-color: var(--main-color-1); */
 }
 /* 日程もくじの表 */
 .round-overview-table {
@@ -37,6 +43,7 @@ bodyのスタイル
 }
 /* 日程もくじの対戦カード行*/
 .match-row {
+    /* text-align: center; */
     font-size: 15px;
     margin-bottom: 0px;
     padding: 0px;
@@ -65,9 +72,18 @@ bodyのスタイル
     );
 } 
 .match-row td:nth-child(2) { width: 10%; } /* ホームロゴ */
-.match-row td:nth-child(3) { width: 6%; }  /* ホームスコア */
-.match-row td:nth-child(4) { width: 4%; }  /* ハイフン */
-.match-row td:nth-child(5) { width: 6%; }  /* アウェイスコア */
+.match-row td:nth-child(3) { 
+    width: 6%; 
+    background:var(--main-color-2);
+}  /* ホームスコア */
+.match-row td:nth-child(4) {
+    width: 4%; 
+    background:var(--main-color-2);
+}  /* ハイフン */
+.match-row td:nth-child(5) {
+    width: 6%; 
+    background:var(--main-color-2);
+}  /* アウェイスコア */
 .match-row td:nth-child(6) { width: 10%; } /* アウェイロゴ */
 .match-row td:nth-child(7) { 
     width: 32%;
@@ -98,7 +114,7 @@ bodyのスタイル
 .match-row td:nth-child(3) span,
 .match-row td:nth-child(5) span {
     position: absolute;
-    top: 33px; 
+    top: -10px; /* 文字だけを上へ */
     left: 50%;
     transform: translateX(-50%);
 }
@@ -109,7 +125,7 @@ bodyのスタイル
     height: 30px;
     object-fit: cover;
     position: absolute;
-    /* top: -10px; ロゴだけ上へ */
+    top: -10px; /* ロゴだけ上へ */
     left: 50%;
     transform: translateX(-50%);
 }
@@ -130,6 +146,21 @@ bodyのスタイル
 .match-row td:nth-child(6) {
     position: relative;
 }
+
+
+
+
+.match-row1 {
+    text-align: center;
+    font-size: 10px;
+    color: gray;
+    padding: 0;
+    pointer-events: none; /* hoverやクリックの干渉防止（任意） */
+    width: 100%;
+}
+
+
+
 
 
 
@@ -194,3 +225,61 @@ bodyのスタイル
     color: var(--sub-color-1) !important; /* 入力欄の文字色 */
     /* text-align: center!important; */
 }
+
+
+
+
+/*=================================================================================================
+===================================================================================================
+トーナメント表タブのスタイル 
+===================================================================================================
+=================================================================================================*/
+/* 
+---------------------------------------------------------------------------------------------------
+Coopトーナメント表のスタイル
+---------------------------------------------------------------------------------------------------
+*/
+#tournament-coop-container{
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    overflow-x: auto;
+    padding: 0px;
+    position: relative;
+
+}
+
+.tournament-coop-table{
+    table-layout: fixed;  /* 列幅を固定 */
+    width: 100%; /* 全体のテーブル幅を固定（必要に応じて調整） */
+    border-collapse: separate;
+    margin-right: 30px;
+    position: relative;
+
+}
+
+.tournament-coop-cell{
+    border: 1px solid white;
+    padding: 0px;
+    text-align: center;
+    width: 40px;
+    background: black;
+    height: 58px;
+
+}
+
+.tournament-coop-score{
+    border: 0px solid white;
+    padding: 0px;
+    text-align: center;
+    width: 40px;
+    background: black;
+    height: 58px;
+}
+
+
+
+
+
+
+

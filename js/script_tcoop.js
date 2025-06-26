@@ -37,35 +37,28 @@ function updateAllDisplayData() {
 // 日程表を表示する関数
 function displaySchedule(schedule = null) {
     if (!matchDataTCoop[currentSeason]) return;
-
     let startDateStr = matchDataTCoop[currentSeason].newDate;
     let startDate = new Date(startDateStr);
-
     if (!schedule) {
         schedule = [];
         let numRounds = Math.ceil(Math.log2(matchDataTCoop[currentSeason].teamsNum));
-
         for (let round = 0; round < numRounds; round++) {
             let roundMatches = [];
             let roundStartDate = new Date(startDate);
             roundStartDate.setDate(startDate.getDate() + round * 7);
-
             let numMatches = Math.pow(2, numRounds - round - 1);
             if (round === numRounds - 1 && matchDataTCoop[currentSeason].teamsNum >= 4) {
                 numMatches = 2;
             }
-
             for (let match = 0; match < numMatches; match++) {
                 let matchKey = `round${round}-match${match}`;
                 let matchDataTCoopEntry = matchDataTCoop[currentSeason][matchKey];
                 // **非表示にせずプレースホルダーを設定**
                 let matchDate = matchDataTCoopEntry?.date || roundStartDate.toISOString().split('T')[0];
-
                 if (!matchDataTCoopEntry) {
                     console.warn(`試合データが見つかりません: ${matchKey}`);
                     continue;
                 }
-
                 // 複合チームのチーム名を取得
                 let homeTeams = (matchDataTCoopEntry.home.teamId || [])
                     .map(teamId => {
@@ -101,11 +94,12 @@ function displaySchedule(schedule = null) {
         scheduleHTML += `<div class="round" id="round${i}" style="display: none;">`;
         scheduleHTML +=  `
             <div class="schedule-header sticky-header">
-                <h2 class="week-info">${weekInfo}</h2>
                 <div class="button-container">
-                    <button class="button-common button3" onclick="previousRound()">＜　前ラウンド</button>
-                    <button class="button-common button4" onclick="nextRound()">次ラウンド　＞</button>
+                    <button class="button-common button3" onclick="previousRound()">＜　前round</button>
+                    <img src="Pictures/logoCoop.png" alt="Tomokinta League ロゴ" class="schedule-logo">
+                    <button class="button-common button4" onclick="nextRound()">次round　＞</button>
                 </div>
+                <h2 class="week-info">${weekInfo}</h2>
             </div>`;
 
         schedule[i].forEach((matchEntry, index) => {
@@ -122,19 +116,19 @@ function displaySchedule(schedule = null) {
                     <table id="goalDetailsTable${i}-${index}" class="match-table">
                         <thead>
                             <tr>
-                                <td colspan="5">日付: <input type="date" id="matchDate${i}-${index}" value="${matchEntry.date}"></td>
+                                <td colspan="5"><input type="date" id="matchDate${i}-${index}" value="${matchEntry.date}" readonly></td>
                             </tr>
                             <tr>
                                 <th id="homeTeam${i}-${index}">${matchEntry.home}</th>
-                                <th> <input type="number" id="homeScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'home')"></th>
+                                <th> <input type="number" id="homeScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'home')" readonly></th>
                                 <th> - </th>
-                                <th> <input type="number" id="awayScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'away')"></th>
+                                <th> <input type="number" id="awayScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'away')" readonly></th>
                                 <th id="awayTeam${i}-${index}">${matchEntry.away}</th>
                             </tr>
                             <tr>
-                                <td colspan="2"><label>PK</label> <input type="number" id="homePK${i}-${index}" min="0" placeholder="0"></td>
+                                <td colspan="2"><label>PK</label> <input type="number" id="homePK${i}-${index}" min="0" placeholder="0" readonly></td>
                                 <td>PK戦</td>
-                                <td colspan="2"><label>PK</label> <input type="number" id="awayPK${i}-${index}" min="0" placeholder="0"></td>
+                                <td colspan="2"><label>PK</label> <input type="number" id="awayPK${i}-${index}" min="0" placeholder="0" readonly></td>
                             </tr>
                         </thead>
                         <tbody id="goalDetailsBody${i}-${index}"></tbody>
@@ -147,9 +141,7 @@ function displaySchedule(schedule = null) {
             scheduleHTML += generatePointTable(i, index, matchDataTCoopEntry).outerHTML;
 
             scheduleHTML += `
-                    <div class="round-buttons">
-                        <button class="button-score" onclick="completeScoreInput(${i}, ${index}, '${matchEntry.matchKey}')">第${i + 1}ラウンド 第${index + 1}試合 スコア入力完了</button>
-                    </div>
+                    
                 </div>`;
         });
 
@@ -220,6 +212,7 @@ function createStatsTable(statCategories, roundIndex, matchIndex) {
         homeFullInput.placeholder = "0";
         homeFullInput.min = (index === 0) ? "0" : "0";
         homeFullInput.max = (index === 0) ? "100" : "";
+        homeFullInput.readOnly = true;  // readonlyを追加
 
         // 真ん中列（データの説明）
         const categoryCell = document.createElement('td');
@@ -240,6 +233,7 @@ function createStatsTable(statCategories, roundIndex, matchIndex) {
         awayFullInput.placeholder = "0";
         awayFullInput.min = (index === 0) ? "0" : "0";
         awayFullInput.max = (index === 0) ? "100" : "";
+        awayFullInput.readOnly = true;  // readonlyを追加
 
         // 行にセルを追加
         // const homeHalfCell = document.createElement('td');

@@ -3,29 +3,27 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <title>Tomokinta League</title>
         <link rel="stylesheet" href="css/style_common.css">
         <link rel="stylesheet" href="css/style_common2.css">
-        <link rel="stylesheet" href="css/style_lcoop.css">
+        <link rel="stylesheet" href="css/style_l.css">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
         <!-- タブメニュー -->
         <header>
+            <!-- ヘッダーにリーグタイトルを表示 -->
             <img src="Pictures/logoL.png" alt="Tomokinta League ロゴ" class="header-logo">
         </header>
         <nav>
             <ul>
-                <li><a href="index.html" class="tablinks">ホーム</a></li><!-- <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'schedule')">日程</a></li>
-                <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'standings')">順位表</a></li>
-                <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'records')">選手戦績</a></li> -->
+                <li><a href="index.html" class="tablinks">ホーム</a></li>
                 <!-- リーグ選択プルダウン -->
                 <li>
                     <select id="leagueSelect" onchange="changeLeague()">
-                        <option value="l">リーグ戦</option>
+                        <option value="l" selected>リーグ戦</option>
                         <option value="t">カップ戦</option>
-                        <option value="lcoop" selected>Co-opリーグ戦</option>
+                        <option value="lcoop">Co-opリーグ戦</option>
                         <option value="tcoop">Co-opカップ戦</option>
                     </select>
                 </li>
@@ -46,8 +44,9 @@
 
         </nav>
         <main>
-            <!-- 日程タブ -->
-            <section id="home-schedule" class="tabcontent">
+            <!-- 日程タブ：試合の日程を表示 -->
+            <section id="home-schedule" class="tabcontent"><!--schedule-->
+                <!-- <h2>日程</h2> -->
                 <div id="scheduleContent">
                     <!-- JavaScriptでスケジュールがここに挿入されます -->
                 </div>
@@ -56,6 +55,7 @@
             
             <!-- 順位表タブ -->
             <section id="standings" class="tabcontent">
+                <!-- <h2>順位表</h2> -->
                 <table id="standingsTable" class="standings-table">
                     <thead>
                         <tr>
@@ -68,7 +68,6 @@
                             <th>敗</th>
                             <th>得失点</th>
                             <th>総得点</th>
-                            <th>総ポイント</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -86,12 +85,16 @@
             
             <!-- 選手戦績タブ -->
             <section id="records" class="tabcontent">
+                <!-- <h2>選手戦績</h2> -->
             
                 <!-- ランキング選択プルダウン -->
                 <select id="recordSelect" onchange="toggleRecordTable()">
                     <option value="goalPlayersTable">ゴールランキング</option>
                     <option value="assistPlayersTable">アシストランキング</option>
                     <option value="goalAssistPlayersTable">ゴール + アシストランキング</option>
+                    <option value="goalTeamsTable">チーム別ゴールランキング</option>
+                    <option value="assistTeamsTable">チーム別アシストランキング</option>
+                    <option value="totalPlayersTable">チーム別ゴール + アシストランキング</option>
                 </select>
             
                 <div class="recordTable" id="goalPlayersTable">
@@ -114,6 +117,27 @@
                         <tbody></tbody>
                     </table>
                 </div>
+            
+                <div class="recordTable" id="goalTeamsTable">
+                    <table class="table-common table1 sticky-table2">
+                        <thead><tr><th>順位</th><th>選手名</th><th>チーム</th><th>ゴール数</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            
+                <div class="recordTable" id="assistTeamsTable">
+                    <table class="table-common table1 sticky-table2">
+                        <thead><tr><th>順位</th><th>選手名</th><th>チーム</th><th>アシスト数</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            
+                <div class="recordTable" id="totalPlayersTable">
+                    <table class="table-common table1 sticky-table2">
+                        <thead><tr><th>順位</th><th>選手名</th><th>チーム</th><th>GA</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
             </section>
 
         </main>
@@ -131,6 +155,6 @@
             </ul>
         </footer> -->
         <script src="js/script_common.js"></script> <!-- 外部JavaScriptファイルの読み込み -->
-        <script src="js/script_lcoop.js"></script> <!-- 外部JavaScriptファイルの読み込み -->
+        <script src="js/script_l.js"></script> <!-- 外部JavaScriptファイルの読み込み -->
     </body>
 </html>

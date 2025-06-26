@@ -137,8 +137,10 @@ body {
 }
 
 .button3 {
+    margin: 0 5% 0 0;
     padding:5px;
-    width: 40%;
+    width: 30%;
+    font-size: 11px;
     text-align: left;
     border-radius: 5px;
     background: linear-gradient(90deg, 
@@ -148,8 +150,10 @@ body {
     );
 }
 .button4 {
+    margin: 0 0 0 5%;
     padding:5px;
-    width: 40%;
+    width: 30%;
+    font-size: 11px;
     /* 100px; */
     /* 49%; */
     text-align: right;
@@ -729,8 +733,8 @@ main{
     text-align: center;
     /* font-size: var(--h2-font-size); */
     font-weight: bold;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     height: 30px;
 }
 
@@ -1375,40 +1379,40 @@ a
 a
 a
 日程もくじ */
+/* 日程タブのチームロゴ */
+.schedule-logo{
+    /* text-align: center; */
+    /* margin: 0px 0; */
+    height: 30px;
+}
+/* 日程もくじ */
+.round-overview{
+    margin-bottom: 20px;
+}
+/* 日程もくじの表 */
+.round-overview-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 5px; /* セルの間隔を上下10px確保 */
+    table-layout: fixed; /* セルの幅を固定 */
+}
+/* 日程もくじの日付行*/
 .match-date-row{
-    margin-bottom: 0px;
+    margin: 5px 0 0 0;
     padding: 0px;
     text-align: center; 
-    margin-top: 0px; 
-    font-size: 10px; 
+    font-size: 8px; 
     color: gray;
 }
+/* 日程もくじの対戦カード行*/
 .match-row {
+    /* text-align: center; */
+    font-size: 15px;
     margin-bottom: 0px;
     padding: 0px;
     background-color: var(--main-color-1);
 }
-
-/* .round-overview h3 {
-    font-size: 16px;
-    margin-bottom: 5px;
-} */
-
-
-.round-overview-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 10px; /* セルの間隔を上下10px確保 */
-    table-layout: fixed; /* セルの幅を固定 */
-}
-.match-row1 {
-    text-align: center;
-    font-size: 13px;
-    color: gray;
-    padding: 0;
-    pointer-events: none; /* hoverやクリックの干渉防止（任意） */
-    width: 100%;
-}
+/*見出しとデータ*/
 .match-row th,
 .match-row td {
     padding: 0px;
@@ -1419,10 +1423,9 @@ a
     background:var(--main-color-2);
     color: white; /* 文字色を白に */
 }
-
 /* 各列の幅を指定 */
 .match-row td:nth-child(1) { 
-    width: 34%;
+    width: 32%;
     text-align: right; /* ホームチーム名を右詰め */
     padding-right: 10px;
     background: linear-gradient(90deg, 
@@ -1433,7 +1436,7 @@ a
 } 
 .match-row td:nth-child(2) { width: 10%; } /* ホームロゴ */
 .match-row td:nth-child(3) { 
-    width: 4%; 
+    width: 6%; 
     background:var(--main-color-2);
 }  /* ホームスコア */
 .match-row td:nth-child(4) {
@@ -1441,12 +1444,12 @@ a
     background:var(--main-color-2);
 }  /* ハイフン */
 .match-row td:nth-child(5) {
-    width: 4%; 
+    width: 6%; 
     background:var(--main-color-2);
 }  /* アウェイスコア */
 .match-row td:nth-child(6) { width: 10%; } /* アウェイロゴ */
 .match-row td:nth-child(7) { 
-    width: 34%;
+    width: 32%;
     text-align: left; /* アウェイチーム名を左詰め */
     padding-left: 10px;
     background: linear-gradient(90deg, 
@@ -1507,26 +1510,14 @@ a
     position: relative;
 }
 
-/* 行のホバー時に背景色変更 */
-/* .match-row {
-    cursor: pointer;
+
+
+
+.match-row1 {
+    text-align: center;
+    font-size: 10px;
+    color: gray;
+    padding: 0;
+    pointer-events: none; /* hoverやクリックの干渉防止（任意） */
+    width: 100%;
 }
-
-.match-row:hover {
-    background-color: var(--main-color-1);
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

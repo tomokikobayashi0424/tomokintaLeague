@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tomokinta League</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style_common.css">
+        <link rel="stylesheet" href="css/style_h.css">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
@@ -25,31 +26,27 @@
         </header>
         <nav>
             <ul>
-                <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'home')">ホーム</a></li>
+                <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'home-schedule')">ホーム</a></li>
                 <!-- <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'schedule')">日程</a></li>
                 <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'standings')">順位表</a></li>
                 <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'records')">選手戦績</a></li> -->
                 <!-- リーグ選択プルダウン -->
                 <li>
                     <select id="leagueSelect" onchange="changeLeague()">
-                        <option value="l" selected>リーグ</option>
-                        <option value="t">トーナメント</option>
-                        <option value="lcoop">リーグ Co-op</option>
-                        <option value="tcoop">トーナメント Co-op</option>
+                        <option value="h" selected>大会形式</option>
+                        <option value="l">リーグ戦</option>
+                        <option value="t">カップ戦</option>
+                        <option value="lcoop">Co-opリーグ戦</option>
+                        <option value="tcoop">Co-opカップ戦</option>
                     </select>
                 </li>
-                <li>
-                    <!-- シーズン選択プルダウン -->
-                    <select id="seasonSelect" onchange="changeSeason()">
-                        <!-- JavaScriptで動的にシーズン名を追加 -->
-                    </select>
-                </li>
+                
             </ul>
 
         </nav>
         <main>
             <!-- ホームタブ：チーム名入力フォーム -->
-            <section id="home" class="tabcontent">
+            <section id="home-schedule" class="tabcontent">
                 <!-- <div class="link-container">
                     <a href="champions.html" class="button-common button2">Tomokinta Champions Leagueへ</a>
                 </div> -->
@@ -98,7 +95,9 @@
                 <div class="header-container">
                     <button class="button-common button1" onclick="closeTeamPerformanceTab()">戻る</button>
                     <h2 id="teamNameHeader"></h2>
-                    <button class="button-common button2" onclick="toggleSeasonView()"><span id="seasonDisplayText"></span></button>
+                    <select id="teamStatsSeasonSelect" class="button-common button2" onchange="handleSeasonChange()"></select>
+                      
+                    <!-- <button class="button-common button2" onclick="toggleSeasonView()"><span id="seasonDisplayText"></span></button> -->
                 </div>
                 
                 <div class="team-container">
@@ -285,123 +284,16 @@
                     </div>
                 </div>
             </section>
-
-        
-            <!-- 日程タブ：試合の日程を表示 -->
-            <section id="schedule" class="tabcontent">
-                <!-- <h2>日程</h2> -->
-                <div id="scheduleContent">
-                    <!-- JavaScriptでスケジュールがここに挿入されます -->
-                </div>
-            </section>
-            
-            
-            <!-- 順位表タブ -->
-            <section id="standings" class="tabcontent">
-                <!-- <h2>順位表</h2> -->
-                <table id="standingsTable" class="standings-table">
-                    <thead>
-                        <tr>
-                            <th>順位</th>
-                            <th colspan="2">チーム</th>
-                            <th>勝点</th>
-                            <th>試合数</th>
-                            <th>勝</th>
-                            <th>引</th>
-                            <th>敗</th>
-                            <th>得失点</th>
-                            <th>総得点</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- チームデータがここに挿入されます -->
-                    </tbody>
-                </table>
-                <!-- 順位決定方式の説明 -->
-                <div class="ranking-rules">
-                    <h3>順位決定方式</h3>
-                    <p>勝ち点は勝利＝3、引き分け＝1、敗北＝0。勝ち点が多い順に順位を決める。</p>
-                    <p>勝ち点が同じ場合は、得失点差 → 総得点数で決定される。</p>
-                </div>
-            </section>
-            
-            
-            <!-- 選手戦績タブ -->
-            <section id="records" class="tabcontent">
-                <!-- <h2>選手戦績</h2> -->
-            
-                <!-- ランキング選択プルダウン -->
-                <select id="recordSelect" onchange="toggleRecordTable()">
-                    <option value="goalPlayersTable">ゴールランキング</option>
-                    <option value="assistPlayersTable">アシストランキング</option>
-                    <option value="goalAssistPlayersTable">ゴール + アシストランキング</option>
-                    <option value="goalTeamsTable">チーム別ゴールランキング</option>
-                    <option value="assistTeamsTable">チーム別アシストランキング</option>
-                    <option value="totalPlayersTable">チーム別ゴール + アシストランキング</option>
-                </select>
-            
-                <div class="recordTable" id="goalPlayersTable">
-                    <table class="table-common table1 sticky-table2">
-                        <thead><tr><th>順位</th><th>選手名</th><th>ゴール数</th></tr></thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-            
-                <div class="recordTable" id="assistPlayersTable">
-                    <table class="table-common table1 sticky-table2">
-                        <thead><tr><th>順位</th><th>選手名</th><th>アシスト数</th></tr></thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-
-                <div class="recordTable" id="goalAssistPlayersTable">
-                    <table class="table-common table1 sticky-table2">
-                        <thead><tr><th>順位</th><th>選手名</th><th>GA</th></tr></thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-            
-                <div class="recordTable" id="goalTeamsTable">
-                    <table class="table-common table1 sticky-table2">
-                        <thead><tr><th>順位</th><th>選手名</th><th>チーム</th><th>ゴール数</th></tr></thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-            
-                <div class="recordTable" id="assistTeamsTable">
-                    <table class="table-common table1 sticky-table2">
-                        <thead><tr><th>順位</th><th>選手名</th><th>チーム</th><th>アシスト数</th></tr></thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-            
-                <div class="recordTable" id="totalPlayersTable">
-                    <table class="table-common table1 sticky-table2">
-                        <thead><tr><th>順位</th><th>選手名</th><th>チーム</th><th>GA</th></tr></thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </section>
-
         </main>
-        <footer>
-            <!-- ナビゲーション用のリンク -->
-            <ul class="footer-nav">
-                <!-- <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'home')">ホーム</a></li> -->
-                <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'schedule')">日程</a></li>
-                <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'standings')">順位表</a></li>
-                <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'records')">選手戦績</a></li>
-            </ul>
-        
-            <!-- SNSリンクボタン -->
+        <!-- <footer>
             <ul class="footer-social">
                 <li><a href="https://www.instagram.com/" target="_blank"><img src="Pictures/instagram.svg" alt="Instagram"></a></li>
                 <li><a href="https://twitter.com/" target="_blank"><img src="Pictures/x.svg" alt="X"></a></li>
                 <li><a href="https://www.youtube.com/" target="_blank"><img src="Pictures/youtube.png" alt="YouTube"></a></li>
                 <li><a href="https://www.tiktok.com/" target="_blank"><img src="Pictures/tiktok.svg" alt="TikTok"></a></li>
             </ul>
-        </footer>
+        </footer> -->
         <script src="js/script_common.js"></script> <!-- 外部JavaScriptファイルの読み込み -->
-        <script src="js/script_l.js"></script> <!-- 外部JavaScriptファイルの読み込み -->
+        <script src="js/script_h.js"></script> <!--外部JavaScriptファイルの読み込み -->
     </body>
 </html>
