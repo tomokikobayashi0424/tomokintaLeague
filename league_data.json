@@ -23203,21 +23203,24 @@
       "round13-match3": {
         "home": {
           "teamId": 11,
-          "score": 3,
+          "score": 4,
           "assistPlayers": [
-            "",
-            "",
-            ""
+            "ネイマール",
+            "ギャレス ベイル",
+            "ラミネ ヤマル",
+            "ヤヤ トゥレ"
           ],
           "goalPlayers": [
-            "",
-            "",
-            ""
+            "エデン アザール",
+            "ラミネ ヤマル",
+            "アーリング ハーランド",
+            "アーリング ハーランド"
           ],
           "times": [
-            null,
-            null,
-            null
+            37,
+            60,
+            90,
+            90
           ],
           "halfTime": {
             "possession": 62,
@@ -23254,13 +23257,13 @@
           "teamId": 2,
           "score": 1,
           "assistPlayers": [
-            ""
+            "カール ハインツ ルンメニゲ"
           ],
           "goalPlayers": [
-            ""
+            "ルート フリット"
           ],
           "times": [
-            null
+            16
           ],
           "halfTime": {
             "possession": 38,
