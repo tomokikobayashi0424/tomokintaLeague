@@ -23657,10 +23657,16 @@
       "round13-match8": {
         "home": {
           "teamId": 14,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "ジェンナーロ ガットゥーゾ"
+          ],
+          "goalPlayers": [
+            "エデン アザール"
+          ],
+          "times": [
+            63
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -23677,27 +23683,36 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 56,
+            "shots": 6,
+            "shotsonFrame": 5,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 116,
+            "successfulPasses": 89,
+            "crosses": 5,
+            "PassCuts": 17,
+            "successfulTackles": 9,
+            "save": 1
           }
         },
         "away": {
           "teamId": 13,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "パヴェル ネドヴェド",
+            "ルート フリット"
+          ],
+          "goalPlayers": [
+            "ルート フリット",
+            "キリアン エムバペ"
+          ],
+          "times": [
+            44,
+            48
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -23714,19 +23729,19 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 44,
+            "shots": 3,
+            "shotsonFrame": 2,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 1,
+            "passes": 112,
+            "successfulPasses": 91,
+            "crosses": 0,
+            "PassCuts": 11,
+            "successfulTackles": 5,
+            "save": 5
           }
         },
         "date": "2025-06-27"
