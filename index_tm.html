@@ -7,7 +7,7 @@
         <title>Tomokinta League</title>
         <link rel="stylesheet" href="css/style_common.css">
         <link rel="stylesheet" href="css/style_common2.css">
-        <link rel="stylesheet" href="css/style_tcoop.css">
+        <link rel="stylesheet" href="css/style_tm.css">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
@@ -15,7 +15,6 @@
         <header>
             <img src="Pictures/logoL.png" alt="Tomokinta League ロゴ" class="header-logo">
         </header>
-        <!-- ナビメニュー -->
         <nav>
             <ul>
                 <li><a href="index.html" class="tablinks">ホーム</a></li>
@@ -53,15 +52,13 @@
             <ul class="tabSelect">
                 <!-- <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'home')">ホーム</a></li> -->
                 <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'home-schedule')">日程</a></li>
-                <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'tournament')">トーナメント表</a></li>
                 <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'records')">選手戦績</a></li>
             </ul>
 
         </nav>
         <main>
-            <!-- ホームタブ -->
             <!-- 日程タブ -->
-            <section id="home-schedule" class="tabcontent">
+            <section id="home-schedule" class="tabcontent"><!--schedule-->
                 <div id="scheduleContent">
                     <!-- JavaScriptでスケジュールがここに挿入されます -->
                 </div>
@@ -69,14 +66,10 @@
             
             
             <!-- トーナメント表タブ -->
-            <section id="tournament" class="tabcontent">
-                <div id="tournament-coop-container"></div>
-            </section>
             
             
             <!-- 選手戦績タブ -->
             <section id="records" class="tabcontent">
-            
                 <!-- ランキング選択プルダウン -->
                 <select id="recordSelect" onchange="toggleRecordTable()">
                     <option value="goalPlayersTable">ゴールランキング</option>
@@ -122,6 +115,6 @@
             </ul>
         </footer> -->
         <script src="js/script_common.js"></script> <!-- 外部JavaScriptファイルの読み込み -->
-        <script src="js/script_tcoop.js"></script> <!-- 外部JavaScriptファイルの読み込み -->
+        <script src="js/script_tm.js"></script> <!-- 外部JavaScriptファイルの読み込み -->
     </body>
 </html>

@@ -14,6 +14,7 @@ let displaySeason = "current"; // "current" なら currentSeason, "all" なら�
 let teamsData = [];
 let matchDataL = {};
 let matchDataT = {};
+let matchDataTM = {};
 let matchDataLCoop = {};
 let matchDataTCoop = {};
 let lineChart = null;  // 折れ線グラフ用の変数
@@ -21,7 +22,7 @@ let barChart5Min = null;   // 5分間隔の棒グラフ用の変数
 let barChart15Min = null;   // 15分間隔の棒グラフ用の変数
 
 // **現在のリーグのタイプを取得**
-let leagueType = document.getElementById("leagueSelect")?.value || "h"; // デフォルトは "l"（リーグ）
+// let leagueType = document.getElementById("leagueSelect")?.value || "h"; // デフォルトは "l"（リーグ）
 
 // **currentMatchData の初期化（`DOMContentLoaded` より前に設定）**
 let currentMatchData = null;
@@ -35,27 +36,49 @@ document.addEventListener("DOMContentLoaded", async function () {
     teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
     matchDataL = JSON.parse(localStorage.getItem('matchDataL')) || {};
     matchDataT = JSON.parse(localStorage.getItem('matchDataT')) || {};
+    matchDataTM = JSON.parse(localStorage.getItem('matchDataTM')) || {};
     matchDataLCoop = JSON.parse(localStorage.getItem('matchDataLCoop')) || {};
     matchDataTCoop = JSON.parse(localStorage.getItem('matchDataTCoop')) || {};
-    switch (leagueType) {
-        case "h":
-            currentMatchData = matchDataL;
+
+    const currentURL = window.location.href;
+    const select = document.getElementById("leagueSelect");
+
+    const urlToValueMap = {
+        "index.html": "h",
+        "index_l.html": "l",
+        "index_tt.html": "tt",
+        "index_tm.html": "tm",
+        "index_tk.html": "tk",
+        "index_lcoop.html": "lcoop",
+        "index_tcoop.html": "tcoop"
+    };
+
+    // 現在のページに応じたリーグタイプを設定
+    let leagueType = "l"; // デフォルト
+    for (const [filename, value] of Object.entries(urlToValueMap)) {
+        if (currentURL.includes(filename)) {
+            select.value = value;
+            leagueType = value;
             break;
-        case "l":
-            currentMatchData = matchDataL;
-            break;
-        case "t":
-            currentMatchData = matchDataT;
-            break;
-        case "lcoop":
-            currentMatchData = matchDataLCoop;
-            break;
-        case "tcoop":
-            currentMatchData = matchDataTCoop;
-            break;
-        default:
-            console.warn("リーグタイプが不明です。デフォルトで matchDataL を設定します。");
-            currentMatchData = matchDataL;
+        }
+    }
+
+    // 🛠 currentMatchData の設定（tt, tm, tk → matchDataT として扱う）
+    if (["tt", "tk"].includes(leagueType)) {
+        currentMatchData = matchDataT;
+    } else if (leagueType === "tm") {
+        currentMatchData = matchDataTM;
+    } else if (leagueType === "h") {
+        currentMatchData = matchDataL;
+    } else if (leagueType === "l") {
+        currentMatchData = matchDataL;
+    } else if (leagueType === "lcoop") {
+        currentMatchData = matchDataLCoop;
+    } else if (leagueType === "tcoop") {
+        currentMatchData = matchDataTCoop;
+    } else {
+        console.warn("不明なリーグタイプ:", leagueType, "→ デフォルト matchDataL を使用");
+        currentMatchData = matchDataL;
     }
 
     // **最初のタブを開く**
@@ -63,21 +86,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     if (defaultTab) {
         openTab(null, defaultTab.getAttribute('onclick').match(/'([^']+)'/)[1]);
     } else {
-        openTab(null, "home-schedule"); // 明示的に 'home' を開く
+        openTab(null, "home-schedule");
     }
 
     if (leagueType == "h"){
-        // **チームデータの読み込み**
         const teamContainer = document.querySelector('.team-list');
-
-        // **teamsData の要素数から totalTeamNum を設定**
         let totalTeamNum = teamsData.length;
-
-        // **最大 teamId を取得（デフォルト値 11）**
         let maxTeamId = teamsData.length > 0 ? Math.max(...teamsData.map(t => t.teamId), 11) : 0;
 
-        // **チームロゴを動的に生成**
-        teamContainer.innerHTML = ""; // 既存の内容をクリア
+        teamContainer.innerHTML = "";
         for (let i = 0; i < totalTeamNum; i++) {
             let team = teamsData[i] || {
                 teamId: maxTeamId + i,
@@ -106,22 +123,15 @@ document.addEventListener("DOMContentLoaded", async function () {
             `;
             teamContainer.insertAdjacentHTML('beforeend', teamItem);
         }
-    } else{
-        // **シーズンリストを作成**
-    // populateSeasonDropdown();
-    updateSeasonDropdown(); // プルダウン更新
-    // **現在のシーズンを画面に表示**
-    let seasonText = document.getElementById("seasonDisplayText");
-    if (seasonText) {
-        seasonText.textContent = `${currentSeason}`;
+    } else {
+        updateSeasonDropdown();
+        let seasonText = document.getElementById("seasonDisplayText");
+        if (seasonText) {
+            seasonText.textContent = `${currentSeason}`;
+        }
     }
-    }
-    
-    // **画面のデータを更新**
+
     updateAllDisplayData();
-
-
-    
 });
 
 // タブを切り替える関数
@@ -155,6 +165,29 @@ function openTab(evt, tabName) {
 // }
 
 
+function changeLeagueAdvanced() {
+    const selected = document.getElementById("leagueSelect").value;
+
+    const pageMap = {
+        "l": "index_l.html",
+        "tt": "index_tt.html", // Tomokinta Cup
+        "tm": "index_tm.html", // Mori Cup
+        "tk": "index_tk.html", // Kohta Cup
+        "lcoop": "index_lcoop.html",
+        "tcoop": "index_tcoop.html"
+    };
+
+    if (pageMap[selected]) {
+        window.location.href = pageMap[selected];
+    }
+}
+
+// ✅ 現在のページに合わせてセレクトボックスを初期化
+// document.addEventListener("DOMContentLoaded", () => {
+    
+// });
+
+
 // リーグ変更プルダウンに関する関数
 function changeLeague() {
     let leagueSelect = document.getElementById("leagueSelect");
@@ -163,7 +196,7 @@ function changeLeague() {
     if (selectedLeague === "l") {
         window.location.href = "index_l.html"; // Tomokinta League へ移動
     } else if (selectedLeague === "t") {
-        window.location.href = "index_t.html"; // t へ移動
+        window.location.href = "index_tt.html"; // t へ移動
     } else if (selectedLeague === "lcoop") {
         window.location.href = "index_lcoop.html"; // l Co-op へ移動
     } else if (selectedLeague === "tcoop") {
@@ -406,18 +439,18 @@ function updateGoalDetails(roundIndex, matchIndex, teamType, data = null) {
                 <tr>
                     <td colspan="2">
                         ${teamType === 'home' ? `
-                            アシスト：<input type="text" class="assist-player home" value="${assist}">
-                            ゴール　：<input type="text" class="goal-player home" value="${goal}">
+                            アシスト：<input type="text" class="assist-player home" value="${assist}" readonly>
+                            ゴール　：<input type="text" class="goal-player home" value="${goal}" readonly>
                         ` : `<span></span>`}
                     </td>
                     <td>
-                        <input type="number" class="goal-time ${teamType}" value="${time}" min="0" step="1" onchange="sortGoalDetails(${roundIndex}, ${matchIndex})"> 分
+                        <input type="number" class="goal-time ${teamType}" value="${time}" min="0" step="1" onchange="sortGoalDetails(${roundIndex}, ${matchIndex})" readonly> 分
                     </td>
 
                     <td colspan="2">
                         ${teamType === 'away' ? `
-                            アシスト：<input type="text" class="assist-player away" value="${assist}">
-                            ゴール　：<input type="text" class="goal-player away" value="${goal}">
+                            アシスト：<input type="text" class="assist-player away" value="${assist}" readonly>
+                            ゴール　：<input type="text" class="goal-player away" value="${goal}" readonly>
                         ` : `<span></span>`}
                     </td>
                 </tr>

@@ -22,11 +22,21 @@
                 <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'records')">選手戦績</a></li> -->
                 <!-- リーグ選択プルダウン -->
                 <li>
-                    <select id="leagueSelect" onchange="changeLeague()">
-                        <option value="l">リーグ戦</option>
-                        <option value="t">カップ戦</option>
-                        <option value="lcoop" selected>Co-opリーグ戦</option>
-                        <option value="tcoop">Co-opカップ戦</option>
+                    <select id="leagueSelect" onchange="changeLeagueAdvanced()">
+                        <optgroup label="リーグ戦">
+                            <option value="l">リーグ戦</option>
+                        </optgroup>
+                        <optgroup label="カップ戦">
+                            <option value="tt">Tomokinta Cup</option>
+                            <option value="tm">Mori Cup</option>
+                            <option value="tk">Kohta Cup</option>
+                        </optgroup>
+                        <optgroup label="Co-opリーグ戦">
+                            <option value="lcoop">Co-opリーグ戦</option>
+                        </optgroup>
+                        <optgroup label="Co-opカップ戦">
+                            <option value="tcoop">Co-opカップ戦</option>
+                        </optgroup>
                     </select>
                 </li>
                 <li>
@@ -43,7 +53,6 @@
                 <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'standings')">順位表</a></li>
                 <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'records')">選手戦績</a></li>
             </ul>
-
         </nav>
         <main>
             <!-- 日程タブ -->

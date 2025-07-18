@@ -1,3 +1,12 @@
+:root {
+    /* カラーパレットの変数定義 */
+    --page-bg-color-1: rgb(237, 237, 237);
+    --page-color-1: rgb(26, 26, 26);
+    --page-color-2: rgb(182,38, 26);
+    --page-sub-color-1: rgb(26, 26, 26);
+    --page-sub-color-2: rgb(251, 0, 111);
+}
+
 /*-------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
 bodyのスタイル
@@ -139,16 +148,11 @@ bodyのスタイル
     position: static;  /* 絶対配置を解除 */
 }
 
-
-
 /* ロゴの親tdにrelativeを追加して制御 */
 .match-row td:nth-child(2),
 .match-row td:nth-child(6) {
     position: relative;
 }
-
-
-
 
 .match-row1 {
     text-align: center;
@@ -159,123 +163,6 @@ bodyのスタイル
     width: 100%;
 }
 
-
-
-
-
-
-
-/* 
----------------------------------------------------------------------------------------------------
-ポイントテーブルのスタイル 
----------------------------------------------------------------------------------------------------
-*/
-/* ポイントテーブルのスタイル */
-.points-table {
-    border-collapse: collapse; /* テーブルの境界線を統一 */
-    width: 100%; /* テーブルを横幅100%に広げる */
-    background-color: var(--black-color-1); /* スタッツ表のセルの背景色 */
-    color: var(--sub-color-1); /* スタッツ表の文字色 */
-}
-
-/* スタッツテーブルのセル内のスタイル */
-.points-table th, .points-table td {
-    padding: 5px 0px;
-    text-align: center;
-    border: 1px solid var(--gray-color-1);
-    border-left: none;
-    border-right: none;
-    font-size: var(--body2-font-size);
-    color: var(--white-color-1); /* 入力欄の文字色 */
-}
-
-/* 1列目（カテゴリ名）の幅を20%に固定 */
-.points-table td:first-child, .points-table th:first-child {
-    min-width: 130px; /* 最小幅を指定して崩れないようにする */
-    text-align: left; /* 左揃え（中央揃えにする場合は削除） */
-}
-
-/* それ以外の列の幅を均等に */
-/* .points-table td:not(:first-child), .points-table th:not(:first-child) {
-    width: calc(80% / 6);
-} */
-
-/* スタッツ表の入力欄のスタイル */
-.points-table input[type="number"] {
-    text-align: center; /* 入力欄のテキストを中央揃えに */
-    width: 100%; /* 入力欄の幅をセル内で調整 */
-    /* padding: 4px; 入力欄にパディングを追加 */
-    box-sizing: border-box; /* パディングを幅に含むようにする */
-    background-color: var(--black-color-1); /* スタッツ表のセルの背景色 */
-    color: var(--sub-color-1); /* 入力欄の文字色 */
-    border: none;
-    /* font-size: var(--body-font-size); */
-}
-
-/* 数字入力のカーソルを消す */
-.points-table input[type="number"]::-webkit-outer-spin-button,
-.points-table input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.total-score {
-    font-size: var(--body-font-size)!important; /* フォントサイズを大きく設定 */
-    font-weight: bold!important;  /* 太字にする */
-    color: var(--sub-color-1) !important; /* 入力欄の文字色 */
-    /* text-align: center!important; */
-}
-
-
-
-
-/*=================================================================================================
-===================================================================================================
-トーナメント表タブのスタイル 
-===================================================================================================
-=================================================================================================*/
-/* 
----------------------------------------------------------------------------------------------------
-Coopトーナメント表のスタイル
----------------------------------------------------------------------------------------------------
-*/
-#tournament-coop-container{
-    display: flex;
-    justify-content: start;
-    align-items: flex-start;
-    overflow-x: auto;
-    padding: 0px;
-    position: relative;
-
-}
-
-.tournament-coop-table{
-    table-layout: fixed;  /* 列幅を固定 */
-    width: 100%; /* 全体のテーブル幅を固定（必要に応じて調整） */
-    border-collapse: separate;
-    margin-right: 30px;
-    position: relative;
-
-}
-
-.tournament-coop-cell{
-    border: 1px solid white;
-    padding: 0px;
-    text-align: center;
-    width: 40px;
-    background: black;
-    height: 58px;
-
-}
-
-.tournament-coop-score{
-    border: 0px solid white;
-    padding: 0px;
-    text-align: center;
-    width: 40px;
-    background: black;
-    height: 58px;
-}
 
 
 

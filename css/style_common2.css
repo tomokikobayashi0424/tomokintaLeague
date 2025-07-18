@@ -16,7 +16,7 @@ nav {
     /* border: 0; */
     /* padding: 0 10%; */
     /* line-height: 0px;  */
-    background-color: var(--main-color-2); /* ナビゲーションの背景色 */
+    background-color: var(--page-color-2); /* ナビゲーションの背景色 */
     /* color: var(); */
     /* text-align: left; */
     /* font-size: var(--navi-font-size); */
@@ -60,18 +60,18 @@ nav ul li a {
 /* ホバー時と選択中のリンクのスタイルをまとめる */
 nav ul li a:hover,
 nav ul li a.active {
-    background-color: var(--sub-color-1); /* 背景色 */
-    color: var(--main-color-2); /* テキスト色 */
+    background-color: var(--page-sub-color-1); /* 背景色 */
+    color: var(--page-color-2);
     font-weight: bold; /* ボールドに設定 */
 }
 
 /* シーズン選択プルダウンのスタイル */
 nav ul li select {
     display: block;
-    padding: 7px 10px;
+    padding: 7.75px 10px;
     /* font-size: var(--header-font-size); */
     border: 0px solid var(--white-color-1);
-    background-color: var(--main-color-2);
+    background-color: var(--page-color-2);
     color: var(--white-color-1);
     font-weight: bold;
     cursor: pointer;
@@ -82,7 +82,7 @@ nav ul li select {
 /* シーズンプルダウンの選択時 */
 nav ul li select:focus,
 nav ul li select:hover {
-    background-color: var(--main-color-2);
+    background-color: var(--page-color-2);
     color: var(--white-color-1);
 }
 
@@ -104,7 +104,7 @@ nav ul li select:hover {
 /* ナビゲーションメニュー */
 .tabSelect {
     top: 90px; 
-    height:25px;
+    height:24.5px;
     display: flex;
     justify-content: center;
     list-style-type: none;
@@ -118,7 +118,7 @@ nav ul li select:hover {
     padding: 0;
     color: var(--white-color-1);
     text-decoration: none;
-    padding: 2px 10px;
+    padding: 1px 10px;
     font-weight: bold;
     /* font-size: var(--header-font-size); */
 }
@@ -470,7 +470,7 @@ main{
 /* ランキングプルダウンをタイトル風にする */
 #recordSelect {
     width: 100%;  /* 横幅を表に合わせる */
-    color: var(--sub-color-1); /* 文字色を白 */
+    color: var(--page-sub-color-1); /* 文字色を白 */
     /* font-size: var(--h3-font-size); */
     font-weight: bold; /* 太字 */
     text-align: center;
@@ -484,7 +484,7 @@ main{
     position: sticky;
     top: 107.5px; /* ヘッダーの高さを考慮 */
     z-index: 900;
-    background-color: var(--main-color-1); /* ヘッダーの背景色を変更 */
+    background-color: var(--page-bg-color-1); /* ヘッダーの背景色を変更 */
     padding: 0;
     height: 40px;
     /* iOS での楕円を防ぐ */
@@ -498,13 +498,13 @@ main{
 /* プルダウンの選択肢のスタイル */
 #recordSelect option {
     /* background-color: white; */
-    color: var(--main-color-1);
+    color: var(--page-color-1);
     font-weight: bold;
 }
 
 /* プルダウンホバー時のスタイル */
 #recordSelect:hover {
-    background-color: var(--main-color-1);
+    /* background-color: var(--page-color-1); */
 }
 
 /* 選択中の状態を明示 */
@@ -573,7 +573,7 @@ main{
     position: sticky;
     top: 107.5px;
     z-index: 900;
-    background-color: var(--main-color-1); /* ヘッダーの背景色を変更 */
+    background-color: var(--page-bg-color-1); /* ヘッダーの背景色を変更 */
     color: var(--sub-color-1);; /* 文字色を白に設定 */
     padding: 10px;
     /* font-size: 24px; */
@@ -588,7 +588,7 @@ main{
     position: sticky;
     top: 82.5px; /* ヘッダーの高さを考慮 */
     z-index: 900;
-    background-color: var(--main-color-1); /* ヘッダーの背景色を変更 */
+    background-color: var(--page-color-1); /* ヘッダーの背景色を変更 */
     padding: 0;
     height: 40px;
 }
