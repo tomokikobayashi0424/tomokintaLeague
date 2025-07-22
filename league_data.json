@@ -12168,11 +12168,11 @@
         },
         {
           "Rank": 2,
-          "teamId": 4
+          "teamId": 17
         },
         {
           "Rank": 3,
-          "teamId": 17
+          "teamId": 4
         },
         {
           "Rank": 4,
@@ -12180,11 +12180,11 @@
         },
         {
           "Rank": 5,
-          "teamId": 7
+          "teamId": 9
         },
         {
           "Rank": 6,
-          "teamId": 9
+          "teamId": 7
         },
         {
           "Rank": 7,
@@ -12228,11 +12228,11 @@
         },
         {
           "Rank": 17,
-          "teamId": 18
+          "teamId": 12
         },
         {
           "Rank": 18,
-          "teamId": 12
+          "teamId": 18
         }
       ],
       "round0-match0": {
@@ -26427,10 +26427,16 @@
       "round17-match2": {
         "home": {
           "teamId": 9,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "ラミネ ヤマル"
+          ],
+          "goalPlayers": [
+            "フェルナンド トーレス"
+          ],
+          "times": [
+            74
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -26447,27 +26453,33 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 59,
+            "shots": 4,
+            "shotsonFrame": 4,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 126,
+            "successfulPasses": 104,
+            "crosses": 3,
+            "PassCuts": 9,
+            "successfulTackles": 3,
+            "save": 2
           }
         },
         "away": {
           "teamId": 16,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "ギャレス ベイル"
+          ],
+          "goalPlayers": [
+            "ロナウジーニョ ガウーショ"
+          ],
+          "times": [
+            65
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -26484,21 +26496,22 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 41,
+            "shots": 5,
+            "shotsonFrame": 5,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 84,
+            "successfulPasses": 74,
+            "crosses": 0,
+            "PassCuts": 12,
+            "successfulTackles": 3,
+            "save": 2
           }
-        }
+        },
+        "date": "2025-07-21"
       },
       "round17-match3": {
         "home": {
@@ -26731,10 +26744,19 @@
       "round17-match6": {
         "home": {
           "teamId": 8,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "ペレ",
+            ""
+          ],
+          "goalPlayers": [
+            "ヨハン クライフ",
+            "パヴェル ネドヴェド"
+          ],
+          "times": [
+            20,
+            32
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -26751,27 +26773,36 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 51,
+            "shots": 7,
+            "shotsonFrame": 7,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 2,
+            "freeKicks": 1,
+            "passes": 108,
+            "successfulPasses": 83,
+            "crosses": 2,
+            "PassCuts": 17,
+            "successfulTackles": 5,
+            "save": 3
           }
         },
         "away": {
           "teamId": 12,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "ヨハン クライフ",
+            "ガブリエル バティストゥータ"
+          ],
+          "goalPlayers": [
+            "ラミネ ヤマル",
+            "ヨハン クライフ"
+          ],
+          "times": [
+            12,
+            50
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -26788,21 +26819,22 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 49,
+            "shots": 9,
+            "shotsonFrame": 8,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 4,
+            "freeKicks": 1,
+            "passes": 93,
+            "successfulPasses": 70,
+            "crosses": 1,
+            "PassCuts": 16,
+            "successfulTackles": 7,
+            "save": 3
           }
-        }
+        },
+        "date": "2025-07-20"
       },
       "round17-match7": {
         "home": {
