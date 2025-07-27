@@ -26649,94 +26649,88 @@
       "round17-match4": {
         "home": {
           "teamId": 3,
-          "score": 5,
+          "score": 1,
           "assistPlayers": [
-            "パヴェル ネドヴェド",
-            "パヴェル ネドヴェド",
-            "パヴェル ネドヴェド",
-            "",
-            "パヴェル ネドヴェド"
+            "パトリック ヴィエラ"
           ],
           "goalPlayers": [
-            "ルート フリット",
-            "ルート フリット",
-            "ルート フリット",
-            "パヴェル ネドヴェド",
-            "ルート フリット"
+            "リオネル メッシ"
           ],
           "times": [
-            14,
-            32,
-            60,
-            67,
-            72
+            56
           ],
           "halfTime": {
-            "possession": 52,
-            "shots": 5,
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          },
+          "fullTime": {
+            "possession": 53,
+            "shots": 7,
             "shotsonFrame": 4,
             "fouls": 0,
             "offsides": 0,
             "cornerKicks": 1,
             "freeKicks": 0,
-            "passes": 75,
-            "successfulPasses": 63,
+            "passes": 120,
+            "successfulPasses": 88,
             "crosses": 0,
-            "PassCuts": 13,
-            "successfulTackles": 3,
-            "save": 0
-          },
-          "fullTime": {
-            "possession": 48,
-            "shots": 10,
-            "shotsonFrame": 9,
-            "fouls": 0,
-            "offsides": 0,
-            "cornerKicks": 1,
-            "freeKicks": 0,
-            "passes": 122,
-            "successfulPasses": 99,
-            "crosses": 0,
-            "PassCuts": 22,
-            "successfulTackles": 7,
-            "save": 3
+            "PassCuts": 29,
+            "successfulTackles": 2,
+            "save": 1
           }
         },
         "away": {
           "teamId": 14,
-          "score": 0,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "マルコ ファン バステン"
+          ],
+          "goalPlayers": [
+            "ルイス スアレス"
+          ],
+          "times": [
+            77
+          ],
           "halfTime": {
-            "possession": 48,
-            "shots": 0,
-            "shotsonFrame": 0,
-            "fouls": 0,
-            "offsides": 0,
-            "cornerKicks": 0,
-            "freeKicks": 0,
-            "passes": 52,
-            "successfulPasses": 37,
-            "crosses": 0,
-            "PassCuts": 11,
-            "successfulTackles": 3,
-            "save": 2
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
           },
           "fullTime": {
-            "possession": 52,
-            "shots": 3,
+            "possession": 47,
+            "shots": 4,
             "shotsonFrame": 3,
             "fouls": 0,
             "offsides": 0,
             "cornerKicks": 0,
             "freeKicks": 0,
-            "passes": 120,
-            "successfulPasses": 88,
-            "crosses": 0,
-            "PassCuts": 19,
-            "successfulTackles": 6,
-            "save": 4
+            "passes": 114,
+            "successfulPasses": 76,
+            "crosses": 1,
+            "PassCuts": 21,
+            "successfulTackles": 4,
+            "save": 3
           }
         },
         "date": "2025-07-27"
@@ -27518,88 +27512,94 @@
       "round18-match5": {
         "home": {
           "teamId": 3,
-          "score": 1,
+          "score": 5,
           "assistPlayers": [
-            "パトリック ヴィエラ"
+            "パヴェル ネドヴェド",
+            "パヴェル ネドヴェド",
+            "パトリック ヴィエラ",
+            "",
+            "パヴェル ネドヴェド"
           ],
           "goalPlayers": [
-            "リオネル メッシ"
+            "ルート フリット",
+            "ルート フリット",
+            "ルート フリット",
+            "パヴェル ネドヴェド",
+            "ルート フリット"
           ],
           "times": [
-            56
+            14,
+            32,
+            60,
+            67,
+            72
           ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          },
-          "fullTime": {
-            "possession": 53,
-            "shots": 7,
+            "possession": 52,
+            "shots": 5,
             "shotsonFrame": 4,
             "fouls": 0,
             "offsides": 0,
             "cornerKicks": 1,
             "freeKicks": 0,
-            "passes": 120,
-            "successfulPasses": 88,
+            "passes": 75,
+            "successfulPasses": 63,
             "crosses": 0,
-            "PassCuts": 29,
-            "successfulTackles": 2,
-            "save": 1
+            "PassCuts": 13,
+            "successfulTackles": 3,
+            "save": 0
+          },
+          "fullTime": {
+            "possession": 48,
+            "shots": 10,
+            "shotsonFrame": 9,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 122,
+            "successfulPasses": 99,
+            "crosses": 0,
+            "PassCuts": 22,
+            "successfulTackles": 7,
+            "save": 3
           }
         },
         "away": {
           "teamId": 12,
-          "score": 1,
-          "assistPlayers": [
-            "マルコ ファン バステン"
-          ],
-          "goalPlayers": [
-            "ルイス スアレス"
-          ],
-          "times": [
-            77
-          ],
+          "score": 0,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 48,
+            "shots": 0,
+            "shotsonFrame": 0,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 52,
+            "successfulPasses": 37,
+            "crosses": 0,
+            "PassCuts": 11,
+            "successfulTackles": 3,
+            "save": 2
           },
           "fullTime": {
-            "possession": 47,
-            "shots": 4,
+            "possession": 52,
+            "shots": 3,
             "shotsonFrame": 3,
             "fouls": 0,
             "offsides": 0,
             "cornerKicks": 0,
             "freeKicks": 0,
-            "passes": 114,
-            "successfulPasses": 76,
-            "crosses": 1,
-            "PassCuts": 21,
-            "successfulTackles": 4,
-            "save": 3
+            "passes": 120,
+            "successfulPasses": 88,
+            "crosses": 0,
+            "PassCuts": 19,
+            "successfulTackles": 6,
+            "save": 4
           }
         },
         "date": "2025-07-27"
