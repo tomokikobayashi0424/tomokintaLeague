@@ -27269,10 +27269,19 @@
       "round18-match2": {
         "home": {
           "teamId": 11,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "エデン アザール",
+            "ジュード ベリンガム"
+          ],
+          "goalPlayers": [
+            "ギャレス ベイル",
+            "エデン アザール"
+          ],
+          "times": [
+            7,
+            26
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -27289,27 +27298,33 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 48,
+            "shots": 9,
+            "shotsonFrame": 6,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 3,
+            "freeKicks": 2,
+            "passes": 83,
+            "successfulPasses": 66,
+            "crosses": 1,
+            "PassCuts": 25,
+            "successfulTackles": 4,
+            "save": 1
           }
         },
         "away": {
           "teamId": 15,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "キリアン エムバペ"
+          ],
+          "goalPlayers": [
+            "マルコ ファン バステン"
+          ],
+          "times": [
+            71
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -27326,19 +27341,19 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 52,
+            "shots": 3,
+            "shotsonFrame": 2,
+            "fouls": 2,
+            "offsides": 1,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 127,
+            "successfulPasses": 95,
+            "crosses": 1,
+            "PassCuts": 11,
+            "successfulTackles": 7,
+            "save": 3
           }
         },
         "date": "2025-07-28"
