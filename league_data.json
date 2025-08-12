@@ -28000,7 +28000,7 @@
             "save": null
           }
         },
-        "date": "2025-08-10"
+        "date": "2025-08-11"
       },
       "round19-match1": {
         "home": {
@@ -28177,10 +28177,25 @@
       "round19-match3": {
         "home": {
           "teamId": 11,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 4,
+          "assistPlayers": [
+            "ギャレス ベイル",
+            "ラミネ ヤマル",
+            "ラミネ ヤマル",
+            "ラミネ ヤマル"
+          ],
+          "goalPlayers": [
+            "エデン アザール",
+            "ギャレス ベイル",
+            "ジュード ベリンガム",
+            "ジュード ベリンガム"
+          ],
+          "times": [
+            3,
+            5,
+            62,
+            81
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -28197,27 +28212,36 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 53,
+            "shots": 6,
+            "shotsonFrame": 5,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 80,
+            "successfulPasses": 58,
+            "crosses": 1,
+            "PassCuts": 22,
+            "successfulTackles": 5,
+            "save": 1
           }
         },
         "away": {
           "teamId": 13,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "",
+            "ルート フリット"
+          ],
+          "goalPlayers": [
+            "キリアン エムバペ",
+            "ルイス スアレス"
+          ],
+          "times": [
+            39,
+            45
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -28234,19 +28258,19 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 47,
+            "shots": 6,
+            "shotsonFrame": 5,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 1,
+            "passes": 107,
+            "successfulPasses": 83,
+            "crosses": 3,
+            "PassCuts": 16,
+            "successfulTackles": 7,
+            "save": 0
           }
         },
         "date": "2025-08-10"
