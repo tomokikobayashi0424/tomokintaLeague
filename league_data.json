@@ -28000,7 +28000,7 @@
             "save": null
           }
         },
-        "date": "2025-08-11"
+        "date": "2025-08-10"
       },
       "round19-match1": {
         "home": {
@@ -28177,25 +28177,10 @@
       "round19-match3": {
         "home": {
           "teamId": 11,
-          "score": 4,
-          "assistPlayers": [
-            "ギャレス ベイル",
-            "ラミネ ヤマル",
-            "ラミネ ヤマル",
-            "ラミネ ヤマル"
-          ],
-          "goalPlayers": [
-            "エデン アザール",
-            "ギャレス ベイル",
-            "ジュード ベリンガム",
-            "ジュード ベリンガム"
-          ],
-          "times": [
-            3,
-            5,
-            62,
-            81
-          ],
+          "score": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -28212,36 +28197,27 @@
             "save": null
           },
           "fullTime": {
-            "possession": 53,
-            "shots": 6,
-            "shotsonFrame": 5,
-            "fouls": 1,
-            "offsides": 1,
-            "cornerKicks": 2,
-            "freeKicks": 0,
-            "passes": 80,
-            "successfulPasses": 58,
-            "crosses": 1,
-            "PassCuts": 22,
-            "successfulTackles": 5,
-            "save": 1
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
           }
         },
         "away": {
           "teamId": 13,
-          "score": 2,
-          "assistPlayers": [
-            "",
-            "ルート フリット"
-          ],
-          "goalPlayers": [
-            "キリアン エムバペ",
-            "ルイス スアレス"
-          ],
-          "times": [
-            39,
-            45
-          ],
+          "score": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -28258,19 +28234,19 @@
             "save": null
           },
           "fullTime": {
-            "possession": 47,
-            "shots": 6,
-            "shotsonFrame": 5,
-            "fouls": 0,
-            "offsides": 0,
-            "cornerKicks": 0,
-            "freeKicks": 1,
-            "passes": 107,
-            "successfulPasses": 83,
-            "crosses": 3,
-            "PassCuts": 16,
-            "successfulTackles": 7,
-            "save": 0
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
           }
         },
         "date": "2025-08-10"
@@ -41354,44 +41330,74 @@
     }
   },
   "matchDataTM": {
-    "TM25-s1": {
+    "M25-s1": {
       "teamsNum": 10,
-      "newDate": "2025-07-27",
+      "newDate": "2025-08-10",
       "currentStandings": [
         {
-          "teamIds": []
+          "teamIds": [
+            11
+          ]
         },
         {
-          "teamIds": []
+          "teamIds": [
+            2,
+            14
+          ]
         },
         {
-          "teamIds": []
+          "teamIds": [
+            13,
+            10
+          ]
         },
         {
-          "teamIds": []
+          "teamIds": [
+            9,
+            5,
+            16
+          ]
         },
         {
-          "teamIds": []
+          "teamIds": [
+            1
+          ]
         },
         {
-          "teamIds": []
+          "teamIds": [
+            4
+          ]
         },
         {
-          "teamIds": []
+          "teamIds": [
+            3,
+            7,
+            12
+          ]
         },
         {
-          "teamIds": []
+          "teamIds": [
+            8,
+            15
+          ]
         },
         {
-          "teamIds": []
+          "teamIds": [
+            0,
+            18
+          ]
         },
         {
-          "teamIds": []
+          "teamIds": [
+            17
+          ]
         }
       ],
       "round0-match0": {
         "home": {
-          "teamIds": [],
+          "teamIds": [
+            11
+          ],
           "score": null,
           "pk": null,
           "assistPlayers": [],
@@ -41414,7 +41420,9 @@
           }
         },
         "away": {
-          "teamIds": [],
+          "teamIds": [
+            17
+          ],
           "score": null,
           "pk": null,
           "assistPlayers": [],
@@ -41439,7 +41447,10 @@
       },
       "round0-match1": {
         "home": {
-          "teamIds": [],
+          "teamIds": [
+            2,
+            14
+          ],
           "score": null,
           "pk": null,
           "assistPlayers": [],
@@ -41462,7 +41473,10 @@
           }
         },
         "away": {
-          "teamIds": [],
+          "teamIds": [
+            0,
+            18
+          ],
           "score": null,
           "pk": null,
           "assistPlayers": [],
@@ -41487,7 +41501,10 @@
       },
       "round0-match2": {
         "home": {
-          "teamIds": [],
+          "teamIds": [
+            13,
+            10
+          ],
           "score": null,
           "pk": null,
           "assistPlayers": [],
@@ -41510,7 +41527,10 @@
           }
         },
         "away": {
-          "teamIds": [],
+          "teamIds": [
+            8,
+            15
+          ],
           "score": null,
           "pk": null,
           "assistPlayers": [],
@@ -41535,7 +41555,11 @@
       },
       "round0-match3": {
         "home": {
-          "teamIds": [],
+          "teamIds": [
+            9,
+            5,
+            16
+          ],
           "score": null,
           "pk": null,
           "assistPlayers": [],
@@ -41558,7 +41582,11 @@
           }
         },
         "away": {
-          "teamIds": [],
+          "teamIds": [
+            3,
+            7,
+            12
+          ],
           "score": null,
           "pk": null,
           "assistPlayers": [],
@@ -41583,7 +41611,9 @@
       },
       "round0-match4": {
         "home": {
-          "teamIds": [],
+          "teamIds": [
+            1
+          ],
           "score": null,
           "pk": null,
           "assistPlayers": [],
@@ -41606,7 +41636,9 @@
           }
         },
         "away": {
-          "teamIds": [],
+          "teamIds": [
+            4
+          ],
           "score": null,
           "pk": null,
           "assistPlayers": [],
