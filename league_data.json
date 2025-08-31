@@ -30721,7 +30721,8 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-08-31"
       },
       "round22-match3": {
         "home": {
@@ -31088,7 +31089,8 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-08-31"
       },
       "round22-match7": {
         "home": {
@@ -31188,78 +31190,85 @@
       "round22-match8": {
         "home": {
           "teamId": 1,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "中田 英寿"
+          ],
+          "goalPlayers": [
+            "サミュエル エトー"
+          ],
+          "times": [
+            78
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 60,
+            "shots": 4,
+            "shotsonFrame": 4,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 55,
+            "successfulPasses": 43,
+            "crosses": 1,
+            "PassCuts": 13,
+            "successfulTackles": 0,
+            "save": 0
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 56,
+            "shots": 9,
+            "shotsonFrame": 8,
+            "fouls": 2,
+            "offsides": 2,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 116,
+            "successfulPasses": 91,
+            "crosses": 3,
+            "PassCuts": 23,
+            "successfulTackles": 2,
+            "save": 0
           }
         },
         "away": {
           "teamId": 3,
-          "score": null,
+          "score": 0,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 40,
+            "shots": 0,
+            "shotsonFrame": 0,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 47,
+            "successfulPasses": 33,
+            "crosses": 0,
+            "PassCuts": 9,
+            "successfulTackles": 3,
+            "save": 2
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 44,
+            "shots": 0,
+            "shotsonFrame": 0,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 2,
+            "passes": 103,
+            "successfulPasses": 72,
+            "crosses": 1,
+            "PassCuts": 15,
+            "successfulTackles": 4,
+            "save": 4
           }
-        }
+        },
+        "date": "2025-08-29"
       },
       "round23-match0": {
         "home": {
