@@ -31499,76 +31499,97 @@
       "round23-match2": {
         "home": {
           "teamId": 14,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "サミュエル エトー",
+            "アンドレア ピルロ"
+          ],
+          "goalPlayers": [
+            "ルイス スアレス",
+            "ギャレス ベイル"
+          ],
+          "times": [
+            25,
+            64
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 62,
+            "shots": 3,
+            "shotsonFrame": 2,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 64,
+            "successfulPasses": 50,
+            "crosses": 2,
+            "PassCuts": 14,
+            "successfulTackles": 0,
+            "save": 0
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 64,
+            "shots": 8,
+            "shotsonFrame": 7,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 128,
+            "successfulPasses": 96,
+            "crosses": 2,
+            "PassCuts": 24,
+            "successfulTackles": 2,
+            "save": 1
           }
         },
         "away": {
           "teamId": 7,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 3,
+          "assistPlayers": [
+            "ネイマール",
+            "フランク ライカールト",
+            ""
+          ],
+          "goalPlayers": [
+            "ルート フリット",
+            "ジュード ベリンガム",
+            "ギャレス ベイル"
+          ],
+          "times": [
+            7,
+            33,
+            80
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 38,
+            "shots": 2,
+            "shotsonFrame": 2,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 44,
+            "successfulPasses": 28,
+            "crosses": 1,
+            "PassCuts": 11,
+            "successfulTackles": 1,
+            "save": 1
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 36,
+            "shots": 4,
+            "shotsonFrame": 4,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 79,
+            "successfulPasses": 52,
+            "crosses": 1,
+            "PassCuts": 25,
+            "successfulTackles": 3,
+            "save": 3
           }
         },
         "date": "2025-09-05"
