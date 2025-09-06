@@ -42022,25 +42022,42 @@
     }
   },
   "matchDataTM": {
-    "TM25-s1": {
+    "M25-s1": {
       "teamsNum": 10,
       "newDate": "2025-08-10",
       "currentStandings": [
         {
           "teamIds": [
-            17
+            11
           ]
         },
         {
           "teamIds": [
-            0,
-            18
+            2,
+            14
           ]
         },
         {
           "teamIds": [
-            8,
-            15
+            13,
+            10
+          ]
+        },
+        {
+          "teamIds": [
+            9,
+            5,
+            16
+          ]
+        },
+        {
+          "teamIds": [
+            1
+          ]
+        },
+        {
+          "teamIds": [
+            4
           ]
         },
         {
@@ -42052,298 +42069,23 @@
         },
         {
           "teamIds": [
-            4
+            8,
+            15
           ]
         },
         {
           "teamIds": [
-            1
+            0,
+            18
           ]
         },
         {
           "teamIds": [
-            5,
-            9,
-            16
-          ]
-        },
-        {
-          "teamIds": [
-            13,
-            10
-          ]
-        },
-        {
-          "teamIds": [
-            2,
-            14
-          ]
-        },
-        {
-          "teamIds": [
-            11
+            17
           ]
         }
       ],
       "round0-match0": {
-        "home": {
-          "teamIds": [
-            17
-          ],
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        },
-        "away": {
-          "teamIds": [
-            11
-          ],
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        }
-      },
-      "round0-match1": {
-        "home": {
-          "teamIds": [
-            0,
-            18
-          ],
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        },
-        "away": {
-          "teamIds": [
-            2,
-            14
-          ],
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        }
-      },
-      "round0-match2": {
-        "home": {
-          "teamIds": [
-            8,
-            15
-          ],
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        },
-        "away": {
-          "teamIds": [
-            13,
-            10
-          ],
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        }
-      },
-      "round0-match3": {
-        "home": {
-          "teamIds": [
-            3,
-            7,
-            12
-          ],
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        },
-        "away": {
-          "teamIds": [
-            5,
-            9,
-            16
-          ],
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        }
-      },
-      "round0-match4": {
-        "home": {
-          "teamIds": [
-            4
-          ],
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        },
-        "away": {
-          "teamIds": [
-            1
-          ],
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        }
-      },
-      "round1-match0": {
         "home": {
           "teamIds": [
             11
@@ -42372,6 +42114,274 @@
         "away": {
           "teamIds": [
             17
+          ],
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        }
+      },
+      "round0-match1": {
+        "home": {
+          "teamIds": [
+            2,
+            14
+          ],
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamIds": [
+            0,
+            18
+          ],
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        }
+      },
+      "round0-match2": {
+        "home": {
+          "teamIds": [
+            13,
+            10
+          ],
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamIds": [
+            8,
+            15
+          ],
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        }
+      },
+      "round0-match3": {
+        "home": {
+          "teamIds": [
+            9,
+            5,
+            16
+          ],
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamIds": [
+            3,
+            7,
+            12
+          ],
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        }
+      },
+      "round0-match4": {
+        "home": {
+          "teamIds": [
+            1
+          ],
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamIds": [
+            4
+          ],
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        }
+      },
+      "round1-match0": {
+        "home": {
+          "teamIds": [
+            17
+          ],
+          "score": null,
+          "pk": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
+          "fullTime": {
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
+          }
+        },
+        "away": {
+          "teamIds": [
+            11
           ],
           "score": null,
           "pk": null,
@@ -42399,8 +42409,8 @@
       "round1-match1": {
         "home": {
           "teamIds": [
-            2,
-            14
+            0,
+            18
           ],
           "score": null,
           "pk": null,
@@ -42425,8 +42435,8 @@
         },
         "away": {
           "teamIds": [
-            0,
-            18
+            2,
+            14
           ],
           "score": null,
           "pk": null,
@@ -42454,8 +42464,8 @@
       "round1-match2": {
         "home": {
           "teamIds": [
-            13,
-            10
+            8,
+            15
           ],
           "score": null,
           "pk": null,
@@ -42480,8 +42490,8 @@
         },
         "away": {
           "teamIds": [
-            8,
-            15
+            13,
+            10
           ],
           "score": null,
           "pk": null,
@@ -42509,9 +42519,9 @@
       "round1-match3": {
         "home": {
           "teamIds": [
-            5,
-            9,
-            16
+            3,
+            7,
+            12
           ],
           "score": null,
           "pk": null,
@@ -42536,9 +42546,9 @@
         },
         "away": {
           "teamIds": [
-            3,
-            7,
-            12
+            9,
+            5,
+            16
           ],
           "score": null,
           "pk": null,
@@ -42566,7 +42576,7 @@
       "round1-match4": {
         "home": {
           "teamIds": [
-            1
+            4
           ],
           "score": null,
           "pk": null,
@@ -42591,7 +42601,7 @@
         },
         "away": {
           "teamIds": [
-            4
+            1
           ],
           "score": null,
           "pk": null,
