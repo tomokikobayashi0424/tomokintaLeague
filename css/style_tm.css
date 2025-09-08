@@ -38,7 +38,7 @@ bodyのスタイル
 .round-overview-table thead {
     display: table-header-group; /* ヘッダーをテーブルヘッダーとして表示 */
     background-color: var(--page-color-1);
-    font-size: 40px;
+    font-size: 36px;
     
 }
 .round-overview-table td {
