@@ -3,6 +3,7 @@
     --page-bg-color-1: rgb(237, 237, 237);
     --page-color-1: rgb(26, 26, 26);
     --page-color-2: rgb(182,38, 26);
+    --page-color-3: rgb(26, 26, 26);
     --page-sub-color-1: rgb(26, 26, 26);
     --page-sub-color-2: rgb(251, 0, 111);
 }
@@ -24,122 +25,88 @@ bodyのスタイル
 /*-------------------------------------------------------------------------------------------------
 日程目次
 -------------------------------------------------------------------------------------------------*/
-
-/* 日程タブのチームロゴ */
-.schedule-logo{
-    /* text-align: center; */
-    /* margin: 0px 0; */
-    height: 30px;
-}
-/* 日程もくじ */
-.round-overview{
-    margin-bottom: 20px;
-}
 /* 日程もくじの表 */
 .round-overview-table {
+    margin: 0 0 20px ;
+    padding: 0px;
     width: 100%;
-    border-collapse: separate;
+    border-collapse: separate;/* セルの間隔を上下空けるため */
     border-spacing: 0 5px; /* セルの間隔を上下10px確保 */
-    table-layout: fixed; /* セルの幅を固定 */
-}
-/* 日程もくじの日付行*/
-.match-date-row{
-    margin: 5px 0 0 0;
-    padding: 0px;
-    text-align: center; 
-    font-size: 8px; 
-    color: gray;
-}
-/* 日程もくじの対戦カード行*/
-.match-row {
-    /* text-align: center; */
-    font-size: 15px;
-    margin-bottom: 0px;
-    padding: 0px;
-    background-color: var(--main-color-1);
-}
-/*見出しとデータ*/
-.match-row th,
-.match-row td {
-    padding: 0px;
-    text-align: center;
-    border: none; /* 縦線を削除 */
-    position: relative; /* はみ出し調整用 */
-    height: 15px; /* 各節（行）の高さを12pxに設定 */
-    background:var(--main-color-2);
+    /* table-layout: fixed; セルの幅を固定 */
     color: white; /* 文字色を白に */
 }
+.round-overview-table thead {
+    display: table-header-group; /* ヘッダーをテーブルヘッダーとして表示 */
+    background-color: var(--page-color-1);
+    font-size: 40px;
+    
+}
+.round-overview-table td {
+    font-size: 15px;
+    /* margin: 0px; */
+    /* padding: 0px; */
+    background-color: var(--main-color-1);
+    /* padding: 0px; */
+    text-align: center;
+    border: none;
+    /* position: relative; */
+    height: 67.5px;
+    background:var(--page-color-2);
+}
 /* 各列の幅を指定 */
-.match-row td:nth-child(1) { 
+.round-overview-table td:nth-child(1) { 
     width: 32%;
     text-align: right; /* ホームチーム名を右詰め */
     padding-right: 10px;
     background: linear-gradient(90deg, 
-        var(--main-color-1) 0%, 
-        var(--main-color-2) 50%
+        var(--page-color-3) 0%, 
+        var(--page-color-2) 50%
         /* var(--main-color-1) 100% */
     );
 } 
-.match-row td:nth-child(2) { width: 10%; } /* ホームロゴ */
-.match-row td:nth-child(3) { 
-    width: 6%; 
-    background:var(--main-color-2);
-}  /* ホームスコア */
-.match-row td:nth-child(4) {
-    width: 4%; 
-    background:var(--main-color-2);
-}  /* ハイフン */
-.match-row td:nth-child(5) {
-    width: 6%; 
-    background:var(--main-color-2);
-}  /* アウェイスコア */
-.match-row td:nth-child(6) { width: 10%; } /* アウェイロゴ */
-.match-row td:nth-child(7) { 
+.round-overview-table td:nth-child(2) { width: 9%; } /* ホームロゴ */
+.round-overview-table td:nth-child(3) { width: 6%;}  /* ホームスコア */
+.round-overview-table td:nth-child(4) { width: 6%; }  /* ハイフン */
+.round-overview-table td:nth-child(5) { width: 6%; }  /* アウェイスコア */
+.round-overview-table td:nth-child(6) { width: 9%; } /* アウェイロゴ */
+.round-overview-table td:nth-child(7) { 
     width: 32%;
     text-align: left; /* アウェイチーム名を左詰め */
     padding-left: 10px;
     background: linear-gradient(90deg, 
         /* var(--main-color-1) 0%,  */
-        var(--main-color-2) 50%,
-        var(--main-color-1) 100%
+        var(--page-color-2) 50%,
+        var(--page-color-3) 100%
     );
 } 
 
 /* チーム名のフォントサイズを小さく */
-.match-row td:first-child,
-.match-row td:last-child {
+.round-overview-table td:first-child,
+.round-overview-table td:last-child {
     font-size: 10px;
     font-weight: normal;
+    line-height: 30px;
 }
 
 /* スコアの数字を大きくし、背景ごとではなく文字だけ上に浮かせる */
-.match-row td:nth-child(3),
-.match-row td:nth-child(5) {
-    font-size: 30px;
+.round-overview-table td:nth-child(3),
+.round-overview-table td:nth-child(5) {
+    font-size: 20px;
     font-weight: bold;
     position: relative;
+    vertical-align: top; /* ← 上寄せ */
 }
 
-.match-row td:nth-child(3) span,
-.match-row td:nth-child(5) span {
+.round-overview-table td:nth-child(3) span,
+.round-overview-table td:nth-child(5) span {
     position: absolute;
-    top: -10px; /* 文字だけを上へ */
+    top: 33px; /* 文字だけを上へ */
     left: 50%;
     transform: translateX(-50%);
 }
 
-/* チームロゴを背景ごとではなくアイコンだけ上に浮かせる */
-.schedule-team-logo {
-    width: 30px;
-    height: 30px;
-    object-fit: cover;
-    position: absolute;
-    top: -10px; /* ロゴだけ上へ */
-    left: 50%;
-    transform: translateX(-50%);
-}
 /* チームロゴの修正 */
-.schedule-coop-logo {
+.schedule-team-logo {
     width: 30px;
     height: 30px;
     object-fit: cover;
@@ -149,18 +116,10 @@ bodyのスタイル
 }
 
 /* ロゴの親tdにrelativeを追加して制御 */
-.match-row td:nth-child(2),
-.match-row td:nth-child(6) {
+.round-overview-table td:nth-child(2),
+.round-overview-table td:nth-child(6) {
     position: relative;
-}
-
-.match-row1 {
-    text-align: center;
-    font-size: 10px;
-    color: gray;
-    padding: 0;
-    pointer-events: none; /* hoverやクリックの干渉防止（任意） */
-    width: 100%;
+    line-height: 0; /* ← これで行間の余白を消せる */
 }
 
 
@@ -185,4 +144,11 @@ bodyのスタイル
     width: 18%; /* 各列を10%に固定 */
     max-width: 18%;
     box-sizing: border-box;
+}
+
+
+
+.ranking-rules h3,
+.ranking-rules p {
+    color: var(--page-color-1);
 }
