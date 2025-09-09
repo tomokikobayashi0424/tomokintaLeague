@@ -42488,7 +42488,8 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-09-14"
       },
       "round1-match0": {
         "home": {
@@ -42640,11 +42641,26 @@
             8,
             15
           ],
-          "score": null,
+          "score": 4,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "goalPlayers": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "times": [
+            null,
+            null,
+            null,
+            null
+          ],
           "fullTime": {
             "possession": null,
             "shots": null,
@@ -42666,7 +42682,7 @@
             13,
             10
           ],
-          "score": null,
+          "score": 0,
           "pk": null,
           "assistPlayers": [],
           "goalPlayers": [],
@@ -42687,7 +42703,7 @@
             "save": null
           }
         },
-        "pkEnabled": true
+        "date": "2025-09-09"
       },
       "round1-match3": {
         "home": {
@@ -42744,7 +42760,7 @@
             "save": null
           }
         },
-        "pkEnabled": true
+        "date": "2025-09-14"
       },
       "round1-match4": {
         "home": {
@@ -42797,7 +42813,7 @@
             "save": null
           }
         },
-        "pkEnabled": true
+        "date": "2025-09-21"
       }
     }
   },
