@@ -42634,37 +42634,37 @@
           "score": 4,
           "pk": null,
           "assistPlayers": [
-            "",
-            "",
-            "",
+            "ヴェスリー スナイデル",
+            "リリアン テュラム",
+            "フレンキー デヨング",
             ""
           ],
           "goalPlayers": [
-            "",
-            "",
-            "",
-            ""
+            "ジュード ベリンガム",
+            "キリアン エムバペ",
+            "中田 英寿",
+            "サミュエル エトー"
           ],
           "times": [
-            null,
-            null,
-            null,
-            null
+            11,
+            52,
+            88,
+            90
           ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 50,
+            "shots": 8,
+            "shotsonFrame": 8,
+            "fouls": 2,
+            "offsides": 2,
+            "cornerKicks": 1,
+            "freeKicks": 1,
+            "passes": 84,
+            "successfulPasses": 59,
+            "crosses": 3,
+            "PassCuts": 24,
+            "successfulTackles": 4,
+            "save": 2
           }
         },
         "away": {
@@ -42678,19 +42678,19 @@
           "goalPlayers": [],
           "times": [],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 50,
+            "shots": 6,
+            "shotsonFrame": 2,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 3,
+            "freeKicks": 2,
+            "passes": 80,
+            "successfulPasses": 45,
+            "crosses": 0,
+            "PassCuts": 19,
+            "successfulTackles": 2,
+            "save": 4
           }
         },
         "date": "2025-09-09"
@@ -42750,7 +42750,7 @@
             "save": null
           }
         },
-        "date": "2025-09-14"
+        "date": "2025-09-17"
       },
       "round1-match4": {
         "home": {
