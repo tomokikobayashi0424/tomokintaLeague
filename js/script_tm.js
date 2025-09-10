@@ -1,33 +1,3 @@
-
-// let scheduleHTML = '';
-//     schedule.forEach((matches, i) => {
-//     // for (let i = 0; i < schedule.length; i++) {
-//         let roundStartDate = new Date(startDate);
-//         roundStartDate.setDate(startDate.getDate() + i * 7);
-//         let weekInfo = `第${i + 1}節 ${roundStartDate.getFullYear()}年${roundStartDate.getMonth() + 1}月第${Math.ceil(roundStartDate.getDate() / 7)}週`;
-
-//         scheduleHTML += `<div class="round" id="round${i}" style="display: none;">
-//             <div class="schedule-header sticky-header">
-//                 <div class="button-container">
-//                     <button class="button-common button3" onclick="previousRound()">前節</button>
-//                     <button class="button-common button3" onclick="nextRound()">次節</button>
-//                 </div>
-//                 <h2 class="week-info">${weekInfo}</h2>
-//             </div>
-//             <div class="round-overview">`;
-//             matches.forEach((match, index) => {
-//                 scheduleHTML += `
-//                     <table class="round-overview-table">
-//                         <tr class="match-row" onclick="scrollToMatch('goalDetailsTable${i}-${index}')">
-//                             <td>${match.homeTeam.teamsSub}</td>
-//                             <td>-</td>
-//                             <td>${match.awayTeam.teamsSub}</td>
-//                             <td>: </td>
-//                         </tr>
-//                     </table>`;
-//             });
-//         scheduleHTML += `
-//         </div>`;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -43,15 +13,10 @@
 function updateAllDisplayData() {
     // 日程タブ
     displaySchedule();
-    // トーナメント表タブ
-    // generateTournamentBracket();
     // 選手戦績タブ
     updatePlayerRecords('goalPlayersTable', 'goalPlayers');
     updatePlayerRecords('assistPlayersTable', 'assistPlayers');
     updatePlayerRecords('goalAssistPlayersTable', ['goalPlayers', 'assistPlayers']);
-    // updatePlayerRecordsWithTeam('goalTeamsTable', ['goalPlayers']);
-    // updatePlayerRecordsWithTeam('assistTeamsTable', ['assistPlayers']);
-    // updatePlayerRecordsWithTeam('totalPlayersTable', ['goalPlayers', 'assistPlayers']);
     toggleRecordTable();
 }
 
@@ -67,154 +32,6 @@ function updateAllDisplayData() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// 日程表を表示する関数
-// function displaySchedule(schedule = null) {
-//     if (!matchDataTM[currentSeason]) return;
-
-//     let startDateStr = matchDataTM[currentSeason].newDate;
-//     let startDate = new Date(startDateStr);
-    
-//     // 保存されたスケジュールを取得
-//     if (!schedule) {
-//         schedule = [];
-//         let numRounds = 2;
-//         for (let round = 0; round < numRounds; round++) {
-//             let roundMatches = [];
-//             let roundStartDate = new Date(startDate);
-//             roundStartDate.setDate(startDate.getDate() + round * 7);
-
-//             for (let match = 0; match < matchDataTM[currentSeason].teamsNum / 2; match++) {
-//                 let matchKey = `round${round}-match${match}`;
-//                 let matchDataTMEntry = matchDataTM[currentSeason][matchKey];
-//                 let matchDate = matchDataTMEntry?.date || roundStartDate.toISOString().split('T')[0];
-
-//                 if (!matchDataTMEntry) {
-//                     console.warn(`試合データが見つかりません: ${matchKey}`);
-//                     continue;
-//                 }
-
-//                 // 複合チームのチーム名を取得
-//                 let homeTeams = (matchDataTMEntry.home.teamIds || [])
-//                     .map(teamId => {
-//                         let team = teamsData.find(team => team.teamId === teamId);
-//                         return team ? getTeamNameByScreenSize(team) : "不明";
-//                     })
-//                     .join("<br>");  // HTML内で改行
-
-//                 let awayTeams = (matchDataTMEntry.away.teamIds || [])
-//                     .map(teamId => {
-//                         let team = teamsData.find(team => team.teamId === teamId);
-//                         return team ? getTeamNameByScreenSize(team) : "不明";
-//                     })
-//                     .join("<br>");  // HTML内で改行
-
-                
-//                 roundMatches.push({
-//                     home: homeTeams, 
-//                     away: awayTeams,
-//                     date: matchDate,
-//                     matchKey: matchKey  // 後で試合データを取得するためにキーを保存
-//                 });
-//             }
-//             schedule.push(roundMatches);
-//         }
-//     }
-
-//     let scheduleHTML = '';
-//     for (let i = 0; i < schedule.length; i++) {
-//         let roundStartDate = new Date(startDate);
-//         roundStartDate.setDate(startDate.getDate() + i * 7);
-//         let weekInfo = `${roundStartDate.getFullYear()}年${roundStartDate.getMonth() + 1}月第${Math.ceil(roundStartDate.getDate() / 7)}週`;
-
-//         scheduleHTML += `<div class="round" id="round${i}" style="display: none;">
-//             <div class="schedule-header sticky-header">
-//                 <div class="button-container">
-//                     <img src="Pictures/logoL.png" alt="Tomokinta League ロゴ" class="schedule-logo">
-//                 </div>
-//                 <h2 class="week-info">${weekInfo}</h2>
-//             </div>`;
-//         // **目次エリアを作成**
-//         let hasValidMatches = schedule[i].some(match => match.homeTeam && match.awayTeam);
-//         if (hasValidMatches) {
-//             scheduleHTML += `
-//             <div class="round-overview">
-//                 `;
-
-//             schedule[i].forEach((match, index) => {
-//                 if (!match.homeTeam || !match.awayTeam) return; // **対戦相手が不明な試合は目次に表示しない**
-//                 scheduleHTML += `
-//                     <div class="match-date-row">
-//                         ${match.date}
-//                     </div>
-//                     <table class="round-overview-table">
-//                         <tr onclick="scrollToMatch('goalDetailsTable${i}-${index}')" class="match-row">
-//                             <td>${match.homeTeam.teams}</td>
-//                             <td><img src="Pictures/Team${match.homeTeam.teamId}.jpg" alt="${match.home}" class="schedule-team-logo"></td>
-//                             <td><span>${match.homeScore}</span></td>
-//                             <td>-</td>
-//                             <td><span>${match.awayScore}</span></td>
-//                             <td><img src="Pictures/Team${match.awayTeam.teamId}.jpg" alt="${match.away}" class="schedule-team-logo"></td>
-//                             <td>${match.awayTeam.teams}</td>
-//                         </tr>
-//                     </table>`;
-//             });
-//             scheduleHTML += `                
-//             </div>`;
-//         }
-
-//         // **試合詳細を作成**
-//         schedule[i].forEach((matchEntry, index) => {
-//             let matchKey = matchEntry.matchKey;  // 保存しておいたキーを取得
-//             let matchDataTMEntry = matchDataTM[currentSeason][matchKey];  // 正しい試合データを取得
-
-//             if (!matchDataTMEntry) {
-//                 console.warn(`試合データが見つかりません: ${matchKey}`);
-//                 return;
-//             }
-
-//             scheduleHTML += `
-//                 <div class="match-container">
-//                     <table id="goalDetailsTable${i}-${index}" class="match-table">
-//                         <thead>
-//                             <tr>
-//                                 <td colspan="5">日付: <input type="date" id="matchDate${i}-${index}" value="${matchEntry.date}" readonly></td>
-//                             </tr>
-//                             <tr>
-//                                 <th id="homeTeam${i}-${index}">${matchEntry.home}</th>
-//                                 <th> <input type="number" id="homeScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'home')" readonly></th>
-//                                 <th> - </th>
-//                                 <th> <input type="number" id="awayScore${i}-${index}" min="0" placeholder="0" onchange="updateGoalDetails(${i}, ${index}, 'away')" readonly></th>
-//                                 <th id="awayTeam${i}-${index}">${matchEntry.away}</th>
-//                             </tr>
-//                             <tr>
-//                                 <td colspan="2"><label>PK</label> <input type="number" id="homePK${i}-${index}" min="0" placeholder="0" readonly></td>
-//                                 <td>PK戦</td>
-//                                 <td colspan="2"><label>PK</label> <input type="number" id="awayPK${i}-${index}" min="0" placeholder="0" readonly></td>
-//                             </tr>
-//                         </thead>
-//                         <tbody id="goalDetailsBody${i}-${index}"></tbody>
-//                     </table>`;
-
-//             const statsTableElement = generateStatsTable(i, index);
-//             scheduleHTML += statsTableElement.outerHTML;
-//             scheduleHTML += `</div>`;
-//         });
-
-//         scheduleHTML += `</div>`;
-//     }
-
-//     document.getElementById('scheduleContent').innerHTML = scheduleHTML;
-
-//     for (let roundIndex = 0; roundIndex < schedule.length; roundIndex++) {
-//         for (let matchIndex = 0; matchIndex < schedule[roundIndex].length; matchIndex++) {
-//             loadMatchData(roundIndex, matchIndex);
-//         }
-//     }
-
-//     // **現在のラウンドを計算**
-//     currentRound = calculateCurrentRound(startDate, schedule.length);
-//     showRound(currentRound);
-// }
 // 日程表を表示する関数
 function displaySchedule(schedule = null) {
     if (!matchDataTM[currentSeason]) return;
@@ -272,12 +89,11 @@ function displaySchedule(schedule = null) {
         }
     }
 
-// 西・東の総得点と勝ち点計算
+    // 西・東の総得点と勝ち点計算
     let totalWestScore = 0;
     let totalEastScore = 0;
     let totalWestPoints = 0;
     let totalEastPoints = 0;
-
     let numMatches = schedule[0]?.length || 0;
     for (let matchIndex = 0; matchIndex < numMatches; matchIndex++) {
         let match1 = schedule[0][matchIndex]; // 1stレグ
@@ -293,7 +109,7 @@ function displaySchedule(schedule = null) {
         totalEastScore += eastScore;
 
         // チーム構成数を取得
-        let teamCount = matchDataTMEntry1.home.teamIds.length; // 1stレグhomeのチーム数で判定（どちらでも同じはず）
+        let teamCount = matchDataTMEntry1.home.teamIds.length; // 1stレグhomeのチーム数で判定
 
         // 勝敗判定
         let winner = null;
@@ -315,16 +131,25 @@ function displaySchedule(schedule = null) {
         }
 
         // ポイント計算
-        if (teamCount === 2) {
-            // 複合チーム（2チーム）
-            if (winner === "west") totalWestPoints += 2;
-            if (winner === "east") totalEastPoints += 2;
-        } else if (teamCount === 3) {
-            // 複合チーム（3チーム）
-            if (winner === "west") totalWestPoints += 3;
-            if (winner === "east") totalEastPoints += 3;
+        if (teamCount === 2 || teamCount === 3) {
+            // 2ndレグのスコアが入力されている場合のみ加算
+            const secondLegHomeScore = matchDataTMEntry2?.home?.score;
+            const secondLegAwayScore = matchDataTMEntry2?.away?.score;
+            const isSecondLegEntered = 
+                (secondLegHomeScore !== undefined && secondLegHomeScore !== null && secondLegHomeScore !== "") ||
+                (secondLegAwayScore !== undefined && secondLegAwayScore !== null && secondLegAwayScore !== "");
+
+            if (isSecondLegEntered) {
+                if (teamCount === 2) {
+                    if (winner === "west") totalWestPoints += 2;
+                    if (winner === "east") totalEastPoints += 2;
+                } else if (teamCount === 3) {
+                    if (winner === "west") totalWestPoints += 3;
+                    if (winner === "east") totalEastPoints += 3;
+                }
+            }
         } else if (teamCount === 1) {
-            // 個人戦
+            // 個人戦は1レグだけでも得失点差を加算
             if (winner === "west") {
                 if (isPK) {
                     totalWestPoints += 1;
@@ -348,38 +173,39 @@ function displaySchedule(schedule = null) {
         <tr>
             <th>西</th>
             <th colspan="2">${totalWestPoints}pt</th>
-            <th></th>
+            <th>-</th>
             <th colspan="2">${totalEastPoints}pt</th>
             <th>東</th>
         </tr>
     </thead>
     <tbody>`;
-        schedule[0].forEach((match1, matchIndex) => {
-            let match2 = schedule[1][matchIndex];
-            let matchDataTMEntry1 = matchDataTM[currentSeason][match1.matchKey];
-            let matchDataTMEntry2 = matchDataTM[currentSeason][match2.matchKey];
 
-            let homeTeamNames = match1.homeTeamNames;
-            let awayTeamNames = match1.awayTeamNames;
-            let homeLogos = match1.homeLogos;
-            let awayLogos = match1.awayLogos;
+    schedule[0].forEach((match1, matchIndex) => {
+        let match2 = schedule[1][matchIndex];
+        let matchDataTMEntry1 = matchDataTM[currentSeason][match1.matchKey];
+        let matchDataTMEntry2 = matchDataTM[currentSeason][match2.matchKey];
 
-            // スコアを1セル内で改行してまとめる
-            let homeScores = [
-                matchDataTMEntry1?.home?.score ?? "",
-                matchDataTMEntry2?.away?.score ?? "",
-                matchDataTMEntry2?.away?.pk ?? ""
-            ].join("<br>");
-            let awayScores = [
-                matchDataTMEntry1?.away?.score ?? "",
-                matchDataTMEntry2?.home?.score ?? "",
-                matchDataTMEntry2?.home?.pk ?? ""
-            ].join("<br>");
-            let hyphen = [
-                "1st",
-                "2nd", 
-                "PK"
-            ].join("<br>");
+        let homeTeamNames = match1.homeTeamNames;
+        let awayTeamNames = match1.awayTeamNames;
+        let homeLogos = match1.homeLogos;
+        let awayLogos = match1.awayLogos;
+
+        // スコアを1セル内で改行してまとめる
+        let homeScores = [
+            matchDataTMEntry1?.home?.score ?? "",
+            matchDataTMEntry2?.away?.score ?? "",
+            matchDataTMEntry2?.away?.pk ?? ""
+        ].join("<br>");
+        let awayScores = [
+            matchDataTMEntry1?.away?.score ?? "",
+            matchDataTMEntry2?.home?.score ?? "",
+            matchDataTMEntry2?.home?.pk ?? ""
+        ].join("<br>");
+        let hyphen = [
+            "1st",
+            "2nd", 
+            "PK"
+        ].join("<br>");
 
             overviewHTML += `
             <tr onclick="scrollToMatch('goalDetailsTable0-${matchIndex}')">
@@ -396,10 +222,10 @@ function displaySchedule(schedule = null) {
     overviewHTML += `</tbody></table>
     <div class="ranking-rules">
         <h3>ポイント計算方式</h3>
-        <p>個人戦の場合は、得失点差がそのままポイントとなります。同点の場合はPK勝者に1ポイントが入ります。
+        <p>個人戦の場合は、得失点差がポイントになる。同点の場合はPK勝者に1ポイント。
         <p>2人Coopの場合は、勝利で2ポイント、敗北で0ポイント。
         <p>3人Coopの場合は、勝利で3ポイント、敗北で0ポイント。
-        <p>ポイントが同じ場合は、得失点差 → 総得点数の順で順位を決定します。
+        <p>ポイントが同じ場合は、得失点差 → 総得点数の順で順位を決定される。
     </div>`;
 
     // 本体HTML生成
@@ -407,7 +233,7 @@ function displaySchedule(schedule = null) {
 
     schedule[0].forEach((matchEntry1, matchIndex) => {
         let matchKey1 = matchEntry1.matchKey;
-        let matchDataTMEntry1 = matchDataTM[currentSeason][matchKey1];
+        // let matchDataTMEntry1 = matchDataTM[currentSeason][matchKey1];
 
         scheduleHTML += `
             <div class="match-container">
@@ -432,8 +258,8 @@ function displaySchedule(schedule = null) {
 
         // 2ndレグ
         let matchEntry2 = schedule[1][matchIndex];
-        let matchKey2 = matchEntry2.matchKey;
-        let matchDataTMEntry2 = matchDataTM[currentSeason][matchKey2];
+        // let matchKey2 = matchEntry2.matchKey;
+        // let matchDataTMEntry2 = matchDataTM[currentSeason][matchKey2];
 
         scheduleHTML += `
             <div class="match-container">
@@ -472,8 +298,8 @@ function displaySchedule(schedule = null) {
     });
 
     // 現在のラウンドを計算
-    currentRound = calculateCurrentRound(startDate, schedule.length);
-    showRound(currentRound);
+    // currentRound = calculateCurrentRound(startDate, schedule.length);
+    showRound(0);
 }
 
 
@@ -576,6 +402,8 @@ function createStatsTable(statCategories, roundIndex, matchIndex) {
 
     return table;
 }
+
+
 
 // 日程表データの自動読み込みをする関数
 function loadMatchData(roundIndex, matchIndex) {

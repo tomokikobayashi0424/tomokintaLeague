@@ -38,7 +38,7 @@ bodyのスタイル
 .round-overview-table thead {
     display: table-header-group; /* ヘッダーをテーブルヘッダーとして表示 */
     background-color: var(--page-color-1);
-    font-size: 36px;
+    font-size: 30px;
     
 }
 .round-overview-table td {
@@ -91,18 +91,19 @@ bodyのスタイル
 /* スコアの数字を大きくし、背景ごとではなく文字だけ上に浮かせる */
 .round-overview-table td:nth-child(3),
 .round-overview-table td:nth-child(5) {
+    padding-top: 10px;
     font-size: 20px;
     font-weight: bold;
     position: relative;
     vertical-align: top; /* ← 上寄せ */
+    line-height: 20px;
 }
-
-.round-overview-table td:nth-child(3) span,
-.round-overview-table td:nth-child(5) span {
-    position: absolute;
-    top: 33px; /* 文字だけを上へ */
-    left: 50%;
-    transform: translateX(-50%);
+.round-overview-table td:nth-child(4) {
+    padding-top: 10px;
+    font-size: 10px;
+    position: relative;
+    vertical-align: top; /* ← 上寄せ */
+    line-height: 20px;
 }
 
 /* チームロゴの修正 */
