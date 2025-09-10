@@ -32778,10 +32778,16 @@
       "round24-match7": {
         "home": {
           "teamId": 18,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "モハメド サラー"
+          ],
+          "goalPlayers": [
+            "マルコ ファン バステン"
+          ],
+          "times": [
+            88
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -32798,27 +32804,42 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 51,
+            "shots": 7,
+            "shotsonFrame": 5,
+            "fouls": 2,
+            "offsides": 0,
+            "cornerKicks": 2,
+            "freeKicks": 3,
+            "passes": 86,
+            "successfulPasses": 66,
+            "crosses": 0,
+            "PassCuts": 14,
+            "successfulTackles": 4,
+            "save": 2
           }
         },
         "away": {
           "teamId": 1,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 4,
+          "assistPlayers": [
+            "サミュエル エトー",
+            "",
+            "サミュエル エトー",
+            "ローター マテウス"
+          ],
+          "goalPlayers": [
+            "ウリ へーネス",
+            "ルート フリット",
+            "ルート フリット",
+            "クリスティアーノ ロナウド"
+          ],
+          "times": [
+            8,
+            22,
+            45,
+            48
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -32835,21 +32856,22 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 49,
+            "shots": 7,
+            "shotsonFrame": 6,
+            "fouls": 3,
+            "offsides": 3,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 97,
+            "successfulPasses": 74,
+            "crosses": 5,
+            "PassCuts": 15,
+            "successfulTackles": 7,
+            "save": 3
           }
-        }
+        },
+        "date": "2025-09-09"
       },
       "round24-match8": {
         "home": {
