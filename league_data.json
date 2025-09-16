@@ -12216,11 +12216,11 @@
         },
         {
           "Rank": 14,
-          "teamId": 15
+          "teamId": 14
         },
         {
           "Rank": 15,
-          "teamId": 14
+          "teamId": 15
         },
         {
           "Rank": 16,
@@ -33028,154 +33028,198 @@
       "round25-match0": {
         "home": {
           "teamId": 4,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "ルイス フィーゴ"
+          ],
+          "goalPlayers": [
+            "アーリング ハーランド"
+          ],
+          "times": [
+            12
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 36,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 1,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 1,
+            "passes": 34,
+            "successfulPasses": 22,
+            "crosses": 1,
+            "PassCuts": 12,
+            "successfulTackles": 2,
+            "save": 1
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 42,
+            "shots": 4,
+            "shotsonFrame": 4,
+            "fouls": 1,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 1,
+            "passes": 70,
+            "successfulPasses": 48,
+            "crosses": 1,
+            "PassCuts": 23,
+            "successfulTackles": 3,
+            "save": 6
           }
         },
         "away": {
           "teamId": 7,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "リオネル メッシ",
+            "ルイス スアレス"
+          ],
+          "goalPlayers": [
+            "ルート フリット",
+            "ギャレス ベイル"
+          ],
+          "times": [
+            34,
+            75
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 64,
+            "shots": 4,
+            "shotsonFrame": 1,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 0,
+            "freeKicks": 1,
+            "passes": 65,
+            "successfulPasses": 48,
+            "crosses": 0,
+            "PassCuts": 8,
+            "successfulTackles": 2,
+            "save": 2
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 58,
+            "shots": 12,
+            "shotsonFrame": 7,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 3,
+            "freeKicks": 1,
+            "passes": 118,
+            "successfulPasses": 85,
+            "crosses": 1,
+            "PassCuts": 15,
+            "successfulTackles": 6,
+            "save": 3
           }
-        }
+        },
+        "date": "2025-09-14"
       },
       "round25-match1": {
         "home": {
           "teamId": 5,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 4,
+          "assistPlayers": [
+            "パヴェル ネドヴェド",
+            "ギャレス ベイル",
+            "ロナウジーニョ ガウーショ",
+            ""
+          ],
+          "goalPlayers": [
+            "カール ハインツ ルンメニゲ",
+            "カール ハインツ ルンメニゲ",
+            "カール ハインツ ルンメニゲ",
+            ""
+          ],
+          "times": [
+            7,
+            28,
+            53,
+            null
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 46,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 1,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 45,
+            "successfulPasses": 33,
+            "crosses": 0,
+            "PassCuts": 10,
+            "successfulTackles": 3,
+            "save": 2
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 47,
+            "shots": 7,
+            "shotsonFrame": 5,
+            "fouls": 1,
+            "offsides": 0,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 93,
+            "successfulPasses": 66,
+            "crosses": 0,
+            "PassCuts": 21,
+            "successfulTackles": 3,
+            "save": 4
           }
         },
         "away": {
           "teamId": 10,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 3,
+          "assistPlayers": [
+            "",
+            "ベレッチ",
+            "モハメド サラー"
+          ],
+          "goalPlayers": [
+            "モハメド サラー",
+            "モハメド サラー",
+            "ガブリエル バティストゥータ"
+          ],
+          "times": [
+            26,
+            30,
+            33
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 54,
+            "shots": 7,
+            "shotsonFrame": 5,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 53,
+            "successfulPasses": 38,
+            "crosses": 5,
+            "PassCuts": 10,
+            "successfulTackles": 3,
+            "save": 0
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 53,
+            "shots": 10,
+            "shotsonFrame": 7,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 106,
+            "successfulPasses": 78,
+            "crosses": 7,
+            "PassCuts": 19,
+            "successfulTackles": 3,
+            "save": 1
           }
-        }
+        },
+        "date": "2025-09-15"
       },
       "round25-match2": {
         "home": {
@@ -33251,83 +33295,103 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-09-18"
       },
       "round25-match3": {
         "home": {
           "teamId": 13,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "ロナウジーニョ ガウーショ",
+            "ギャレス ベイル"
+          ],
+          "goalPlayers": [
+            "クリスティアーノ ロナウド",
+            "ウリ へーネス"
+          ],
+          "times": [
+            57,
+            80
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 61,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 55,
+            "successfulPasses": 41,
+            "crosses": 0,
+            "PassCuts": 11,
+            "successfulTackles": 1,
+            "save": 0
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 54,
+            "shots": 7,
+            "shotsonFrame": 6,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 98,
+            "successfulPasses": 75,
+            "crosses": 1,
+            "PassCuts": 17,
+            "successfulTackles": 1,
+            "save": 1
           }
         },
         "away": {
           "teamId": 8,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "ギャレス ベイル",
+            "ヴィニシウス ジュニオール"
+          ],
+          "goalPlayers": [
+            "ヴェスリー スナイデル",
+            "ギャレス ベイル"
+          ],
+          "times": [
+            78,
+            90
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 39,
+            "shots": 0,
+            "shotsonFrame": 0,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 1,
+            "passes": 32,
+            "successfulPasses": 18,
+            "crosses": 1,
+            "PassCuts": 10,
+            "successfulTackles": 2,
+            "save": 3
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 46,
+            "shots": 5,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 1,
+            "passes": 76,
+            "successfulPasses": 52,
+            "crosses": 2,
+            "PassCuts": 15,
+            "successfulTackles": 4,
+            "save": 4
           }
-        }
+        },
+        "date": "2025-09-15"
       },
       "round25-match4": {
         "home": {
@@ -33403,235 +33467,296 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-09-17"
       },
       "round25-match5": {
         "home": {
           "teamId": 15,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "クラレンス セードルフ",
+            "リオネル メッシ"
+          ],
+          "goalPlayers": [
+            "ダビド ビジャ",
+            "ダビド ビジャ"
+          ],
+          "times": [
+            31,
+            53
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 49,
+            "shots": 3,
+            "shotsonFrame": 2,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 51,
+            "successfulPasses": 39,
+            "crosses": 0,
+            "PassCuts": 11,
+            "successfulTackles": 2,
+            "save": 1
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 53,
+            "shots": 6,
+            "shotsonFrame": 5,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 112,
+            "successfulPasses": 81,
+            "crosses": 2,
+            "PassCuts": 17,
+            "successfulTackles": 2,
+            "save": 1
           }
         },
         "away": {
           "teamId": 3,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "エデン アザール",
+            ""
+          ],
+          "goalPlayers": [
+            "マルコ ファン バステン",
+            "キリアン エムバペ"
+          ],
+          "times": [
+            39,
+            90
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 51,
+            "shots": 5,
+            "shotsonFrame": 4,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 1,
+            "passes": 51,
+            "successfulPasses": 38,
+            "crosses": 0,
+            "PassCuts": 10,
+            "successfulTackles": 0,
+            "save": 1
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 47,
+            "shots": 7,
+            "shotsonFrame": 5,
+            "fouls": 1,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 1,
+            "passes": 94,
+            "successfulPasses": 70,
+            "crosses": 0,
+            "PassCuts": 22,
+            "successfulTackles": 1,
+            "save": 2
           }
-        }
+        },
+        "date": "2025-09-15"
       },
       "round25-match6": {
         "home": {
           "teamId": 16,
-          "score": null,
+          "score": 0,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 46,
+            "shots": 2,
+            "shotsonFrame": 2,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 43,
+            "successfulPasses": 33,
+            "crosses": 0,
+            "PassCuts": 9,
+            "successfulTackles": 1,
+            "save": 3
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 42,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 98,
+            "successfulPasses": 75,
+            "crosses": 0,
+            "PassCuts": 19,
+            "successfulTackles": 1,
+            "save": 6
           }
         },
         "away": {
           "teamId": 1,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 6,
+          "assistPlayers": [
+            "ローター マテウス",
+            "",
+            "エリック カントナ",
+            "ルイス スアレス",
+            "ヨハン クライフ",
+            "ローター マテウス"
+          ],
+          "goalPlayers": [
+            "ルート フリット",
+            "クリスティアーノ ロナウド",
+            "クリスティアーノ ロナウド",
+            "クリスティアーノ ロナウド",
+            "ルイス スアレス",
+            "クリスティアーノ ロナウド"
+          ],
+          "times": [
+            10,
+            54,
+            56,
+            67,
+            78,
+            82
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 54,
+            "shots": 4,
+            "shotsonFrame": 4,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 45,
+            "successfulPasses": 32,
+            "crosses": 1,
+            "PassCuts": 10,
+            "successfulTackles": 1,
+            "save": 2
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 58,
+            "shots": 12,
+            "shotsonFrame": 12,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 3,
+            "freeKicks": 0,
+            "passes": 113,
+            "successfulPasses": 86,
+            "crosses": 1,
+            "PassCuts": 23,
+            "successfulTackles": 1,
+            "save": 3
           }
-        }
+        },
+        "date": "2025-09-16"
       },
       "round25-match7": {
         "home": {
           "teamId": 17,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 3,
+          "assistPlayers": [
+            "ルイス スアレス",
+            "ルカ モドリッチ",
+            ""
+          ],
+          "goalPlayers": [
+            "ロナウジーニョ ガウーショ",
+            "ルイス スアレス",
+            "ルイス スアレス"
+          ],
+          "times": [
+            45,
+            52,
+            67
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 55,
+            "shots": 3,
+            "shotsonFrame": 2,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 47,
+            "successfulPasses": 35,
+            "crosses": 1,
+            "PassCuts": 8,
+            "successfulTackles": 0,
+            "save": 1
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 48,
+            "shots": 6,
+            "shotsonFrame": 4,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 89,
+            "successfulPasses": 65,
+            "crosses": 1,
+            "PassCuts": 16,
+            "successfulTackles": 0,
+            "save": 3
           }
         },
         "away": {
           "teamId": 9,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "ビゼンテ リザラズ"
+          ],
+          "goalPlayers": [
+            "ダビド ビジャ"
+          ],
+          "times": [
+            77
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 45,
+            "shots": 2,
+            "shotsonFrame": 1,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 44,
+            "successfulPasses": 33,
+            "crosses": 2,
+            "PassCuts": 7,
+            "successfulTackles": 0,
+            "save": 1
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 52,
+            "shots": 8,
+            "shotsonFrame": 4,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 3,
+            "freeKicks": 0,
+            "passes": 114,
+            "successfulPasses": 93,
+            "crosses": 4,
+            "PassCuts": 16,
+            "successfulTackles": 0,
+            "save": 2
           }
-        }
+        },
+        "date": "2025-09-16"
       },
       "round25-match8": {
         "home": {
@@ -33707,7 +33832,8 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2025-09-17"
       },
       "round26-match0": {
         "home": {
@@ -42533,69 +42659,51 @@
           "teamIds": [
             1
           ],
-          "score": 3,
-          "assistPlayers": [
-            "",
-            "エリック カントナ",
-            ""
-          ],
-          "goalPlayers": [
-            "ルート フリット",
-            "クリスティアーノ ロナウド",
-            "中田 英寿"
-          ],
-          "times": [
-            2,
-            49,
-            71
-          ],
+          "score": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
           "fullTime": {
-            "possession": 61,
-            "shots": 6,
-            "shotsonFrame": 5,
-            "fouls": 0,
-            "offsides": 0,
-            "cornerKicks": 0,
-            "freeKicks": 0,
-            "passes": 151,
-            "successfulPasses": 107,
-            "crosses": 1,
-            "PassCuts": 20,
-            "successfulTackles": 3,
-            "save": 2
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
           }
         },
         "away": {
           "teamIds": [
             4
           ],
-          "score": 1,
-          "assistPlayers": [
-            "アレッサンドロ ネスタ"
-          ],
-          "goalPlayers": [
-            "ギャレス ベイル"
-          ],
-          "times": [
-            68
-          ],
+          "score": null,
+          "assistPlayers": [],
+          "goalPlayers": [],
+          "times": [],
           "fullTime": {
-            "possession": 39,
-            "shots": 7,
-            "shotsonFrame": 3,
-            "fouls": 0,
-            "offsides": 0,
-            "cornerKicks": 1,
-            "freeKicks": 0,
-            "passes": 74,
-            "successfulPasses": 50,
-            "crosses": 3,
-            "PassCuts": 21,
-            "successfulTackles": 5,
-            "save": 3
+            "possession": null,
+            "shots": null,
+            "shotsonFrame": null,
+            "fouls": null,
+            "offsides": null,
+            "cornerKicks": null,
+            "freeKicks": null,
+            "passes": null,
+            "successfulPasses": null,
+            "crosses": null,
+            "PassCuts": null,
+            "successfulTackles": null,
+            "save": null
           }
         },
-        "date": "2025-09-16"
+        "date": "2025-09-14"
       },
       "round1-match0": {
         "home": {
