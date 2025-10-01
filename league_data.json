@@ -34806,76 +34806,76 @@
       "round27-match1": {
         "home": {
           "teamId": 10,
-          "score": null,
+          "score": 0,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 43,
+            "shots": 1,
+            "shotsonFrame": 1,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 39,
+            "successfulPasses": 26,
+            "crosses": 0,
+            "PassCuts": 13,
+            "successfulTackles": 2,
+            "save": 0
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 43,
+            "shots": 3,
+            "shotsonFrame": 2,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 74,
+            "successfulPasses": 48,
+            "crosses": 1,
+            "PassCuts": 23,
+            "successfulTackles": 3,
+            "save": 2
           }
         },
         "away": {
           "teamId": 8,
-          "score": null,
+          "score": 0,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 56,
+            "shots": 0,
+            "shotsonFrame": 0,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 54,
+            "successfulPasses": 35,
+            "crosses": 1,
+            "PassCuts": 11,
+            "successfulTackles": 1,
+            "save": 1
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 57,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 110,
+            "successfulPasses": 78,
+            "crosses": 2,
+            "PassCuts": 19,
+            "successfulTackles": 5,
+            "save": 3
           }
         },
         "date": "2025-09-30"
@@ -35225,7 +35225,7 @@
             "save": null
           }
         },
-        "date": "2025-09-30"
+        "date": "2025-10-04"
       },
       "round27-match6": {
         "home": {
@@ -35402,10 +35402,16 @@
       "round27-match8": {
         "home": {
           "teamId": 16,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            ""
+          ],
+          "goalPlayers": [
+            "オウンゴール"
+          ],
+          "times": [
+            60
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -35422,27 +35428,45 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 41,
+            "shots": 2,
+            "shotsonFrame": 1,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 108,
+            "successfulPasses": 82,
+            "crosses": 1,
+            "PassCuts": 9,
+            "successfulTackles": 4,
+            "save": 2
           }
         },
         "away": {
           "teamId": 17,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 5,
+          "assistPlayers": [
+            "カフー",
+            "リオネル メッシ",
+            "カフー",
+            "ヴィティーニャ",
+            ""
+          ],
+          "goalPlayers": [
+            "キリアン エムバペ",
+            "クリスティアーノ ロナウド",
+            "リオネル メッシ",
+            "キリアン エムバペ",
+            ""
+          ],
+          "times": [
+            10,
+            50,
+            57,
+            85,
+            null
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -35459,19 +35483,19 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 59,
+            "shots": 11,
+            "shotsonFrame": 10,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 129,
+            "successfulPasses": 114,
+            "crosses": 3,
+            "PassCuts": 21,
+            "successfulTackles": 3,
+            "save": 1
           }
         },
         "date": "2025-09-29"
