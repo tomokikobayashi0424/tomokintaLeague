@@ -35984,7 +35984,7 @@
       "round28-match5": {
         "home": {
           "teamId": 12,
-          "score": null,
+          "score": 0,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
@@ -36004,24 +36004,24 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 44,
+            "shots": 1,
+            "shotsonFrame": 0,
+            "fouls": 1,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 2,
+            "passes": 71,
+            "successfulPasses": 45,
+            "crosses": 3,
+            "PassCuts": 14,
+            "successfulTackles": 8,
+            "save": 1
           }
         },
         "away": {
           "teamId": 11,
-          "score": null,
+          "score": 0,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
@@ -36041,19 +36041,19 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 56,
+            "shots": 2,
+            "shotsonFrame": 1,
+            "fouls": 2,
+            "offsides": 2,
+            "cornerKicks": 0,
+            "freeKicks": 1,
+            "passes": 69,
+            "successfulPasses": 49,
+            "crosses": 0,
+            "PassCuts": 19,
+            "successfulTackles": 6,
+            "save": 0
           }
         },
         "date": "2025-10-07"
