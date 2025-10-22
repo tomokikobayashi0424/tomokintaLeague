@@ -37691,7 +37691,7 @@
       "round30-match5": {
         "home": {
           "teamId": 7,
-          "score": null,
+          "score": 0,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
@@ -37728,10 +37728,19 @@
         },
         "away": {
           "teamId": 17,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "パトリック ヴィエラ",
+            "ネイマール"
+          ],
+          "goalPlayers": [
+            "キリアン エムバペ",
+            "ルイス スアレス"
+          ],
+          "times": [
+            14,
+            55
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -37763,7 +37772,7 @@
             "save": null
           }
         },
-        "date": "2025-10-22"
+        "date": "2025-10-19"
       },
       "round30-match6": {
         "home": {
@@ -37869,10 +37878,19 @@
       "round30-match7": {
         "home": {
           "teamId": 12,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "ラミネ ヤマル",
+            "ウスマヌ デンベレ"
+          ],
+          "goalPlayers": [
+            "ジュード ベリンガム",
+            "ジュード ベリンガム"
+          ],
+          "times": [
+            40,
+            82
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -37889,24 +37907,24 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 50,
+            "shots": 8,
+            "shotsonFrame": 5,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 90,
+            "successfulPasses": 64,
+            "crosses": 1,
+            "PassCuts": 21,
+            "successfulTackles": 10,
+            "save": 2
           }
         },
         "away": {
           "teamId": 15,
-          "score": null,
+          "score": 0,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
@@ -37926,19 +37944,19 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 50,
+            "shots": 3,
+            "shotsonFrame": 2,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 107,
+            "successfulPasses": 82,
+            "crosses": 1,
+            "PassCuts": 21,
+            "successfulTackles": 5,
+            "save": 2
           }
         },
         "date": "2025-10-22"
