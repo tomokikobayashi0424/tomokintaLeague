@@ -43833,11 +43833,20 @@
           "teamIds": [
             4
           ],
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "pk": 0,
+          "assistPlayers": [
+            "",
+            ""
+          ],
+          "goalPlayers": [
+            "",
+            ""
+          ],
+          "times": [
+            null,
+            null
+          ],
           "fullTime": {
             "possession": null,
             "shots": null,
@@ -43858,11 +43867,35 @@
           "teamIds": [
             1
           ],
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 7,
+          "pk": 1,
+          "assistPlayers": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "goalPlayers": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "times": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
           "fullTime": {
             "possession": null,
             "shots": null,
@@ -43879,7 +43912,7 @@
             "save": null
           }
         },
-        "date": "2025-09-21"
+        "date": "2025-10-23"
       }
     }
   },
