@@ -12224,11 +12224,11 @@
         },
         {
           "Rank": 16,
-          "teamId": 10
+          "teamId": 18
         },
         {
           "Rank": 17,
-          "teamId": 18
+          "teamId": 10
         },
         {
           "Rank": 18,
@@ -38229,78 +38229,97 @@
       "round31-match2": {
         "home": {
           "teamId": 0,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "アンドリュー シェフチェンコ",
+            "ルイス フィーゴ"
+          ],
+          "goalPlayers": [
+            "モハメド サラー",
+            "ルイス スアレス"
+          ],
+          "times": [
+            16,
+            63
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 41,
+            "shots": 4,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 2,
+            "passes": 37,
+            "successfulPasses": 25,
+            "crosses": 3,
+            "PassCuts": 7,
+            "successfulTackles": 5,
+            "save": 1
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 42,
+            "shots": 7,
+            "shotsonFrame": 5,
+            "fouls": 2,
+            "offsides": 1,
+            "cornerKicks": 1,
+            "freeKicks": 3,
+            "passes": 78,
+            "successfulPasses": 51,
+            "crosses": 5,
+            "PassCuts": 15,
+            "successfulTackles": 11,
+            "save": 1
           }
         },
         "away": {
           "teamId": 11,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "ラミネ ヤマル",
+            ""
+          ],
+          "goalPlayers": [
+            "ギャレス ベイル",
+            "ネイマール"
+          ],
+          "times": [
+            18,
+            45
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 59,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 2,
+            "offsides": 2,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 53,
+            "successfulPasses": 42,
+            "crosses": 2,
+            "PassCuts": 7,
+            "successfulTackles": 1,
+            "save": 2
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 58,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 3,
+            "offsides": 3,
+            "cornerKicks": 0,
+            "freeKicks": 2,
+            "passes": 100,
+            "successfulPasses": 78,
+            "crosses": 2,
+            "PassCuts": 17,
+            "successfulTackles": 1,
+            "save": 3
           }
-        }
+        },
+        "date": "2025-10-26"
       },
       "round31-match3": {
         "home": {
@@ -38685,10 +38704,22 @@
       "round31-match8": {
         "home": {
           "teamId": 12,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 3,
+          "assistPlayers": [
+            "リオネル メッシ",
+            "ラミネ ヤマル",
+            "エデン アザール"
+          ],
+          "goalPlayers": [
+            "アンドレス イニエスタ",
+            "フェルナンド モリエンテス",
+            "フェルナンド モリエンテス"
+          ],
+          "times": [
+            4,
+            70,
+            88
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -38705,27 +38736,39 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 50,
+            "shots": 4,
+            "shotsonFrame": 3,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 0,
+            "freeKicks": 1,
+            "passes": 99,
+            "successfulPasses": 80,
+            "crosses": 1,
+            "PassCuts": 16,
+            "successfulTackles": 4,
+            "save": 3
           }
         },
         "away": {
           "teamId": 13,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 3,
+          "assistPlayers": [
+            "",
+            "",
+            "ギャレス ベイル"
+          ],
+          "goalPlayers": [
+            "ルイス スアレス",
+            "ミシェル プラティニ",
+            "ミシェル プラティニ"
+          ],
+          "times": [
+            27,
+            64,
+            83
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -38742,21 +38785,22 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 50,
+            "shots": 10,
+            "shotsonFrame": 8,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 4,
+            "freeKicks": 1,
+            "passes": 95,
+            "successfulPasses": 76,
+            "crosses": 2,
+            "PassCuts": 16,
+            "successfulTackles": 2,
+            "save": 0
           }
-        }
+        },
+        "date": "2025-10-26"
       },
       "round32-match0": {
         "home": {
