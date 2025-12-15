@@ -170,6 +170,15 @@
       "teamsSubColor": "000000",
       "teamsTextColor": "ffffff",
       "teamsBgColor": "c8c8c8"
+    },
+    {
+      "teamId": 19,
+      "teams": "Fahigano Okayama",
+      "teamsSub": "FAH",
+      "teamsColor": "ab2a44",
+      "teamsSubColor": "262b6a",
+      "teamsTextColor": "ffffff",
+      "teamsBgColor": "ffffff"
     }
   ],
   "matchDataL": {
