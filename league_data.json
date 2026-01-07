@@ -44711,48 +44711,66 @@
       "round1-match3": {
         "home": {
           "teamId": 15,
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "pk": 2,
+          "assistPlayers": [
+            "キリアン エムバペ",
+            "キリアン エムバペ"
+          ],
+          "goalPlayers": [
+            "マーカス ラッシュフォード",
+            "フェルナンド トーレス"
+          ],
+          "times": [
+            22,
+            68
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 64,
+            "shots": 6,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 3,
+            "passes": 189,
+            "successfulPasses": 146,
+            "crosses": 2,
+            "PassCuts": 24,
+            "successfulTackles": 4,
+            "save": 1
           }
         },
         "away": {
           "teamId": 4,
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "pk": 4,
+          "assistPlayers": [
+            "ウリ へーネス",
+            "ギャレス ベイル"
+          ],
+          "goalPlayers": [
+            "ウスマヌ デンベレ",
+            "ウリ へーネス"
+          ],
+          "times": [
+            73,
+            90
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 36,
+            "shots": 7,
+            "shotsonFrame": 3,
+            "fouls": 3,
+            "offsides": 1,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 90,
+            "successfulPasses": 54,
+            "crosses": 5,
+            "PassCuts": 28,
+            "successfulTackles": 5,
+            "save": 1
           }
         },
         "date": "2026-01-06"
@@ -44865,7 +44883,7 @@
             "save": null
           }
         },
-        "date": "2026-01-06"
+        "date": "2026-01-07"
       },
       "round1-match6": {
         "home": {
@@ -45068,7 +45086,7 @@
           }
         },
         "away": {
-          "teamId": null,
+          "teamId": 4,
           "score": null,
           "pk": null,
           "assistPlayers": [],
