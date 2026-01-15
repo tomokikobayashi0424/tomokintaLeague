@@ -44839,51 +44839,72 @@
       "round1-match5": {
         "home": {
           "teamId": 2,
-          "score": null,
+          "score": 4,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            "ルート フリット",
+            "パヴェル ネドヴェド",
+            "ギャレス ベイル",
+            "クリスティアーノ ロナウド"
+          ],
+          "goalPlayers": [
+            "カール ハインツ ルンメニゲ",
+            "カール ハインツ ルンメニゲ",
+            "クリスティアーノ ロナウド",
+            "ルート フリット"
+          ],
+          "times": [
+            17,
+            41,
+            54,
+            71
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 49,
+            "shots": 8,
+            "shotsonFrame": 6,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 1,
+            "passes": 111,
+            "successfulPasses": 86,
+            "crosses": 1,
+            "PassCuts": 17,
+            "successfulTackles": 13,
+            "save": 2
           }
         },
         "away": {
           "teamId": 11,
-          "score": null,
+          "score": 1,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            "リオネル メッシ"
+          ],
+          "goalPlayers": [
+            "エデン アザール"
+          ],
+          "times": [
+            81
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 51,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 1,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 76,
+            "successfulPasses": 56,
+            "crosses": 1,
+            "PassCuts": 21,
+            "successfulTackles": 3,
+            "save": 2
           }
         },
-        "date": "2026-01-07"
+        "date": "2026-01-14"
       },
       "round1-match6": {
         "home": {
@@ -45016,50 +45037,66 @@
       "round2-match0": {
         "home": {
           "teamId": 1,
-          "score": null,
+          "score": 2,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            "",
+            "ローター マテウス"
+          ],
+          "goalPlayers": [
+            "ルート フリット",
+            "ルート フリット"
+          ],
+          "times": [
+            9,
+            14
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 37,
+            "shots": 7,
+            "shotsonFrame": 4,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 76,
+            "successfulPasses": 57,
+            "crosses": 2,
+            "PassCuts": 11,
+            "successfulTackles": 2,
+            "save": 3
           }
         },
         "away": {
           "teamId": 9,
-          "score": null,
+          "score": 1,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            "フランク リベリ"
+          ],
+          "goalPlayers": [
+            "アレッサンドロ デル ピエーロ"
+          ],
+          "times": [
+            41
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 63,
+            "shots": 5,
+            "shotsonFrame": 5,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 1,
+            "passes": 143,
+            "successfulPasses": 123,
+            "crosses": 4,
+            "PassCuts": 15,
+            "successfulTackles": 1,
+            "save": 2
           }
-        }
+        },
+        "date": "2026-01-13"
       },
       "round2-match1": {
         "home": {
@@ -45107,7 +45144,8 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2026-01-15"
       },
       "round2-match2": {
         "home": {
@@ -45134,7 +45172,7 @@
           }
         },
         "away": {
-          "teamId": null,
+          "teamId": 2,
           "score": null,
           "pk": null,
           "assistPlayers": [],
@@ -45155,7 +45193,8 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2026-01-18"
       },
       "round2-match3": {
         "home": {
@@ -45203,11 +45242,12 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2026-01-17"
       },
       "round3-match0": {
         "home": {
-          "teamId": null,
+          "teamId": 1,
           "score": null,
           "pk": null,
           "assistPlayers": [],
