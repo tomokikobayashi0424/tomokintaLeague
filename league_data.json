@@ -45101,48 +45101,63 @@
       "round2-match1": {
         "home": {
           "teamId": 7,
-          "score": null,
+          "score": 1,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            ""
+          ],
+          "goalPlayers": [
+            ""
+          ],
+          "times": [
+            null
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 65,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 123,
+            "successfulPasses": 95,
+            "crosses": 0,
+            "PassCuts": 17,
+            "successfulTackles": 2,
+            "save": 3
           }
         },
         "away": {
           "teamId": 4,
-          "score": null,
+          "score": 2,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            "",
+            ""
+          ],
+          "goalPlayers": [
+            "",
+            ""
+          ],
+          "times": [
+            null,
+            null
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 35,
+            "shots": 7,
+            "shotsonFrame": 5,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 64,
+            "successfulPasses": 38,
+            "crosses": 2,
+            "PassCuts": 21,
+            "successfulTackles": 11,
+            "save": 1
           }
         },
         "date": "2026-01-15"
@@ -45150,48 +45165,60 @@
       "round2-match2": {
         "home": {
           "teamId": 13,
-          "score": null,
+          "score": 3,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            "スティーヴン ジェラード",
+            "ジュード ベリンガム",
+            "ジーコ"
+          ],
+          "goalPlayers": [
+            "ジョージ ベスト",
+            "ルート フリット",
+            "エデン アザール"
+          ],
+          "times": [
+            5,
+            77,
+            90
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 61,
+            "shots": 5,
+            "shotsonFrame": 5,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 1,
+            "passes": 105,
+            "successfulPasses": 81,
+            "crosses": 1,
+            "PassCuts": 19,
+            "successfulTackles": 2,
+            "save": 5
           }
         },
         "away": {
           "teamId": 2,
-          "score": null,
+          "score": 0,
           "pk": null,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 39,
+            "shots": 8,
+            "shotsonFrame": 5,
+            "fouls": 2,
+            "offsides": 0,
+            "cornerKicks": 3,
+            "freeKicks": 0,
+            "passes": 95,
+            "successfulPasses": 69,
+            "crosses": 2,
+            "PassCuts": 18,
+            "successfulTackles": 6,
+            "save": 1
           }
         },
         "date": "2026-01-18"
@@ -45199,53 +45226,296 @@
       "round2-match3": {
         "home": {
           "teamId": 16,
-          "score": null,
+          "score": 2,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            "",
+            ""
+          ],
+          "goalPlayers": [
+            "",
+            ""
+          ],
+          "times": [
+            null,
+            null
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 34,
+            "shots": 5,
+            "shotsonFrame": 5,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 77,
+            "successfulPasses": 59,
+            "crosses": 0,
+            "PassCuts": 18,
+            "successfulTackles": 2,
+            "save": 0
           }
         },
         "away": {
           "teamId": 17,
-          "score": null,
+          "score": 6,
           "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "assistPlayers": [
+            "ギャレス ベイル",
+            "ジョージ ベスト",
+            "ジョージ ベスト",
+            "クリスティアーノ ロナウド",
+            "クリスティアーノ ロナウド",
+            "アンドレス イニエスタ"
+          ],
+          "goalPlayers": [
+            "ロナウジーニョ ガウーショ",
+            "クリスティアーノ ロナウド",
+            "クリスティアーノ ロナウド",
+            "ロベルト カルロス",
+            "久保 建英",
+            "クリスティアーノ ロナウド"
+          ],
+          "times": [
+            11,
+            81,
+            83,
+            87,
+            90,
+            90
+          ],
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 66,
+            "shots": 8,
+            "shotsonFrame": 7,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 133,
+            "successfulPasses": 108,
+            "crosses": 3,
+            "PassCuts": 15,
+            "successfulTackles": 3,
+            "save": 3
           }
         },
         "date": "2026-01-17"
       },
       "round3-match0": {
+        "home": {
+          "teamId": 1,
+          "score": 2,
+          "pk": null,
+          "assistPlayers": [
+            "",
+            ""
+          ],
+          "goalPlayers": [
+            "",
+            ""
+          ],
+          "times": [
+            null,
+            null
+          ],
+          "fullTime": {
+            "possession": 66,
+            "shots": 9,
+            "shotsonFrame": 7,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 193,
+            "successfulPasses": 155,
+            "crosses": 5,
+            "PassCuts": 23,
+            "successfulTackles": 7,
+            "save": 3
+          }
+        },
+        "away": {
+          "teamId": 4,
+          "score": 3,
+          "pk": null,
+          "assistPlayers": [
+            "",
+            "",
+            ""
+          ],
+          "goalPlayers": [
+            "",
+            "",
+            ""
+          ],
+          "times": [
+            null,
+            null,
+            null
+          ],
+          "fullTime": {
+            "possession": 34,
+            "shots": 6,
+            "shotsonFrame": 6,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 2,
+            "freeKicks": 1,
+            "passes": 85,
+            "successfulPasses": 56,
+            "crosses": 2,
+            "PassCuts": 23,
+            "successfulTackles": 11,
+            "save": 4
+          }
+        },
+        "date": "2026-01-21"
+      },
+      "round3-match1": {
+        "home": {
+          "teamId": 13,
+          "score": 4,
+          "pk": null,
+          "assistPlayers": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "goalPlayers": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "times": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fullTime": {
+            "possession": 44,
+            "shots": 6,
+            "shotsonFrame": 5,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 0,
+            "passes": 71,
+            "successfulPasses": 56,
+            "crosses": 1,
+            "PassCuts": 13,
+            "successfulTackles": 4,
+            "save": 2
+          }
+        },
+        "away": {
+          "teamId": 17,
+          "score": 1,
+          "pk": null,
+          "assistPlayers": [
+            ""
+          ],
+          "goalPlayers": [
+            ""
+          ],
+          "times": [
+            null
+          ],
+          "fullTime": {
+            "possession": 56,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 111,
+            "successfulPasses": 90,
+            "crosses": 1,
+            "PassCuts": 12,
+            "successfulTackles": 2,
+            "save": 1
+          }
+        },
+        "date": "2026-01-21"
+      },
+      "round4-match0": {
+        "home": {
+          "teamId": 4,
+          "score": 4,
+          "pk": null,
+          "assistPlayers": [
+            "ルート フリット",
+            "ルート フリット",
+            "ウリ へーネス",
+            "ウリ へーネス"
+          ],
+          "goalPlayers": [
+            "ジョージ ベスト",
+            "ルイス スアレス",
+            "ギャレス ベイル",
+            "ルイス スアレス"
+          ],
+          "times": [
+            27,
+            41,
+            51,
+            65
+          ],
+          "fullTime": {
+            "possession": 38,
+            "shots": 8,
+            "shotsonFrame": 6,
+            "fouls": 2,
+            "offsides": 0,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 64,
+            "successfulPasses": 42,
+            "crosses": 3,
+            "PassCuts": 21,
+            "successfulTackles": 4,
+            "save": 1
+          }
+        },
+        "away": {
+          "teamId": 13,
+          "score": 2,
+          "pk": null,
+          "assistPlayers": [
+            "ルート フリット",
+            ""
+          ],
+          "goalPlayers": [
+            "ウスマヌ デンベレ",
+            "ロベルト カルロス"
+          ],
+          "times": [
+            7,
+            90
+          ],
+          "fullTime": {
+            "possession": 62,
+            "shots": 3,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 1,
+            "passes": 146,
+            "successfulPasses": 119,
+            "crosses": 0,
+            "PassCuts": 17,
+            "successfulTackles": 3,
+            "save": 2
+          }
+        },
+        "date": "2026-01-21"
+      },
+      "round4-match1": {
         "home": {
           "teamId": 1,
           "score": null,
@@ -45270,151 +45540,7 @@
           }
         },
         "away": {
-          "teamId": null,
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        }
-      },
-      "round3-match1": {
-        "home": {
-          "teamId": null,
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        },
-        "away": {
-          "teamId": null,
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        }
-      },
-      "round4-match0": {
-        "home": {
-          "teamId": null,
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        },
-        "away": {
-          "teamId": null,
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        }
-      },
-      "round4-match1": {
-        "home": {
-          "teamId": null,
-          "score": null,
-          "pk": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
-          "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
-          }
-        },
-        "away": {
-          "teamId": null,
+          "teamId": 17,
           "score": null,
           "pk": null,
           "assistPlayers": [],
