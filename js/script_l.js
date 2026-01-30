@@ -39,41 +39,114 @@ function updateAllDisplayData() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // 日程表を表示する関数
 function displaySchedule(schedule = null) {
-    if (!matchDataL[currentSeason]) return;
-    let startDateStr = matchDataL[currentSeason].newDate;
+    // if (!matchDataL[currentSeason]) return;
+    // let startDateStr = matchDataL[currentSeason].newDate;
+    // let startDate = new Date(startDateStr);
+    // if (!schedule) {
+    //     schedule = [];
+    //     let totalMatches = Object.keys(matchDataL[currentSeason]).length - 3;
+    //     let numRounds = totalMatches / (matchDataL[currentSeason].teamsNum / 2);
+    //     for (let round = 0; round < numRounds; round++) {
+    //         let roundMatches = [];
+    //         let roundStartDate = new Date(startDate);
+    //         roundStartDate.setDate(startDate.getDate() + round * 7);
+    //         for (let match = 0; match < matchDataL[currentSeason].teamsNum / 2; match++) {
+    //             let matchKey = `round${round}-match${match}`;
+    //             let matchDataLEntry = matchDataL[currentSeason][matchKey];
+    //             // if (!matchDataLEntry) {
+    //             //     console.warn(`試合データが見つかりません: ${matchKey}`);
+    //             //     continue;
+    //             // }  
+
+    //             let homeTeam = teamsData.find(team => team.teamId === matchDataLEntry.home.teamId); 
+    //             let awayTeam = teamsData.find(team => team.teamId === matchDataLEntry.away.teamId);
+                
+    //             let matchDate = matchDataLEntry?.date || roundStartDate.toISOString().split('T')[0];
+
+    //             roundMatches.push({ 
+    //                 home: getTeamNameByScreenSize(homeTeam), 
+    //                 away: getTeamNameByScreenSize(awayTeam),
+    //                 date: matchDate,
+    //                 homeTeam,
+    //                 awayTeam,
+    //                 homeScore: matchDataLEntry.home.score != null ? matchDataLEntry.home.score : '',
+    //                 awayScore: matchDataLEntry.away.score != null ? matchDataLEntry.away.score : ''
+    //             });
+    //         }
+    //         schedule.push(roundMatches);
+    //     }
+    // }
+        if (!matchDataL[currentSeason]) return;
+    let startDateStr = matchDataL[currentSeason].newDate; //  || "2024-10-13"; // デフォルト値を設定
     let startDate = new Date(startDateStr);
     if (!schedule) {
         schedule = [];
-        let totalMatches = Object.keys(matchDataL[currentSeason]).length - 3;
-        let numRounds = totalMatches / (matchDataL[currentSeason].teamsNum / 2);
-        for (let round = 0; round < numRounds; round++) {
-            let roundMatches = [];
-            let roundStartDate = new Date(startDate);
-            roundStartDate.setDate(startDate.getDate() + round * 7);
-            for (let match = 0; match < matchDataL[currentSeason].teamsNum / 2; match++) {
-                let matchKey = `round${round}-match${match}`;
-                let matchDataLEntry = matchDataL[currentSeason][matchKey];
-                // if (!matchDataLEntry) {
-                //     console.warn(`試合データが見つかりません: ${matchKey}`);
-                //     continue;
-                // }  
 
-                let homeTeam = teamsData.find(team => team.teamId === matchDataLEntry.home.teamId); 
-                let awayTeam = teamsData.find(team => team.teamId === matchDataLEntry.away.teamId);
-                
-                let matchDate = matchDataLEntry?.date || roundStartDate.toISOString().split('T')[0];
+        // matchDataL[currentSeason] のキーから roundX-matchY のみを抽出してラウンドごとにグループ化する
+        const allKeys = Object.keys(matchDataL[currentSeason] || {});
+        const matchKeys = allKeys.filter(k => /^round\d+-match\d+$/.test(k));
 
-                roundMatches.push({ 
-                    home: getTeamNameByScreenSize(homeTeam), 
-                    away: getTeamNameByScreenSize(awayTeam),
-                    date: matchDate,
-                    homeTeam,
-                    awayTeam,
-                    homeScore: matchDataLEntry.home.score != null ? matchDataLEntry.home.score : '',
-                    awayScore: matchDataLEntry.away.score != null ? matchDataLEntry.away.score : ''
-                });
+        if (matchKeys.length === 0) {
+            // 試合データがない場合は空スケジュール
+            schedule = [];
+        } else {
+            const roundsMap = {};
+            let maxRound = -1;
+            matchKeys.forEach(k => {
+                const m = k.match(/^round(\d+)-match(\d+)$/);
+                if (m) {
+                    const r = parseInt(m[1], 10);
+                    const mi = parseInt(m[2], 10);
+                    if (!roundsMap[r]) roundsMap[r] = [];
+                    roundsMap[r].push({ key: k, matchIndex: mi });
+                    if (r > maxRound) maxRound = r;
+                }
+            });
+
+            for (let round = 0; round <= maxRound; round++) {
+                let roundMatches = [];
+                let roundStartDate = new Date(startDate);
+                roundStartDate.setDate(startDate.getDate() + round * 7); // 各節の開始日を計算
+
+                const matches = (roundsMap[round] || []).sort((a, b) => a.matchIndex - b.matchIndex);
+                for (let mi = 0; mi < matches.length; mi++) {
+                    const matchKey = matches[mi].key;
+                    const matchDataLEntry = matchDataL[currentSeason][matchKey];
+
+                    if (!matchDataLEntry) {
+                        // 安全策: エントリがない場合は休み扱いのプレースホルダ
+                        roundMatches.push({
+                            home: '休み',
+                            away: '休み',
+                            homeTeam: null,
+                            awayTeam: null,
+                            date: roundStartDate.toISOString().split('T')[0],
+                            isBye: true,
+                            byeTeam: null
+                        });
+                        continue;
+                    }
+
+                    const homeTeam = (matchDataLEntry.home && matchDataLEntry.home.teamId != null) ? teamsData.find(team => team.teamId === matchDataLEntry.home.teamId) : null;
+                    const awayTeam = (matchDataLEntry.away && matchDataLEntry.away.teamId != null) ? teamsData.find(team => team.teamId === matchDataLEntry.away.teamId) : null;
+                    const matchDate = matchDataLEntry?.date || roundStartDate.toISOString().split('T')[0];
+
+                    const isBye = !homeTeam || !awayTeam;
+                    const byeTeam = isBye ? (homeTeam || awayTeam) : null;
+
+                    roundMatches.push({
+                        home: homeTeam ? getTeamNameByScreenSize(homeTeam) : '休み',
+                        away: awayTeam ? getTeamNameByScreenSize(awayTeam) : '休み',
+                        homeTeam,
+                        awayTeam,
+                        date: matchDate,
+                        isBye,
+                        byeTeam
+                    });
+                }
+
+                schedule.push(roundMatches);
             }
-            schedule.push(roundMatches);
         }
     }
 
