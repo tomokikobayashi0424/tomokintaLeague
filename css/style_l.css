@@ -24,6 +24,7 @@ bodyのスタイル
 }
 /* 日程もくじ */
 .round-overview{
+    margin-top: 10px;
     margin-bottom: 20px;
 }
 /* 日程もくじの表 */

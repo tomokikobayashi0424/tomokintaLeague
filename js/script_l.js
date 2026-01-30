@@ -39,46 +39,18 @@ function updateAllDisplayData() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // 日程表を表示する関数
 function displaySchedule(schedule = null) {
-    // if (!matchDataL[currentSeason]) return;
-    // let startDateStr = matchDataL[currentSeason].newDate;
-    // let startDate = new Date(startDateStr);
-    // if (!schedule) {
-    //     schedule = [];
-    //     let totalMatches = Object.keys(matchDataL[currentSeason]).length - 3;
-    //     let numRounds = totalMatches / (matchDataL[currentSeason].teamsNum / 2);
-    //     for (let round = 0; round < numRounds; round++) {
-    //         let roundMatches = [];
-    //         let roundStartDate = new Date(startDate);
-    //         roundStartDate.setDate(startDate.getDate() + round * 7);
-    //         for (let match = 0; match < matchDataL[currentSeason].teamsNum / 2; match++) {
-    //             let matchKey = `round${round}-match${match}`;
-    //             let matchDataLEntry = matchDataL[currentSeason][matchKey];
-    //             // if (!matchDataLEntry) {
-    //             //     console.warn(`試合データが見つかりません: ${matchKey}`);
-    //             //     continue;
-    //             // }  
-
-    //             let homeTeam = teamsData.find(team => team.teamId === matchDataLEntry.home.teamId); 
-    //             let awayTeam = teamsData.find(team => team.teamId === matchDataLEntry.away.teamId);
-                
-    //             let matchDate = matchDataLEntry?.date || roundStartDate.toISOString().split('T')[0];
-
-    //             roundMatches.push({ 
-    //                 home: getTeamNameByScreenSize(homeTeam), 
-    //                 away: getTeamNameByScreenSize(awayTeam),
-    //                 date: matchDate,
-    //                 homeTeam,
-    //                 awayTeam,
-    //                 homeScore: matchDataLEntry.home.score != null ? matchDataLEntry.home.score : '',
-    //                 awayScore: matchDataLEntry.away.score != null ? matchDataLEntry.away.score : ''
-    //             });
-    //         }
-    //         schedule.push(roundMatches);
-    //     }
-    // }
-        if (!matchDataL[currentSeason]) return;
-    let startDateStr = matchDataL[currentSeason].newDate; //  || "2024-10-13"; // デフォルト値を設定
+    if (!matchDataL[currentSeason]) return;
+    let startDateStr = matchDataL[currentSeason].newDate;
     let startDate = new Date(startDateStr);
+
+
+
+
+
+
+
+
+
     if (!schedule) {
         schedule = [];
 
@@ -87,7 +59,6 @@ function displaySchedule(schedule = null) {
         const matchKeys = allKeys.filter(k => /^round\d+-match\d+$/.test(k));
 
         if (matchKeys.length === 0) {
-            // 試合データがない場合は空スケジュール
             schedule = [];
         } else {
             const roundsMap = {};
@@ -106,7 +77,7 @@ function displaySchedule(schedule = null) {
             for (let round = 0; round <= maxRound; round++) {
                 let roundMatches = [];
                 let roundStartDate = new Date(startDate);
-                roundStartDate.setDate(startDate.getDate() + round * 7); // 各節の開始日を計算
+                roundStartDate.setDate(startDate.getDate() + round * 7);
 
                 const matches = (roundsMap[round] || []).sort((a, b) => a.matchIndex - b.matchIndex);
                 for (let mi = 0; mi < matches.length; mi++) {
@@ -114,7 +85,6 @@ function displaySchedule(schedule = null) {
                     const matchDataLEntry = matchDataL[currentSeason][matchKey];
 
                     if (!matchDataLEntry) {
-                        // 安全策: エントリがない場合は休み扱いのプレースホルダ
                         roundMatches.push({
                             home: '休み',
                             away: '休み',
@@ -122,7 +92,9 @@ function displaySchedule(schedule = null) {
                             awayTeam: null,
                             date: roundStartDate.toISOString().split('T')[0],
                             isBye: true,
-                            byeTeam: null
+                            byeTeam: null,
+                            homeScore: '',
+                            awayScore: ''
                         });
                         continue;
                     }
@@ -137,14 +109,15 @@ function displaySchedule(schedule = null) {
                     roundMatches.push({
                         home: homeTeam ? getTeamNameByScreenSize(homeTeam) : '休み',
                         away: awayTeam ? getTeamNameByScreenSize(awayTeam) : '休み',
+                        date: matchDate,
                         homeTeam,
                         awayTeam,
-                        date: matchDate,
                         isBye,
-                        byeTeam
+                        byeTeam,
+                        homeScore: matchDataLEntry.home.score != null ? matchDataLEntry.home.score : '',
+                        awayScore: matchDataLEntry.away.score != null ? matchDataLEntry.away.score : ''
                     });
                 }
-
                 schedule.push(roundMatches);
             }
         }
@@ -167,21 +140,34 @@ function displaySchedule(schedule = null) {
             </div>
             <div class="round-overview">`;
             matches.forEach((match, index) => {
-                scheduleHTML += `
-                    <div class="match-date-row">
-                        ${match.date}
-                    </div>
-                    <table class="round-overview-table">
-                        <tr class="match-row" onclick="scrollToMatch('goalDetailsTable${i}-${index}')">
-                            <td>${match.homeTeam.teams}</td>
-                            <td><img src="Pictures/Team${match.homeTeam.teamId}.jpg" alt="${match.home}" class="schedule-team-logo"></td>
-                            <td><span>${match.homeScore}</span></td>
-                            <td>-</td>
-                            <td><span>${match.awayScore}</span></td>
-                            <td><img src="Pictures/Team${match.awayTeam.teamId}.jpg" alt="${match.away}" class="schedule-team-logo"></td>
-                            <td>${match.awayTeam.teams}</td>
-                        </tr>
-                    </table>`;
+                if (match.isBye) {
+                    let byeName = match.byeTeam ? (match.byeTeam.teams || getTeamNameByScreenSize(match.byeTeam)) : '休み';
+                    scheduleHTML += `
+                        <table class="round-overview-table">
+                            <tr class="match-row">`;
+                    scheduleHTML += `
+                                <td>休み: ${byeName}</td>
+                                <td><img src="Pictures/Team${match.byeTeam.teamId}.jpg" alt="${byeName}" class="schedule-team-logo"></td>
+                                <td></td>
+                            </tr>
+                        </table>`;
+                } else {
+                    scheduleHTML += `
+                        <div class="match-date-row">
+                            ${match.date}
+                        </div>
+                        <table class="round-overview-table">
+                            <tr class="match-row" onclick="scrollToMatch('goalDetailsTable${i}-${index}')">
+                                <td>${match.homeTeam.teams}</td>
+                                <td><img src="Pictures/Team${match.homeTeam.teamId}.jpg" alt="${match.home}" class="schedule-team-logo"></td>
+                                <td><span>${match.homeScore}</span></td>
+                                <td>-</td>
+                                <td><span>${match.awayScore}</span></td>
+                                <td><img src="Pictures/Team${match.awayTeam.teamId}.jpg" alt="${match.away}" class="schedule-team-logo"></td>
+                                <td>${match.awayTeam.teams}</td>
+                            </tr>
+                        </table>`;
+                }
             });
         scheduleHTML += `
         </div>`;
@@ -190,27 +176,37 @@ function displaySchedule(schedule = null) {
 
 
         matches.forEach((matchEntry, index) => {
-            scheduleHTML += `
-                <div class="match-container">
-                    <table id="goalDetailsTable${i}-${index}" class="match-table">
-                        <thead>
-                            <tr>
-                                <td colspan="5"><input type="date" id="matchDate${i}-${index}" value="${matchEntry.date}" readonly></td>
-                            </tr>
-                            <tr>
-                                <th id="homeTeam${i}-${index}">${matchEntry.home}</th>
-                                <th><input type="number" id="homeScore${i}-${index}" min="0" value="${matchEntry.homeScore}" readonly></th>
-                                <th> - </th>
-                                <th><input type="number" id="awayScore${i}-${index}" min="0" value="${matchEntry.awayScore}" readonly></th>
-                                <th id="awayTeam${i}-${index}">${matchEntry.away}</th>
-                            </tr>
-                        </thead>
-                        <tbody id="goalDetailsBody${i}-${index}"></tbody>
-                    </table>`;
+            if (matchEntry.isBye) {
+                let byeName = matchEntry.byeTeam ? (matchEntry.byeTeam.teams || getTeamNameByScreenSize(matchEntry.byeTeam)) : '休み';
+                scheduleHTML += `
+                    <div class="match-container bye">
+                        <div class="match-table">
+                            <div class="bye-row">第${i + 1}節 第${index + 1}試合: <strong>${byeName}</strong> は休み</div>
+                        </div>
+                    </div>`;
+            } else {
+                scheduleHTML += `
+                    <div class="match-container">
+                        <table id="goalDetailsTable${i}-${index}" class="match-table">
+                            <thead>
+                                <tr>
+                                    <td colspan="5"><input type="date" id="matchDate${i}-${index}" value="${matchEntry.date}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <th id="homeTeam${i}-${index}">${matchEntry.home}</th>
+                                    <th><input type="number" id="homeScore${i}-${index}" min="0" value="${matchEntry.homeScore}" readonly></th>
+                                    <th> - </th>
+                                    <th><input type="number" id="awayScore${i}-${index}" min="0" value="${matchEntry.awayScore}" readonly></th>
+                                    <th id="awayTeam${i}-${index}">${matchEntry.away}</th>
+                                </tr>
+                            </thead>
+                            <tbody id="goalDetailsBody${i}-${index}"></tbody>
+                        </table>`;
 
-            const statsTableElement = generateStatsTable(i, index);
-            scheduleHTML += statsTableElement.outerHTML;
-            scheduleHTML += `</div>`;
+                const statsTableElement = generateStatsTable(i, index);
+                scheduleHTML += statsTableElement.outerHTML;
+                scheduleHTML += `</div>`;
+            }
         });
 
         scheduleHTML += `</div>`;
@@ -220,6 +216,8 @@ function displaySchedule(schedule = null) {
 
     for (let roundIndex = 0; roundIndex < schedule.length; roundIndex++) {
         for (let matchIndex = 0; matchIndex < schedule[roundIndex].length; matchIndex++) {
+            // bye(休み) の試合は詳細 UI を作っていないためロード処理をスキップ
+            if (schedule[roundIndex][matchIndex].isBye) continue;
             loadmatchDataL(roundIndex, matchIndex);
         }
     }
@@ -390,14 +388,14 @@ function calculateStandings() {
 
     let participatingTeams = new Set(); // 試合に出場したチームIDを格納するセット
 
-    // 出場したチームの teamId をセットに追加
-    for (const matchKey in matchDataL[currentSeason]) {
-        if (matchKey === "teamsNum" || matchKey === "currentStandings"|| matchKey === "newDate") continue; // 試合データ以外はスキップ
-
-        let match = matchDataL[currentSeason][matchKey];
-        participatingTeams.add(match.home.teamId);
-        participatingTeams.add(match.away.teamId);
-    }
+    // 出場したチームの teamId をセットに追加（roundN-matchM のキーのみ処理）
+    const allMatchKeys = Object.keys(matchDataL[currentSeason] || {}).filter(k => /^round\d+-match\d+$/.test(k));
+    allMatchKeys.forEach(matchKey => {
+        const match = matchDataL[currentSeason][matchKey];
+        if (!match) return;
+        if (match.home && match.home.teamId != null) participatingTeams.add(match.home.teamId);
+        if (match.away && match.away.teamId != null) participatingTeams.add(match.away.teamId);
+    });
 
     // standings 配列に出場したチームのみ追加
     let standings = teamsData
@@ -414,18 +412,18 @@ function calculateStandings() {
             currentRank: null
         }));
 
-    // スコアが入力されている試合の結果を元に順位計算
-    for (const matchKey in matchDataL[currentSeason]) {
-        if (matchKey === "teamsNum" || matchKey === "currentStandings"|| matchKey === "newDate") continue;
-        
-        let match = matchDataL[currentSeason][matchKey];
-        let homeScore = match.home.score;
-        let awayScore = match.away.score;
+    // スコアが入力されている試合の結果を元に順位計算（roundN-matchM のキーのみ）
+    allMatchKeys.forEach(matchKey => {
+        const match = matchDataL[currentSeason][matchKey];
+        if (!match) return;
 
-        if (homeScore === null || awayScore === null) continue; // スコアが未入力ならスキップ
+        const homeScore = match.home?.score;
+        const awayScore = match.away?.score;
 
-        let homeTeam = standings.find(t => t.teamId === match.home.teamId);
-        let awayTeam = standings.find(t => t.teamId === match.away.teamId);
+        if (homeScore == null || awayScore == null) return; // スコアが未入力ならスキップ
+
+        const homeTeam = standings.find(t => t.teamId === match.home.teamId);
+        const awayTeam = standings.find(t => t.teamId === match.away.teamId);
 
         if (homeTeam && awayTeam) {
             if (homeScore > awayScore) {
@@ -450,7 +448,7 @@ function calculateStandings() {
             homeTeam.goalDifference += (homeScore - awayScore);
             awayTeam.goalDifference += (awayScore - homeScore);
         }
-    }
+    });
 
     // ランキングの計算
     standings.sort((a, b) => {
@@ -544,9 +542,8 @@ function updatePlayerRecordsWithTeam(tableId, recordTypes) {
 
     let records = {};
 
-    Object.keys(currentMatchData[currentSeason]).forEach(matchKey => {
-        if (["teamsNum", "currentStandings", "newDate"].includes(matchKey)) return;
-
+    const keys = Object.keys(currentMatchData[currentSeason] || {}).filter(k => /^round\d+-match\d+$/.test(k));
+    keys.forEach(matchKey => {
         let match = currentMatchData[currentSeason][matchKey];
 
         ["home", "away"].forEach(side => {
