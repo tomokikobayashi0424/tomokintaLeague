@@ -19,14 +19,6 @@
             <ul>
                 <li><a href="index.html" class="tablinks">ホーム</a></li>
                 <!-- リーグ選択プルダウン -->
-                <!-- <li>
-                    <select id="leagueSelect" onchange="changeLeague()">
-                        <option value="l" selected>リーグ戦</option>
-                        <option value="t">カップ戦</option>
-                        <option value="lcoop">Co-opリーグ戦</option>
-                        <option value="tcoop">Co-opカップ戦</option>
-                    </select>
-                </li> -->
                 <li>
                     <select id="leagueSelect" onchange="changeLeagueAdvanced()">
                         <optgroup label="リーグ戦">
@@ -74,24 +66,80 @@
             <!-- 順位表タブ -->
             <section id="standings" class="tabcontent">
                 <!-- <h2>順位表</h2> -->
-                <table id="standingsTable" class="standings-table">
-                    <thead>
-                        <tr>
-                            <th>順位</th>
-                            <th colspan="2">チーム</th>
-                            <th>勝点</th>
-                            <th>試合数</th>
-                            <th>勝</th>
-                            <th>引</th>
-                            <th>敗</th>
-                            <th>得失点</th>
-                            <th>総得点</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- チームデータがここに挿入されます -->
-                    </tbody>
-                </table>
+
+                <!-- 順位表フィルタプルダウン（2巡の場合のみ表示） -->
+                <select id="standingsFilterSelect" onchange="toggleStandingsTable()" style="display: none;">
+                    <option value="standingsAllTable">全試合</option>
+                    <option value="standingsFirstTable">前半</option>
+                    <option value="standingsSecondTable">後半</option>
+                </select>
+
+                <!-- 全試合の順位表 -->
+                <div class="standingsTable" id="standingsAllTable">
+                    <table class="standings-table">
+                        <thead>
+                            <tr>
+                                <th>順位</th>
+                                <th colspan="2">チーム</th>
+                                <th>勝点</th>
+                                <th>試合数</th>
+                                <th>勝</th>
+                                <th>引</th>
+                                <th>敗</th>
+                                <th>得失点</th>
+                                <th>総得点</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- チームデータがここに挿入されます -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 前半の順位表 -->
+                <div class="standingsTable" id="standingsFirstTable" style="display: none;">
+                    <table class="standings-table">
+                        <thead>
+                            <tr>
+                                <th>順位</th>
+                                <th colspan="2">チーム</th>
+                                <th>勝点</th>
+                                <th>試合数</th>
+                                <th>勝</th>
+                                <th>引</th>
+                                <th>敗</th>
+                                <th>得失点</th>
+                                <th>総得点</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- チームデータがここに挿入されます -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 後半の順位表 -->
+                <div class="standingsTable" id="standingsSecondTable" style="display: none;">
+                    <table class="standings-table">
+                        <thead>
+                            <tr>
+                                <th>順位</th>
+                                <th colspan="2">チーム</th>
+                                <th>勝点</th>
+                                <th>試合数</th>
+                                <th>勝</th>
+                                <th>引</th>
+                                <th>敗</th>
+                                <th>得失点</th>
+                                <th>総得点</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- チームデータがここに挿入されます -->
+                        </tbody>
+                    </table>
+                </div>
+
                 <!-- 順位決定方式の説明 -->
                 <div class="ranking-rules">
                     <h3>順位決定方式</h3>

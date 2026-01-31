@@ -42,15 +42,6 @@ function displaySchedule(schedule = null) {
     if (!matchDataL[currentSeason]) return;
     let startDateStr = matchDataL[currentSeason].newDate;
     let startDate = new Date(startDateStr);
-
-
-
-
-
-
-
-
-
     if (!schedule) {
         schedule = [];
 
@@ -382,15 +373,28 @@ function loadmatchDataL(roundIndex, matchIndex) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // 順位を計算する関数
-function calculateStandings() {
+// 順位を決める関数（ラウンド範囲フィルタリング機能付き）
+function calculateStandings(minRound = null, maxRound = null) {
     // シーズンデータが存在しない場合は空の配列を返す
     if (!matchDataL[currentSeason]) return [];
 
     let participatingTeams = new Set(); // 試合に出場したチームIDを格納するセット
 
-    // 出場したチームの teamId をセットに追加（roundN-matchM のキーのみ処理）
-    const allMatchKeys = Object.keys(matchDataL[currentSeason] || {}).filter(k => /^round\d+-match\d+$/.test(k));
-    allMatchKeys.forEach(matchKey => {
+    // 出場したチームの teamId をセットに追加
+    const allMatchKeys = Object.keys(matchDataL[currentSeason] || []).filter(k => /^round\d+-match\d+$/.test(k));
+    
+    // ラウンドでフィルタリング
+    const filteredMatchKeys = allMatchKeys.filter(matchKey => {
+        const roundMatch = matchKey.match(/^round(\d+)-match/);
+        if (!roundMatch) return true;
+        const round = parseInt(roundMatch[1], 10);
+        
+        if (minRound !== null && round < minRound) return false;
+        if (maxRound !== null && round > maxRound) return false;
+        return true;
+    });
+
+    filteredMatchKeys.forEach(matchKey => {
         const match = matchDataL[currentSeason][matchKey];
         if (!match) return;
         if (match.home && match.home.teamId != null) participatingTeams.add(match.home.teamId);
@@ -412,8 +416,8 @@ function calculateStandings() {
             currentRank: null
         }));
 
-    // スコアが入力されている試合の結果を元に順位計算（roundN-matchM のキーのみ）
-    allMatchKeys.forEach(matchKey => {
+    // スコアが入力されている試合の結果を元に順位計算
+    filteredMatchKeys.forEach(matchKey => {
         const match = matchDataL[currentSeason][matchKey];
         if (!match) return;
 
@@ -465,62 +469,157 @@ function calculateStandings() {
 }
 
 // 順位表を更新する関数
-function updateRankChangeArrows() {
-    let currentStandings = matchDataL[currentSeason]?.currentStandings || [];
-    let standings = calculateStandings(); // 現在の順位を再計算
+// function updateStandingsTable() {
+//     let standings = calculateStandings();
+//     // let teamsData = JSON.parse(localStorage.getItem('teamsData')) || [];
 
-    let tbody = document.querySelector('#standingsTable tbody');
+//     // let currentSeason = "24-s1";
+    
+//     if (!matchDataL[currentSeason] || !matchDataL[currentSeason].currentStandings) return;
+    
+//     let currentStandings = matchDataL[currentSeason].currentStandings;
+
+//     let tbody = document.querySelector('#standingsTable tbody');
+//     tbody.innerHTML = ''; // 順位表を初期化
+
+//     standings.forEach(team => {
+//         let teamInfo = teamsData.find(t => t.teamId === team.teamId);
+//         let teamName = getTeamNameByScreenSize(teamInfo); // 画面幅に応じたチーム名
+//         let teamColor = teamInfo ? `#${teamInfo.teamsColor}` : "#FFFFFF"; // デフォルト白
+
+//         let row = `
+//             <tr>
+//                 <td>${team.currentRank}</td>
+//                 <td style="background-color:${teamColor}; color:white; font-weight:bold; text-align:center;">${teamName}</td>
+//                 <td>${team.points}</td>
+//                 <td>${team.matchesPlayed}</td>
+//                 <td>${team.wins}</td>
+//                 <td>${team.draws}</td>
+//                 <td>${team.losses}</td>
+//                 <td>${team.goalDifference}</td>
+//                 <td>${team.totalGoals}</td>
+//             </tr>`;
+//         tbody.insertAdjacentHTML('beforeend', row);
+//     });
+// }
+
+// 順位表を表示する汎用関数（テーブルIDを指定可能）
+function displayStandingsTable(tableId, standings) {
+    const tbody = document.querySelector(`#${tableId} tbody`);
+    if (!tbody) return;
     tbody.innerHTML = ''; // 順位表を初期化
 
+    // 矢印を表示するかどうか判定（全試合テーブルの場合のみ）
+    const showArrows = tableId === 'standingsAllTable';
+    const previousStandings = showArrows ? (matchDataL[currentSeason]?.currentStandings || []) : [];
+
     standings.forEach(team => {
-        // `teamId` に対応する `previousRank` を取得
-        let previousRank = currentStandings.findIndex(t => t.teamId === team.teamId) + 1;
-        let currentRank = team.currentRank;
-
-        let rankChange = '';
-        let rankClass = '';
-
-        // previousRank と currentRank を比較して順位の変動をチェック
-        if (previousRank > 0) { // `findIndex` は見つからないと `-1` を返すので、順位がある場合のみ処理
-            if (currentRank < previousRank) {
-                rankChange = '▲'; // 順位上昇
-                rankClass = 'rank-up';
-            } else if (currentRank > previousRank) {
-                rankChange = '▼'; // 順位下降
-                rankClass = 'rank-down';
-            } else {
-                rankChange = '---'; // 順位変動なし
-                rankClass = 'rank-no-change';
-            }
-        } else {
-            rankChange = '-'; // 初回のデータがない場合
-            rankClass = 'rank-no-change';
-        }
-
         let teamInfo = teamsData.find(t => t.teamId === team.teamId);
         let teamName = getTeamNameByScreenSize(teamInfo); // 画面幅に応じたチーム名
         let teamColor = teamInfo ? `${teamInfo.teamsColor}` : "FFFFFF"; // デフォルト白
         let teamSubColor = teamInfo ? `${teamInfo.teamsSubColor}` : "FFFFFF"; // デフォルト白
         let textColor = getTextColor(teamColor);
 
+        // 矢印表示ロジック（全試合テーブルのみ）
+        let rankChange = '';
+        let rankClass = '';
+        if (showArrows) {
+            let previousRank = previousStandings.findIndex(t => t.teamId === team.teamId) + 1;
+            let currentRank = team.currentRank;
+
+            if (previousRank > 0) {
+                if (currentRank < previousRank) {
+                    rankChange = '▲'; // 順位上昇
+                    rankClass = 'rank-up';
+                } else if (currentRank > previousRank) {
+                    rankChange = '▼'; // 順位下降
+                    rankClass = 'rank-down';
+                } else {
+                    rankChange = '---'; // 順位変動なし
+                    rankClass = 'rank-no-change';
+                }
+            } else {
+                rankChange = '-'; // 初回のデータがない場合
+                rankClass = 'rank-no-change';
+            }
+        }
+
+        // 矢印を含むか含まないかで順位セルの内容を変える
+        const rankCell = showArrows 
+            ? `<td>${team.currentRank} <span class="${rankClass}">${rankChange}</span></td>`
+            : `<td>${team.currentRank}</td>`;
+
         let row = `
-            <tr>
-                <td>${team.currentRank} <span class="${rankClass}">${rankChange}</span></td>
-                <td style="
-                    background-color:#${teamColor}; 
-                    background: linear-gradient(to bottom, #${teamSubColor} 0%, #${teamSubColor} 10%, #${teamColor} 30%, #${teamColor} 70%, #${teamSubColor} 90%);
-                    color: #${textColor}; font-weight:bold; 
-                    text-align:center;">${teamName}</td>
-                <td><img src="Pictures/Team${teamInfo.teamId}.jpg"class="rank-team-logo"></td>
-                <td>${team.points}</td>
-                <td>${team.matchesPlayed}</td>
-                <td>${team.wins}</td>
-                <td>${team.draws}</td>
-                <td>${team.losses}</td>
-                <td>${team.goalDifference}</td>
-                <td>${team.totalGoals}</td>
-            </tr>`;
-        tbody.insertAdjacentHTML('beforeend', row);
+            ${rankCell}
+            <td style="
+                background-color:#${teamColor}; 
+                background: linear-gradient(to bottom, #${teamSubColor} 0%, #${teamSubColor} 10%, #${teamColor} 30%, #${teamColor} 70%, #${teamSubColor} 90%);
+                color: #${textColor}; font-weight:bold; 
+                text-align:center;">${teamName}
+            </td>
+            <td><img src="Pictures/Team${teamInfo.teamId}.jpg"class="rank-team-logo"></td>
+            <td>${team.points}</td>
+            <td>${team.matchesPlayed}</td>
+            <td>${team.wins}</td>
+            <td>${team.draws}</td>
+            <td>${team.losses}</td>
+            <td>${team.goalDifference}</td>
+            <td>${team.totalGoals}</td>
+        </tr>`;
+        
+        // 行の先頭の <tr> タグを追加
+        tbody.insertAdjacentHTML('beforeend', `<tr>${row}`);
+    });
+}
+
+// 全試合の順位表を更新
+function updateRankChangeArrows() {
+    let standings = calculateStandings(); // 現在の順位を再計算
+    displayStandingsTable('standingsAllTable', standings);
+    
+    // ラウンド数を取得して2巡判定
+    const numRounds = getMaxRoundNumber() + 1;
+    const halfRounds = Math.ceil(numRounds / 2);
+    
+    // 2巡（前半・後半）がある場合
+    if (numRounds > halfRounds) {
+        const standingsFirst = calculateStandings(0, halfRounds - 1);
+        const standingsSecond = calculateStandings(halfRounds, numRounds - 1);
+        displayStandingsTable('standingsFirstTable', standingsFirst);
+        displayStandingsTable('standingsSecondTable', standingsSecond);
+        
+        // フィルタプルダウンを表示
+        const filterSelect = document.getElementById('standingsFilterSelect');
+        if (filterSelect) {
+            filterSelect.style.display = 'block';
+        }
+    }
+}
+
+// 最大ラウンド番号を取得する関数
+function getMaxRoundNumber() {
+    if (!matchDataL[currentSeason]) return 0;
+    const allKeys = Object.keys(matchDataL[currentSeason] || {}).filter(k => /^round\d+-match\d+$/.test(k));
+    let maxRound = -1;
+    allKeys.forEach(key => {
+        const roundMatch = key.match(/^round(\d+)-/);
+        if (roundMatch) {
+            const round = parseInt(roundMatch[1], 10);
+            maxRound = Math.max(maxRound, round);
+        }
+    });
+    return maxRound;
+}
+
+// 順位表を切り替える関数
+function toggleStandingsTable() {
+    const filterSelect = document.getElementById('standingsFilterSelect');
+    if (!filterSelect) return;
+    
+    const selectedId = filterSelect.value;
+    const allTables = document.querySelectorAll('.standingsTable');
+    allTables.forEach(table => {
+        table.style.display = table.id === selectedId ? 'block' : 'none';
     });
 }
 
