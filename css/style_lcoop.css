@@ -8,7 +8,7 @@ bodyのスタイル
 日程目次
 -------------------------------------------------------------------------------------------------*/
 
-/* 日程タブのチームロゴ */
+/* 日程タブのチームロゴ これいらんかも*/
 .schedule-logo{
     /* text-align: center; */
     /* margin: 0px 0; */
@@ -49,7 +49,7 @@ bodyのスタイル
     text-align: center;
     border: none; /* 縦線を削除 */
     position: relative; /* はみ出し調整用 */
-    height: 15px; /* 各節（行）の高さを12pxに設定 */
+    height: 15px;
     background:var(--main-color-2);
     color: white; /* 文字色を白に */
 }
