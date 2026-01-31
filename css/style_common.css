@@ -7,7 +7,6 @@
     --body3-font-size: clamp(3px, 1vw, 14px);
 }
 
-
 :root {
     /* カラーパレットの変数定義 */
     --team-color-1: rgb(0, 0, 132);         /* メインの色 */
@@ -28,8 +27,6 @@
     --page-color-2: rgb(36, 0, 255);
     --page-sub-color-1: rgb(255, 255, 9);
     --page-sub-color-2: rgb(251, 0, 111);
-
-
     
     --header-font-size: 15px;
     --text-font-size: 9px;

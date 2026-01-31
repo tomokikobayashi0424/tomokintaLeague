@@ -371,6 +371,31 @@ main{
 順位表タブのスタイル 
 ===================================================================================================
 =================================================================================================*/
+#standingsFilterSelect{
+    width: 100%;  /* 横幅を表に合わせる */
+    color: var(--page-sub-color-1); /* 文字色を白 */
+    /* font-size: var(--h3-font-size); */
+    font-weight: bold; /* 太字 */
+    text-align: center;
+    border: none;
+    /* border-radius: 5px; 角を丸く */
+    cursor: pointer;
+    display: block;
+    margin: 0; /* 余白を調整 */
+    top: 82.5px; /* ヘッダーの高さを考慮 */
+    align-items: center; /* 縦方向の中央揃え */
+    position: sticky;
+    top: 107.5px; /* ヘッダーの高さを考慮 */
+    z-index: 900;
+    background-color: var(--page-bg-color-1); /* ヘッダーの背景色を変更 */
+    padding: 0;
+    height: 40px;
+    /* iOS での楕円を防ぐ */
+    /* appearance: none; */
+    /* -webkit-appearance: none; */
+    /* -moz-appearance: none; */
+    border-radius: 0; /* 完全に四角にする */
+}
 /* 順位表全体のスタイル */
 .standings-table {
     border-collapse: collapse;
