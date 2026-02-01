@@ -40651,63 +40651,82 @@
     },
     "L26-s4": {
       "teamsNum": 19,
-      "newDate": "2026-02-01",
+      "newDate": "2026-02-08",
       "currentStandings": [
         {
-          "teamId": 1
-        },
-        {
-          "teamId": 17
-        },
-        {
-          "teamId": 13
-        },
-        {
-          "teamId": 4
-        },
-        {
-          "teamId": 7
-        },
-        {
-          "teamId": 11
-        },
-        {
-          "teamId": 3
-        },
-        {
-          "teamId": 9
-        },
-        {
-          "teamId": 5
-        },
-        {
-          "teamId": 16
-        },
-        {
-          "teamId": 2
-        },
-        {
-          "teamId": 8
-        },
-        {
-          "teamId": 15
-        },
-        {
-          "teamId": 14
-        },
-        {
+          "Rank": 1,
           "teamId": 0
         },
         {
-          "teamId": 18
+          "Rank": 2,
+          "teamId": 1
         },
         {
+          "Rank": 3,
+          "teamId": 2
+        },
+        {
+          "Rank": 4,
+          "teamId": 3
+        },
+        {
+          "Rank": 5,
+          "teamId": 4
+        },
+        {
+          "Rank": 6,
+          "teamId": 5
+        },
+        {
+          "Rank": 7,
+          "teamId": 7
+        },
+        {
+          "Rank": 8,
+          "teamId": 8
+        },
+        {
+          "Rank": 9,
+          "teamId": 9
+        },
+        {
+          "Rank": 10,
           "teamId": 10
         },
         {
+          "Rank": 11,
+          "teamId": 11
+        },
+        {
+          "Rank": 12,
           "teamId": 12
         },
         {
+          "Rank": 13,
+          "teamId": 13
+        },
+        {
+          "Rank": 14,
+          "teamId": 14
+        },
+        {
+          "Rank": 15,
+          "teamId": 15
+        },
+        {
+          "Rank": 16,
+          "teamId": 16
+        },
+        {
+          "Rank": 17,
+          "teamId": 17
+        },
+        {
+          "Rank": 18,
+          "teamId": 18
+        },
+        {
+          "Rank": 19,
           "teamId": 19
         }
       ],

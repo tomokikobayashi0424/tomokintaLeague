@@ -165,114 +165,133 @@ function displayTeamMonthlySchedule(teamId) {
     const displayYear = displayMonth.getFullYear();
     const displayMonthIndex = displayMonth.getMonth();
 
-    let targetSeasons = [...new Set([...Object.keys(matchDataL), ...Object.keys(matchDataT), ...Object.keys(matchDataLCoop)])];
+    // Process L, T, C seasons separately to avoid missing L/T when only C seasons exist
+    const lSeasons = Object.keys(matchDataL || {});
+    const tSeasons = Object.keys(matchDataT || {});
+    const lcSeasons = Object.keys(matchDataLCoop || {});
 
-    targetSeasons.forEach(season => {
-        let startDate = new Date(matchDataL[season]?.newDate || matchDataT[season]?.newDate || matchDataLCoop[season]?.newDate || new Date());
-        let roundDates = {};
-        let rounds = 0;
+    const processSeason = (matchData, type, season, startDate, roundDates = null) => {
+        const matchType = type === 'L' ? 'リーグ戦' : (type === 'T' ? 'トーナメント' : 'チーム戦');
 
-        if (matchDataL[season]) {
-            for (const matchKey in matchDataL[season]) {
-                if (matchKey.startsWith("round")) {
-                    let roundNumber = parseInt(matchKey.match(/round(\d+)/)?.[1], 10);
-                    if (!isNaN(roundNumber)) {
-                        rounds = Math.max(rounds, roundNumber);
+        if (!matchData) return;
+
+        for (const matchKey in matchData) {
+            if (["teamsNum", "currentStandings", "newDate"].includes(matchKey)) continue;
+
+            const match = matchData[matchKey];
+            if (!match) continue;
+
+            const roundNumber = type === 'L' ? matchKey.split('-')[0] : matchKey.match(/round(\d+)/)?.[1];
+
+            let matchDate;
+            if (match.date) {
+                matchDate = new Date(match.date);
+            } else {
+                matchDate = new Date(startDate);
+                if (type === 'T' || type === 'C') {
+                    if (roundNumber) {
+                        matchDate.setDate(startDate.getDate() + parseInt(roundNumber, 10) * 7);
                     }
+                } else if (type === 'L') {
+                    matchDate = (roundDates && roundDates[roundNumber]) ? roundDates[roundNumber] : matchDate;
                 }
             }
 
-            for (let i = 0; i <= rounds; i++) {
-                roundDates[`round${i}`] = new Date(startDate);
-                roundDates[`round${i}`].setDate(startDate.getDate() + i * 7);
-            }
-        }
+            if (matchDate.getFullYear() !== displayYear || matchDate.getMonth() !== displayMonthIndex) continue;
 
-        ["L", "T", "C"].forEach(type => {
-            let matchData = type === "L" ? matchDataL[season]
-                          : type === "T" ? matchDataT[season]
-                          : matchDataLCoop[season];
+            let isHome = false;
+            let isAway = false;
+            let opponentTeamNames = "";
 
-            let matchType = type === "L" ? "リーグ戦"
-                          : type === "T" ? "トーナメント"
-                          : "チーム戦";
+            if (type === 'C') {
+                const homeIds = Array.isArray(match.home && match.home.teamIds) ? match.home.teamIds : (Array.isArray(match.teamIdsHome) ? match.teamIdsHome : null);
+                const awayIds = Array.isArray(match.away && match.away.teamIds) ? match.away.teamIds : (Array.isArray(match.teamIdsAway) ? match.teamIdsAway : null);
 
-            if (!matchData) return;
+                isHome = Array.isArray(homeIds) && homeIds.includes(teamId);
+                isAway = Array.isArray(awayIds) && awayIds.includes(teamId);
 
-            for (const matchKey in matchData) {
-                if (["teamsNum", "currentStandings", "newDate"].includes(matchKey)) continue;
-
-                let match = matchData[matchKey];
-                if (!match) continue;
-
-                let roundNumber = type === "L" ? matchKey.split('-')[0] : matchKey.match(/round(\d+)/)?.[1];
-
-                let matchDate;
-                if (match.date) {
-                    matchDate = new Date(match.date); // ← 優先的に使う
-                } else {
-                    matchDate = new Date(startDate);
-                    if (type === "T" || type === "C") {
-                        if (roundNumber) {
-                            matchDate.setDate(startDate.getDate() + parseInt(roundNumber, 10) * 7);
-                        }
-                    } else if (type === "L") {
-                        matchDate = roundDates[roundNumber] || matchDate;
-                    }
-                }
-
-                if (matchDate.getFullYear() !== displayYear || matchDate.getMonth() !== displayMonthIndex) continue;
-
-                let isHome = false;
-                let isAway = false;
-                let opponentTeamNames = "";
-
-                if (type === "C") {
-                    isHome = match.home.teamIds.includes(teamId);
-                    isAway = match.away.teamIds.includes(teamId);
-
-                    if (isHome || isAway) {
-                        opponentTeamNames = (isHome ? match.away.teamIds : match.home.teamIds)
+                if (isHome || isAway) {
+                    const opponents = isHome ? awayIds : homeIds;
+                    if (Array.isArray(opponents)) {
+                        opponentTeamNames = opponents
                             .map(opponentId => {
-                                let team = teamsData.find(team => team.teamId === opponentId);
+                                const team = teamsData.find(team => team.teamId === opponentId);
                                 return team ? team.teams : null;
                             })
                             .filter(name => name !== null)
                             .join("<br>");
                     }
-                } else {
-                    isHome = match.home.teamId === teamId;
-                    isAway = match.away.teamId === teamId;
-
-                    if (isHome || isAway) {
-                        let opponentTeam = teamsData.find(team => team.teamId === (isHome ? match.away.teamId : match.home.teamId));
-                        opponentTeamNames = opponentTeam ? opponentTeam.teams : null;
-                    }
                 }
+            } else {
+                const homeTeamId = match.home ? (('teamId' in match.home) ? match.home.teamId : (('team' in match.home) ? match.home.team : null)) : null;
+                const awayTeamId = match.away ? (('teamId' in match.away) ? match.away.teamId : (('team' in match.away) ? match.away.team : null)) : null;
 
-                if (!isHome && !isAway) continue;
-                if (!opponentTeamNames) continue;
+                isHome = homeTeamId !== null && homeTeamId === teamId;
+                isAway = awayTeamId !== null && awayTeamId === teamId;
 
-                let scoreClass = '';
-                if (isHome && match.home.score != null && match.away.score != null) {
-                    if (match.home.score > match.away.score) scoreClass = 'highlight-green';
-                    else if (match.home.score < match.away.score) scoreClass = 'highlight-red';
-                } else if (isAway && match.home.score != null && match.away.score != null) {
-                    if (match.away.score > match.home.score) scoreClass = 'highlight-green';
-                    else if (match.away.score < match.home.score) scoreClass = 'highlight-red';
+                if (isHome || isAway) {
+                    const opponentId = isHome ? awayTeamId : homeTeamId;
+                    const opponentTeam = teamsData.find(team => team.teamId === opponentId);
+                    opponentTeamNames = opponentTeam ? opponentTeam.teams : null;
                 }
-
-                allMatches.push({
-                    matchDate,
-                    season,
-                    matchType,
-                    location: isHome ? 'home' : 'away',
-                    opponent: opponentTeamNames,
-                    score: `${match.home.score ?? '-'} - ${match.away.score ?? '-'}`,
-                    scoreClass
-                });
             }
-        });
+
+            if (!isHome && !isAway) continue;
+            if (!opponentTeamNames) continue;
+
+            let scoreClass = '';
+            if (isHome && match.home.score != null && match.away.score != null) {
+                if (match.home.score > match.away.score) scoreClass = 'highlight-green';
+                else if (match.home.score < match.away.score) scoreClass = 'highlight-red';
+            } else if (isAway && match.home.score != null && match.away.score != null) {
+                if (match.away.score > match.home.score) scoreClass = 'highlight-green';
+                else if (match.away.score < match.home.score) scoreClass = 'highlight-red';
+            }
+
+            allMatches.push({
+                matchDate,
+                season,
+                matchType,
+                location: isHome ? 'home' : 'away',
+                opponent: opponentTeamNames,
+                score: `${match.home.score ?? '-'} - ${match.away.score ?? '-'}`,
+                scoreClass
+            });
+        }
+    };
+
+    // Process L seasons
+    lSeasons.forEach(season => {
+        const startDate = new Date(matchDataL[season]?.newDate || new Date());
+        let roundDates = {};
+        let rounds = 0;
+
+        const md = matchDataL[season];
+        if (md) {
+            for (const matchKey in md) {
+                if (matchKey.startsWith('round')) {
+                    const roundNumber = parseInt(matchKey.match(/round(\d+)/)?.[1], 10);
+                    if (!isNaN(roundNumber)) rounds = Math.max(rounds, roundNumber);
+                }
+            }
+            for (let i = 0; i <= rounds; i++) {
+                roundDates[`round${i}`] = new Date(startDate);
+                roundDates[`round${i}`].setDate(startDate.getDate() + i * 7);
+            }
+        }
+        processSeason(md, 'L', season, startDate, roundDates);
+    });
+
+    // Process T seasons
+    tSeasons.forEach(season => {
+        const startDate = new Date(matchDataT[season]?.newDate || new Date());
+        processSeason(matchDataT[season], 'T', season, startDate, null);
+    });
+
+    // Process C (coop) seasons
+    lcSeasons.forEach(season => {
+        const startDate = new Date(matchDataLCoop[season]?.newDate || new Date());
+        processSeason(matchDataLCoop[season], 'C', season, startDate, null);
     });
 
     allMatches.sort((a, b) => a.matchDate - b.matchDate);
@@ -340,9 +359,11 @@ function calculateOverallTeamStats() {
         matches: 0,
         wins: 0,
         goals: 0,
+        goalsWithPossession: 0,
         draws: 0,
         losses: 0,
         possession: 0,
+        possessionMatches: 0,
         shots: 0,
         shotsonFrame: 0,
         shotsonFrameRate: 0,
@@ -383,19 +404,43 @@ function calculateOverallTeamStats() {
             overallStats.matches += 2; // 両チーム分カウント
 
             overallStats.goals += homeScore + awayScore;
-            overallStats.possession += (match.home.fullTime?.possession || 0) + (match.away.fullTime?.possession || 0);
-            overallStats.shots += (match.home.fullTime?.shots || 0) + (match.away.fullTime?.shots || 0);
-            overallStats.shotsonFrame += (match.home.fullTime?.shotsonFrame || 0) + (match.away.fullTime?.shotsonFrame || 0);
-            overallStats.fouls += (match.home.fullTime?.fouls || 0) + (match.away.fullTime?.fouls || 0);
-            overallStats.offsides += (match.home.fullTime?.offsides || 0) + (match.away.fullTime?.offsides || 0);
-            overallStats.cornerKicks += (match.home.fullTime?.cornerKicks || 0) + (match.away.fullTime?.cornerKicks || 0);
-            overallStats.freeKicks += (match.home.fullTime?.freeKicks || 0) + (match.away.fullTime?.freeKicks || 0);
-            overallStats.passes += (match.home.fullTime?.passes || 0) + (match.away.fullTime?.passes || 0);
-            overallStats.successfulPasses += (match.home.fullTime?.successfulPasses || 0) + (match.away.fullTime?.successfulPasses || 0);
-            overallStats.crosses += (match.home.fullTime?.crosses || 0) + (match.away.fullTime?.crosses || 0);
-            overallStats.PassCuts += (match.home.fullTime?.PassCuts || 0) + (match.away.fullTime?.PassCuts || 0);
-            overallStats.successfulTackles += (match.home.fullTime?.successfulTackles || 0) + (match.away.fullTime?.successfulTackles || 0);
-            overallStats.save += (match.home.fullTime?.save || 0) + (match.away.fullTime?.save || 0);
+            // accumulate per-team stats only when possession is present for that side
+            const hPos = match.home.fullTime?.possession;
+            if (typeof hPos === 'number') {
+                overallStats.possession += hPos;
+                overallStats.possessionMatches++;
+                overallStats.goalsWithPossession += match.home.score || 0;
+                overallStats.shots += match.home.fullTime?.shots || 0;
+                overallStats.shotsonFrame += match.home.fullTime?.shotsonFrame || 0;
+                overallStats.fouls += match.home.fullTime?.fouls || 0;
+                overallStats.offsides += match.home.fullTime?.offsides || 0;
+                overallStats.cornerKicks += match.home.fullTime?.cornerKicks || 0;
+                overallStats.freeKicks += match.home.fullTime?.freeKicks || 0;
+                overallStats.passes += match.home.fullTime?.passes || 0;
+                overallStats.successfulPasses += match.home.fullTime?.successfulPasses || 0;
+                overallStats.crosses += match.home.fullTime?.crosses || 0;
+                overallStats.PassCuts += match.home.fullTime?.PassCuts || 0;
+                overallStats.successfulTackles += match.home.fullTime?.successfulTackles || 0;
+                overallStats.save += match.home.fullTime?.save || 0;
+            }
+            const aPos = match.away.fullTime?.possession;
+            if (typeof aPos === 'number') {
+                overallStats.possession += aPos;
+                overallStats.possessionMatches++;
+                overallStats.goalsWithPossession += match.away.score || 0;
+                overallStats.shots += match.away.fullTime?.shots || 0;
+                overallStats.shotsonFrame += match.away.fullTime?.shotsonFrame || 0;
+                overallStats.fouls += match.away.fullTime?.fouls || 0;
+                overallStats.offsides += match.away.fullTime?.offsides || 0;
+                overallStats.cornerKicks += match.away.fullTime?.cornerKicks || 0;
+                overallStats.freeKicks += match.away.fullTime?.freeKicks || 0;
+                overallStats.passes += match.away.fullTime?.passes || 0;
+                overallStats.successfulPasses += match.away.fullTime?.successfulPasses || 0;
+                overallStats.crosses += match.away.fullTime?.crosses || 0;
+                overallStats.PassCuts += match.away.fullTime?.PassCuts || 0;
+                overallStats.successfulTackles += match.away.fullTime?.successfulTackles || 0;
+                overallStats.save += match.away.fullTime?.save || 0;
+            }
 
             if (homeScore > awayScore) {
                 overallStats.wins++;
@@ -419,9 +464,11 @@ function calculateTeamAndOpponentStats(teamId) {
             matches: 0,
             wins: 0,
             goals: 0,
+            goalsWithPossession: 0,
             draws: 0,
             losses: 0,
             possession: 0,
+            possessionMatches: 0,
             shots: 0,
             shotsonFrame: 0,
             shotsonFrameRate: 0,
@@ -440,7 +487,9 @@ function calculateTeamAndOpponentStats(teamId) {
         opponent: {
             matches: 0,
             goals: 0,
+            goalsWithPossession: 0,
             possession: 0,
+            possessionMatches: 0,
             shots: 0,
             shotsonFrame: 0,
             fouls: 0,
@@ -490,19 +539,25 @@ function calculateTeamAndOpponentStats(teamId) {
 
                 stats.team.matches++;
                 stats.team.goals += team.score || 0;
-                stats.team.possession += team.fullTime.possession || 0;
-                stats.team.shots += team.fullTime.shots || 0;
-                stats.team.shotsonFrame += team.fullTime.shotsonFrame || 0;
-                stats.team.fouls += team.fullTime.fouls || 0;
-                stats.team.offsides += team.fullTime.offsides || 0;
-                stats.team.cornerKicks += team.fullTime.cornerKicks || 0;
-                stats.team.freeKicks += team.fullTime.freeKicks || 0;
-                stats.team.passes += team.fullTime.passes || 0;
-                stats.team.successfulPasses += team.fullTime.successfulPasses || 0;
-                stats.team.crosses += team.fullTime.crosses || 0;
-                stats.team.PassCuts += team.fullTime.PassCuts || 0;
-                stats.team.successfulTackles += team.fullTime.successfulTackles || 0;
-                stats.team.save += team.fullTime.save || 0;
+                // only aggregate possession-related stats when possession is present
+                const tPos = team.fullTime?.possession;
+                if (typeof tPos === 'number') {
+                    stats.team.possession += tPos;
+                    stats.team.possessionMatches++;
+                    stats.team.goalsWithPossession += team.score || 0;
+                    stats.team.shots += team.fullTime?.shots || 0;
+                    stats.team.shotsonFrame += team.fullTime?.shotsonFrame || 0;
+                    stats.team.fouls += team.fullTime?.fouls || 0;
+                    stats.team.offsides += team.fullTime?.offsides || 0;
+                    stats.team.cornerKicks += team.fullTime?.cornerKicks || 0;
+                    stats.team.freeKicks += team.fullTime?.freeKicks || 0;
+                    stats.team.passes += team.fullTime?.passes || 0;
+                    stats.team.successfulPasses += team.fullTime?.successfulPasses || 0;
+                    stats.team.crosses += team.fullTime?.crosses || 0;
+                    stats.team.PassCuts += team.fullTime?.PassCuts || 0;
+                    stats.team.successfulTackles += team.fullTime?.successfulTackles || 0;
+                    stats.team.save += team.fullTime?.save || 0;
+                }
 
                 // ゴールとアシストのプレイヤーを集計
                 const goalPlayersArray = team.goalPlayers || [];
@@ -536,19 +591,24 @@ function calculateTeamAndOpponentStats(teamId) {
                 // 対戦相手の統計を集計
                 stats.opponent.matches++;
                 stats.opponent.goals += opponent.score || 0;
-                stats.opponent.possession += opponent.fullTime.possession || 0;
-                stats.opponent.shots += opponent.fullTime.shots || 0;
-                stats.opponent.shotsonFrame += opponent.fullTime.shotsonFrame || 0;
-                stats.opponent.fouls += opponent.fullTime.fouls || 0;
-                stats.opponent.offsides += opponent.fullTime.offsides || 0;
-                stats.opponent.cornerKicks += opponent.fullTime.cornerKicks || 0;
-                stats.opponent.freeKicks += opponent.fullTime.freeKicks || 0;
-                stats.opponent.passes += opponent.fullTime.passes || 0;
-                stats.opponent.successfulPasses += opponent.fullTime.successfulPasses || 0;
-                stats.opponent.crosses += opponent.fullTime.crosses || 0;
-                stats.opponent.PassCuts += opponent.fullTime.PassCuts || 0;
-                stats.opponent.successfulTackles += opponent.fullTime.successfulTackles || 0;
-                stats.opponent.save += opponent.fullTime.save || 0;
+                const oPos = opponent.fullTime?.possession;
+                if (typeof oPos === 'number') {
+                    stats.opponent.possession += oPos;
+                    stats.opponent.possessionMatches++;
+                    stats.opponent.goalsWithPossession += opponent.score || 0;
+                    stats.opponent.shots += opponent.fullTime?.shots || 0;
+                    stats.opponent.shotsonFrame += opponent.fullTime?.shotsonFrame || 0;
+                    stats.opponent.fouls += opponent.fullTime?.fouls || 0;
+                    stats.opponent.offsides += opponent.fullTime?.offsides || 0;
+                    stats.opponent.cornerKicks += opponent.fullTime?.cornerKicks || 0;
+                    stats.opponent.freeKicks += opponent.fullTime?.freeKicks || 0;
+                    stats.opponent.passes += opponent.fullTime?.passes || 0;
+                    stats.opponent.successfulPasses += opponent.fullTime?.successfulPasses || 0;
+                    stats.opponent.crosses += opponent.fullTime?.crosses || 0;
+                    stats.opponent.PassCuts += opponent.fullTime?.PassCuts || 0;
+                    stats.opponent.successfulTackles += opponent.fullTime?.successfulTackles || 0;
+                    stats.opponent.save += opponent.fullTime?.save || 0;
+                }
             }
         }
     });
@@ -566,37 +626,37 @@ function calculateTeamAndOpponentStats(teamId) {
     document.getElementById('goals-team-total').textContent = stats.team.goals;
     document.getElementById('goals-team-avg').textContent = (stats.team.goals / stats.team.matches).toFixed(2);
 
-    document.getElementById('possession-team').textContent = (stats.team.possession / stats.team.matches).toFixed(2) + '%';
+    document.getElementById('possession-team').textContent = (stats.team.possessionMatches > 0) ? (stats.team.possession / stats.team.possessionMatches).toFixed(2) + '%' : '-';
 
     document.getElementById('shots-team-total').textContent = stats.team.shots;
-    document.getElementById('shots-team-avg').textContent = (stats.team.shots / stats.team.matches).toFixed(2);
+    document.getElementById('shots-team-avg').textContent = (stats.team.possessionMatches > 0) ? (stats.team.shots / stats.team.possessionMatches).toFixed(2) : '-';
     document.getElementById('shotsonFrame-team-total').textContent = stats.team.shotsonFrame;
-    document.getElementById('shotsonFrame-team-avg').textContent = (stats.team.shotsonFrame / stats.team.matches).toFixed(2);
-    document.getElementById('shotsonFrame-team-per').textContent = (stats.team.shotsonFrame*100 / stats.team.shots).toFixed(2) + '%';
-    document.getElementById('goals-team-per').textContent = (stats.team.goals*100 / stats.team.shots).toFixed(2) + '%';
+    document.getElementById('shotsonFrame-team-avg').textContent = (stats.team.possessionMatches > 0) ? (stats.team.shotsonFrame / stats.team.possessionMatches).toFixed(2) : '-';
+    document.getElementById('shotsonFrame-team-per').textContent = (stats.team.shots > 0) ? (stats.team.shotsonFrame*100 / stats.team.shots).toFixed(2) + '%' : '-';
+    document.getElementById('goals-team-per').textContent = (stats.team.shots > 0) ? (stats.team.goalsWithPossession*100 / stats.team.shots).toFixed(2) + '%' : '-';
     
     document.getElementById('fouls-team-total').textContent = stats.team.fouls;
-    document.getElementById('fouls-team-avg').textContent = (stats.team.fouls / stats.team.matches).toFixed(2);
+    document.getElementById('fouls-team-avg').textContent = (stats.team.possessionMatches > 0) ? (stats.team.fouls / stats.team.possessionMatches).toFixed(2) : '-';
     document.getElementById('offsides-team-total').textContent = stats.team.offsides;
-    document.getElementById('offsides-team-avg').textContent = (stats.team.offsides / stats.team.matches).toFixed(2);
+    document.getElementById('offsides-team-avg').textContent = (stats.team.possessionMatches > 0) ? (stats.team.offsides / stats.team.possessionMatches).toFixed(2) : '-';
     document.getElementById('cornerKicks-team-total').textContent = stats.team.cornerKicks;
-    document.getElementById('cornerKicks-team-avg').textContent = (stats.team.cornerKicks / stats.team.matches).toFixed(2);
+    document.getElementById('cornerKicks-team-avg').textContent = (stats.team.possessionMatches > 0) ? (stats.team.cornerKicks / stats.team.possessionMatches).toFixed(2) : '-';
     document.getElementById('freeKicks-team-total').textContent = stats.team.freeKicks;
-    document.getElementById('freeKicks-team-avg').textContent = (stats.team.freeKicks / stats.team.matches).toFixed(2);
+    document.getElementById('freeKicks-team-avg').textContent = (stats.team.possessionMatches > 0) ? (stats.team.freeKicks / stats.team.possessionMatches).toFixed(2) : '-';
     document.getElementById('passes-team-total').textContent = stats.team.passes;
-    document.getElementById('passes-team-avg').textContent = (stats.team.passes / stats.team.matches).toFixed(2);
+    document.getElementById('passes-team-avg').textContent = (stats.team.possessionMatches > 0) ? (stats.team.passes / stats.team.possessionMatches).toFixed(2) : '-';
     document.getElementById('successfulPasses-team-total').textContent = stats.team.successfulPasses;
-    document.getElementById('successfulPasses-team-avg').textContent = (stats.team.successfulPasses / stats.team.matches).toFixed(2);
-    document.getElementById('successfulPasses-team-per').textContent = (stats.team.successfulPasses*100 / stats.team.passes).toFixed(2) + '%';
+    document.getElementById('successfulPasses-team-avg').textContent = (stats.team.possessionMatches > 0) ? (stats.team.successfulPasses / stats.team.possessionMatches).toFixed(2) : '-';
+    document.getElementById('successfulPasses-team-per').textContent = (stats.team.passes > 0) ? (stats.team.successfulPasses*100 / stats.team.passes).toFixed(2) + '%' : '-';
     document.getElementById('crosses-team-total').textContent = stats.team.crosses;
-    document.getElementById('crosses-team-avg').textContent = (stats.team.crosses / stats.team.matches).toFixed(2);
+    document.getElementById('crosses-team-avg').textContent = (stats.team.possessionMatches > 0) ? (stats.team.crosses / stats.team.possessionMatches).toFixed(2) : '-';
     document.getElementById('PassCuts-team-total').textContent = stats.team.PassCuts;
-    document.getElementById('PassCuts-team-avg').textContent = (stats.team.PassCuts / stats.team.matches).toFixed(2);
+    document.getElementById('PassCuts-team-avg').textContent = (stats.team.possessionMatches > 0) ? (stats.team.PassCuts / stats.team.possessionMatches).toFixed(2) : '-';
     document.getElementById('successfulTackles-team-total').textContent = stats.team.successfulTackles;
-    document.getElementById('successfulTackles-team-avg').textContent = (stats.team.successfulTackles / stats.team.matches).toFixed(2);
+    document.getElementById('successfulTackles-team-avg').textContent = (stats.team.possessionMatches > 0) ? (stats.team.successfulTackles / stats.team.possessionMatches).toFixed(2) : '-';
     document.getElementById('saves-team-total').textContent = stats.team.save;
-    document.getElementById('saves-team-avg').textContent = (stats.team.save / stats.team.matches).toFixed(2);
-    document.getElementById('saves-team-per').textContent = (stats.team.save*100 / stats.opponent.shotsonFrame).toFixed(2) + '%';
+    document.getElementById('saves-team-avg').textContent = (stats.team.possessionMatches > 0) ? (stats.team.save / stats.team.possessionMatches).toFixed(2) : '-';
+    document.getElementById('saves-team-per').textContent = (stats.opponent.shotsonFrame > 0) ? (stats.team.save*100 / stats.opponent.shotsonFrame).toFixed(2) + '%' : '-';
     document.getElementById('saves2-team-per').textContent = ((stats.opponent.shotsonFrame-stats.opponent.goals)*100 / stats.opponent.shotsonFrame).toFixed(2) + '%';
 
 
@@ -611,16 +671,16 @@ function calculateTeamAndOpponentStats(teamId) {
     document.getElementById('losses-opp-per').textContent = "-";
     
     document.getElementById('goals-opp-total').textContent = stats.opponent.goals;
-    document.getElementById('goals-opp-avg').textContent = (stats.opponent.goals / stats.opponent.matches).toFixed(2);
+    document.getElementById('goals-opp-avg').textContent = (stats.opponent.matches > 0) ? (stats.opponent.goals / stats.opponent.matches).toFixed(2) : '-';
 
-    document.getElementById('possession-opp').textContent = (stats.opponent.possession / stats.opponent.matches).toFixed(2) + '%';
+    document.getElementById('possession-opp').textContent = (stats.opponent.possessionMatches > 0) ? (stats.opponent.possession / stats.opponent.possessionMatches).toFixed(2) + '%' : '-';
 
     document.getElementById('shots-opp-total').textContent = stats.opponent.shots;
-    document.getElementById('shots-opp-avg').textContent = (stats.opponent.shots / stats.opponent.matches).toFixed(2);
+    document.getElementById('shots-opp-avg').textContent = (stats.opponent.possessionMatches > 0) ? (stats.opponent.shots / stats.opponent.possessionMatches).toFixed(2) : '-';
     document.getElementById('shotsonFrame-opp-total').textContent = stats.opponent.shotsonFrame;
-    document.getElementById('shotsonFrame-opp-avg').textContent = (stats.opponent.shotsonFrame / stats.opponent.matches).toFixed(2);
-    document.getElementById('shotsonFrame-opp-per').textContent = (stats.opponent.shotsonFrame*100 / stats.opponent.shots).toFixed(2) + '%';
-    document.getElementById('goals-opp-per').textContent = (stats.opponent.goals*100 / stats.opponent.shots).toFixed(2) + '%';
+    document.getElementById('shotsonFrame-opp-avg').textContent = (stats.opponent.possessionMatches > 0) ? (stats.opponent.shotsonFrame / stats.opponent.possessionMatches).toFixed(2) : '-';
+    document.getElementById('shotsonFrame-opp-per').textContent = (stats.opponent.shots > 0) ? (stats.opponent.shotsonFrame*100 / stats.opponent.shots).toFixed(2) + '%' : '-';
+    document.getElementById('goals-opp-per').textContent = (stats.opponent.shots > 0) ? (stats.opponent.goalsWithPossession*100 / stats.opponent.shots).toFixed(2) + '%' : '-';
     
     document.getElementById('fouls-opp-total').textContent = stats.opponent.fouls;
     document.getElementById('fouls-opp-avg').textContent = (stats.opponent.fouls / stats.opponent.matches).toFixed(2);
@@ -660,14 +720,14 @@ function calculateTeamAndOpponentStats(teamId) {
     document.getElementById('goals-tl-total').textContent = overallStats.goals;
     document.getElementById('goals-tl-avg').textContent = (overallStats.goals / overallStats.matches).toFixed(2);
 
-    document.getElementById('possession-tl').textContent = (overallStats.possession / overallStats.matches).toFixed(2) + '%';
+    document.getElementById('possession-tl').textContent = (overallStats.possessionMatches > 0) ? (overallStats.possession / overallStats.possessionMatches).toFixed(2) + '%' : '-';
 
     document.getElementById('shots-tl-total').textContent = overallStats.shots;
-    document.getElementById('shots-tl-avg').textContent = (overallStats.shots / overallStats.matches).toFixed(2);
+    document.getElementById('shots-tl-avg').textContent = (overallStats.possessionMatches > 0) ? (overallStats.shots / overallStats.possessionMatches).toFixed(2) : '-';
     document.getElementById('shotsonFrame-tl-total').textContent = overallStats.shotsonFrame;
-    document.getElementById('shotsonFrame-tl-avg').textContent = (overallStats.shotsonFrame / overallStats.matches).toFixed(2);
-    document.getElementById('shotsonFrame-tl-per').textContent = (overallStats.shotsonFrame*100 / overallStats.shots).toFixed(2) + '%';
-    document.getElementById('goals-tl-per').textContent = (overallStats.goals*100 / overallStats.shots).toFixed(2) + '%';
+    document.getElementById('shotsonFrame-tl-avg').textContent = (overallStats.possessionMatches > 0) ? (overallStats.shotsonFrame / overallStats.possessionMatches).toFixed(2) : '-';
+    document.getElementById('shotsonFrame-tl-per').textContent = (overallStats.shots > 0) ? (overallStats.shotsonFrame*100 / overallStats.shots).toFixed(2) + '%' : '-';
+    document.getElementById('goals-tl-per').textContent = (overallStats.shots > 0) ? (overallStats.goalsWithPossession*100 / overallStats.shots).toFixed(2) + '%' : '-';
     
     document.getElementById('fouls-tl-total').textContent = overallStats.fouls;
     document.getElementById('fouls-tl-avg').textContent = (overallStats.fouls / overallStats.matches).toFixed(2);
