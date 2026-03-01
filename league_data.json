@@ -43287,7 +43287,7 @@
             "fouls": 0,
             "offsides": 0,
             "cornerKicks": 1,
-            "freeKicks": 0,
+            "freeKicks": 1,
             "passes": 86,
             "successfulPasses": 58,
             "crosses": 0,
@@ -43465,7 +43465,7 @@
             "save": 2
           }
         },
-        "date": "2026-02-23"
+        "date": "2026-02-24"
       },
       "round3-match0": {
         "home": {
