@@ -43650,10 +43650,19 @@
       "round3-match2": {
         "home": {
           "teamId": 7,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "ルイス スアレス",
+            "ジュード ベリンガム"
+          ],
+          "goalPlayers": [
+            "カカ",
+            "ルイス スアレス"
+          ],
+          "times": [
+            52,
+            60
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -43670,27 +43679,42 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 45,
+            "shots": 4,
+            "shotsonFrame": 2,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 3,
+            "passes": 95,
+            "successfulPasses": 67,
+            "crosses": 2,
+            "PassCuts": 19,
+            "successfulTackles": 1,
+            "save": 2
           }
         },
         "away": {
           "teamId": 1,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 4,
+          "assistPlayers": [
+            "ウリ へーネス",
+            "",
+            "ウリ へーネス",
+            ""
+          ],
+          "goalPlayers": [
+            "エリック カントナ",
+            "ルイス スアレス",
+            "ルイス スアレス",
+            "クリスティアーノ ロナウド"
+          ],
+          "times": [
+            2,
+            9,
+            15,
+            58
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -43707,21 +43731,22 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 55,
+            "shots": 10,
+            "shotsonFrame": 10,
+            "fouls": 3,
+            "offsides": 3,
+            "cornerKicks": 3,
+            "freeKicks": 0,
+            "passes": 114,
+            "successfulPasses": 84,
+            "crosses": 4,
+            "PassCuts": 17,
+            "successfulTackles": 10,
+            "save": 0
           }
-        }
+        },
+        "date": "2026-03-05"
       },
       "round3-match3": {
         "home": {
