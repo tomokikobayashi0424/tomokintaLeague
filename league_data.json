@@ -44030,78 +44030,94 @@
       "round3-match6": {
         "home": {
           "teamId": 5,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "ロナウジーニョ ガウーショ",
+            ""
+          ],
+          "goalPlayers": [
+            "カール ハインツ ルンメニゲ",
+            "ロナウジーニョ ガウーショ"
+          ],
+          "times": [
+            12,
+            31
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 49,
+            "shots": 5,
+            "shotsonFrame": 4,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 1,
+            "passes": 47,
+            "successfulPasses": 40,
+            "crosses": 0,
+            "PassCuts": 5,
+            "successfulTackles": 5,
+            "save": 2
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 43,
+            "shots": 6,
+            "shotsonFrame": 5,
+            "fouls": 1,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 1,
+            "passes": 76,
+            "successfulPasses": 62,
+            "crosses": 0,
+            "PassCuts": 10,
+            "successfulTackles": 10,
+            "save": 4
           }
         },
         "away": {
           "teamId": 18,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "ズラタン イブラヒモヴィッチ"
+          ],
+          "goalPlayers": [
+            "ウリ へーネス"
+          ],
+          "times": [
+            53
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 51,
+            "shots": 4,
+            "shotsonFrame": 4,
+            "fouls": 1,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 0,
+            "passes": 32,
+            "successfulPasses": 25,
+            "crosses": 1,
+            "PassCuts": 4,
+            "successfulTackles": 1,
+            "save": 2
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 57,
+            "shots": 9,
+            "shotsonFrame": 8,
+            "fouls": 1,
+            "offsides": 0,
+            "cornerKicks": 2,
+            "freeKicks": 1,
+            "passes": 80,
+            "successfulPasses": 65,
+            "crosses": 4,
+            "PassCuts": 10,
+            "successfulTackles": 4,
+            "save": 3
           }
-        }
+        },
+        "date": "2026-03-23"
       },
       "round3-match7": {
         "home": {
@@ -44266,7 +44282,8 @@
             "successfulTackles": null,
             "save": null
           }
-        }
+        },
+        "date": "2026-03-23"
       },
       "round3-match9": {
         "home": {
