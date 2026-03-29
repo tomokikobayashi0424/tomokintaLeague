@@ -44211,76 +44211,97 @@
       "round3-match8": {
         "home": {
           "teamId": 2,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 4,
+          "assistPlayers": [
+            "パヴェル ネドヴェド",
+            "",
+            "カカ",
+            "デイヴィッド ベッカム"
+          ],
+          "goalPlayers": [
+            "ルート フリット",
+            "カカ",
+            "カール ハインツ ルンメニゲ",
+            "クリスティアーノ ロナウド"
+          ],
+          "times": [
+            4,
+            19,
+            33,
+            86
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 49,
+            "shots": 7,
+            "shotsonFrame": 5,
+            "fouls": 2,
+            "offsides": 1,
+            "cornerKicks": 1,
+            "freeKicks": 2,
+            "passes": 59,
+            "successfulPasses": 46,
+            "crosses": 0,
+            "PassCuts": 7,
+            "successfulTackles": 7,
+            "save": 1
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 52,
+            "shots": 14,
+            "shotsonFrame": 8,
+            "fouls": 3,
+            "offsides": 2,
+            "cornerKicks": 2,
+            "freeKicks": 3,
+            "passes": 113,
+            "successfulPasses": 95,
+            "crosses": 2,
+            "PassCuts": 21,
+            "successfulTackles": 9,
+            "save": 4
           }
         },
         "away": {
           "teamId": 14,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            ""
+          ],
+          "goalPlayers": [
+            "アレッサンドロ デル ピエーロ"
+          ],
+          "times": [
+            48
+          ],
           "halfTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 51,
+            "shots": 1,
+            "shotsonFrame": 1,
+            "fouls": 2,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 2,
+            "passes": 58,
+            "successfulPasses": 46,
+            "crosses": 0,
+            "PassCuts": 7,
+            "successfulTackles": 3,
+            "save": 2
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 48,
+            "shots": 6,
+            "shotsonFrame": 5,
+            "fouls": 3,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 3,
+            "passes": 117,
+            "successfulPasses": 88,
+            "crosses": 1,
+            "PassCuts": 12,
+            "successfulTackles": 8,
+            "save": 3
           }
         },
         "date": "2026-03-23"
