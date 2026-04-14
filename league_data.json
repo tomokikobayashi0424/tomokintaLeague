@@ -40659,15 +40659,15 @@
         },
         {
           "Rank": 2,
-          "teamId": 16
-        },
-        {
-          "Rank": 3,
           "teamId": 1
         },
         {
-          "Rank": 4,
+          "Rank": 3,
           "teamId": 9
+        },
+        {
+          "Rank": 4,
+          "teamId": 16
         },
         {
           "Rank": 5,
@@ -40679,43 +40679,43 @@
         },
         {
           "Rank": 7,
-          "teamId": 3
-        },
-        {
-          "Rank": 8,
-          "teamId": 4
-        },
-        {
-          "Rank": 9,
           "teamId": 15
         },
         {
-          "Rank": 10,
-          "teamId": 2
-        },
-        {
-          "Rank": 11,
+          "Rank": 8,
           "teamId": 5
         },
         {
-          "Rank": 12,
-          "teamId": 14
+          "Rank": 9,
+          "teamId": 4
         },
         {
-          "Rank": 13,
+          "Rank": 10,
           "teamId": 8
         },
         {
-          "Rank": 14,
+          "Rank": 11,
+          "teamId": 3
+        },
+        {
+          "Rank": 12,
+          "teamId": 2
+        },
+        {
+          "Rank": 13,
           "teamId": 18
         },
         {
+          "Rank": 14,
+          "teamId": 14
+        },
+        {
           "Rank": 15,
-          "teamId": 0
+          "teamId": 7
         },
         {
           "Rank": 16,
-          "teamId": 7
+          "teamId": 0
         },
         {
           "Rank": 17,
@@ -44584,10 +44584,19 @@
       "round4-match2": {
         "home": {
           "teamId": 11,
-          "score": 0,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "",
+            ""
+          ],
+          "goalPlayers": [
+            "",
+            ""
+          ],
+          "times": [
+            null,
+            null
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -44621,14 +44630,20 @@
         },
         "away": {
           "teamId": 17,
-          "score": 1,
+          "score": 3,
           "assistPlayers": [
+            "",
+            "",
             ""
           ],
           "goalPlayers": [
+            "",
+            "",
             ""
           ],
           "times": [
+            null,
+            null,
             null
           ],
           "halfTime": {
@@ -46615,7 +46630,7 @@
       "round6-match4": {
         "home": {
           "teamId": 16,
-          "score": null,
+          "score": 0,
           "assistPlayers": [],
           "goalPlayers": [],
           "times": [],
@@ -46635,27 +46650,33 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 38,
+            "shots": 5,
+            "shotsonFrame": 5,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 1,
+            "freeKicks": 1,
+            "passes": 72,
+            "successfulPasses": 49,
+            "crosses": 0,
+            "PassCuts": 10,
+            "successfulTackles": 4,
+            "save": 0
           }
         },
         "away": {
           "teamId": 17,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "ティアゴ アルカンタラ"
+          ],
+          "goalPlayers": [
+            "ルカ モドリッチ"
+          ],
+          "times": [
+            21
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -46672,22 +46693,22 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 62,
+            "shots": 3,
+            "shotsonFrame": 1,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 2,
+            "freeKicks": 0,
+            "passes": 108,
+            "successfulPasses": 88,
+            "crosses": 3,
+            "PassCuts": 16,
+            "successfulTackles": 3,
+            "save": 4
           }
         },
-        "date": "2026-04-03"
+        "date": "2026-04-12"
       },
       "round6-match5": {
         "home": {
@@ -46968,10 +46989,16 @@
       "round6-match8": {
         "home": {
           "teamId": 14,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 1,
+          "assistPlayers": [
+            "ジョージ ベスト"
+          ],
+          "goalPlayers": [
+            "アレッサンドロ デル ピエーロ"
+          ],
+          "times": [
+            28
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -46988,27 +47015,36 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 52,
+            "shots": 4,
+            "shotsonFrame": 3,
+            "fouls": 0,
+            "offsides": 0,
+            "cornerKicks": 0,
+            "freeKicks": 1,
+            "passes": 84,
+            "successfulPasses": 51,
+            "crosses": 3,
+            "PassCuts": 19,
+            "successfulTackles": 11,
+            "save": 2
           }
         },
         "away": {
           "teamId": 10,
-          "score": null,
-          "assistPlayers": [],
-          "goalPlayers": [],
-          "times": [],
+          "score": 2,
+          "assistPlayers": [
+            "ロベルト バッジョ",
+            ""
+          ],
+          "goalPlayers": [
+            "モハメド サラー",
+            "ミッキー ファン デ フェン"
+          ],
+          "times": [
+            36,
+            90
+          ],
           "halfTime": {
             "possession": null,
             "shots": null,
@@ -47025,19 +47061,19 @@
             "save": null
           },
           "fullTime": {
-            "possession": null,
-            "shots": null,
-            "shotsonFrame": null,
-            "fouls": null,
-            "offsides": null,
-            "cornerKicks": null,
-            "freeKicks": null,
-            "passes": null,
-            "successfulPasses": null,
-            "crosses": null,
-            "PassCuts": null,
-            "successfulTackles": null,
-            "save": null
+            "possession": 48,
+            "shots": 9,
+            "shotsonFrame": 8,
+            "fouls": 1,
+            "offsides": 1,
+            "cornerKicks": 4,
+            "freeKicks": 0,
+            "passes": 106,
+            "successfulPasses": 78,
+            "crosses": 2,
+            "PassCuts": 30,
+            "successfulTackles": 7,
+            "save": 2
           }
         },
         "date": "2026-04-04"
